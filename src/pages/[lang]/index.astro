@@ -1,7 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PixelAbbey from '../../components/PixelAbbey.astro';
-import PixelTable from '../../components/PixelTable.astro';
 import InterestForm from '../../components/InterestForm.astro';
 import KofiBand from '../../components/KofiBand.astro';
 import { t, langs, otherLang, type Lang } from '../../i18n/ui';
@@ -14,7 +13,6 @@ export function getStaticPaths() {
 
 const lang = Astro.params.lang as Lang;
 const mars = games.find((g) => g.slug === 'marsylvania')!;
-const into = games.find((g) => g.slug === 'intolleranti')!;
 const coro = rpgs.find((r) => r.slug === 'la-notte-del-coro')!;
 const L = (it: string, en: string) => (lang === 'it' ? it : en);
 ---
@@ -46,20 +44,22 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
   <section id="catalogo" class="band-cream">
     <div class="container stack pad" style="gap: 32px;">
       <h2 class="pixel h2">{t(lang, 'home.catalog.title')}</h2>
-      <div class="cards">
-        <article id="giochi" class="card">
-          <div class="card__media"><img src={mars.image} width="1100" height="688" alt={mars.imageAlt![lang]} loading="lazy" /></div>
-          <div class="card__body">
-            <p class="card__tag">{mars.tag[lang]}</p>
-            <h3 class="pixel h3">{mars.title}</h3>
-            <p class="card__meta">{mars.players} {t(lang, 'game.players')} · {mars.minutes} {t(lang, 'game.minutes')} · {mars.age}</p>
-            <p>{mars.short[lang]}</p>
-            <div class="card__foot">
-              <span class="card__wait">{mars.waiting} Dreamspacer {t(lang, 'card.waiting')}</span>
-              <a class="btn btn--orange" href={itemPath(lang, mars)}>{t(lang, 'card.notify')}</a>
+      <div class="cards cards--4">
+        {games.map((g, i) => (
+          <article id={i === 0 ? 'giochi' : undefined} class="card">
+            <div class="card__media"><img src={g.image} width="960" height="600" alt={g.imageAlt![lang]} loading="lazy" /></div>
+            <div class="card__body">
+              <p class="card__tag">{g.tag[lang]}</p>
+              <h3 class="pixel h3">{g.title}</h3>
+              <p class="card__meta">{g.players} {t(lang, 'game.players')} · {g.minutes} {t(lang, 'game.minutes')}{g.age && ` · ${g.age}`}</p>
+              <p>{g.short[lang]}</p>
+              <div class="card__foot">
+                <span class="card__wait">{g.waiting} {g.waitingWho[lang]} {t(lang, 'card.waiting')}</span>
+                <a class="btn btn--orange" href={itemPath(lang, g)}>{t(lang, 'card.discover')}</a>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+        ))}
 
         <article id="gdr" class="card">
           <div class="card__media"><PixelAbbey label={L("Un'abbazia di montagna nella neve, di notte, con le finestre accese", 'A mountain abbey in the snow at night, its windows lit')} /></div>
@@ -71,20 +71,6 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
             <div class="card__foot" style="justify-content: flex-start;">
               <a class="btn btn--orange" href={itemPath(lang, coro)}>{t(lang, 'card.download')}</a>
               <a href={`${itemPath(lang, coro)}#romanzo`} style="font-family: var(--font-label); font-size: 14px; color: var(--night);">{t(lang, 'card.read')}</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card__media" style="background: #ffe9c2;"><PixelTable label={L('Otto ospiti a tavola, ognuno vestito di un colore diverso', 'Eight guests at a table, each dressed in a different colour')} /></div>
-          <div class="card__body">
-            <p class="card__tag">{into.tag[lang]}</p>
-            <h3 class="pixel h3">{into.title}</h3>
-            <p class="card__meta">{into.players} {t(lang, 'game.players')} · {into.minutes} · {into.age}</p>
-            <p>{into.short[lang]}</p>
-            <div class="card__foot">
-              <span class="card__wait">{into.waiting} {L('commensali', 'diners')} {t(lang, 'card.waiting')}</span>
-              <a class="btn btn--orange" href={itemPath(lang, into)}>{t(lang, 'card.notify')}</a>
             </div>
           </div>
         </article>

@@ -19,30 +19,37 @@ export interface Game {
   title: string;
   image?: string;
   imageAlt?: L<string>;
+  /** immagine della scheda: sostituisce image nella pagina del gioco */
+  heroImage?: string;
+  heroAlt?: L<string>;
+  heroPortrait?: boolean;
   banner?: string;
   bannerAlt?: L<string>;
-  pixelArt?: 'table';
   tag: L<string>;
   status: L<string>;
   players: string;
   minutes: string;
-  age: string;
+  age: string; // vuoto = non mostrato
   short: L<string>;
   pitch: L<string>;
   waiting: string; // numero iscritti, segnaposto finché non c'è il contatore vero
+  waitingWho: L<string>;
   briefing?: {
     kicker: L<string>;
     title: L<string>;
     paragraphs: L<string[]>;
     areas: { label: L<string>; title: L<string>; text: L<string>; dark: boolean }[];
   };
+  features?: { title: L<string>; list: { title: L<string>; text: L<string> }[] };
   characters?: { title: L<string>; note: L<string>; list: Character[] };
-  howToPlay?: { title: L<string>; steps: L<string[]>; note: L<string>; image?: string; imageAlt?: L<string> };
+  gallery?: { title: L<string>; note: L<string>; items: { name: L<string>; image: string; alt: L<string>; quote: L<string> }[] };
+  roster?: { title: L<string>; note: L<string>; items: { name: L<string>; role: L<string> }[] };
+  howToPlay?: { title: L<string>; steps: L<string[]>; note: L<string>; image?: string; imageAlt?: L<string>; imageBare?: boolean };
   components?: { n: string; label: L<string> }[];
   componentsExtra?: L<string>;
-  features?: { title: L<string>; list: { title: L<string>; text: L<string> }[] };
-  team?: { title: L<string>; text: L<string>; people: { name: string; role: L<string> }[] };
-  guests?: { name: L<string>; color: string }[];
+  team?: { title: L<string>; text: L<string> };
+  fileName?: string;
+  cta?: L<string>;
 }
 
 export interface Rpg {
@@ -83,20 +90,22 @@ export const games: Game[] = [
       it: 'I sei Dreamspacer a caccia di taglie su Marsylvania: vampiri, un verme gigante, draghi e soldati dell’Alleanza tra canyon rossi e castelli gotici, in pixel art',
       en: 'The six Dreamspacers bounty hunting on Marsylvania: vampires, a giant worm, dragons and Alliance soldiers among red canyons and gothic castles, in pixel art',
     },
-    tag: { it: 'Gioco da tavolo · dungeon crawler', en: 'Board game · dungeon crawler' },
+    tag: { it: 'Gioco da tavolo · competitivo', en: 'Board game · competitive' },
     status: { it: 'In sviluppo · Kickstarter in arrivo', en: 'In development · Kickstarter coming' },
-    players: '2–5',
-    minutes: '45–90',
-    age: '14+',
+    players: '1–4',
+    minutes: '60',
+    age: '',
     short: {
       it: 'Entra nella compagnia di cacciatori di taglie, esplora Marsylvania e batti il Lord Vampiro prima dei tuoi colleghi. In palio: il titolo di Impiegato del Mese.',
       en: 'Join the bounty hunters’ company, explore Marsylvania and beat the Vampire Lord before your colleagues do. The prize: Employee of the Month.',
     },
     pitch: {
-      it: 'Un dungeon crawler all’americana in cui fantascienza e gotico hanno avuto un figlio inaspettato. Siete cacciatori di taglie della Dreamspace Ltd: esplorate Marsylvania, potenziatevi e battete il Lord Vampiro prima dei colleghi.',
-      en: 'An American-style dungeon crawler where sci-fi and gothic had an unexpected baby. You are Dreamspace Ltd bounty hunters: explore Marsylvania, power up and beat the Vampire Lord before your colleagues do.',
+      it: 'Un gioco da tavolo competitivo in cui fantascienza e gotico hanno avuto un figlio inaspettato. Siete cacciatori di taglie della Dreamspace Ltd: esplorate Marsylvania, potenziatevi e battete il Lord Vampiro prima dei colleghi.',
+      en: 'A competitive board game where sci-fi and gothic had an unexpected baby. You are Dreamspace Ltd bounty hunters: explore Marsylvania, power up and beat the Vampire Lord before your colleagues do.',
     },
     waiting: '[N]',
+    waitingWho: { it: 'Dreamspacer', en: 'Dreamspacers' },
+    cta: { it: 'Vuoi sapere quando parte la missione?', en: 'Want to know when the mission starts?' },
     briefing: {
       kicker: {
         it: 'Briefing di missione · da ELIT-043, Divisione Risorse Non Umane',
@@ -106,12 +115,12 @@ export const games: Game[] = [
       paragraphs: {
         it: [
           "Benvenuti, stagisti. Marsylvania è come il Marte della Via Lattea, ma qui l'ha colonizzato un'antica civiltà umana, i Nuwa, e una maledizione ha trasformato parte degli abitanti in lupi mannari e vampiri.",
-          'Il pianeta ruota in sincrono con la sua orbita: una parte è sempre al sole, una sempre al crepuscolo, la terza sempre di notte. Ogni zona ha più di 20 caselle diverse, dai covi dei cultisti alle botteghe degli alchimisti.',
+          'Il pianeta non ruota: una metà è sempre giorno, l’altra sempre notte. Le attraverserete in quest’ordine, una griglia di caselle alla volta, e per passare dalla prima alla seconda dovrete battere il Boss di Nuwa.',
           'Il vostro compito: trovare la fortezza dei vampiri e tagliare la testa al Lord Vampiro. La taglia è di 13 milioni di Kron. Non andrà a voi, naturalmente: la società vi nominerà Impiegato del Mese. Che emozione!',
         ],
         en: [
           'Welcome, interns. Marsylvania is just like the Milky Way’s Mars, except an ancient human civilisation, the Nuwa, settled it, and a curse has turned some of its people into werewolves and vampires.',
-          'The planet is tidally locked: one side is always sunny, one always at dusk, the third always at night. Each area has over 20 unique squares, from cultist lairs to alchemist shops.',
+          'The planet does not rotate: one half is always day, the other always night. You cross them in that order, one grid of squares at a time, and to move from the first to the second you must beat the Nuwa Boss.',
           'Your task: find the vampires’ fortress and cut off the Vampire Lord’s head. The bounty is 13 million Kron. It won’t go to you, of course: the company will name you Employee of the Month. How exciting!',
         ],
       },
@@ -120,26 +129,17 @@ export const games: Game[] = [
           label: { it: 'Area 1 · sempre giorno', en: 'Area 1 · always day' },
           title: { it: 'Il Deserto di Nuwa', en: 'The Nuwa Desert' },
           text: {
-            it: 'Qui arrivate con il Dream-Portal. Caldo allucinante, ma il posto giusto per trovare oggetti e potenziamenti.',
-            en: 'You arrive here through the Dream-Portal. Blistering heat, but the right place to find items and upgrades.',
+            it: 'Qui arrivate con il Dream-Portal. Caldo allucinante, ma il posto giusto per trovare oggetti e potenziamenti. Se cadete qui, i droni vi riportano alla partenza.',
+            en: 'You arrive here through the Dream-Portal. Blistering heat, but the right place to find items and upgrades. Fall here and the drones bring you back to the start.',
           },
           dark: false,
         },
         {
-          label: { it: 'Area 2 · sempre crepuscolo', en: 'Area 2 · always dusk' },
-          title: { it: 'La Giungla', en: 'The Jungle' },
-          text: {
-            it: 'Una fascia di eterno tramonto, tra tribù selvagge e il Boss della Giungla.',
-            en: 'A belt of endless sunset, with savage tribes and the Jungle Boss.',
-          },
-          dark: false,
-        },
-        {
-          label: { it: 'Area 3 · sempre notte', en: 'Area 3 · always night' },
+          label: { it: 'Area 2 · sempre notte', en: 'Area 2 · always night' },
           title: { it: 'La Terra Oscura', en: 'The Dark Land' },
           text: {
-            it: "Il sole non sorge mai. Da qualche parte c'è il rifugio del Lord Vampiro: se ve la prendete comoda, sarà lui a trovare voi.",
-            en: 'The sun never rises. Somewhere out there is the Vampire Lord’s lair: take your time, and he’ll find you first.',
+            it: "Il sole non sorge mai e da qui non si torna indietro. Appena qualcuno entra parte il conto alla rovescia: se ve la prendete comoda, sarà il Lord Vampiro a trovare voi.",
+            en: 'The sun never rises and there is no way back. As soon as someone enters, the countdown starts: take your time, and the Vampire Lord will find you first.',
           },
           dark: true,
         },
@@ -148,12 +148,12 @@ export const games: Game[] = [
     features: {
       title: { it: 'Perché giocarci', en: 'Why play it' },
       list: [
-        { title: { it: 'Un tema mai visto', en: 'A theme like no other' }, text: { it: 'Vampiri contro pistole laser e armature medievali. E tutto in 8 bit, perché carte e tabellone sono l’archivio del computer aziendale: la Dreamspace non ha investito molto in innovazione.', en: 'Vampires versus laser guns and medieval armour. All in 8-bit, because the cards and board are the company’s computer database: Dreamspace Ltd didn’t invest much in innovation.' } },
-        { title: { it: 'Mondo aperto', en: 'Open world' }, text: { it: 'Esplorate tutto il pianeta prima dello scontro finale: tre aree e oltre 20 caselle uniche per area.', en: 'Explore the whole planet before the final fight: three areas, over 20 unique squares each.' } },
-        { title: { it: 'Ogni partita è diversa', en: 'Every game is different' }, text: { it: 'Sei Dreamspacer e oltre 160 carte: non saprete mai cosa vi aspetta dietro la prossima duna.', en: 'Six Dreamspacers and over 160 cards: you never know what waits behind the next dune.' } },
-        { title: { it: 'Fortuna e strategia', en: 'Luck and strategy' }, text: { it: 'Regole semplici per tutti, ma tante strade per battere il Boss. I dadi contano, abilità, incantesimi ed equipaggiamento anche.', en: 'Simple rules for everyone, many paths to the Boss. Dice matter, and so do skills, spells and gear.' } },
-        { title: { it: 'Il nemico è il tuo vicino', en: 'Your neighbour is the enemy' }, text: { it: 'I nemici li interpreta il giocatore alla tua sinistra. Prova a immaginarlo trasformato in un Wormalien affamato.', en: 'Enemies are played by the player on your left. Picture them as a hungry Wormalien.' } },
-        { title: { it: 'Da stagista a capo', en: 'From intern to boss' }, text: { it: 'Tre livelli di crescita del personaggio, con abilità e potenziamenti sempre più forti.', en: 'Three levels of character growth, with ever stronger skills and boosts.' } },
+        { title: { it: 'Un tema mai visto', en: 'A theme like no other' }, text: { it: 'Vampiri contro pistole laser e armature medievali. E tutto in 8 bit, perché carte e caselle sono l’archivio del computer aziendale: la Dreamspace non ha investito molto in innovazione.', en: 'Vampires versus laser guns and medieval armour. All in 8-bit, because the cards and tiles are the company’s computer database: Dreamspace Ltd didn’t invest much in innovation.' } },
+        { title: { it: 'Un pianeta da esplorare', en: 'A planet to explore' }, text: { it: 'Due aree da 15 caselle, coperte finché non ci mettete piede: ricompense, trappole e nemici.', en: 'Two areas of 15 face-down tiles each: rewards, traps and enemies, revealed as you step on them.' } },
+        { title: { it: 'Il nemico è il tuo vicino', en: 'Your neighbour is the enemy' }, text: { it: 'I nemici li interpreta il giocatore alla tua sinistra, e tira i dadi per loro. Prova a immaginarlo trasformato in un Wormalien affamato.', en: 'Enemies are played by the player on your left, who rolls their dice. Picture them as a hungry Wormalien.' } },
+        { title: { it: 'La Fase del Mascalzone', en: 'The Rascal phase' }, text: { it: 'Finisci sulla casella di un collega? Puoi scambiare, rubare, distrarlo o sfidarlo a duello.', en: 'Land on a colleague’s tile? Trade, steal, distract them or challenge them to a duel.' } },
+        { title: { it: 'Da stagista a capo', en: 'From intern to boss' }, text: { it: 'Ogni area conquistata fa salire di livello il tuo Dreamspacer, con nuove abilità e statistiche migliori.', en: 'Each area you conquer levels up your Dreamspacer, with new skills and better stats.' } },
+        { title: { it: 'Corsa contro il Lord', en: 'A race against the Lord' }, text: { it: 'Nella Terra Oscura ogni turno avvicina il Lord Vampiro. Chi arriva preparato vince, chi tentenna viene trovato.', en: 'In the Dark Land every turn brings the Vampire Lord closer. The prepared win, the hesitant get found.' } },
       ],
     },
     characters: {
@@ -187,14 +187,14 @@ export const games: Game[] = [
       ],
     },
     howToPlay: {
-      title: { it: 'Come si gioca', en: 'How to play' },
+      title: { it: 'Un turno, cinque fasi', en: 'One turn, five phases' },
       steps: {
-        it: ['Esplora le zone misteriose di Marsylvania', 'Combatti i nemici sul tuo cammino', 'Potenziati con equipaggiamenti, incantesimi e alleati', 'Vinci sconfiggendo il Boss finale e il suo Scagnozzo'],
-        en: ['Explore the mysterious areas of Marsylvania', 'Fight the enemies in your path', 'Power up with equips, spells and allies', 'Win by defeating the Final Boss and its Henchman'],
+        it: ['Movimento: tira un dado e aggiungi la tua velocità', 'Esplorazione: gira la casella, ricompensa o pericolo', 'Combattimento: dadi spada, scudo e pozione contro il nemico', 'Fase del Mascalzone: affari (e furti) tra colleghi', 'Recupero: incassa la taglia e curati'],
+        en: ['Move: roll a die and add your speed', 'Explore: flip the tile, reward or danger', 'Fight: sword, shield and potion dice against the enemy', 'Rascal phase: deals (and thefts) between colleagues', 'Recover: collect the bounty and heal'],
       },
       note: {
-        it: 'Nemici di cinque tipi: umani, animali, androidi, lupi mannari e vampiri. Più vi avvicinate al Boss finale, più si fanno duri.',
-        en: 'Five kinds of enemies: humans, animals, androids, werewolves and vampires. The closer you get to the final Boss, the tougher they get.',
+        it: 'Sul pianeta vi aspettano l’Alleanza, la polizia del multiverso; il popolo di Nuwa; il culto dei Blood Seek; i Werewolves of the Dusk e i vampiri della Terra Oscura.',
+        en: 'On the planet await the Alliance, the multiverse police; the people of Nuwa; the Blood Seek cult; the Werewolves of the Dusk and the vampires of the Dark Land.',
       },
       image: '/img/carte-nemici.webp',
       imageAlt: {
@@ -203,16 +203,16 @@ export const games: Game[] = [
       },
     },
     components: [
-      { n: '6', label: { it: 'Dreamspacer con miniatura', en: 'Dreamspacers with minis' } },
-      { n: '62', label: { it: 'carte Incontro', en: 'Encounter cards' } },
-      { n: '20', label: { it: 'Equipaggiamenti', en: 'Equips' } },
-      { n: '20', label: { it: 'Incantesimi', en: 'Spells' } },
-      { n: '12', label: { it: 'Alleati', en: 'Allies' } },
-      { n: '128', label: { it: 'token statistiche', en: 'stat tokens' } },
+      { n: '24', label: { it: 'zone del pianeta', en: 'planet tiles' } },
+      { n: '108', label: { it: 'carte', en: 'cards' } },
+      { n: '105', label: { it: 'token', en: 'tokens' } },
+      { n: '8', label: { it: 'miniature', en: 'miniatures' } },
+      { n: '8', label: { it: 'dadi', en: 'dice' } },
+      { n: '6+2', label: { it: 'schede eroi e boss', en: 'hero and boss boards' } },
     ],
     componentsExtra: {
-      it: 'Più tabellone, Boss finale con Scagnozzo, 10 Ostilità Planetarie, Boss di Nuwa e della Giungla con le loro Reliquie, maledizioni da licantropo e manuale introduttivo.',
-      en: 'Plus game board, Final Boss with Henchman, 10 Planetary Hostilities, Nuwa and Jungle Bosses with their Relics, lycanthropy curses and the introductory manual.',
+      it: 'Le carte: 32 Nemici, 61 oggetti tra equipaggiamenti, incantesimi e alleati, 3 Reliquie dei Boss, 6 Ostilità planetarie, 4 Licantropia e 4 riepiloghi del turno.',
+      en: 'The cards: 32 Enemies, 61 items among equips, spells and allies, 3 Boss Relics, 6 Planetary Hostilities, 4 Lycanthropy and 4 turn summaries.',
     },
     team: {
       title: { it: 'Chi c’è dietro', en: 'Who’s behind it' },
@@ -220,42 +220,156 @@ export const games: Game[] = [
         it: 'Tre amici, da sempre appassionati di giochi da tavolo, GDR e videogiochi. L’idea è nata dopo una partita a Talisman: renderlo più veloce e dare al fantasy classico una svolta tutta nuova. Marsylvania è solo il primo pianeta: il gioco è pensato per le espansioni.',
         en: 'Three friends and long-time lovers of board games, RPGs and video games. The idea came after a game of Talisman: make it faster and give classic fantasy a fresh twist. Marsylvania is only the first planet: the game is built for expansions.',
       },
-      people: [
-        { name: 'Michele Badolato', role: { it: 'Game designer', en: 'Game designer' } },
-        { name: 'Raffaele Guandalini', role: { it: 'Game designer', en: 'Game designer' } },
-        { name: 'Francesco Moretti', role: { it: 'Graphic designer', en: 'Graphic designer' } },
-      ],
     },
   },
   {
     kind: 'game',
     slug: 'intolleranti',
     title: 'Intolleranti!',
-    pixelArt: 'table',
-    tag: { it: 'Gioco di carte · in sviluppo', en: 'Card game · in development' },
+    image: '/img/intolleranti/card.webp',
+    imageAlt: {
+      it: 'Il Vampiro Astemio, con mantello rosso, guarda sconsolato un bicchiere d’acqua in una taverna, illustrazione in stile incisione',
+      en: 'The Teetotal Vampire, in a red cloak, stares glumly at a glass of water in a tavern, engraving-style illustration',
+    },
+    heroImage: '/img/intolleranti/taverna.webp',
+    heroAlt: {
+      it: 'Una taverna con il tetto a graticcio in fondo a una strada di campagna, illustrazione in stile incisione',
+      en: 'A half-timbered tavern at the end of a country road, engraving-style illustration',
+    },
+    tag: { it: 'Gioco di carte · push your luck', en: 'Card game · push your luck' },
     status: { it: 'In sviluppo', en: 'In development' },
-    players: '[N–N]',
-    minutes: '[DURATA]',
-    age: '[ETÀ]+',
+    players: '2–8',
+    minutes: '20–40',
+    age: '10+',
     short: {
-      it: 'Otto ospiti, otto intolleranze, una vita sociale da salvare. Accetta inviti, sopravvivi a sushi e degustazioni di vini, e torna a casa intero.',
-      en: 'Eight guests, eight food intolerances, one social life to save. Accept invitations, survive sushi and wine tastings, and make it home in one piece.',
+      it: 'Il gioco delle serate impossibili. Otto ospiti, otto intolleranze: un’altra uscita per fare punti, o una sera sul divano per metterli al sicuro?',
+      en: 'The game of impossible nights out. Eight guests, eight intolerances: one more night out to score, or a night on the sofa to bank your points?',
     },
     pitch: {
-      it: "Ogni giocatore è un ospite con la sua intolleranza e il suo colore. Le serate valgono punti, ma bisogna mangiare e bere quello che arriva in tavola: se un piatto porta il tuo colore, sono guai.",
-      en: 'Each player is a guest with their own intolerance and colour. Nights out score points, but you have to eat and drink whatever lands on the table: if a dish carries your colour, you’re in trouble.',
+      it: 'Ogni giocatore è un ospite con un’intolleranza tutta sua. Esci a cena, sopravvivi alle Portate e accumula Uscite. Ma finché non torni a casa a incassarle, basta un fritto misto di troppo per perdere tutto.',
+      en: 'Each player is a guest with an intolerance all of their own. Go out to dinner, survive the courses and collect nights out. But until you go home to bank them, one fried platter too many and you lose everything.',
     },
     waiting: '[N]',
-    guests: [
-      { name: { it: 'Il Vegetariano', en: 'The Vegetarian' }, color: '#3FA34D' },
-      { name: { it: 'La Celiaca', en: 'The Coeliac' }, color: '#F2C230' },
-      { name: { it: 'Il No al Lattosio', en: 'The Lactose-Free' }, color: '#5BB8F0' },
-      { name: { it: "L'Astemio", en: 'The Teetotaller' }, color: '#D9442B' },
-      { name: { it: "L'Anti-Uova", en: 'The Egg-Hater' }, color: '#F28C28' },
-      { name: { it: 'La Diabetica', en: 'The Diabetic' }, color: '#EE7FB0' },
-      { name: { it: "L'Amico dei Pesci", en: 'The Fish Friend' }, color: '#8A5CD8' },
-      { name: { it: 'La Palestrata', en: 'The Gym Buff' }, color: '#FFFFFF' },
+    waitingWho: { it: 'commensali', en: 'diners' },
+    fileName: 'TAVERNA.PNG',
+    cta: { it: 'Vuoi sapere quando si va a cena?', en: 'Want to know when dinner is served?' },
+    features: {
+      title: { it: 'Perché giocarci', en: 'Why play it' },
+      list: [
+        { title: { it: 'Sapere quando fermarsi', en: 'Knowing when to stop' }, text: { it: 'Ogni Uscita in più vale punti, ma mette a rischio tutte quelle che non hai ancora incassato.', en: 'Every extra night out scores, but puts every unbanked one at risk.' } },
+        { title: { it: 'Inviti avvelenati', en: 'Poisoned invitations' }, text: { it: 'Invita un rivale alla tua cena: se accetta si carica di Malessere, se rifiuta si becca il Pacco.', en: 'Invite a rival to your dinner: accept and they pile up Queasiness, refuse and they get stood-up points.' } },
+        { title: { it: 'Otto ospiti, otto stili', en: 'Eight guests, eight styles' }, text: { it: 'Dai fragilissimi ai corazzati: ognuno ha un colore, un limite di Malessere e due abilità.', en: 'From the most fragile to the armour-plated: each has a colour, a Queasiness limit and two abilities.' } },
+        { title: { it: 'Da 2 a 8 a tavola', en: 'From 2 to 8 at the table' }, text: { it: 'Venti minuti in due, quaranta in otto. Perfetto per la fine di una cena vera.', en: 'Twenty minutes for two, forty for eight. Perfect for the end of a real dinner.' } },
+      ],
+    },
+    gallery: {
+      title: { it: 'Gli ospiti della taverna', en: 'The tavern guests' },
+      note: { it: 'Le plance dei personaggi, in versione da stampa.', en: 'The character boards, print version.' },
+      items: [
+        { name: { it: 'L’Orco Vegetariano', en: 'The Vegetarian Orc' }, image: '/img/intolleranti/orco-vegetariano.webp', alt: { it: 'Un orco anziano con una carota in mano che legge un libro', en: 'An old orc holding a carrot while reading a book' }, quote: { it: '«Io prendo un contorno. Anzi due.»', en: '“I’ll have a side. Make that two.”' } },
+        { name: { it: 'L’Elfa Celiaca', en: 'The Coeliac Elf' }, image: '/img/intolleranti/elfa-celiaca.webp', alt: { it: 'Un’elfa che esamina una briciola con la lente d’ingrandimento', en: 'An elf inspecting a crumb with a magnifying glass' }, quote: { it: '«Pizza senza glutine: 14 euro, 40 minuti di attesa.»', en: '“Gluten-free pizza: 14 euros, 40-minute wait.”' } },
+        { name: { it: 'Il Nano No al Lattosio', en: 'The Lactose-Free Dwarf' }, image: '/img/intolleranti/nano-no-al-lattosio.webp', alt: { it: 'Un nano dalla barba rossa che guarda preoccupato un cappuccino', en: 'A red-bearded dwarf eyeing a cappuccino with worry' }, quote: { it: '«Ho la pastiglia e ho il piano di fuga.»', en: '“I’ve got the pill and the escape plan.”' } },
+        { name: { it: 'Il Vampiro Astemio', en: 'The Teetotal Vampire' }, image: '/img/intolleranti/vampiro-astemio.webp', alt: { it: 'Un vampiro annoiato con un bicchiere d’acqua', en: 'A bored vampire holding a glass of water' }, quote: { it: '«Guido io. Guido sempre io.»', en: '“I’m driving. I’m always driving.”' } },
+        { name: { it: 'La Goblin Anti-Uova', en: 'The Egg-Hating Goblin' }, image: '/img/intolleranti/goblin-anti-uova.webp', alt: { it: 'Una goblin che prende a calci un uovo', en: 'A goblin kicking an egg away' }, quote: { it: '«Carbonara? Maionese? Zabaione?»', en: '“Carbonara? Mayo? Zabaglione?”' } },
+        { name: { it: 'La Fatina Diabetica', en: 'The Diabetic Fairy' }, image: '/img/intolleranti/fatina-diabetica.webp', alt: { it: 'Una fatina con un cupcake in una mano e il misuratore di glicemia nell’altra', en: 'A fairy with a cupcake in one hand and a glucose meter in the other' }, quote: { it: '«La frutta è sana, dicevano.»', en: '“Fruit is healthy, they said.”' } },
+        { name: { it: 'La Sirena Amica dei Pesci', en: 'The Fish-Friendly Mermaid' }, image: '/img/intolleranti/sirena-amica-dei-pesci.webp', alt: { it: 'Una sirena abbracciata a una boccia con un pesce rosso', en: 'A mermaid hugging a goldfish bowl' }, quote: { it: '«Sushi party? Io porto i cartelli di protesta.»', en: '“Sushi party? I’ll bring the protest signs.”' } },
+        { name: { it: 'Il Golem Palestrato', en: 'The Gym Golem' }, image: '/img/intolleranti/golem-palestrato.webp', alt: { it: 'Un golem di pietra muscoloso che pesa le porzioni con una bilancia', en: 'A muscular stone golem weighing portions on a scale' }, quote: { it: '«Due porzioni: per me e per i miei bicipiti.»', en: '“Two portions: one for me, one for my biceps.”' } },
+      ],
+    },
+    howToPlay: {
+      title: { it: 'Come si gioca', en: 'How to play' },
+      steps: {
+        it: ['Pesca una carta Risposta', 'Esci o stai a casa? A casa incassi le Uscite e ti riprendi', 'Rivela l’Uscita: quanti punti vale, quanto si mangia e si beve', 'Invita un compagno, se vuoi metterlo nei guai', 'Pesca le Portate una alla volta: se hanno il tuo colore, Malessere', 'Sopravvissuto? L’Uscita è tua, ma non ancora al sicuro'],
+        en: ['Draw a Response card', 'Go out or stay home? At home you bank your nights out and recover', 'Reveal the night out: its points, how much you eat and drink', 'Invite a friend, if you want to get them in trouble', 'Draw the courses one by one: if they carry your colour, Queasiness', 'Survived? The night out is yours, but not safe yet'],
+      },
+      note: {
+        it: 'Raggiungi il tuo limite di Malessere e vai in Nausea: perdi le Uscite non incassate e prendi 3 punti di penalità. Alla fine vince chi ha più punti.',
+        en: 'Hit your Queasiness limit and you’re Nauseous: you lose every unbanked night out and take a 3-point penalty. Most points wins.',
+      },
+      image: '/img/intolleranti/portate.webp',
+      imageAlt: {
+        it: 'Quattro carte Portata: Frittata di Verdure, Patatine Fritte, Gelato Artigianale e Pizza Margherita, con in fondo gli ospiti che le temono',
+        en: 'Four Course cards: Vegetable Frittata, Chips, Artisan Gelato and Pizza Margherita, each listing the guests who fear it',
+      },
+      imageBare: true,
+    },
+    components: [
+      { n: '8', label: { it: 'Personaggi', en: 'Characters' } },
+      { n: '28', label: { it: 'Uscite', en: 'Nights out' } },
+      { n: '72', label: { it: 'Portate', en: 'Courses' } },
+      { n: '52', label: { it: 'Risposte', en: 'Responses' } },
+      { n: '102', label: { it: 'token', en: 'tokens' } },
     ],
+    componentsExtra: {
+      it: 'Le Portate sono 36 di Cibo e 36 di Bevande.',
+      en: 'Courses are 36 Food and 36 Drinks.',
+    },
+  },
+  {
+    kind: 'game',
+    slug: 'dungeons-and-dugongs',
+    title: 'Dungeons & Dugongs',
+    image: '/img/dugongs/card.webp',
+    imageAlt: {
+      it: 'Quattro dugonghi avventurieri, un cavaliere, un arciere, un mago e un ladro, nuotano in una grotta piena di tesori',
+      en: 'Four adventuring dugongs, a knight, an archer, a wizard and a rogue, swimming through a cave full of treasure',
+    },
+    heroImage: '/img/dugongs/copertina.webp',
+    heroAlt: {
+      it: 'Copertina di Dungeons & Dugongs: quattro dugonghi in armatura e mantello scendono in una grotta sottomarina, inseguiti da un mostro',
+      en: 'Dungeons & Dugongs cover: four dugongs in armour and cloaks dive into an underwater cave, chased by a monster',
+    },
+    heroPortrait: true,
+    tag: { it: 'Gioco da tavolo · cooperativo', en: 'Board game · co-op' },
+    status: { it: 'In sviluppo', en: 'In development' },
+    players: '1–4',
+    minutes: '40–60',
+    age: '8+',
+    short: {
+      it: 'Quattro dugonghi scendono nell’Abisso per 13 Leghe con una sola riserva di ossigeno. Battete il Boss finale prima che l’aria finisca.',
+      en: 'Four dugongs dive 13 Leagues into the Abyss with a single shared oxygen supply. Beat the final Boss before the air runs out.',
+    },
+    pitch: {
+      it: 'Un gioco cooperativo di dadi e avventura. Ogni round tirate tutti insieme: le icone colpiscono il nemico, mentre lui morde l’ossigeno del gruppo. Ci si salva insieme, o si resta in fondo al mare insieme.',
+      en: 'A co-operative dice adventure. Every round you all roll together: the icons hit the enemy, while it bites into the group’s oxygen. You get out together, or stay at the bottom of the sea together.',
+    },
+    waiting: '[N]',
+    waitingWho: { it: 'dugonghi', en: 'dugongs' },
+    fileName: 'COPERTINA.PNG',
+    cta: { it: 'Vuoi sapere quando si scende nell\u2019Abisso?', en: 'Want to know when the dive begins?' },
+    features: {
+      title: { it: 'Perché giocarci', en: 'Why play it' },
+      list: [
+        { title: { it: 'Il tiro di gruppo', en: 'The group roll' }, text: { it: 'Si tira tutti insieme e si decide insieme cosa ritirare. «Ci manca un Arco! Nuoti a perdifiato?»', en: 'Everyone rolls together and decides together what to reroll. “We need a Bow! Swim for it?”' } },
+        { title: { it: 'Il rischio scelto', en: 'Chosen risk' }, text: { it: 'Ritirare costa Carisma o Ossigeno: ogni rilancio è una scommessa per tutta la squadra.', en: 'Rerolling costs Charisma or Oxygen: every reroll is a bet for the whole team.' } },
+        { title: { it: 'Momenti da raccontare', en: 'Moments to tell' }, text: { it: 'La faccia Dugongo vale qualsiasi icona, due Dugonghi insieme fanno Branco e ogni nemico ha un colpo speciale da schivare.', en: 'The Dugong face counts as any icon, two Dugongs make a Pod, and every enemy has a special attack to dodge.' } },
+      ],
+    },
+    roster: {
+      title: { it: 'Nove dugonghi, quattro in squadra', en: 'Nine dugongs, four on the team' },
+      note: { it: 'Ognuno ha il suo dado, la sua scheda e un oggetto iniziale.', en: 'Each has its own die, sheet and starting item.' },
+      items: [
+        { name: { it: 'Guardiano', en: 'Guardian' }, role: { it: 'Difensore', en: 'Defender' } },
+        { name: { it: 'Barbaro', en: 'Barbarian' }, role: { it: 'Forza', en: 'Strength' } },
+        { name: { it: 'Arciere', en: 'Archer' }, role: { it: 'Mira', en: 'Aim' } },
+        { name: { it: 'Stregone', en: 'Sorcerer' }, role: { it: 'Magia', en: 'Magic' } },
+        { name: { it: 'Saggio', en: 'Sage' }, role: { it: 'Magia e difesa', en: 'Magic and defence' } },
+        { name: { it: 'Scout', en: 'Scout' }, role: { it: 'Esploratore', en: 'Explorer' } },
+        { name: { it: 'Furfante', en: 'Rogue' }, role: { it: 'Agilità', en: 'Agility' } },
+        { name: { it: 'Guaritore', en: 'Healer' }, role: { it: 'Cura', en: 'Healing' } },
+        { name: { it: 'Mangione', en: 'Glutton' }, role: { it: 'Cibo e difesa', en: 'Food and defence' } },
+      ],
+    },
+    components: [
+      { n: '1', label: { it: 'tabellone', en: 'board' } },
+      { n: '9', label: { it: 'dadi Dugongo', en: 'Dugong dice' } },
+      { n: '9', label: { it: 'schede Dugongo', en: 'Dugong sheets' } },
+      { n: '54', label: { it: 'carte', en: 'cards' } },
+    ],
+    componentsExtra: {
+      it: 'Le carte: 24 Leghe tra nemici, trappole ed eventi, 3 Semi-Boss, 3 Boss e 24 oggetti.',
+      en: 'The cards: 24 Leagues of enemies, traps and events, 3 Semi-Bosses, 3 Bosses and 24 items.',
+    },
   },
 ];
 

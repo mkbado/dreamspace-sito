@@ -46,7 +46,7 @@ a:hover { color: #7fe3d9; }
 .pixel { font-family: var(--font-pixel); font-weight: 700; line-height: 1.05; margin: 0; }
 .h1 { font-size: clamp(38px, 6vw, 68px); }
 .h2 { font-size: clamp(32px, 4vw, 44px); }
-.h3 { font-size: 28px; }
+.h3 { font-size: 26px; }
 .muted { color: var(--mute); }
 
 /* Header */
@@ -185,3 +185,9 @@ a:hover { color: #7fe3d9; }
 .chapters a { color: #f3eadb !important; text-decoration: none; font-family: 'Spectral', Georgia, serif; font-size: 18px; }
 .hero-card p.ability { margin-top: auto; padding-top: 0; font-size: 14px; color: var(--cream); }
 .hero-card p.ability span { font-family: var(--font-label); font-size: 11px; color: var(--teal); text-transform: uppercase; margin-right: 6px; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+.gallery figure { margin: 0; background: #fff; border: 3px solid var(--black); box-shadow: 4px 4px 0 var(--black); display: flex; flex-direction: column; }
+.gallery img { width: 100%; aspect-ratio: 1900 / 1350; object-fit: cover; border-bottom: 3px solid var(--black); }
+.gallery figcaption { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 4px; }
+.gallery figcaption span { font-size: 14px; color: var(--text-dim); font-style: italic; }
+.cards--4 .card { flex-basis: 250px; }

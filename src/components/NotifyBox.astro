@@ -14,5 +14,5 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
             <button class="btn btn--orange" type="submit">{t(lang, 'card.notify')}</button>
           </form>
           <p class="form-msg" role="status" aria-live="polite" style="color: var(--teal);"></p>
-          <p style="font-size: 14px; color: var(--soft);"><strong style="color: var(--cream);">{g.waiting} {g.slug === 'marsylvania' ? 'Dreamspacer' : L('commensali', 'diners')}</strong> {t(lang, 'game.waitingLine')}</p>
+          <p style="font-size: 14px; color: var(--soft);"><strong style="color: var(--cream);">{g.waiting} {g.waitingWho[lang]}</strong> {t(lang, 'game.waitingLine')}</p>
         </div>
