@@ -5,6 +5,8 @@
   "compatibility_date": "2026-11-17",
   // Anteprima privata con link d'invito: vedi worker/index.js
   "main": "./worker/index.js",
+  // Non cancellare le variabili impostate a mano sul pannello di Cloudflare
+  "keep_vars": true,
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",

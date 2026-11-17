@@ -8,36 +8,35 @@ const DAYS = 60;
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    const code = env.INVITE_CODE;
+    const code = (env.INVITE_CODE || '').trim();
     const cookies = (request.headers.get('Cookie') || '').split(/;\s*/);
     const invited = Boolean(code) && cookies.includes(`${COOKIE}=${encodeURIComponent(code)}`);
-
-    // Arrivo dal link d'invito: salva il cookie e ripulisci l'indirizzo
-    const given = url.searchParams.get('invito');
-    if (code && given === code) {
-      url.searchParams.delete('invito');
-      return new Response(null, {
-        status: 302,
-        headers: {
-          Location: url.pathname + url.search,
-          'Set-Cookie': `${COOKIE}=${encodeURIComponent(code)}; Path=/; Max-Age=${DAYS * 86400}; HttpOnly; Secure; SameSite=Lax`,
-          'Cache-Control': 'no-store',
-        },
-      });
-    }
-
-    if (invited) {
-      const asset = await env.ASSETS.fetch(request);
-      const res = new Response(asset.body, asset);
-      res.headers.set('X-Robots-Tag', 'noindex, nofollow');
-      return res;
-    }
+    const given = (url.searchParams.get('invito') || '').trim();
+    const viaLink = Boolean(code) && given === code;
 
     if (url.pathname === '/robots.txt') {
       return new Response('User-agent: *\nDisallow: /\n', { headers: { 'Content-Type': 'text/plain' } });
     }
 
-    return new Response(LOCKED, {
+    if (invited || viaLink) {
+      // Serve la pagina subito (niente reindirizzamento) e salva il cookie per le pagine successive
+      const asset = await env.ASSETS.fetch(request);
+      const res = new Response(asset.body, asset);
+      res.headers.set('X-Robots-Tag', 'noindex, nofollow');
+      if (viaLink) {
+        res.headers.append('Set-Cookie', `${COOKIE}=${encodeURIComponent(code)}; Path=/; Max-Age=${DAYS * 86400}; HttpOnly; Secure; SameSite=Lax`);
+        res.headers.set('Cache-Control', 'no-store');
+      }
+      return res;
+    }
+
+    // Messaggio di diagnosi, visibile in fondo alla pagina bloccata
+    let note = '';
+    if (!code) note = 'Stato: codice d’invito non ancora configurato sul server (INVITE_CODE).';
+    else if (given) note = 'Stato: questo codice d’invito non è valido.';
+    else note = 'Stato: nessun invito su questo browser.';
+
+    return new Response(LOCKED.replace('{{NOTE}}', note), {
       status: 403,
       headers: { 'Content-Type': 'text/html; charset=utf-8', 'X-Robots-Tag': 'noindex, nofollow', 'Cache-Control': 'no-store' },
     });
@@ -68,6 +67,7 @@ const LOCKED = `<!doctype html>
   <p>Il sito della Dreamspace Ltd è in anteprima privata. Se hai ricevuto un link d'invito, aprilo di nuovo da lì.</p>
   <p lang="en">Staff only. The Dreamspace Ltd website is in private preview: open it from your invitation link.</p>
   <small>— ELIT-043, Divisione Risorse Non Umane</small>
+  <small style="font-size:12px;opacity:.8">{{NOTE}}</small>
 </main>
 </body>
 </html>`;
