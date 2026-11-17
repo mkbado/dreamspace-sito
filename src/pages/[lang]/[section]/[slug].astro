@@ -1,6 +1,5 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import PixelAbbey from '../../../components/PixelAbbey.astro';
 import PixelTable from '../../../components/PixelTable.astro';
 import KofiBand from '../../../components/KofiBand.astro';
 import NotifyBox from '../../../components/NotifyBox.astro';
@@ -197,47 +196,84 @@ const st = item.kind === 'setting' ? item : null;
 )}
 
 {r && (
-<Base lang={lang} title={r.title} description={r.short[lang]} altPath={alt} bodyClass="skin-coro" extraFonts>
-  <section style="border-bottom: 4px solid var(--black);">
-    <div style="height: clamp(240px, 38vw, 460px); overflow: hidden; background: #1b2150;">
-      <PixelAbbey wide label={L("L'abbazia di Santa Maria del Silenzio sulla montagna, di notte, sotto la prima neve", 'The abbey of Santa Maria del Silenzio on the mountain at night, under the first snow')} />
-    </div>
-  </section>
-
-  <section class="container row" style="padding-block: 48px 64px; gap: 48px;">
-    <div class="stack" style="flex: 1 1 560px; min-width: 0; gap: 20px;">
+<Base lang={lang} title={`${r.title} · ${r.chapterTitle}`} description={r.short[lang]} altPath={alt} bodyClass="skin-coro" extraFonts>
+  <section class="container row circ-hero" style="padding-block: 40px 64px; gap: 48px; align-items: flex-start;">
+    <figure class="ink-frame circ-cover">
+      <img src={r.cover} alt={r.coverAlt[lang]} width="760" height="1140" />
+    </figure>
+    <div class="stack" style="flex: 1 1 520px; min-width: 0; gap: 20px;">
       <nav class="crumbs" aria-label={L('Percorso', 'Breadcrumb')} style="color: #a89bb8;"><a href={`/${lang}/`} style="color: #a89bb8;">{t(lang, 'crumb.home')}</a> › <a href={`/${lang}/#gdr`} style="color: #a89bb8;">{t(lang, 'nav.rpg')}</a> › {r.title}</nav>
       <p class="label" style="margin: 0; color: #f2a33a;">{r.series[lang]} · {L('gratis', 'free')}</p>
       <h1 class="pixel" style="font-size: clamp(42px, 6vw, 72px); line-height: 1;">{r.title}</h1>
-      <p class="serif" style="margin: 0; font-size: 22px; line-height: 1.5;">{r.pitch[lang][0]}</p>
-      <p class="serif" style="margin: 0; font-size: 19px; line-height: 1.6; color: #d8ccba;">{r.pitch[lang][1]}</p>
-      <div class="row" style="gap: 12px; padding-top: 8px;">
-        <a class="btn btn--big coro-btn" href="#download">{t(lang, 'card.download')}</a>
+      {r.campaignIntro[lang].map((p, i) => (
+        <p class="serif" style={`margin: 0; line-height: 1.6; ${i === 0 ? 'font-size: 21px;' : 'font-size: 18px; color: #d8ccba;'}`}>{p}</p>
+      ))}
+      <ol class="campaign">
+        {r.campaignChapters.map((c) => (
+          <li class={c.live ? 'is-live' : ''}>
+            <b>{c.n === '…' ? '…' : L(`Cap. ${c.n}`, `Ch. ${c.n}`)}</b>
+            <span class="campaign__t">{c.live ? <a href="#capitolo-0">{c.title}</a> : c.title}{c.place && <em> · {c.place}</em>}</span>
+            <span class="campaign__s">{c.status[lang]}</span>
+          </li>
+        ))}
+      </ol>
+      <div class="row" style="gap: 12px; padding-top: 4px;">
+        <a class="btn btn--big coro-btn" href="#capitolo-0">{L('Inizia dal Capitolo 0', 'Start with Chapter 0')}</a>
         <a class="btn btn--big coro-btn--outline" href="#romanzo">{t(lang, 'card.read')}</a>
       </div>
     </div>
-    <aside class="stack" style="flex: 1 1 320px; min-width: 0; gap: 16px;">
-      <div class="sheet">
-        <div class="sheet__bar">{t(lang, 'rpg.sheet')}</div>
-        <dl>
-          <dt>{t(lang, 'rpg.players')}</dt><dd>{r.players[lang]}</dd>
-          <dt>{t(lang, 'rpg.length')}</dt><dd>{r.length[lang]}</dd>
-          <dt>{t(lang, 'rpg.genre')}</dt><dd>{r.genre[lang]}</dd>
-          <dt>{t(lang, 'rpg.rules')}</dt><dd>{r.rules}</dd>
-          <dt>{t(lang, 'rpg.langs')}</dt><dd>{r.languages[lang]}</dd>
-        </dl>
+  </section>
+
+  <section id="capitolo-0" style="border-top: 4px solid var(--black); background: #1e1828;">
+    <div class="container row pad" style="gap: 48px;">
+      <div class="stack" style="flex: 1 1 560px; min-width: 0; gap: 20px;">
+        <p class="label" style="margin: 0; color: #f2a33a;">{r.chapterSeries[lang]}</p>
+        <h2 class="pixel" style="font-size: clamp(36px, 5vw, 56px); line-height: 1;">{r.chapterTitle}</h2>
+        <p class="serif" style="margin: 0; font-size: 21px; line-height: 1.5;">{r.pitch[lang][0]}</p>
+        <p class="serif" style="margin: 0; font-size: 18px; line-height: 1.6; color: #d8ccba;">{r.pitch[lang][1]}</p>
+        <div class="row" style="gap: 12px; padding-top: 8px;">
+          <a class="btn btn--big coro-btn" href="#download">{t(lang, 'card.download')}</a>
+        </div>
       </div>
-      <div class="warn">
-        <p class="label" style="margin: 0; color: #ff8a73;">{t(lang, 'rpg.warning')}</p>
-        <p style="margin: 0; font-size: 15px;">{r.warning[lang]}</p>
-      </div>
-    </aside>
+      <aside class="stack" style="flex: 1 1 320px; min-width: 0; gap: 16px;">
+        <div class="sheet">
+          <div class="sheet__bar">{t(lang, 'rpg.sheet')}</div>
+          <dl>
+            <dt>{t(lang, 'rpg.players')}</dt><dd>{r.players[lang]}</dd>
+            <dt>{t(lang, 'rpg.length')}</dt><dd>{r.length[lang]}</dd>
+            <dt>{t(lang, 'rpg.genre')}</dt><dd>{r.genre[lang]}</dd>
+            <dt>{t(lang, 'rpg.rules')}</dt><dd>{r.rules}</dd>
+            <dt>{t(lang, 'rpg.langs')}</dt><dd>{r.languages[lang]}</dd>
+          </dl>
+        </div>
+        <div class="warn">
+          <p class="label" style="margin: 0; color: #ff8a73;">{t(lang, 'rpg.warning')}</p>
+          <p style="margin: 0; font-size: 15px;">{r.warning[lang]}</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="container stack" style="padding-block: 72px; gap: 24px;">
+    <p class="label" style="margin: 0; color: #f2a33a;">{L('I luoghi', 'The places')}</p>
+    <h2 class="pixel" style="font-size: 40px;">Valtorva</h2>
+    <div class="ink-grid">
+      {r.locations.map((l) => (
+        <figure class="ink-frame">
+          <img src={l.image} alt={`${l.title}: ${l.caption[lang]}`} width="1400" height="788" loading="lazy" />
+          <figcaption><strong>{l.title}</strong>{l.caption[lang]}</figcaption>
+        </figure>
+      ))}
+    </div>
   </section>
 
   <section id="download" style="background: #f3eadb; color: #15111f; border-block: 4px solid var(--black);">
     <div class="container stack pad" style="gap: 24px;">
       <div class="row" style="align-items: end; justify-content: space-between; gap: 16px;">
-        <h2 class="pixel" style="font-size: 40px;">{t(lang, 'rpg.files')}</h2>
+        <div class="stack" style="gap: 6px;">
+          <p class="label" style="margin: 0; color: #6b4a2b;">{r.chapterSeries[lang].split(' · ')[0]} · {r.chapterTitle}</p>
+          <h2 class="pixel" style="font-size: 40px;">{t(lang, 'rpg.files')}</h2>
+        </div>
         <a class="btn" href="#" style="background: #15111f; color: #f2a33a;">{t(lang, 'rpg.zip')}</a>
       </div>
       <div class="files">
@@ -255,10 +291,16 @@ const st = item.kind === 'setting' ? item : null;
   </section>
 
   <section class="container stack" style="padding-block: 72px; gap: 24px;">
-    <h2 class="pixel" style="font-size: 40px;">{r.series[lang].split(' · ')[0]}</h2>
+    <p class="label" style="margin: 0; color: #f2a33a;">{L('Gli investigatori', 'The investigators')}</p>
+    <h2 class="pixel" style="font-size: 40px;">{L('Il Circolo', 'The Circle')}</h2>
     <p style="margin: 0; max-width: 680px; color: #d8ccba;">{r.investigatorsIntro[lang]}</p>
-    <div class="row" style="gap: 16px;">
-      {r.investigators.map((i) => <div class="inv"><strong>{i.name}</strong><span>{i.role[lang]}</span></div>)}
+    <div class="portraits">
+      {r.investigators.map((i) => (
+        <figure class="portrait">
+          <div class="ink-frame"><img src={i.image} alt={L(`Ritratto a china di ${i.name}`, `Pen-and-ink portrait of ${i.name}`)} width="400" height="600" loading="lazy" /></div>
+          <figcaption><strong>{i.name}</strong><span>{i.role[lang]}</span></figcaption>
+        </figure>
+      ))}
     </div>
   </section>
 

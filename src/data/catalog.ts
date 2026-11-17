@@ -68,9 +68,18 @@ export interface Rpg {
   warning: L<string>;
   files: { title: L<string>; desc: L<string>; it: string; en: string }[];
   investigatorsIntro: L<string>;
-  investigators: { name: string; role: L<string> }[];
+  investigators: { name: string; role: L<string>; image: string }[];
   novelText: L<string>;
   chapters: string[];
+  chapterTitle: string;
+  chapterSeries: L<string>;
+  cover: string;
+  coverAlt: L<string>;
+  cardImage: string;
+  cardAlt: L<string>;
+  campaignIntro: L<string[]>;
+  campaignChapters: { n: string; title: string; place: string; status: L<string>; live?: boolean }[];
+  locations: { image: string; title: string; caption: L<string> }[];
   kofi: L<{ title: string; text: string }>;
   licence: L<string>;
 }
@@ -376,12 +385,44 @@ export const games: Game[] = [
 export const rpgs: Rpg[] = [
   {
     kind: 'rpg',
-    slug: 'la-notte-del-coro',
-    title: 'La Notte del Coro',
-    series: { it: 'Il Circolo del Venerdì · Capitolo 0', en: 'The Friday Circle · Chapter 0' },
-    tag: { it: 'GDR · avventura e romanzo · gratis', en: 'RPG · adventure and novel · free' },
+    slug: 'il-circolo-del-venerdi',
+    title: 'Il Circolo del Venerdì',
+    chapterTitle: 'La Notte del Coro',
+    chapterSeries: { it: 'Capitolo 0 · Valtorva, ottobre 1914', en: 'Chapter 0 · Valtorva, October 1914' },
+    series: { it: 'Campagna horror per Call of Cthulhu', en: 'A horror campaign for Call of Cthulhu' },
+    cover: '/img/circolo/copertina.webp',
+    coverAlt: {
+      it: 'Copertina: il campanile di Santa Maria del Silenzio disegnato a china, sovrastato da una presenza scura con due occhi chiari.',
+      en: 'Cover: the bell tower of Santa Maria del Silenzio in pen and ink, under a dark presence with two pale eyes.',
+    },
+    cardImage: '/img/circolo/card.webp',
+    cardAlt: {
+      it: 'Il campanile di Santa Maria del Silenzio a china, con una presenza scura sopra le campane.',
+      en: 'The bell tower of Santa Maria del Silenzio in pen and ink, a dark presence above the bells.',
+    },
+    campaignIntro: {
+      it: [
+        "Torino, 1910. Nello studio di via San Pietro in Vincoli 11, il professor Edoardo Valmarana fonda il Circolo del Venerdì e gli dà una regola sola: ogni fenomeno ha una spiegazione, e il compito del Circolo è trovarla, anche quando la spiegazione è più strana del fenomeno.",
+        "Il Circolo del Venerdì è una campagna horror su ciò che si tace, si nasconde e si dimentica, tra le Alpi e il mare. Ogni capitolo è un'avventura completa, con un romanzo che la accompagna.",
+      ],
+      en: [
+        'Turin, 1910. In a study at via San Pietro in Vincoli 11, Professor Edoardo Valmarana founds the Friday Circle and gives it a single rule: every phenomenon has an explanation, and the Circle’s task is to find it, even when the explanation is stranger than the phenomenon.',
+        'The Friday Circle is a horror campaign about what is kept silent, hidden and forgotten, between the Alps and the sea. Each chapter is a complete adventure, with a novel to go with it.',
+      ],
+    },
+    campaignChapters: [
+      { n: '0', title: 'La Notte del Coro', place: 'Valtorva', status: { it: 'disponibile', en: 'available' }, live: true },
+      { n: '1', title: 'Quello che resta del Venerdì', place: 'Torino', status: { it: 'in arrivo', en: 'coming soon' } },
+      { n: '…', title: '', place: '', status: { it: 'altri capitoli in preparazione', en: 'more chapters in the works' } },
+    ],
+    locations: [
+      { image: '/img/circolo/ponte.webp', title: 'Il ponte', caption: { it: 'La corriera si ferma qui. Da qui sono due ore di mulattiera.', en: 'The coach stops here. From here it is two hours on a mule track.' } },
+      { image: '/img/circolo/strada-dei-segni.webp', title: 'La strada dei segni', caption: { it: 'Un segno inciso sopra la porta di mezzo paese.', en: 'A sign carved above the doors of half the village.' } },
+      { image: '/img/circolo/chiostro.webp', title: 'Il chiostro', caption: { it: 'Santa Maria del Silenzio, sotto la prima neve.', en: 'Santa Maria del Silenzio, under the first snow.' } },
+    ],
+    tag: { it: 'GDR · campagna e romanzo · gratis', en: 'RPG · campaign and novel · free' },
     players: { it: '3–6, personaggi pregenerati', en: '3–6, pregenerated characters' },
-    length: { it: 'una sessione di 5–6 ore', en: 'one 5–6 hour session' },
+    length: { it: 'due sessioni, circa 8 ore', en: 'two sessions, about 8 hours' },
     genre: { it: "horror investigativo, anni '10", en: 'investigative horror, 1910s' },
     rules: 'Call of Cthulhu',
     languages: { it: 'italiano · inglese [IN ARRIVO]', en: 'Italian · English [COMING]' },
@@ -415,12 +456,12 @@ export const rpgs: Rpg[] = [
       en: 'Six investigators, summoned by the abbot. Each knows who they are. Or so they believe.',
     },
     investigators: [
-      { name: 'Prof. Edoardo Valmarana', role: { it: 'Lo Studioso · filologo torinese', en: 'The Scholar · philologist from Turin' } },
-      { name: 'Teresa Morandi', role: { it: 'La Garante · maestra e folklorista', en: 'The Guarantor · teacher and folklorist' } },
-      { name: 'Cap. Ruggero Alberti', role: { it: 'La Mano · ex ufficiale degli Alpini', en: 'The Hand · former Alpini officer' } },
-      { name: 'Ida Cantoni', role: { it: 'La Sentinella · fotografa e giornalista', en: 'The Sentinel · photographer and journalist' } },
-      { name: 'Conte Aurelio Sanvitale', role: { it: 'Il Firmatario · spiritista', en: 'The Signatory · spiritualist' } },
-      { name: 'Dott. Guido Ferrero', role: { it: 'Il Medico · chirurgo torinese', en: 'The Doctor · surgeon from Turin' } },
+      { name: 'Prof. Edoardo Valmarana', image: '/img/circolo/edoardo-valmarana.webp', role: { it: 'filologo torinese', en: 'philologist from Turin' } },
+      { name: 'Teresa Morandi', image: '/img/circolo/teresa-morandi.webp', role: { it: 'maestra e folklorista', en: 'teacher and folklorist' } },
+      { name: 'Cap. Ruggero Alberti', image: '/img/circolo/ruggero-alberti.webp', role: { it: 'ex ufficiale degli Alpini', en: 'former Alpini officer' } },
+      { name: 'Ida Cantoni', image: '/img/circolo/ida-cantoni.webp', role: { it: 'fotografa e giornalista', en: 'photographer and journalist' } },
+      { name: 'Conte Aurelio Sanvitale', image: '/img/circolo/aurelio-sanvitale.webp', role: { it: 'spiritista', en: 'spiritualist' } },
+      { name: 'Dott. Guido Ferrero', image: '/img/circolo/guido-ferrero.webp', role: { it: 'medico chirurgo torinese', en: 'surgeon from Turin' } },
     ],
     novelText: {
       it: 'Un frate ucciso, un borgo che non vuole forestieri, sei investigatori competenti. Ogni capitolo è raccontato da uno di loro. Un nuovo capitolo ogni [N] settimane.',

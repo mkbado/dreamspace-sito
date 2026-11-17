@@ -1,6 +1,5 @@
 ---
 import Base from '../../layouts/Base.astro';
-import PixelAbbey from '../../components/PixelAbbey.astro';
 import InterestForm from '../../components/InterestForm.astro';
 import KofiBand from '../../components/KofiBand.astro';
 import { t, langs, otherLang, type Lang } from '../../i18n/ui';
@@ -13,7 +12,7 @@ export function getStaticPaths() {
 
 const lang = Astro.params.lang as Lang;
 const mars = games.find((g) => g.slug === 'marsylvania')!;
-const coro = rpgs.find((r) => r.slug === 'la-notte-del-coro')!;
+const coro = rpgs.find((r) => r.slug === 'il-circolo-del-venerdi')!;
 const mer = settings.find((x) => x.slug === 'meriggio')!;
 const L = (it: string, en: string) => (lang === 'it' ? it : en);
 ---
@@ -67,14 +66,14 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
       <h3 id="gdr" class="label" style="margin: 24px 0 0; font-size: 15px; color: var(--orange-ink);">{L('GDR e romanzi', 'RPGs and novels')}</h3>
       <div id="romanzi" class="cards">
         <article class="card">
-          <div class="card__media"><PixelAbbey label={L("Un'abbazia di montagna nella neve, di notte, con le finestre accese", 'A mountain abbey in the snow at night, its windows lit')} /></div>
+          <div class="card__media"><img src={coro.cardImage} width="960" height="600" alt={coro.cardAlt[lang]} loading="lazy" /></div>
           <div class="card__body">
             <p class="card__tag" style="color: #6b4a2b;">{coro.tag[lang]}</p>
             <h3 class="pixel h3">{coro.title}</h3>
-            <p class="card__meta">{coro.players[lang]} · {coro.length[lang]}</p>
+            <p class="card__meta">{L('Cap. 0', 'Ch. 0')} · {coro.chapterTitle} · {coro.length[lang]}</p>
             <p>{coro.short[lang]}</p>
             <div class="card__foot" style="justify-content: flex-start;">
-              <a class="btn btn--orange" href={itemPath(lang, coro)}>{t(lang, 'card.download')}</a>
+              <a class="btn btn--orange" href={`${itemPath(lang, coro)}#capitolo-0`}>{t(lang, 'card.download')}</a>
               <a href={`${itemPath(lang, coro)}#romanzo`} style="font-family: var(--font-label); font-size: 14px; color: var(--night);">{t(lang, 'card.read')}</a>
             </div>
           </div>
