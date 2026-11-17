@@ -8,4 +8,4 @@ Sito statico in [Astro](https://astro.build), in italiano e inglese.
 
 Comandi: `npm install`, poi `npm run dev` per provarlo in locale e `npm run build` per compilarlo in `dist/`.
 
-Pubblicazione: Cloudflare Pages, con preset Astro, comando `npm run build`, cartella `dist`.
+Pubblicazione: Cloudflare Workers (file statici). Comando di build `npm run build`, comando di deploy `npx wrangler deploy`; la configurazione è in `wrangler.jsonc`.

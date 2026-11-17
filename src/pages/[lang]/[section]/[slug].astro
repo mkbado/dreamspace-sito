@@ -53,6 +53,21 @@ const r = item.kind === 'rpg' ? item : null;
     </div>
   </section>
 
+  {g.features && (
+    <section class="container stack" style="padding-bottom: 72px; gap: 28px;">
+      <h2 class="pixel" style="font-size: 40px;">{g.features.title[lang]}</h2>
+      <div class="steps">
+        {g.features.list.map((f, i) => (
+          <div class="step">
+            <b style={`color: ${['var(--orange)', 'var(--teal)', '#f2c230', '#ee7fb0', '#9be15d', '#8a5cd8'][i % 6]}; font-size: 20px;`}>{String(i + 1).padStart(2, '0')}</b>
+            <h3>{f.title[lang]}</h3>
+            <p>{f.text[lang]}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
   {g.briefing && (
     <section class="band-cream">
       <div class="container row pad" style="gap: 48px;">
@@ -83,9 +98,10 @@ const r = item.kind === 'rpg' ? item : null;
       <div class="row" style="gap: 20px;">
         {g.characters.list.map((c) => (
           <article class="hero-card">
-            <div class="hero-card__name" style={`background: ${c.color}; color: ${c.ink};`}>{c.name}</div>
+            <div class="hero-card__name" style={`background: ${c.color}; color: ${c.ink};`}>{c.name}{c.home && <span style="opacity: .75;"> · {c.home}</span>}</div>
             <div class="hero-card__img"><img src={c.image} alt={c.alt[lang]} loading="lazy" /></div>
             {c.bio[lang] ? <p>{c.bio[lang]}</p> : <p class="todo">{L('[Una riga su chi è e da dove viene]', '[One line on who they are and where they come from]')}</p>}
+            {c.ability && <p class="ability"><span>{L('Abilità', 'Ability')}</span> {c.ability[lang]}</p>}
           </article>
         ))}
       </div>
@@ -124,11 +140,28 @@ const r = item.kind === 'rpg' ? item : null;
       <div class="container stack" style="padding-block: 64px; gap: 24px;">
         <div class="row" style="align-items: end; justify-content: space-between; gap: 12px;">
           <h2 class="pixel" style="font-size: 36px;">{t(lang, 'game.components')}</h2>
-          <p style="margin: 0; font-size: 14px; color: var(--text-dim);">{t(lang, 'game.componentsNote')}</p>
+          <p style="margin: 0; font-size: 14px; color: var(--text-dim);">{L('Core Edition, contenuto previsto: può cambiare', 'Core Edition, planned contents: may change')}</p>
         </div>
         <div class="row" style="gap: 14px;">
           {g.components.map((c) => <div class="box"><b>{c.n}</b>{c.label[lang]}</div>)}
         </div>
+        {g.componentsExtra && <p style="margin: 0; color: var(--text-dim);">{g.componentsExtra[lang]}</p>}
+      </div>
+    </section>
+  )}
+
+  {g.team && (
+    <section class="container row" style="padding-block: 72px; gap: 40px; align-items: center;">
+      <div class="stack" style="flex: 1 1 480px; min-width: 0; gap: 16px;">
+        <h2 class="pixel" style="font-size: 40px;">{g.team.title[lang]}</h2>
+        <p style="margin: 0; color: var(--soft);">{g.team.text[lang]}</p>
+      </div>
+      <div class="stack" style="flex: 1 1 320px; min-width: 0; gap: 12px;">
+        {g.team.people.map((x) => (
+          <div style="border: 3px solid var(--line); background: var(--night-2); padding: 14px 18px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+            <strong>{x.name}</strong><span class="label" style="font-size: 12px; color: var(--teal);">{x.role[lang]}</span>
+          </div>
+        ))}
       </div>
     </section>
   )}

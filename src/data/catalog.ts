@@ -4,6 +4,8 @@ type L<T> = Record<Lang, T>;
 
 export interface Character {
   name: string;
+  home?: string;
+  ability?: L<string>;
   image: string;
   color: string;
   ink: string;
@@ -37,6 +39,9 @@ export interface Game {
   characters?: { title: L<string>; note: L<string>; list: Character[] };
   howToPlay?: { title: L<string>; steps: L<string[]>; note: L<string>; image?: string; imageAlt?: L<string> };
   components?: { n: string; label: L<string> }[];
+  componentsExtra?: L<string>;
+  features?: { title: L<string>; list: { title: L<string>; text: L<string> }[] };
+  team?: { title: L<string>; text: L<string>; people: { name: string; role: L<string> }[] };
   guests?: { name: L<string>; color: string }[];
 }
 
@@ -75,21 +80,21 @@ export const games: Game[] = [
     },
     banner: '/img/marsylvania-banner.webp',
     bannerAlt: {
-      it: 'I sei Dreamspacer a caccia di taglie su Marsylvania: vampiri, un verme gigante, draghi e soldati dell\u2019Alleanza tra canyon rossi e castelli gotici, in pixel art',
+      it: 'I sei Dreamspacer a caccia di taglie su Marsylvania: vampiri, un verme gigante, draghi e soldati dell’Alleanza tra canyon rossi e castelli gotici, in pixel art',
       en: 'The six Dreamspacers bounty hunting on Marsylvania: vampires, a giant worm, dragons and Alliance soldiers among red canyons and gothic castles, in pixel art',
     },
-    tag: { it: 'Gioco da tavolo · cooperativo', en: 'Board game · co-op' },
+    tag: { it: 'Gioco da tavolo · dungeon crawler', en: 'Board game · dungeon crawler' },
     status: { it: 'In sviluppo · Kickstarter in arrivo', en: 'In development · Kickstarter coming' },
-    players: '1–4',
+    players: '2–5',
     minutes: '45–90',
     age: '14+',
     short: {
-      it: 'Stagisti cacciatori di taglie, un pianeta maledetto e un Lord Vampiro con una taglia da 13 milioni di Kron. In palio: il titolo di Impiegato del Mese.',
-      en: 'Bounty-hunting interns, a cursed planet and a Vampire Lord worth 13 million Kron. The prize: Employee of the Month.',
+      it: 'Entra nella compagnia di cacciatori di taglie, esplora Marsylvania e batti il Lord Vampiro prima dei tuoi colleghi. In palio: il titolo di Impiegato del Mese.',
+      en: 'Join the bounty hunters’ company, explore Marsylvania and beat the Vampire Lord before your colleagues do. The prize: Employee of the Month.',
     },
     pitch: {
-      it: "Una squadra di stagisti cacciatori di taglie atterra su Marsylvania, un Marte maledetto pieno di lupi mannari e vampiri. L'obiettivo: la testa del Lord Vampiro e il titolo di Impiegato del Mese.",
-      en: 'A team of bounty-hunting interns lands on Marsylvania, a cursed Mars full of werewolves and vampires. The goal: the Vampire Lord’s head and the title of Employee of the Month.',
+      it: 'Un dungeon crawler all’americana in cui fantascienza e gotico hanno avuto un figlio inaspettato. Siete cacciatori di taglie della Dreamspace Ltd: esplorate Marsylvania, potenziatevi e battete il Lord Vampiro prima dei colleghi.',
+      en: 'An American-style dungeon crawler where sci-fi and gothic had an unexpected baby. You are Dreamspace Ltd bounty hunters: explore Marsylvania, power up and beat the Vampire Lord before your colleagues do.',
     },
     waiting: '[N]',
     briefing: {
@@ -101,10 +106,12 @@ export const games: Game[] = [
       paragraphs: {
         it: [
           "Benvenuti, stagisti. Marsylvania è come il Marte della Via Lattea, ma qui l'ha colonizzato un'antica civiltà umana, i Nuwa, e una maledizione ha trasformato parte degli abitanti in lupi mannari e vampiri.",
+          'Il pianeta ruota in sincrono con la sua orbita: una parte è sempre al sole, una sempre al crepuscolo, la terza sempre di notte. Ogni zona ha più di 20 caselle diverse, dai covi dei cultisti alle botteghe degli alchimisti.',
           'Il vostro compito: trovare la fortezza dei vampiri e tagliare la testa al Lord Vampiro. La taglia è di 13 milioni di Kron. Non andrà a voi, naturalmente: la società vi nominerà Impiegato del Mese. Che emozione!',
         ],
         en: [
           'Welcome, interns. Marsylvania is just like the Milky Way’s Mars, except an ancient human civilisation, the Nuwa, settled it, and a curse has turned some of its people into werewolves and vampires.',
+          'The planet is tidally locked: one side is always sunny, one always at dusk, the third always at night. Each area has over 20 unique squares, from cultist lairs to alchemist shops.',
           'Your task: find the vampires’ fortress and cut off the Vampire Lord’s head. The bounty is 13 million Kron. It won’t go to you, of course: the company will name you Employee of the Month. How exciting!',
         ],
       },
@@ -119,7 +126,16 @@ export const games: Game[] = [
           dark: false,
         },
         {
-          label: { it: 'Area 2 · sempre notte', en: 'Area 2 · always night' },
+          label: { it: 'Area 2 · sempre crepuscolo', en: 'Area 2 · always dusk' },
+          title: { it: 'La Giungla', en: 'The Jungle' },
+          text: {
+            it: 'Una fascia di eterno tramonto, tra tribù selvagge e il Boss della Giungla.',
+            en: 'A belt of endless sunset, with savage tribes and the Jungle Boss.',
+          },
+          dark: false,
+        },
+        {
+          label: { it: 'Area 3 · sempre notte', en: 'Area 3 · always night' },
           title: { it: 'La Terra Oscura', en: 'The Dark Land' },
           text: {
             it: "Il sole non sorge mai. Da qualche parte c'è il rifugio del Lord Vampiro: se ve la prendete comoda, sarà lui a trovare voi.",
@@ -129,23 +145,52 @@ export const games: Game[] = [
         },
       ],
     },
+    features: {
+      title: { it: 'Perché giocarci', en: 'Why play it' },
+      list: [
+        { title: { it: 'Un tema mai visto', en: 'A theme like no other' }, text: { it: 'Vampiri contro pistole laser e armature medievali. E tutto in 8 bit, perché carte e tabellone sono l’archivio del computer aziendale: la Dreamspace non ha investito molto in innovazione.', en: 'Vampires versus laser guns and medieval armour. All in 8-bit, because the cards and board are the company’s computer database: Dreamspace Ltd didn’t invest much in innovation.' } },
+        { title: { it: 'Mondo aperto', en: 'Open world' }, text: { it: 'Esplorate tutto il pianeta prima dello scontro finale: tre aree e oltre 20 caselle uniche per area.', en: 'Explore the whole planet before the final fight: three areas, over 20 unique squares each.' } },
+        { title: { it: 'Ogni partita è diversa', en: 'Every game is different' }, text: { it: 'Sei Dreamspacer e oltre 160 carte: non saprete mai cosa vi aspetta dietro la prossima duna.', en: 'Six Dreamspacers and over 160 cards: you never know what waits behind the next dune.' } },
+        { title: { it: 'Fortuna e strategia', en: 'Luck and strategy' }, text: { it: 'Regole semplici per tutti, ma tante strade per battere il Boss. I dadi contano, abilità, incantesimi ed equipaggiamento anche.', en: 'Simple rules for everyone, many paths to the Boss. Dice matter, and so do skills, spells and gear.' } },
+        { title: { it: 'Il nemico è il tuo vicino', en: 'Your neighbour is the enemy' }, text: { it: 'I nemici li interpreta il giocatore alla tua sinistra. Prova a immaginarlo trasformato in un Wormalien affamato.', en: 'Enemies are played by the player on your left. Picture them as a hungry Wormalien.' } },
+        { title: { it: 'Da stagista a capo', en: 'From intern to boss' }, text: { it: 'Tre livelli di crescita del personaggio, con abilità e potenziamenti sempre più forti.', en: 'Three levels of character growth, with ever stronger skills and boosts.' } },
+      ],
+    },
     characters: {
       title: { it: 'I sei Dreamspacer', en: 'The six Dreamspacers' },
-      note: { it: 'Scegli il tuo stagista. Illustrazioni in lavorazione.', en: 'Pick your intern. Artwork in progress.' },
+      note: { it: 'La squadra di partenza della Dreamspace Ltd.', en: 'Dreamspace Ltd’s starting team.' },
       list: [
-        { name: 'Prof Giraf', image: '/img/chars/prof-giraf.webp', color: '#F28C28', ink: '#0A0D24', alt: { it: 'Una giraffa con gli occhialoni che tiene il fuoco nel palmo della mano', en: 'A goggled giraffe holding fire in its palm' }, bio: { it: '', en: '' } },
-        { name: 'Queen Illuminati', image: '/img/chars/queen-illuminati.webp', color: '#8A5CD8', ink: '#FFF4DC', alt: { it: 'Una regina con il diadema e un triangolo con l’occhio sospeso sulla mano', en: 'A crowned queen with an all-seeing-eye triangle floating over her hand' }, bio: { it: '', en: '' } },
-        { name: 'Venusian Ronin', image: '/img/chars/venusian-ronin.webp', color: '#3FA34D', ink: '#0A0D24', alt: { it: 'Un guerriero insetto con ali di foglia e cappello di paglia, in posa di combattimento', en: 'An insect warrior with leaf wings and a straw hat in a fighting stance' }, bio: { it: '', en: '' } },
-        { name: 'Alligactor', image: '/img/chars/alligactor.webp', color: '#D9442B', ink: '#FFF4DC', alt: { it: 'Un alligatore elegante con cappello piumato che lancia carte da gioco', en: 'A dapper alligator in a plumed hat throwing playing cards' }, bio: { it: 'Bandito da ogni bar di Lizaurus per aver barato a qualsiasi gioco. Si è fatto reclutare imbrogliando, e in qualche modo ne esce sempre vivo.', en: 'Banned from every bar on Lizaurus for cheating at every game imaginable. He cheated his way into the job, and somehow he always comes out alive.' } },
-        { name: 'Chatblob', image: '/img/chars/chatblob.webp', color: '#9BE15D', ink: '#0A0D24', alt: { it: 'Una massa di gelatina verde piena di circuiti, cavi e schermi olografici', en: 'A green jelly blob full of circuits, wires and holographic screens' }, bio: { it: '', en: '' } },
-        { name: 'Lord Caramel', image: '/img/chars/lord-caramel.webp', color: '#EE7FB0', ink: '#0A0D24', alt: { it: 'Un cavaliere con l’armatura di biscotto decorata di confettini e una spada di cristallo rosa', en: 'A knight in sprinkle-studded cookie armour with a pink crystal sword' }, bio: { it: '', en: '' } },
+        { name: 'Prof Giraf', home: 'Savanya City', image: '/img/chars/prof-giraf.webp', color: '#F28C28', ink: '#0A0D24',
+          alt: { it: 'Prof Giraf, una giraffa con gli occhialoni che tiene il fuoco nel palmo della mano', en: 'Prof Giraf, a goggled giraffe holding fire in his palm' },
+          bio: { it: 'Amatissimo professore di arti arcane all’Università di Savanya City. L’NHR lo ha contattato dopo che aveva salvato il suo pianeta dai mostri: è in azienda da 12 anni.', en: 'A beloved professor of arcane arts at the University of Savanya City. NHR contacted him after he saved his planet from monstrosities: 12 years with the company.' },
+          ability: { it: 'Maestro degli incantesimi', en: 'Spell master' } },
+        { name: 'Lord Caramel', home: 'Candyloon', image: '/img/chars/lord-caramel.webp', color: '#EE7FB0', ink: '#0A0D24',
+          alt: { it: 'Lord Caramel, cavaliere con l’armatura di biscotto decorata di confettini e una spada di zucchero rosa', en: 'Lord Caramel, a knight in sprinkle-studded cookie armour with a pink sugar sword' },
+          bio: { it: 'Guerriero d’élite della tribù delle caramelle selvagge di Candyloon. Salvato da una Dream-ship quando un impero di robot ha conquistato il suo pianeta, da stagista è diventato Dreamspacer a tempo pieno in un anno.', en: 'An elite warrior of the wild candy tribe of Candyloon. Rescued by a Dream-ship when an evil robot empire conquered his planet, he went from intern to full-time Dreamspacer in a year.' },
+          ability: { it: 'Attacco altissimo', en: 'High attack' } },
+        { name: 'Chat Blob', home: 'Oozonia', image: '/img/chars/chatblob.webp', color: '#9BE15D', ink: '#0A0D24',
+          alt: { it: 'Chat Blob, una massa di gelatina verde piena di circuiti, cavi e schermi olografici', en: 'Chat Blob, a green ooze full of circuits, wires and holographic screens' },
+          bio: { it: 'Una melma di Oozonia che ha assorbito un portatile con dentro una misteriosa IA, diventando intelligente e curiosa. Fa il cacciatore di taglie perché adora mangiare cose. E creature.', en: 'An ooze from Oozonia that absorbed a laptop with a mysterious AI inside, gaining intelligence and curiosity. It hunts bounties because it loves eating things. And creatures.' },
+          ability: { it: 'Assorbimento cibernetico', en: 'Cyber absorption' } },
+        { name: 'Queen Illuminati', home: 'Terra D-34', image: '/img/chars/queen-illuminati.webp', color: '#8A5CD8', ink: '#FFF4DC',
+          alt: { it: 'Queen Illuminati, regina con il diadema e un triangolo con l’occhio sospeso sulla mano', en: 'Queen Illuminati, a crowned queen with an all-seeing-eye triangle above her hand' },
+          bio: { it: 'Esiliata dalla Terra D-34 perché minaccia per la democrazia, ha sedotto un ricco imprenditore per farsi portare alla Dreamspace. Poi ha controllato i pensieri dell’NHR ed è diventata subito Dreamspacer a tempo pieno.', en: 'Exiled from Earth D-34 as a threat to democracy, she charmed a rich entrepreneur into a trip to Dreamspace. Then she controlled NHR’s thoughts and became a full-time Dreamspacer on the spot.' },
+          ability: { it: 'Fascino e persuasione', en: 'Charm and persuasion' } },
+        { name: 'Venusian Ronin', home: 'Venere', image: '/img/chars/venusian-ronin.webp', color: '#3FA34D', ink: '#0A0D24',
+          alt: { it: 'Venusian Ronin, guerriero verde con ali di foglia e cappello di paglia, in posa di combattimento', en: 'Venusian Ronin, a green warrior with leaf wings and a straw hat in a fighting stance' },
+          bio: { it: 'Su una Venere diversa, un ronin lucertoloide in guerra contro i non morti per il dominio del pianeta. Dopo aver perso l’amata moglie è diventato uno dei cacciatori di taglie più temuti del suo universo.', en: 'On a different Venus, a lizardfolk ronin fighting the undead for the planet. After losing his beloved wife he became one of the most feared bounty hunters in his universe.' },
+          ability: { it: 'Difesa altissima', en: 'High defence' } },
+        { name: 'Alligactor', home: 'Lizaurus', image: '/img/chars/alligactor.webp', color: '#D9442B', ink: '#FFF4DC',
+          alt: { it: 'Alligactor, alligatore elegante con cappello piumato che lancia carte da gioco', en: 'Alligactor, a dapper alligator in a plumed hat throwing playing cards' },
+          bio: { it: 'Bandito da ogni bar di Lizaurus per aver barato a qualsiasi gioco, è diventato un viandante del multiverso. Si è fatto reclutare imbrogliando, e in qualche modo ne esce sempre vivo.', en: 'Banned from every bar and pub on Lizaurus for cheating, he became a wanderer of the multiverse. He cheated his way into the job, and somehow always comes out alive.' },
+          ability: { it: 'Barare e sperare nella fortuna', en: 'Cheating and luck' } },
       ],
     },
     howToPlay: {
-      title: { it: 'Un turno, cinque fasi', en: 'One turn, five phases' },
+      title: { it: 'Come si gioca', en: 'How to play' },
       steps: {
-        it: ['Movimento sulle zone del pianeta', 'Esplorazione della zona dove ti fermi', 'Combattimento con i dadi spada, scudo e pozione', 'Fase del Mascalzone', 'Recupero di salute e mana'],
-        en: ['Move across the planet’s zones', 'Explore the zone where you stop', 'Fight with sword, shield and potion dice', 'The Rascal phase', 'Recover health and mana'],
+        it: ['Esplora le zone misteriose di Marsylvania', 'Combatti i nemici sul tuo cammino', 'Potenziati con equipaggiamenti, incantesimi e alleati', 'Vinci sconfiggendo il Boss finale e il suo Scagnozzo'],
+        en: ['Explore the mysterious areas of Marsylvania', 'Fight the enemies in your path', 'Power up with equips, spells and allies', 'Win by defeating the Final Boss and its Henchman'],
       },
       note: {
         it: 'Nemici di cinque tipi: umani, animali, androidi, lupi mannari e vampiri. Più vi avvicinate al Boss finale, più si fanno duri.',
@@ -158,13 +203,29 @@ export const games: Game[] = [
       },
     },
     components: [
-      { n: '108', label: { it: 'carte', en: 'cards' } },
-      { n: '105', label: { it: 'token', en: 'tokens' } },
-      { n: '30', label: { it: 'zone del pianeta', en: 'planet zones' } },
-      { n: '8', label: { it: 'miniature', en: 'miniatures' } },
-      { n: '8', label: { it: 'dadi', en: 'dice' } },
-      { n: '6+2', label: { it: 'schede eroi e boss', en: 'hero and boss boards' } },
+      { n: '6', label: { it: 'Dreamspacer con miniatura', en: 'Dreamspacers with minis' } },
+      { n: '62', label: { it: 'carte Incontro', en: 'Encounter cards' } },
+      { n: '20', label: { it: 'Equipaggiamenti', en: 'Equips' } },
+      { n: '20', label: { it: 'Incantesimi', en: 'Spells' } },
+      { n: '12', label: { it: 'Alleati', en: 'Allies' } },
+      { n: '128', label: { it: 'token statistiche', en: 'stat tokens' } },
     ],
+    componentsExtra: {
+      it: 'Più tabellone, Boss finale con Scagnozzo, 10 Ostilità Planetarie, Boss di Nuwa e della Giungla con le loro Reliquie, maledizioni da licantropo e manuale introduttivo.',
+      en: 'Plus game board, Final Boss with Henchman, 10 Planetary Hostilities, Nuwa and Jungle Bosses with their Relics, lycanthropy curses and the introductory manual.',
+    },
+    team: {
+      title: { it: 'Chi c’è dietro', en: 'Who’s behind it' },
+      text: {
+        it: 'Tre amici, da sempre appassionati di giochi da tavolo, GDR e videogiochi. L’idea è nata dopo una partita a Talisman: renderlo più veloce e dare al fantasy classico una svolta tutta nuova. Marsylvania è solo il primo pianeta: il gioco è pensato per le espansioni.',
+        en: 'Three friends and long-time lovers of board games, RPGs and video games. The idea came after a game of Talisman: make it faster and give classic fantasy a fresh twist. Marsylvania is only the first planet: the game is built for expansions.',
+      },
+      people: [
+        { name: 'Michele Badolato', role: { it: 'Game designer', en: 'Game designer' } },
+        { name: 'Raffaele Guandalini', role: { it: 'Game designer', en: 'Game designer' } },
+        { name: 'Francesco Moretti', role: { it: 'Graphic designer', en: 'Graphic designer' } },
+      ],
+    },
   },
   {
     kind: 'game',

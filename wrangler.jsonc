@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Deve coincidere con il nome del Worker su Cloudflare
+  "name": "dreamspace-sito",
+  "compatibility_date": "2026-11-17",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}
