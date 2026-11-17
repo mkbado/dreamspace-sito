@@ -1,0 +1,26 @@
+---
+interface Props { wide?: boolean; label: string }
+const { wide = false, label } = Astro.props;
+const W = wide ? 128 : 64;
+const o = wide ? 32 : 0; // spostamento dell'abbazia nella versione larga
+const stars = wide
+  ? [[6,6],[14,10],[28,4],[48,7],[84,5],[96,9],[118,12],[10,22],[44,20],[82,21],[112,27],[33,26]]
+  : [[6,6],[14,10],[20,4],[44,8],[60,12],[10,24],[50,22],[33,8]];
+const mountains = wide
+  ? '0,28 14,16 24,24 40,10 52,22 64,14 76,24 90,12 104,24 116,18 128,24 128,40 0,40'
+  : '0,30 10,18 18,26 28,12 38,24 46,16 56,26 64,20 64,40 0,40';
+---
+<svg viewBox={`0 0 ${W} 40`} preserveAspectRatio="xMidYMid slice" shape-rendering="crispEdges" role="img" aria-label={label}>
+  <rect width={W} height="40" fill="#1B2150" />
+  <rect x={W - 12} y="4" width="4" height="4" fill="#E9E4F2" /><rect x={W - 13} y="5" width="6" height="2" fill="#E9E4F2" />
+  <polygon points={mountains} fill="#2B3478" />
+  <rect y="32" width={W} height="8" fill="#E9E4F2" />
+  <polygon points={`${21 + o},24 ${32 + o},19 ${43 + o},24`} fill="#5A4560" />
+  <rect x={22 + o} y="24" width="20" height="8" fill="#3A2F45" />
+  <rect x={36 + o} y="14" width="5" height="18" fill="#3A2F45" />
+  <polygon points={`${35 + o},14 ${38.5 + o},10 ${42 + o},14`} fill="#5A4560" />
+  <rect x={38 + o} y="6" width="1" height="4" fill="#C9B48A" /><rect x={37 + o} y="7" width="3" height="1" fill="#C9B48A" />
+  <rect x={25 + o} y="26" width="2" height="3" fill="#F2A33A" /><rect x={33 + o} y="26" width="2" height="3" fill="#F2A33A" /><rect x={38 + o} y="17" width="1" height="2" fill="#F2A33A" />
+  <rect x={29 + o} y="28" width="3" height="4" fill="#1B1424" />
+  {stars.map(([x, y]) => <rect x={x} y={y} width="1" height="1" fill="#FFFFFF" />)}
+</svg>

@@ -1,0 +1,248 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PixelAbbey from '../../../components/PixelAbbey.astro';
+import PixelTable from '../../../components/PixelTable.astro';
+import KofiBand from '../../../components/KofiBand.astro';
+import { t, langs, otherLang, sections, type Lang } from '../../../i18n/ui';
+import { games, rpgs, type Game, type Rpg } from '../../../data/catalog';
+import { itemPath } from '../../../data/paths';
+
+export function getStaticPaths() {
+  return langs.flatMap((lang) => [
+    ...games.map((item) => ({ params: { lang, section: sections[lang].games, slug: item.slug }, props: { item } })),
+    ...rpgs.map((item) => ({ params: { lang, section: sections[lang].rpg, slug: item.slug }, props: { item } })),
+  ]);
+}
+
+const lang = Astro.params.lang as Lang;
+const { item } = Astro.props as { item: Game | Rpg };
+const alt = itemPath(otherLang(lang), item);
+const L = (it: string, en: string) => (lang === 'it' ? it : en);
+const g = item.kind === 'game' ? item : null;
+const r = item.kind === 'rpg' ? item : null;
+---
+{g && (
+<Base lang={lang} title={g.title} description={g.short[lang]} altPath={alt}>
+  <section class="container stack" style="padding-block: 40px 72px; gap: 28px;">
+    <nav class="crumbs" aria-label={L('Percorso', 'Breadcrumb')}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › <a href={`/${lang}/#giochi`}>{t(lang, 'nav.games')}</a> › {g.title}</nav>
+    <div class="row" style="gap: 48px; align-items: flex-start;">
+      <div class="window" style="flex: 1 1 520px; min-width: 0;">
+        <div class="window__bar"><span>{g.slug.toUpperCase()}.PNG</span><span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        {g.image
+          ? <img src={g.image} width="560" height="312" alt={g.imageAlt![lang]} style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover;" />
+          : <div style="aspect-ratio: 16 / 9; background: #ffe9c2;"><PixelTable label={L('Otto ospiti a tavola, ognuno vestito di un colore diverso', 'Eight guests at a table, each dressed in a different colour')} /></div>}
+      </div>
+      <div class="stack" style="flex: 1 1 400px; min-width: 0; gap: 20px;">
+        <p class="label" style="margin: 0; color: var(--teal);">{g.tag[lang]}</p>
+        <h1 class="pixel" style="font-size: clamp(38px, 5vw, 56px);">{g.title}</h1>
+        <div class="row" style="gap: 12px;">
+          <div class="stat"><b>{g.players}</b><span>{t(lang, 'game.players')}</span></div>
+          <div class="stat"><b>{g.minutes}</b><span>{t(lang, 'game.minutes')}</span></div>
+          <div class="stat"><b>{g.age}</b><span>{t(lang, 'game.age')}</span></div>
+        </div>
+        <p style="margin: 0; font-size: 18px; color: #dde1f7;">{g.pitch[lang]}</p>
+        <div class="notify" id="avvisami">
+          <p class="label" style="color: var(--teal);">{t(lang, 'game.status')}: {g.status[lang]}</p>
+          <form class="js-interest" action="#" method="post" data-msg={t(lang, 'list.soon')}>
+            <label class="sr-only" for="email-g">{t(lang, 'list.email')}</label>
+            <input id="email-g" name="email" type="email" required autocomplete="email" placeholder={t(lang, 'list.email')} />
+            <input type="hidden" name="giochi" value={g.slug} />
+            <button class="btn btn--orange" type="submit">{t(lang, 'card.notify')}</button>
+          </form>
+          <p class="form-msg" role="status" aria-live="polite" style="color: var(--teal);"></p>
+          <p style="font-size: 14px; color: var(--soft);"><strong style="color: var(--cream);">{g.waiting} {g.slug === 'marsylvania' ? 'Dreamspacer' : L('commensali', 'diners')}</strong> {t(lang, 'game.waitingLine')}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {g.briefing && (
+    <section class="band-cream">
+      <div class="container row pad" style="gap: 48px;">
+        <div class="stack" style="flex: 1 1 520px; min-width: 0; gap: 16px;">
+          <p class="label" style="margin: 0; color: var(--orange-ink);">{g.briefing.kicker[lang]}</p>
+          <h2 class="pixel" style="font-size: 40px;">{g.briefing.title[lang]}</h2>
+          {g.briefing.paragraphs[lang].map((p) => <p style="margin: 0;">{p}</p>)}
+        </div>
+        <div class="stack" style="flex: 1 1 360px; min-width: 0; gap: 16px;">
+          {g.briefing.areas.map((a) => (
+            <div class="panel" style={a.dark ? 'background: var(--night); color: var(--cream);' : 'background: #fff;'}>
+              <p class="label" style={`margin: 0 0 6px; color: ${a.dark ? 'var(--teal)' : 'var(--orange-ink)'};`}>{a.label[lang]}</p>
+              <h3>{a.title[lang]}</h3>
+              <p style={a.dark ? 'color: #dde1f7;' : ''}>{a.text[lang]}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {g.characters && (
+    <section class="container stack" style="padding-block: 80px; gap: 28px;">
+      <div class="row" style="align-items: end; justify-content: space-between; gap: 12px;">
+        <h2 class="pixel" style="font-size: 40px;">{g.characters.title[lang]}</h2>
+        <p class="muted" style="margin: 0; font-size: 14px;">{g.characters.note[lang]}</p>
+      </div>
+      <div class="row" style="gap: 20px;">
+        {g.characters.list.map((c) => (
+          <article class="hero-card">
+            <div class="hero-card__name" style={`background: ${c.color}; color: ${c.ink};`}>{c.name}</div>
+            <div class="hero-card__img"><img src={c.image} alt={c.alt[lang]} loading="lazy" /></div>
+            {c.bio[lang] ? <p>{c.bio[lang]}</p> : <p class="todo">{L('[Una riga su chi è e da dove viene]', '[One line on who they are and where they come from]')}</p>}
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {g.howToPlay && (
+    <section class="container row" style="padding-bottom: 80px; gap: 48px; align-items: center;">
+      <div class="stack" style="flex: 1 1 440px; min-width: 0; gap: 20px;">
+        <h2 class="pixel" style="font-size: 40px;">{g.howToPlay.title[lang]}</h2>
+        <ol class="phases">{g.howToPlay.steps[lang].map((s) => <li>{s}</li>)}</ol>
+        <p style="margin: 0; color: var(--soft);">{g.howToPlay.note[lang]}</p>
+      </div>
+      {g.howToPlay.image && (
+        <div class="window" style="flex: 1 1 440px; min-width: 0;">
+          <img src={g.howToPlay.image} width="920" height="530" alt={g.howToPlay.imageAlt![lang]} loading="lazy" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover;" />
+        </div>
+      )}
+    </section>
+  )}
+
+  {g.guests && (
+    <section class="band-cream">
+      <div class="container stack pad" style="gap: 24px;">
+        <h2 class="pixel" style="font-size: 40px;">{L('Gli ospiti', 'The guests')}</h2>
+        <div class="guests">
+          {g.guests.map((x) => <div class="guest"><i style={`background: ${x.color};`}></i><span>{x.name[lang]}</span></div>)}
+        </div>
+        <p style="margin: 0; font-size: 14px; color: var(--text-dim);">{L('Gioco in sviluppo: regole e carte possono cambiare.', 'Game in development: rules and cards may change.')}</p>
+      </div>
+    </section>
+  )}
+
+  {g.components && (
+    <section class="band-cream" style="border-bottom: 0;">
+      <div class="container stack" style="padding-block: 64px; gap: 24px;">
+        <div class="row" style="align-items: end; justify-content: space-between; gap: 12px;">
+          <h2 class="pixel" style="font-size: 36px;">{t(lang, 'game.components')}</h2>
+          <p style="margin: 0; font-size: 14px; color: var(--text-dim);">{t(lang, 'game.componentsNote')}</p>
+        </div>
+        <div class="row" style="gap: 14px;">
+          {g.components.map((c) => <div class="box"><b>{c.n}</b>{c.label[lang]}</div>)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="band-orange">
+    <div class="container row" style="padding-block: 48px; align-items: center; justify-content: space-between; gap: 24px;">
+      <h2 class="pixel" style="flex: 1 1 520px; font-size: 34px;">{t(lang, 'game.cta')}</h2>
+      <a class="btn btn--dark btn--big" href="#avvisami">{t(lang, 'card.notify')}</a>
+    </div>
+  </section>
+</Base>
+)}
+
+{r && (
+<Base lang={lang} title={r.title} description={r.short[lang]} altPath={alt} bodyClass="skin-coro" extraFonts>
+  <section style="border-bottom: 4px solid var(--black);">
+    <div style="height: clamp(240px, 38vw, 460px); overflow: hidden; background: #1b2150;">
+      <PixelAbbey wide label={L("L'abbazia di Santa Maria del Silenzio sulla montagna, di notte, sotto la prima neve", 'The abbey of Santa Maria del Silenzio on the mountain at night, under the first snow')} />
+    </div>
+  </section>
+
+  <section class="container row" style="padding-block: 48px 64px; gap: 48px;">
+    <div class="stack" style="flex: 1 1 560px; min-width: 0; gap: 20px;">
+      <nav class="crumbs" aria-label={L('Percorso', 'Breadcrumb')} style="color: #a89bb8;"><a href={`/${lang}/`} style="color: #a89bb8;">{t(lang, 'crumb.home')}</a> › <a href={`/${lang}/#gdr`} style="color: #a89bb8;">{t(lang, 'nav.rpg')}</a> › {r.title}</nav>
+      <p class="label" style="margin: 0; color: #f2a33a;">{r.series[lang]} · {L('gratis', 'free')}</p>
+      <h1 class="pixel" style="font-size: clamp(42px, 6vw, 72px); line-height: 1;">{r.title}</h1>
+      <p class="serif" style="margin: 0; font-size: 22px; line-height: 1.5;">{r.pitch[lang][0]}</p>
+      <p class="serif" style="margin: 0; font-size: 19px; line-height: 1.6; color: #d8ccba;">{r.pitch[lang][1]}</p>
+      <div class="row" style="gap: 12px; padding-top: 8px;">
+        <a class="btn btn--big coro-btn" href="#download">{t(lang, 'card.download')}</a>
+        <a class="btn btn--big coro-btn--outline" href="#romanzo">{t(lang, 'card.read')}</a>
+      </div>
+    </div>
+    <aside class="stack" style="flex: 1 1 320px; min-width: 0; gap: 16px;">
+      <div class="sheet">
+        <div class="sheet__bar">{t(lang, 'rpg.sheet')}</div>
+        <dl>
+          <dt>{t(lang, 'rpg.players')}</dt><dd>{r.players[lang]}</dd>
+          <dt>{t(lang, 'rpg.length')}</dt><dd>{r.length[lang]}</dd>
+          <dt>{t(lang, 'rpg.genre')}</dt><dd>{r.genre[lang]}</dd>
+          <dt>{t(lang, 'rpg.rules')}</dt><dd>{r.rules}</dd>
+          <dt>{t(lang, 'rpg.langs')}</dt><dd>{r.languages[lang]}</dd>
+        </dl>
+      </div>
+      <div class="warn">
+        <p class="label" style="margin: 0; color: #ff8a73;">{t(lang, 'rpg.warning')}</p>
+        <p style="margin: 0; font-size: 15px;">{r.warning[lang]}</p>
+      </div>
+    </aside>
+  </section>
+
+  <section id="download" style="background: #f3eadb; color: #15111f; border-block: 4px solid var(--black);">
+    <div class="container stack pad" style="gap: 24px;">
+      <div class="row" style="align-items: end; justify-content: space-between; gap: 16px;">
+        <h2 class="pixel" style="font-size: 40px;">{t(lang, 'rpg.files')}</h2>
+        <a class="btn" href="#" style="background: #15111f; color: #f2a33a;">{t(lang, 'rpg.zip')}</a>
+      </div>
+      <div class="files">
+        {r.files.map((f) => (
+          <div class="file">
+            <div style="flex: 1 1 320px; min-width: 0;"><strong>{f.title[lang]}</strong><small>{f.desc[lang]}</small></div>
+            <div class="dl">
+              <a href={f.it}>PDF IT</a>
+              {f.en ? <a href={f.en}>PDF EN</a> : <span>EN {t(lang, 'rpg.soon')}</span>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="container stack" style="padding-block: 72px; gap: 24px;">
+    <h2 class="pixel" style="font-size: 40px;">{r.series[lang].split(' · ')[0]}</h2>
+    <p style="margin: 0; max-width: 680px; color: #d8ccba;">{r.investigatorsIntro[lang]}</p>
+    <div class="row" style="gap: 16px;">
+      {r.investigators.map((i) => <div class="inv"><strong>{i.name}</strong><span>{i.role[lang]}</span></div>)}
+    </div>
+  </section>
+
+  <section id="romanzo" style="border-top: 4px solid var(--black); background: #1e1828;">
+    <div class="container row pad" style="gap: 48px;">
+      <div class="stack" style="flex: 1 1 440px; min-width: 0; gap: 16px;">
+        <p class="label" style="margin: 0; color: #f2a33a;">{t(lang, 'rpg.novel.kicker')}</p>
+        <h2 class="pixel" style="font-size: 40px;">{t(lang, 'rpg.novel.title')}</h2>
+        <p class="serif" style="margin: 0; font-size: 19px; line-height: 1.6; color: #d8ccba;">{r.novelText[lang]}</p>
+        {lang === 'en' && <p style="margin: 0; font-size: 14px; color: #a89bb8;">The novel is in Italian for now; the English translation will follow.</p>}
+        <div class="row" style="gap: 12px; padding-top: 8px; align-items: center;">
+          <a class="btn coro-btn" href="#">{t(lang, 'rpg.novel.first')}</a>
+          <a href={`/${lang}/#lista`} style="font-family: var(--font-label); font-size: 15px;">{t(lang, 'rpg.novel.notify')}</a>
+        </div>
+      </div>
+      <ol class="chapters">
+        {r.chapters.map((c, i) => <li><b>{String(i + 1).padStart(2, '0')}</b><a href="#">{c}</a></li>)}
+        <li><b style="color: #8a8296;">{String(r.chapters.length + 1).padStart(2, '0')}</b><span class="label" style="font-size: 13px;">{t(lang, 'rpg.novel.next')}</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <KofiBand lang={lang} title={r.kofi[lang].title} text={r.kofi[lang].text} coro />
+
+  <p slot="licence" style="margin: 0; font-size: 13px; color: var(--mute);">{r.licence[lang]}</p>
+</Base>
+)}
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('form.js-interest').forEach((f) => {
+    f.addEventListener('submit', (e) => {
+      if (f.getAttribute('action') !== '#') return;
+      e.preventDefault();
+      const out = f.parentElement?.querySelector('.form-msg');
+      if (out) out.textContent = f.dataset.msg ?? '';
+    });
+  });
+</script>

@@ -1,0 +1,21 @@
+{
+  "name": "dreamspace-sito",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fontsource-variable/pixelify-sans": "^5.3.0",
+    "@fontsource-variable/space-grotesk": "^5.3.0",
+    "@fontsource/silkscreen": "^5.3.0",
+    "@fontsource/spectral": "^5.3.0",
+    "astro": "^7.4.12"
+  },
+  "type": "module",
+  "private": true
+}

@@ -1,0 +1,101 @@
+---
+import '@fontsource-variable/pixelify-sans';
+import '@fontsource-variable/space-grotesk';
+import '@fontsource/silkscreen/400.css';
+import '@fontsource/silkscreen/700.css';
+import '@fontsource/spectral/400.css';
+import '@fontsource/spectral/400-italic.css';
+import '@fontsource/spectral/600.css';
+import '../styles/global.css';
+import { t, otherLang, langs, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description?: string;
+  /** percorso della stessa pagina nell'altra lingua, es. /en/games/marsylvania/ */
+  altPath: string;
+  bodyClass?: string;
+  extraFonts?: boolean;
+}
+
+const { lang, title, description = t(lang, 'meta.description'), altPath, bodyClass = 'stars', extraFonts = false } = Astro.props;
+const other = otherLang(lang);
+const here = Astro.url.pathname;
+const fullTitle = title === 'Dreamspace Ltd' ? title : `${title} · Dreamspace Ltd`;
+const year = new Date().getFullYear();
+---
+<!doctype html>
+<html lang={lang}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="alternate" hreflang={lang} href={new URL(here, Astro.site)} />
+  <link rel="alternate" hreflang={other} href={new URL(altPath, Astro.site)} />
+  <link rel="alternate" hreflang="x-default" href={new URL(lang === 'it' ? here : altPath, Astro.site)} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={new URL('/img/castello.webp', Astro.site)} />
+  <meta name="theme-color" content="#12163a" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+</head>
+<body class={bodyClass}>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href={`/${lang}/`} aria-label="Dreamspace Ltd, Home"><b>DREAMSPACE</b><span>LTD</span></a>
+      <nav class="nav" aria-label={t(lang, 'nav.menu')}>
+        <a href={`/${lang}/#giochi`}>{t(lang, 'nav.games')}</a>
+        <a href={`/${lang}/#gdr`}>{t(lang, 'nav.rpg')}</a>
+        <a href={`/${lang}/#romanzi`}>{t(lang, 'nav.novels')}</a>
+        <a href={`/${lang}/#chi-siamo`}>{t(lang, 'nav.about')}</a>
+        <span class="lang">
+          {langs.map((l, i) => (
+            <>
+              {i > 0 && <span aria-hidden="true">/</span>}
+              <a href={l === lang ? here : altPath} hreflang={l} lang={l} aria-current={l === lang ? 'true' : undefined}>{l.toUpperCase()}</a>
+            </>
+          ))}
+        </span>
+        <a class="btn btn--teal" href={`/${lang}/#sostienici`}>{t(lang, 'nav.support')}</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="site-footer" id="chi-siamo">
+    <div class="container stack" style="padding-block: 56px 32px; gap: 40px;">
+      <div class="cols">
+        <div class="stack" style="flex: 1 1 280px; min-width: 0; gap: 10px;">
+          <span style="font-family: var(--font-label); font-weight: 700; font-size: 22px; color: var(--orange);">DREAMSPACE LTD</span>
+          <p style="margin: 0; color: var(--soft); font-size: 15px;">{t(lang, 'footer.about')}</p>
+        </div>
+        <nav aria-label={t(lang, 'footer.catalog')}>
+          <span class="label muted" style="font-size: 12px;">{t(lang, 'footer.catalog')}</span>
+          <a href={`/${lang}/#giochi`}>{t(lang, 'nav.games')}</a>
+          <a href={`/${lang}/#gdr`}>{t(lang, 'nav.rpg')}</a>
+          <a href={`/${lang}/#romanzi`}>{t(lang, 'nav.novels')}</a>
+        </nav>
+        <nav aria-label="Dreamspace">
+          <span class="label muted" style="font-size: 12px;">Dreamspace</span>
+          <a href="#">{t(lang, 'nav.about')}</a>
+          <a href="#">{t(lang, 'footer.news')}</a>
+          <a href="#">{t(lang, 'footer.contact')}</a>
+        </nav>
+        <nav aria-label={t(lang, 'footer.legal')}>
+          <span class="label muted" style="font-size: 12px;">{t(lang, 'footer.legal')}</span>
+          <a href="#">{t(lang, 'footer.privacy')}</a>
+          <a href="#">{t(lang, 'footer.cookies')}</a>
+          <a href="#">{t(lang, 'footer.notes')}</a>
+        </nav>
+      </div>
+      <slot name="licence" />
+      <p class="fine">{t(lang, 'footer.disclaimer')} · © {year}</p>
+    </div>
+  </footer>
+</body>
+</html>

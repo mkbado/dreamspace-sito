@@ -1,0 +1,22 @@
+---
+// La radice manda alla lingua del browser: inglese se non è italiano
+---
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <title>Dreamspace Ltd</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="alternate" hreflang="it" href="/it/" />
+  <link rel="alternate" hreflang="en" href="/en/" />
+  <meta http-equiv="refresh" content="0; url=/it/" />
+  <script is:inline>
+    var l = (navigator.languages && navigator.languages[0]) || navigator.language || 'it';
+    location.replace(l.toLowerCase().indexOf('it') === 0 ? '/it/' : '/en/');
+  </script>
+  <style>body{margin:0;background:#12163a;color:#fff4dc;font-family:system-ui,sans-serif;display:grid;place-items:center;min-height:100vh}</style>
+</head>
+<body>
+  <p><a href="/it/" style="color:#2ec4b6">Italiano</a> · <a href="/en/" style="color:#2ec4b6">English</a></p>
+</body>
+</html>

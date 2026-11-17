@@ -1,0 +1,106 @@
+---
+import Base from '../../layouts/Base.astro';
+import PixelAbbey from '../../components/PixelAbbey.astro';
+import PixelTable from '../../components/PixelTable.astro';
+import InterestForm from '../../components/InterestForm.astro';
+import KofiBand from '../../components/KofiBand.astro';
+import { t, langs, otherLang, type Lang } from '../../i18n/ui';
+import { games, rpgs } from '../../data/catalog';
+import { itemPath } from '../../data/paths';
+
+export function getStaticPaths() {
+  return langs.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const mars = games.find((g) => g.slug === 'marsylvania')!;
+const into = games.find((g) => g.slug === 'intolleranti')!;
+const coro = rpgs.find((r) => r.slug === 'la-notte-del-coro')!;
+const L = (it: string, en: string) => (lang === 'it' ? it : en);
+---
+<Base lang={lang} title="Dreamspace Ltd" altPath={`/${otherLang(lang)}/`}>
+  <section class="container row" style="padding-block: 72px 80px; align-items: center; gap: 48px;">
+    <div class="stack" style="flex: 1 1 480px; min-width: 0; gap: 24px;">
+      <p class="label" style="margin: 0; color: var(--teal);">{t(lang, 'home.kicker')}</p>
+      <h1 class="pixel h1">{t(lang, 'home.title')}</h1>
+      <div class="bubble">
+        <p set:html={t(lang, 'home.bubble')} />
+        <p class="sig">{t(lang, 'home.signature')}</p>
+      </div>
+      <div class="row" style="gap: 16px; padding-top: 8px;">
+        <a class="btn btn--orange btn--big" href="#catalogo">{t(lang, 'home.cta.catalog')}</a>
+        <a class="btn btn--outline btn--big" href={itemPath(lang, mars)}>{t(lang, 'home.cta.notify')}</a>
+      </div>
+      <div class="row" style="gap: 10px;">
+        <span class="chip">{t(lang, 'home.chip.free')}</span>
+        <span class="chip">{t(lang, 'home.chip.langs')}</span>
+        <span class="chip">{t(lang, 'home.chip.mobile')}</span>
+      </div>
+    </div>
+    <div class="window" style="flex: 1 1 380px; min-width: 0; max-width: 460px; margin: 0 auto;">
+      <div class="window__bar"><span>MARSYLVANIA.EXE</span><span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+      <img src="/img/castello.webp" width="782" height="770" alt={L('Un castello gotico su una rupe di Marte, sotto un pianeta rosso enorme e un cielo pieno di pipistrelli, in pixel art', 'A gothic castle on a Martian crag under a huge red planet and a sky full of bats, in pixel art')} style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; image-rendering: pixelated;" />
+    </div>
+  </section>
+
+  <section id="catalogo" class="band-cream">
+    <div class="container stack pad" style="gap: 32px;">
+      <h2 class="pixel h2">{t(lang, 'home.catalog.title')}</h2>
+      <div class="cards">
+        <article id="giochi" class="card">
+          <div class="card__media"><img src={mars.image} width="560" height="312" alt={mars.imageAlt![lang]} loading="lazy" /></div>
+          <div class="card__body">
+            <p class="card__tag">{mars.tag[lang]}</p>
+            <h3 class="pixel h3">{mars.title}</h3>
+            <p class="card__meta">{mars.players} {t(lang, 'game.players')} · {mars.minutes} {t(lang, 'game.minutes')} · {mars.age}</p>
+            <p>{mars.short[lang]}</p>
+            <div class="card__foot">
+              <span class="card__wait">{mars.waiting} Dreamspacer {t(lang, 'card.waiting')}</span>
+              <a class="btn btn--orange" href={itemPath(lang, mars)}>{t(lang, 'card.notify')}</a>
+            </div>
+          </div>
+        </article>
+
+        <article id="gdr" class="card">
+          <div class="card__media"><PixelAbbey label={L("Un'abbazia di montagna nella neve, di notte, con le finestre accese", 'A mountain abbey in the snow at night, its windows lit')} /></div>
+          <div class="card__body">
+            <p class="card__tag" style="color: #6b4a2b;">{coro.tag[lang]}</p>
+            <h3 id="romanzi" class="pixel h3">{coro.title}</h3>
+            <p class="card__meta">{coro.players[lang]} · {coro.length[lang]}</p>
+            <p>{coro.short[lang]}</p>
+            <div class="card__foot" style="justify-content: flex-start;">
+              <a class="btn btn--orange" href={itemPath(lang, coro)}>{t(lang, 'card.download')}</a>
+              <a href={`${itemPath(lang, coro)}#romanzo`} style="font-family: var(--font-label); font-size: 14px; color: var(--night);">{t(lang, 'card.read')}</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__media" style="background: #ffe9c2;"><PixelTable label={L('Otto ospiti a tavola, ognuno vestito di un colore diverso', 'Eight guests at a table, each dressed in a different colour')} /></div>
+          <div class="card__body">
+            <p class="card__tag">{into.tag[lang]}</p>
+            <h3 class="pixel h3">{into.title}</h3>
+            <p class="card__meta">{into.players} {t(lang, 'game.players')} · {into.minutes} · {into.age}</p>
+            <p>{into.short[lang]}</p>
+            <div class="card__foot">
+              <span class="card__wait">{into.waiting} {L('commensali', 'diners')} {t(lang, 'card.waiting')}</span>
+              <a class="btn btn--orange" href={itemPath(lang, into)}>{t(lang, 'card.notify')}</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="container stack" style="padding-block: 80px; gap: 32px;">
+    <h2 class="pixel h2">{t(lang, 'home.how.title')}</h2>
+    <div class="steps">
+      <div class="step"><b style="color: var(--orange);">01</b><h3>{t(lang, 'home.how.1.t')}</h3><p>{t(lang, 'home.how.1.d')}</p></div>
+      <div class="step"><b style="color: var(--teal);">02</b><h3>{t(lang, 'home.how.2.t')}</h3><p>{t(lang, 'home.how.2.d')}</p></div>
+      <div class="step"><b style="color: #f2c230;">03</b><h3>{t(lang, 'home.how.3.t')}</h3><p>{t(lang, 'home.how.3.d')}</p></div>
+    </div>
+  </section>
+
+  <InterestForm lang={lang} />
+  <KofiBand lang={lang} />
+</Base>
