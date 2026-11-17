@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import PixelAbbey from '../../../components/PixelAbbey.astro';
 import PixelTable from '../../../components/PixelTable.astro';
 import KofiBand from '../../../components/KofiBand.astro';
+import NotifyBox from '../../../components/NotifyBox.astro';
 import { t, langs, otherLang, sections, type Lang } from '../../../i18n/ui';
 import { games, rpgs, type Game, type Rpg } from '../../../data/catalog';
 import { itemPath } from '../../../data/paths';
@@ -23,15 +24,20 @@ const r = item.kind === 'rpg' ? item : null;
 ---
 {g && (
 <Base lang={lang} title={g.title} description={g.short[lang]} altPath={alt}>
+  {g.banner && (
+    <section style="border-bottom: 4px solid var(--black); background: var(--black);">
+      <img src={g.banner} width="1881" height="836" alt={g.bannerAlt![lang]} style="width: 100%; max-height: 640px; object-fit: cover; object-position: center;" />
+    </section>
+  )}
   <section class="container stack" style="padding-block: 40px 72px; gap: 28px;">
     <nav class="crumbs" aria-label={L('Percorso', 'Breadcrumb')}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › <a href={`/${lang}/#giochi`}>{t(lang, 'nav.games')}</a> › {g.title}</nav>
     <div class="row" style="gap: 48px; align-items: flex-start;">
-      <div class="window" style="flex: 1 1 520px; min-width: 0;">
+      {!g.banner && <div class="window" style="flex: 1 1 520px; min-width: 0;">
         <div class="window__bar"><span>{g.slug.toUpperCase()}.PNG</span><span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
         {g.image
           ? <img src={g.image} width="560" height="312" alt={g.imageAlt![lang]} style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover;" />
           : <div style="aspect-ratio: 16 / 9; background: #ffe9c2;"><PixelTable label={L('Otto ospiti a tavola, ognuno vestito di un colore diverso', 'Eight guests at a table, each dressed in a different colour')} /></div>}
-      </div>
+      </div>}
       <div class="stack" style="flex: 1 1 400px; min-width: 0; gap: 20px;">
         <p class="label" style="margin: 0; color: var(--teal);">{g.tag[lang]}</p>
         <h1 class="pixel" style="font-size: clamp(38px, 5vw, 56px);">{g.title}</h1>
@@ -41,18 +47,9 @@ const r = item.kind === 'rpg' ? item : null;
           <div class="stat"><b>{g.age}</b><span>{t(lang, 'game.age')}</span></div>
         </div>
         <p style="margin: 0; font-size: 18px; color: #dde1f7;">{g.pitch[lang]}</p>
-        <div class="notify" id="avvisami">
-          <p class="label" style="color: var(--teal);">{t(lang, 'game.status')}: {g.status[lang]}</p>
-          <form class="js-interest" action="#" method="post" data-msg={t(lang, 'list.soon')}>
-            <label class="sr-only" for="email-g">{t(lang, 'list.email')}</label>
-            <input id="email-g" name="email" type="email" required autocomplete="email" placeholder={t(lang, 'list.email')} />
-            <input type="hidden" name="giochi" value={g.slug} />
-            <button class="btn btn--orange" type="submit">{t(lang, 'card.notify')}</button>
-          </form>
-          <p class="form-msg" role="status" aria-live="polite" style="color: var(--teal);"></p>
-          <p style="font-size: 14px; color: var(--soft);"><strong style="color: var(--cream);">{g.waiting} {g.slug === 'marsylvania' ? 'Dreamspacer' : L('commensali', 'diners')}</strong> {t(lang, 'game.waitingLine')}</p>
-        </div>
+        {!g.banner && <NotifyBox lang={lang} game={g} />}
       </div>
+      {g.banner && <div style="flex: 1 1 380px; min-width: 0; align-self: center;"><NotifyBox lang={lang} game={g} /></div>}
     </div>
   </section>
 

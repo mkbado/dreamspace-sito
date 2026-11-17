@@ -17,6 +17,8 @@ export interface Game {
   title: string;
   image?: string;
   imageAlt?: L<string>;
+  banner?: string;
+  bannerAlt?: L<string>;
   pixelArt?: 'table';
   tag: L<string>;
   status: L<string>;
@@ -66,10 +68,15 @@ export const games: Game[] = [
     kind: 'game',
     slug: 'marsylvania',
     title: 'Dreamspace: Mission to Marsylvania',
-    image: '/img/crew.webp',
+    image: '/img/card-marsylvania.webp',
     imageAlt: {
-      it: 'Quattro Dreamspacer animali armati di blaster attraversano il deserto di Marte, in pixel art',
-      en: 'Four animal Dreamspacers with blasters crossing the Martian desert, in pixel art',
+      it: 'Prof Giraf e Queen Illuminati affrontano vampiri e un drago tra le rovine rosse di Marsylvania, in pixel art',
+      en: 'Prof Giraf and Queen Illuminati face vampires and a dragon among the red ruins of Marsylvania, in pixel art',
+    },
+    banner: '/img/marsylvania-banner.webp',
+    bannerAlt: {
+      it: 'I sei Dreamspacer a caccia di taglie su Marsylvania: vampiri, un verme gigante, draghi e soldati dell\u2019Alleanza tra canyon rossi e castelli gotici, in pixel art',
+      en: 'The six Dreamspacers bounty hunting on Marsylvania: vampires, a giant worm, dragons and Alliance soldiers among red canyons and gothic castles, in pixel art',
     },
     tag: { it: 'Gioco da tavolo · cooperativo', en: 'Board game · co-op' },
     status: { it: 'In sviluppo · Kickstarter in arrivo', en: 'In development · Kickstarter coming' },

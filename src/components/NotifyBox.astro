@@ -1,0 +1,18 @@
+---
+import { t, type Lang } from '../i18n/ui';
+import type { Game } from '../data/catalog';
+interface Props { lang: Lang; game: Game }
+const { lang, game: g } = Astro.props;
+const L = (it: string, en: string) => (lang === 'it' ? it : en);
+---
+<div class="notify" id="avvisami">
+          <p class="label" style="color: var(--teal);">{t(lang, 'game.status')}: {g.status[lang]}</p>
+          <form class="js-interest" action="#" method="post" data-msg={t(lang, 'list.soon')}>
+            <label class="sr-only" for="email-g">{t(lang, 'list.email')}</label>
+            <input id="email-g" name="email" type="email" required autocomplete="email" placeholder={t(lang, 'list.email')} />
+            <input type="hidden" name="giochi" value={g.slug} />
+            <button class="btn btn--orange" type="submit">{t(lang, 'card.notify')}</button>
+          </form>
+          <p class="form-msg" role="status" aria-live="polite" style="color: var(--teal);"></p>
+          <p style="font-size: 14px; color: var(--soft);"><strong style="color: var(--cream);">{g.waiting} {g.slug === 'marsylvania' ? 'Dreamspacer' : L('commensali', 'diners')}</strong> {t(lang, 'game.waitingLine')}</p>
+        </div>

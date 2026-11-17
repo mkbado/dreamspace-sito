@@ -39,7 +39,7 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
     </div>
     <div class="window" style="flex: 1 1 380px; min-width: 0; max-width: 460px; margin: 0 auto;">
       <div class="window__bar"><span>MARSYLVANIA.EXE</span><span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
-      <img src="/img/castello.webp" width="782" height="770" alt={L('Un castello gotico su una rupe di Marte, sotto un pianeta rosso enorme e un cielo pieno di pipistrelli, in pixel art', 'A gothic castle on a Martian crag under a huge red planet and a sky full of bats, in pixel art')} style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; image-rendering: pixelated;" />
+      <img src="/img/hero-caccia.webp" width="740" height="740" alt={L('Lord Caramel affronta con la spada di cristallo un verme gigante tra i canyon rossi di Marsylvania, in pixel art', 'Lord Caramel swings his crystal sword at a giant worm among the red canyons of Marsylvania, in pixel art')} style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover;" />
     </div>
   </section>
 
@@ -48,7 +48,7 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
       <h2 class="pixel h2">{t(lang, 'home.catalog.title')}</h2>
       <div class="cards">
         <article id="giochi" class="card">
-          <div class="card__media"><img src={mars.image} width="560" height="312" alt={mars.imageAlt![lang]} loading="lazy" /></div>
+          <div class="card__media"><img src={mars.image} width="1100" height="688" alt={mars.imageAlt![lang]} loading="lazy" /></div>
           <div class="card__body">
             <p class="card__tag">{mars.tag[lang]}</p>
             <h3 class="pixel h3">{mars.title}</h3>
