@@ -2,8 +2,8 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  // Cambiare con il dominio definitivo quando sarà scelto
-  site: 'https://dreamspace.example',
+  // Indirizzo attuale su Cloudflare: cambiarlo quando arriva il dominio definitivo
+  site: 'https://dreamspace-sito.mkbado.workers.dev',
   trailingSlash: 'always',
   build: { format: 'directory' },
 });
