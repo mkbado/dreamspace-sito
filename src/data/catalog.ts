@@ -94,7 +94,7 @@ export const games: Game[] = [
     status: { it: 'In sviluppo · Kickstarter in arrivo', en: 'In development · Kickstarter coming' },
     players: '1–4',
     minutes: '60',
-    age: '',
+    age: '14+',
     short: {
       it: 'Entra nella compagnia di cacciatori di taglie, esplora Marsylvania e batti il Lord Vampiro prima dei tuoi colleghi. In palio: il titolo di Impiegato del Mese.',
       en: 'Join the bounty hunters’ company, explore Marsylvania and beat the Vampire Lord before your colleagues do. The prize: Employee of the Month.',
