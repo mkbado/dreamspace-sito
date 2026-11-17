@@ -5,23 +5,28 @@ import PixelTable from '../../../components/PixelTable.astro';
 import KofiBand from '../../../components/KofiBand.astro';
 import NotifyBox from '../../../components/NotifyBox.astro';
 import { t, langs, otherLang, sections, type Lang } from '../../../i18n/ui';
-import { games, rpgs, type Game, type Rpg } from '../../../data/catalog';
+import { games, rpgs, settings, type Game, type Rpg, type Setting } from '../../../data/catalog';
+import SettingPage from '../../../components/SettingPage.astro';
 import { itemPath } from '../../../data/paths';
 
 export function getStaticPaths() {
   return langs.flatMap((lang) => [
     ...games.map((item) => ({ params: { lang, section: sections[lang].games, slug: item.slug }, props: { item } })),
     ...rpgs.map((item) => ({ params: { lang, section: sections[lang].rpg, slug: item.slug }, props: { item } })),
+    ...settings.map((item) => ({ params: { lang, section: sections[lang].rpg, slug: item.slug }, props: { item } })),
   ]);
 }
 
 const lang = Astro.params.lang as Lang;
-const { item } = Astro.props as { item: Game | Rpg };
+const { item } = Astro.props as { item: Game | Rpg | Setting };
 const alt = itemPath(otherLang(lang), item);
 const L = (it: string, en: string) => (lang === 'it' ? it : en);
 const g = item.kind === 'game' ? item : null;
 const r = item.kind === 'rpg' ? item : null;
+const st = item.kind === 'setting' ? item : null;
 ---
+{st && <SettingPage lang={lang} s={st} altPath={alt} />}
+
 {g && (
 <Base lang={lang} title={g.title} description={g.short[lang]} altPath={alt}>
   {g.banner && (

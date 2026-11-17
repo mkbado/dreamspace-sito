@@ -1,0 +1,123 @@
+---
+import Base from '../layouts/Base.astro';
+import KofiBand from './KofiBand.astro';
+import { t, type Lang } from '../i18n/ui';
+import type { Setting } from '../data/catalog';
+
+interface Props { lang: Lang; s: Setting; altPath: string }
+const { lang, s, altPath } = Astro.props;
+const L = (it: string, en: string) => (lang === 'it' ? it : en);
+---
+<Base lang={lang} title={s.title} description={s.short[lang]} altPath={altPath} bodyClass="skin-meriggio" extraFonts>
+  <section class="mer-banner">
+    <img src={s.banner} width="1024" height="645" alt={s.bannerAlt[lang]} />
+  </section>
+
+  <section class="container row" style="padding-block: 48px 64px; gap: 48px;">
+    <div class="stack" style="flex: 1 1 560px; min-width: 0; gap: 18px;">
+      <nav class="crumbs" aria-label={L('Percorso', 'Breadcrumb')}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › <a href={`/${lang}/#gdr`}>{t(lang, 'nav.rpg')}</a> › {s.title}</nav>
+      <p class="label" style="margin: 0; color: var(--mer-accent);">{s.tag[lang]}</p>
+      <h1 class="pixel" style="font-size: clamp(48px, 7vw, 84px); line-height: 1;">{s.title}</h1>
+      <p class="serif" style="margin: 0; font-size: 26px; font-style: italic; color: var(--mer-accent);">{s.tagline[lang]}</p>
+      {s.intro[lang].map((p, i) => <p class="serif" style={`margin: 0; font-size: ${i === 0 ? 21 : 19}px; line-height: 1.6;`}>{p}</p>)}
+      <div class="row" style="gap: 12px; padding-top: 8px;">
+        <a class="btn btn--big mer-btn" href="#libri">{t(lang, 'card.download')}</a>
+        <a class="btn btn--big mer-btn--outline" href="#libri">{L('Leggi il romanzo', 'Read the novel')}</a>
+      </div>
+    </div>
+    <aside class="stack" style="flex: 1 1 320px; min-width: 0; gap: 16px;">
+      <div class="sheet mer-sheet">
+        <div class="sheet__bar">{t(lang, 'rpg.sheet')}</div>
+        <dl>
+          {s.sheet.map((x) => (<><dt>{x.label[lang]}</dt><dd>{x.value[lang]}</dd></>))}
+        </dl>
+      </div>
+      <blockquote class="mer-motto">
+        <p>«{s.motto[lang]}»</p>
+        <footer>{L('La regola d’oro per raccontare Meriggio', 'The golden rule for telling Meriggio')}</footer>
+      </blockquote>
+    </aside>
+  </section>
+
+  <section id="libri" class="mer-band">
+    <div class="container stack pad" style="gap: 28px;">
+      <h2 class="pixel" style="font-size: 40px;">{L('Tre libri e un romanzo', 'Three books and a novel')}</h2>
+      <div class="mer-books">
+        {s.books.map((b) => (
+          <article class="mer-book">
+            <span class="mer-book__n">{b.n}</span>
+            <h3>{b.title[lang]}</h3>
+            <p>{b.text[lang]}</p>
+            <a href="#" class="mer-book__dl">{b.action[lang]}</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="container stack" style="padding-block: 80px; gap: 28px;">
+    <div class="row" style="align-items: end; justify-content: space-between; gap: 12px;">
+      <h2 class="pixel" style="font-size: 40px;">{s.heroes.title[lang]}</h2>
+      <p style="margin: 0; font-size: 15px; color: var(--mer-muted);">{s.heroes.note[lang]}</p>
+    </div>
+    <div class="mer-heroes">
+      {s.heroes.list.map((h) => (
+        <article class="mer-hero">
+          <img src={h.image} alt={h.alt[lang]} loading="lazy" width="640" height="960" />
+          <div>
+            <h3>{h.name}</h3>
+            <p class="label" style="margin: 0 0 8px; font-size: 12px; color: var(--mer-accent);">{h.role[lang]}</p>
+            <p class="serif">{h.bio[lang]}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="mer-band">
+    <div class="container row pad" style="gap: 48px;">
+      <div class="stack" style="flex: 1 1 520px; min-width: 0; gap: 20px;">
+        <h2 class="pixel" style="font-size: 40px;">{s.peoples.title[lang]}</h2>
+        <div class="stack" style="gap: 12px;">
+          {s.peoples.list.map((p) => (
+            <div class="mer-people">
+              <strong>{p.name[lang]}</strong>
+              <span class="serif">{p.text[lang]}</span>
+              <small>{p.where[lang]}</small>
+            </div>
+          ))}
+        </div>
+        <p class="serif" style="margin: 0; font-size: 18px; font-style: italic;">{s.peoples.more[lang]}</p>
+      </div>
+      <div class="stack" style="flex: 1 1 380px; min-width: 0; gap: 20px;">
+        <h2 class="pixel" style="font-size: 40px;">{s.atlas.title[lang]}</h2>
+        <ul class="mer-atlas">
+          {s.atlas.list.map((a) => (
+            <li><span class="label">{a.dir[lang]}</span><strong>{a.name}</strong><span class="serif">{a.text[lang]}</span></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" style="padding-block: 88px;">
+    <figure class="mer-quote">
+      <blockquote class="serif">«{s.quote.text[lang]}»</blockquote>
+      <figcaption>{s.quote.who[lang]}</figcaption>
+    </figure>
+  </section>
+
+  <section class="mer-band" style="border-bottom: 4px solid var(--black);">
+    <div class="container stack pad" style="gap: 20px;">
+      <h2 class="pixel" style="font-size: 40px;">{s.bestiary.title[lang]}</h2>
+      <p class="serif" style="margin: 0; font-size: 19px;">{s.bestiary.text[lang]}</p>
+      <div class="row" style="gap: 10px;">
+        {s.bestiary.names.map((n) => <span class="mer-chip">{n}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <KofiBand lang={lang} title={L('Ti è piaciuta la fiaba?', 'Enjoyed the fairy tale?')} text={L('Offri un caffè agli autori: aiuta a scrivere l’Atto II.', 'Buy the authors a coffee: it helps write Act II.')} />
+
+  <p slot="licence" style="margin: 0; font-size: 13px; color: var(--mute);">{s.licence[lang]}</p>
+</Base>

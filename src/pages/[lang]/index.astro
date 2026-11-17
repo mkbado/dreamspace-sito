@@ -4,7 +4,7 @@ import PixelAbbey from '../../components/PixelAbbey.astro';
 import InterestForm from '../../components/InterestForm.astro';
 import KofiBand from '../../components/KofiBand.astro';
 import { t, langs, otherLang, type Lang } from '../../i18n/ui';
-import { games, rpgs } from '../../data/catalog';
+import { games, rpgs, settings } from '../../data/catalog';
 import { itemPath } from '../../data/paths';
 
 export function getStaticPaths() {
@@ -14,6 +14,7 @@ export function getStaticPaths() {
 const lang = Astro.params.lang as Lang;
 const mars = games.find((g) => g.slug === 'marsylvania')!;
 const coro = rpgs.find((r) => r.slug === 'la-notte-del-coro')!;
+const mer = settings.find((x) => x.slug === 'meriggio')!;
 const L = (it: string, en: string) => (lang === 'it' ? it : en);
 ---
 <Base lang={lang} title="Dreamspace Ltd" altPath={`/${otherLang(lang)}/`}>
@@ -44,9 +45,10 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
   <section id="catalogo" class="band-cream">
     <div class="container stack pad" style="gap: 32px;">
       <h2 class="pixel h2">{t(lang, 'home.catalog.title')}</h2>
-      <div class="cards cards--4">
-        {games.map((g, i) => (
-          <article id={i === 0 ? 'giochi' : undefined} class="card">
+      <h3 id="giochi" class="label" style="margin: 8px 0 0; font-size: 15px; color: var(--orange-ink);">{t(lang, 'nav.games')}</h3>
+      <div class="cards">
+        {games.map((g) => (
+          <article class="card">
             <div class="card__media"><img src={g.image} width="960" height="600" alt={g.imageAlt![lang]} loading="lazy" /></div>
             <div class="card__body">
               <p class="card__tag">{g.tag[lang]}</p>
@@ -60,17 +62,32 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
             </div>
           </article>
         ))}
+      </div>
 
-        <article id="gdr" class="card">
+      <h3 id="gdr" class="label" style="margin: 24px 0 0; font-size: 15px; color: var(--orange-ink);">{L('GDR e romanzi', 'RPGs and novels')}</h3>
+      <div id="romanzi" class="cards">
+        <article class="card">
           <div class="card__media"><PixelAbbey label={L("Un'abbazia di montagna nella neve, di notte, con le finestre accese", 'A mountain abbey in the snow at night, its windows lit')} /></div>
           <div class="card__body">
             <p class="card__tag" style="color: #6b4a2b;">{coro.tag[lang]}</p>
-            <h3 id="romanzi" class="pixel h3">{coro.title}</h3>
+            <h3 class="pixel h3">{coro.title}</h3>
             <p class="card__meta">{coro.players[lang]} · {coro.length[lang]}</p>
             <p>{coro.short[lang]}</p>
             <div class="card__foot" style="justify-content: flex-start;">
               <a class="btn btn--orange" href={itemPath(lang, coro)}>{t(lang, 'card.download')}</a>
               <a href={`${itemPath(lang, coro)}#romanzo`} style="font-family: var(--font-label); font-size: 14px; color: var(--night);">{t(lang, 'card.read')}</a>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__media"><img src={mer.image} width="960" height="600" alt={mer.imageAlt[lang]} loading="lazy" /></div>
+          <div class="card__body">
+            <p class="card__tag" style="color: #8a5a2b;">{mer.tag[lang]}</p>
+            <h3 class="pixel h3">{mer.title}</h3>
+            <p class="card__meta">{L('compatibile 5ª edizione · livelli 1–5 · circa 10 sessioni', '5e compatible · levels 1–5 · about 10 sessions')}</p>
+            <p>{mer.short[lang]}</p>
+            <div class="card__foot" style="justify-content: flex-start;">
+              <a class="btn btn--orange" href={itemPath(lang, mer)}>{t(lang, 'card.discover')}</a>
             </div>
           </div>
         </article>
