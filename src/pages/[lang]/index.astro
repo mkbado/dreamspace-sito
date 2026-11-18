@@ -41,9 +41,34 @@ const nRpg = rpgs.length + settings.length;
         <span class="chip">{t(lang, 'home.chip.mobile')}</span>
       </div>
     </div>
-    <div class="window" style="flex: 1 1 380px; min-width: 0; max-width: 460px; margin: 0 auto;">
-      <div class="window__bar"><span>MARSYLVANIA.EXE</span><span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
-      <img src={h.image} width="740" height="740" alt={L('Lord Caramel affronta con la spada di cristallo un verme gigante tra i canyon rossi di Marsylvania, in pixel art', 'Lord Caramel swings his crystal sword at a giant worm among the red canyons of Marsylvania, in pixel art')} style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover;" />
+    <div class="slider" data-slider style="flex: 1 1 380px; min-width: 0; max-width: 460px; margin: 0 auto;">
+      <div class="window" role="region" aria-roledescription={L('carosello', 'carousel')} aria-label={L('I nostri giochi', 'Our games')}>
+        <div class="window__bar" data-bar style={`background: ${h.slides[0]?.color};`}>
+          <span data-file aria-hidden="true">{h.slides[0]?.file}</span>
+          <span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        <div class="slides">
+          {h.slides.map((sl, i) => (
+            <a class="slide" href={sl.link[lang]} data-file={sl.file} data-color={sl.color} aria-hidden={i === 0 ? undefined : 'true'} tabindex={i === 0 ? undefined : -1} role="group" aria-roledescription="slide" aria-label={`${i + 1} / ${h.slides.length}: ${sl.title}`}>
+              <img src={sl.image} width="740" height="740" alt={sl.alt[lang]} loading={i === 0 ? 'eager' : 'lazy'} />
+              <span class="slide__cap">
+                <strong>{sl.title}</strong>
+                <span>{sl.text[lang]}</span>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+      {h.slides.length > 1 && (
+        <div class="slider__nav">
+          <button type="button" class="slider__arrow" data-prev aria-label={L('Precedente', 'Previous')}>◀</button>
+          <div class="slider__dots">
+            {h.slides.map((sl, i) => <button type="button" data-go={i} aria-label={sl.title} aria-current={i === 0 ? 'true' : undefined}></button>)}
+          </div>
+          <button type="button" class="slider__arrow" data-pause aria-label={L('Ferma', 'Pause')} aria-pressed="false">❚❚</button>
+          <button type="button" class="slider__arrow" data-next aria-label={L('Successivo', 'Next')}>▶</button>
+        </div>
+      )}
     </div>
   </section>
 
@@ -78,3 +103,63 @@ const nRpg = rpgs.length + settings.length;
   <InterestForm lang={lang} />
   <KofiBand lang={lang} />
 </Base>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-slider]').forEach((root) => {
+    const slides = [...root.querySelectorAll<HTMLAnchorElement>('.slide')];
+    if (slides.length < 2) return;
+    const dots = [...root.querySelectorAll<HTMLButtonElement>('[data-go]')];
+    const bar = root.querySelector<HTMLElement>('[data-bar]')!;
+    const file = root.querySelector<HTMLElement>('[data-file]')!;
+    const pauseBtn = root.querySelector<HTMLButtonElement>('[data-pause]')!;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let i = 0;
+    let timer: number | undefined;
+    let paused = reduce;
+    let hover = false;
+    const show = (n: number) => {
+      i = (n + slides.length) % slides.length;
+      slides.forEach((s, k) => {
+        const on = k === i;
+        s.classList.toggle('is-on', on);
+        if (on) { s.removeAttribute('aria-hidden'); s.removeAttribute('tabindex'); }
+        else { s.setAttribute('aria-hidden', 'true'); s.tabIndex = -1; }
+        if (on) s.querySelector('img')?.setAttribute('loading', 'eager');
+      });
+      dots.forEach((d, k) => (k === i ? d.setAttribute('aria-current', 'true') : d.removeAttribute('aria-current')));
+      bar.style.background = slides[i].dataset.color ?? '';
+      file.textContent = slides[i].dataset.file ?? '';
+    };
+    const tick = () => {
+      window.clearInterval(timer);
+      if (!paused && !hover) timer = window.setInterval(() => show(i + 1), 5000);
+    };
+    const setPaused = (p: boolean) => {
+      paused = p;
+      pauseBtn.setAttribute('aria-pressed', String(p));
+      pauseBtn.textContent = p ? '▶▶' : '❚❚';
+      pauseBtn.setAttribute('aria-label', p ? pauseBtn.dataset.play ?? 'Play' : pauseBtn.dataset.stop ?? 'Pause');
+      tick();
+    };
+    pauseBtn.dataset.stop = pauseBtn.getAttribute('aria-label') ?? 'Pause';
+    pauseBtn.dataset.play = document.documentElement.lang === 'it' ? 'Riprendi' : 'Play';
+    root.querySelector('[data-prev]')?.addEventListener('click', () => { show(i - 1); tick(); });
+    root.querySelector('[data-next]')?.addEventListener('click', () => { show(i + 1); tick(); });
+    pauseBtn.addEventListener('click', () => setPaused(!paused));
+    dots.forEach((d) => d.addEventListener('click', () => { show(Number(d.dataset.go)); tick(); }));
+    root.addEventListener('mouseenter', () => { hover = true; tick(); });
+    root.addEventListener('mouseleave', () => { hover = false; tick(); });
+    root.addEventListener('focusin', () => { hover = true; tick(); });
+    root.addEventListener('focusout', () => { hover = false; tick(); });
+    let x0: number | null = null;
+    root.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+    root.addEventListener('touchend', (e) => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) { show(dx < 0 ? i + 1 : i - 1); tick(); }
+      x0 = null;
+    });
+    show(0);
+    setPaused(paused);
+  });
+</script>

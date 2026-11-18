@@ -18,7 +18,98 @@
       "it": "— Mister D, CEO",
       "en": "— Mister D, CEO"
     },
-    "image": "/img/hero-caccia.webp"
+    "slides": [
+      {
+        "file": "MARSYLVANIA.EXE",
+        "color": "#d9442b",
+        "image": "/img/hero-caccia.webp",
+        "title": "Dreamspace: Mission to Marsylvania",
+        "text": {
+          "it": "Gioco da tavolo · 1–4 giocatori · 60 min · lista d'attesa aperta",
+          "en": "Board game · 1–4 players · 60 min · waiting list open"
+        },
+        "alt": {
+          "it": "Lord Caramel affronta con la spada di cristallo un verme gigante tra i canyon rossi di Marsylvania",
+          "en": "Lord Caramel swings his crystal sword at a giant worm among the red canyons of Marsylvania"
+        },
+        "link": {
+          "it": "/it/giochi-da-tavolo/marsylvania/",
+          "en": "/en/board-games/marsylvania/"
+        }
+      },
+      {
+        "file": "CIRCOLO_DEL_VENERDI.PNG",
+        "color": "#5a4560",
+        "image": "/img/slides/circolo.webp",
+        "title": "Il Circolo del Venerdì",
+        "text": {
+          "it": "Gioco di ruolo · Capitolo 0 gratis · due sessioni, circa 8 ore",
+          "en": "Roleplaying game · Chapter 0 free · two sessions, about 8 hours"
+        },
+        "alt": {
+          "it": "Copertina a china: il campanile di Santa Maria del Silenzio sotto una presenza scura",
+          "en": "Ink cover: the bell tower of Santa Maria del Silenzio under a dark presence"
+        },
+        "link": {
+          "it": "/it/giochi-di-ruolo/il-circolo-del-venerdi/",
+          "en": "/en/roleplaying-games/il-circolo-del-venerdi/"
+        }
+      },
+      {
+        "file": "INTOLLERANTI.PNG",
+        "color": "#8c1d2c",
+        "image": "/img/slides/intolleranti.webp",
+        "title": "Intolleranti!",
+        "text": {
+          "it": "Gioco di carte · 2–8 giocatori · 20–40 min · lista d'attesa aperta",
+          "en": "Card game · 2–8 players · 20–40 min · waiting list open"
+        },
+        "alt": {
+          "it": "Il Vampiro Astemio guarda annoiato un calice vuoto",
+          "en": "The Teetotal Vampire stares, bored, at an empty glass"
+        },
+        "link": {
+          "it": "/it/giochi-da-tavolo/intolleranti/",
+          "en": "/en/board-games/intolleranti/"
+        }
+      },
+      {
+        "file": "MERIGGIO.PNG",
+        "color": "#6b7a3a",
+        "image": "/img/slides/meriggio.webp",
+        "title": "Meriggio",
+        "text": {
+          "it": "Gioco di ruolo · compatibile 5ª edizione · tre libri e un romanzo",
+          "en": "Roleplaying game · 5e compatible · three books and a novel"
+        },
+        "alt": {
+          "it": "Cinque viandanti guardano una valle di campi e villaggi",
+          "en": "Five travellers look out over a valley of fields and villages"
+        },
+        "link": {
+          "it": "/it/giochi-di-ruolo/meriggio/",
+          "en": "/en/roleplaying-games/meriggio/"
+        }
+      },
+      {
+        "file": "DUNGEONS_DUGONGS.PNG",
+        "color": "#1f7a8c",
+        "image": "/img/slides/dugongs.webp",
+        "title": "Dungeons & Dugongs",
+        "text": {
+          "it": "Gioco da tavolo cooperativo · 1–4 giocatori · 40–60 min",
+          "en": "Co-op board game · 1–4 players · 40–60 min"
+        },
+        "alt": {
+          "it": "Quattro dugonghi avventurieri corrono in una caverna piena di tesori",
+          "en": "Four adventuring dugongs run through a cave full of treasure"
+        },
+        "link": {
+          "it": "/it/giochi-da-tavolo/dungeons-and-dugongs/",
+          "en": "/en/board-games/dungeons-and-dugongs/"
+        }
+      }
+    ]
   },
   "boardgames": {
     "intro": {

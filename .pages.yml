@@ -81,11 +81,58 @@ content:
       - name: en
         label: English
         type: string
-    - name: image
-      label: Immagine
-      type: image
-      options:
-        media: images
+    - name: slides
+      label: Carosello (finestre che scorrono)
+      type: object
+      fields:
+      - name: file
+        label: Nome finestra (es. INTOLLERANTI.PNG)
+        type: string
+      - name: color
+        label: "Colore barra (#hex)"
+        type: string
+      - name: image
+        label: Immagine quadrata (740×740)
+        type: image
+        options:
+          media: images
+      - name: title
+        label: Titolo
+        type: string
+      - name: text
+        label: Riga di info
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: alt
+        label: Descrizione immagine
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: link
+        label: Link
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      list:
+        collapsible:
+          collapsed: true
+          summary: "{file}"
   - name: boardgames
     label: Pagina Giochi da tavolo
     type: object

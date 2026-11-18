@@ -95,7 +95,9 @@ site = [
     S('kofi', 'Link per le donazioni (es. https://ko-fi.com/…)'),
     S('owner', 'Nome di chi gestisce il sito (footer)'),
     S('email', 'Email di contatto (footer)'),
-    O('home', 'Home', [L('kicker', 'Occhiello'), L('title', 'Titolo'), L('bubble', 'Messaggio di benvenuto', 'text'), L('signature', 'Firma'), IMG('image', 'Immagine')]),
+    O('home', 'Home', [L('kicker', 'Occhiello'), L('title', 'Titolo'), L('bubble', 'Messaggio di benvenuto', 'text'), L('signature', 'Firma'),
+        O('slides', 'Carosello (finestre che scorrono)', [S('file', 'Nome finestra (es. INTOLLERANTI.PNG)'), S('color', 'Colore barra (#hex)'), IMG('image', 'Immagine quadrata (740×740)'),
+            S('title', 'Titolo'), L('text', 'Riga di info'), L('alt', 'Descrizione immagine'), L('link', 'Link')], lst=True, summary='{fields.file}')]),
     O('boardgames', 'Pagina Giochi da tavolo', [L('intro', 'Introduzione', 'text')]),
     O('rpg', 'Pagina Giochi di ruolo', [L('intro', 'Introduzione', 'text')]),
 ]
