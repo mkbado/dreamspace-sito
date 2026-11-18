@@ -4,13 +4,13 @@
   "title": "Intolleranti!",
   "image": "/img/intolleranti/card.webp",
   "imageAlt": {
-    "it": "Il Vampiro Astemio, con mantello rosso, guarda sconsolato un bicchiere d’acqua in una taverna, illustrazione in stile incisione",
-    "en": "The Teetotal Vampire, in a red cloak, stares glumly at a glass of water in a tavern, engraving-style illustration"
+    "it": "Il titolo Intolleranti! sopra la taverna, con gli ospiti a tavola",
+    "en": "The Intolleranti! title above the tavern, with the guests at the table"
   },
-  "heroImage": "/img/intolleranti/taverna.webp",
+  "heroImage": "/img/intolleranti/copertina.webp",
   "heroAlt": {
-    "it": "Una taverna con il tetto a graticcio in fondo a una strada di campagna, illustrazione in stile incisione",
-    "en": "A half-timbered tavern at the end of a country road, engraving-style illustration"
+    "it": "Copertina di Intolleranti!: in una taverna, otto ospiti fantasy a tavola, ognuno alle prese con la sua intolleranza, mentre un golem cameriere porta i piatti",
+    "en": "Intolleranti! cover: in a tavern, eight fantasy guests at the table, each struggling with their intolerance, while a golem waiter brings the dishes"
   },
   "tag": {
     "it": "Gioco di carte · push your luck",
@@ -36,7 +36,7 @@
     "it": "commensali",
     "en": "diners"
   },
-  "fileName": "TAVERNA.PNG",
+  "fileName": "INTOLLERANTI.PNG",
   "cta": {
     "it": "Vuoi sapere quando si va a cena?",
     "en": "Want to know when dinner is served?"
@@ -295,5 +295,6 @@
   "componentsExtra": {
     "it": "Le Portate sono 36 di Cibo e 36 di Bevande.",
     "en": "Courses are 36 Food and 36 Drinks."
-  }
+  },
+  "heroSquare": true
 }

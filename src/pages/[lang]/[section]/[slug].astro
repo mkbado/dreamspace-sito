@@ -36,10 +36,10 @@ const st = item.kind === 'setting' ? item : null;
   <section class="container stack" style="padding-block: 40px 72px; gap: 28px;">
     <nav class="crumbs" aria-label={L('Percorso', 'Breadcrumb')}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › <a href={`/${lang}/${sections[lang].games}/`}>{t(lang, 'nav.games')}</a> › {g.title}</nav>
     <div class="row" style="gap: 48px; align-items: flex-start;">
-      {!g.banner && <div class="window" style={g.heroPortrait ? 'flex: 0 1 380px; min-width: 0; margin-inline: auto;' : 'flex: 1 1 520px; min-width: 0;'}>
+      {!g.banner && <div class="window" style={g.heroPortrait ? 'flex: 0 1 380px; min-width: 0; margin-inline: auto;' : g.heroSquare ? 'flex: 0 1 460px; min-width: 0; margin-inline: auto;' : 'flex: 1 1 520px; min-width: 0;'}>
         <div class="window__bar"><span>{g.fileName ?? `${g.slug.toUpperCase()}.PNG`}</span><span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
         {g.heroImage
-          ? <img src={g.heroImage} alt={g.heroAlt![lang]} style={`width: 100%; aspect-ratio: ${g.heroPortrait ? '2 / 3' : '16 / 10'}; object-fit: cover;`} />
+          ? <img src={g.heroImage} alt={g.heroAlt![lang]} style={`width: 100%; aspect-ratio: ${g.heroPortrait ? '2 / 3' : g.heroSquare ? '1 / 1' : '16 / 10'}; object-fit: cover;`} />
           : <img src={g.image} alt={g.imageAlt![lang]} style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover;" />}
       </div>}
       <div class="stack" style="flex: 1 1 400px; min-width: 0; gap: 20px;">

@@ -23,6 +23,7 @@ export interface Game {
   heroImage?: string;
   heroAlt?: L<string>;
   heroPortrait?: boolean;
+  heroSquare?: boolean;
   banner?: string;
   bannerAlt?: L<string>;
   tag: L<string>;

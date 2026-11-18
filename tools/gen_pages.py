@@ -28,7 +28,7 @@ common_top = [
 
 game = common_top + [
     IMG('image', 'Immagine della scheda (960×600)'), L('imageAlt', 'Descrizione immagine scheda'),
-    IMG('heroImage', 'Immagine grande nella pagina'), L('heroAlt', 'Descrizione immagine grande'), B('heroPortrait', 'Immagine grande verticale'),
+    IMG('heroImage', 'Immagine grande nella pagina'), L('heroAlt', 'Descrizione immagine grande'), B('heroPortrait', 'Immagine grande verticale'), B('heroSquare', 'Immagine grande quadrata'),
     IMG('banner', 'Banner'), L('bannerAlt', 'Descrizione banner'),
     L('tag', 'Etichetta (es. Gioco da tavolo · competitivo)'), L('status', 'Stato'),
     S('players', 'Giocatori (es. 1–4)'), S('minutes', 'Durata in minuti (es. 60)'), S('age', 'Età (es. 14+, vuoto = nascosta)'),

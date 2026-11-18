@@ -266,6 +266,9 @@ content:
   - name: heroPortrait
     label: Immagine grande verticale
     type: boolean
+  - name: heroSquare
+    label: Immagine grande quadrata
+    type: boolean
   - name: banner
     label: Banner
     type: image
