@@ -2,32 +2,38 @@
 import Base from '../../layouts/Base.astro';
 import InterestForm from '../../components/InterestForm.astro';
 import KofiBand from '../../components/KofiBand.astro';
-import { t, langs, otherLang, type Lang } from '../../i18n/ui';
-import { games, rpgs, settings } from '../../data/catalog';
-import { itemPath } from '../../data/paths';
+import { t, langs, otherLang, sections, type Lang } from '../../i18n/ui';
+import { games, rpgs, settings, news, site } from '../../data/catalog';
 
 export function getStaticPaths() {
   return langs.map((lang) => ({ params: { lang } }));
 }
 
 const lang = Astro.params.lang as Lang;
-const mars = games.find((g) => g.slug === 'marsylvania')!;
-const coro = rpgs.find((r) => r.slug === 'il-circolo-del-venerdi')!;
-const mer = settings.find((x) => x.slug === 'meriggio')!;
 const L = (it: string, en: string) => (lang === 'it' ? it : en);
+const h = site.home;
+const fmt = (d: string) => new Date(d + 'T12:00:00').toLocaleDateString(lang === 'it' ? 'it-IT' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+const nGames = games.length;
+const nRpg = rpgs.length + settings.length;
 ---
 <Base lang={lang} title="Dreamspace Ltd" altPath={`/${otherLang(lang)}/`}>
   <section class="container row" style="padding-block: 72px 80px; align-items: center; gap: 48px;">
     <div class="stack" style="flex: 1 1 480px; min-width: 0; gap: 24px;">
-      <p class="label" style="margin: 0; color: var(--teal);">{t(lang, 'home.kicker')}</p>
-      <h1 class="pixel h1">{t(lang, 'home.title')}</h1>
+      <p class="label" style="margin: 0; color: var(--teal);">{h.kicker[lang]}</p>
+      <h1 class="pixel h1">{h.title[lang]}</h1>
       <div class="bubble">
-        <p set:html={t(lang, 'home.bubble')} />
-        <p class="sig">{t(lang, 'home.signature')}</p>
+        <p>{h.bubble[lang]}</p>
+        <p class="sig">{h.signature[lang]}</p>
       </div>
-      <div class="row" style="gap: 16px; padding-top: 8px;">
-        <a class="btn btn--orange btn--big" href="#catalogo">{t(lang, 'home.cta.catalog')}</a>
-        <a class="btn btn--outline btn--big" href={itemPath(lang, mars)}>{t(lang, 'home.cta.notify')}</a>
+      <div class="portals">
+        <a class="portal portal--games" href={`/${lang}/${sections[lang].games}/`}>
+          <span class="portal__t">{t(lang, 'nav.games')}</span>
+          <span class="portal__d">{L(`${nGames} giochi in arrivo · lista d'attesa`, `${nGames} games coming · waiting list`)}</span>
+        </a>
+        <a class="portal portal--rpg" href={`/${lang}/${sections[lang].rpg}/`}>
+          <span class="portal__t">{t(lang, 'nav.rpg')}</span>
+          <span class="portal__d">{L('avventure, ambientazioni e romanzi gratis', 'free adventures, settings and novels')}</span>
+        </a>
       </div>
       <div class="row" style="gap: 10px;">
         <span class="chip">{t(lang, 'home.chip.free')}</span>
@@ -37,59 +43,25 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
     </div>
     <div class="window" style="flex: 1 1 380px; min-width: 0; max-width: 460px; margin: 0 auto;">
       <div class="window__bar"><span>MARSYLVANIA.EXE</span><span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
-      <img src="/img/hero-caccia.webp" width="740" height="740" alt={L('Lord Caramel affronta con la spada di cristallo un verme gigante tra i canyon rossi di Marsylvania, in pixel art', 'Lord Caramel swings his crystal sword at a giant worm among the red canyons of Marsylvania, in pixel art')} style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover;" />
+      <img src={h.image} width="740" height="740" alt={L('Lord Caramel affronta con la spada di cristallo un verme gigante tra i canyon rossi di Marsylvania, in pixel art', 'Lord Caramel swings his crystal sword at a giant worm among the red canyons of Marsylvania, in pixel art')} style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover;" />
     </div>
   </section>
 
-  <section id="catalogo" class="band-cream">
+  <section id="novita" class="band-cream">
     <div class="container stack pad" style="gap: 32px;">
-      <h2 class="pixel h2">{t(lang, 'home.catalog.title')}</h2>
-      <h3 id="giochi" class="label" style="margin: 8px 0 0; font-size: 15px; color: var(--orange-ink);">{t(lang, 'nav.games')}</h3>
-      <div class="cards">
-        {games.map((g) => (
+      <h2 class="pixel h2">{L('Novità', 'News')}</h2>
+      <div class="cards news">
+        {news.map((n) => (
           <article class="card">
-            <div class="card__media"><img src={g.image} width="960" height="600" alt={g.imageAlt![lang]} loading="lazy" /></div>
+            {n.image && <div class="card__media"><img src={n.image} width="960" height="600" alt="" loading="lazy" /></div>}
             <div class="card__body">
-              <p class="card__tag">{g.tag[lang]}</p>
-              <h3 class="pixel h3">{g.title}</h3>
-              <p class="card__meta">{g.players} {t(lang, 'game.players')} · {g.minutes} {t(lang, 'game.minutes')}{g.age && ` · ${g.age}`}</p>
-              <p>{g.short[lang]}</p>
-              <div class="card__foot">
-                <span class="card__wait">{g.waiting} {g.waitingWho[lang]} {t(lang, 'card.waiting')}</span>
-                <a class="btn btn--orange" href={itemPath(lang, g)}>{t(lang, 'card.discover')}</a>
-              </div>
+              <p class="card__tag"><time datetime={n.date}>{fmt(n.date)}</time></p>
+              <h3 class="pixel h3">{n.title[lang]}</h3>
+              <p>{n.text[lang]}</p>
+              {n.link?.[lang] && <div class="card__foot" style="justify-content: flex-start;"><a class="btn btn--orange" href={n.link[lang]}>{L('Scopri', 'Find out more')}</a></div>}
             </div>
           </article>
         ))}
-      </div>
-
-      <h3 id="gdr" class="label" style="margin: 24px 0 0; font-size: 15px; color: var(--orange-ink);">{L('GDR e romanzi', 'RPGs and novels')}</h3>
-      <div id="romanzi" class="cards">
-        <article class="card">
-          <div class="card__media"><img src={coro.cardImage} width="960" height="600" alt={coro.cardAlt[lang]} loading="lazy" /></div>
-          <div class="card__body">
-            <p class="card__tag" style="color: #6b4a2b;">{coro.tag[lang]}</p>
-            <h3 class="pixel h3">{coro.title}</h3>
-            <p class="card__meta">{L('Cap. 0', 'Ch. 0')} · {coro.chapterTitle} · {coro.length[lang]}</p>
-            <p>{coro.short[lang]}</p>
-            <div class="card__foot" style="justify-content: flex-start;">
-              <a class="btn btn--orange" href={`${itemPath(lang, coro)}#capitolo-0`}>{t(lang, 'card.download')}</a>
-              <a href={`${itemPath(lang, coro)}#romanzo`} style="font-family: var(--font-label); font-size: 14px; color: var(--night);">{t(lang, 'card.read')}</a>
-            </div>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card__media"><img src={mer.image} width="960" height="600" alt={mer.imageAlt[lang]} loading="lazy" /></div>
-          <div class="card__body">
-            <p class="card__tag" style="color: #8a5a2b;">{mer.tag[lang]}</p>
-            <h3 class="pixel h3">{mer.title}</h3>
-            <p class="card__meta">{L('compatibile 5ª edizione · livelli 1–5 · circa 10 sessioni', '5e compatible · levels 1–5 · about 10 sessions')}</p>
-            <p>{mer.short[lang]}</p>
-            <div class="card__foot" style="justify-content: flex-start;">
-              <a class="btn btn--orange" href={itemPath(lang, mer)}>{t(lang, 'card.discover')}</a>
-            </div>
-          </div>
-        </article>
       </div>
     </div>
   </section>

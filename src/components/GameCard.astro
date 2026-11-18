@@ -1,0 +1,20 @@
+---
+import { t, type Lang } from '../i18n/ui';
+import type { Game } from '../data/catalog';
+import { itemPath } from '../data/paths';
+interface Props { lang: Lang; g: Game }
+const { lang, g } = Astro.props;
+---
+<article class="card">
+  <div class="card__media"><img src={g.image} width="960" height="600" alt={g.imageAlt?.[lang] ?? ''} loading="lazy" /></div>
+  <div class="card__body">
+    <p class="card__tag">{g.tag[lang]}</p>
+    <h3 class="pixel h3">{g.title}</h3>
+    <p class="card__meta">{g.players} {t(lang, 'game.players')} · {g.minutes} {t(lang, 'game.minutes')}{g.age && ` · ${g.age}`}</p>
+    <p>{g.short[lang]}</p>
+    <div class="card__foot">
+      <span class="card__wait">{g.waiting} {g.waitingWho[lang]} {t(lang, 'card.waiting')}</span>
+      <a class="btn btn--orange" href={itemPath(lang, g)}>{t(lang, 'card.discover')}</a>
+    </div>
+  </div>
+</article>

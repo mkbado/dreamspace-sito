@@ -34,7 +34,7 @@ const st = item.kind === 'setting' ? item : null;
     </section>
   )}
   <section class="container stack" style="padding-block: 40px 72px; gap: 28px;">
-    <nav class="crumbs" aria-label={L('Percorso', 'Breadcrumb')}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › <a href={`/${lang}/#giochi`}>{t(lang, 'nav.games')}</a> › {g.title}</nav>
+    <nav class="crumbs" aria-label={L('Percorso', 'Breadcrumb')}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › <a href={`/${lang}/${sections[lang].games}/`}>{t(lang, 'nav.games')}</a> › {g.title}</nav>
     <div class="row" style="gap: 48px; align-items: flex-start;">
       {!g.banner && <div class="window" style={g.heroPortrait ? 'flex: 0 1 380px; min-width: 0; margin-inline: auto;' : 'flex: 1 1 520px; min-width: 0;'}>
         <div class="window__bar"><span>{g.fileName ?? `${g.slug.toUpperCase()}.PNG`}</span><span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
@@ -202,7 +202,7 @@ const st = item.kind === 'setting' ? item : null;
       <img src={r.cover} alt={r.coverAlt[lang]} width="760" height="1140" />
     </figure>
     <div class="stack" style="flex: 1 1 520px; min-width: 0; gap: 20px;">
-      <nav class="crumbs" aria-label={L('Percorso', 'Breadcrumb')} style="color: #a89bb8;"><a href={`/${lang}/`} style="color: #a89bb8;">{t(lang, 'crumb.home')}</a> › <a href={`/${lang}/#gdr`} style="color: #a89bb8;">{t(lang, 'nav.rpg')}</a> › {r.title}</nav>
+      <nav class="crumbs" aria-label={L('Percorso', 'Breadcrumb')} style="color: #a89bb8;"><a href={`/${lang}/`} style="color: #a89bb8;">{t(lang, 'crumb.home')}</a> › <a href={`/${lang}/${sections[lang].rpg}/`} style="color: #a89bb8;">{t(lang, 'nav.rpg')}</a> › {r.title}</nav>
       <p class="label" style="margin: 0; color: #f2a33a;">{r.series[lang]} · {L('gratis', 'free')}</p>
       <h1 class="pixel" style="font-size: clamp(42px, 6vw, 72px); line-height: 1;">{r.title}</h1>
       {r.campaignIntro[lang].map((p, i) => (
@@ -274,14 +274,14 @@ const st = item.kind === 'setting' ? item : null;
           <p class="label" style="margin: 0; color: #6b4a2b;">{r.chapterSeries[lang].split(' · ')[0]} · {r.chapterTitle}</p>
           <h2 class="pixel" style="font-size: 40px;">{t(lang, 'rpg.files')}</h2>
         </div>
-        <a class="btn" href="#" style="background: #15111f; color: #f2a33a;">{t(lang, 'rpg.zip')}</a>
+        {r.zip && <a class="btn" href={r.zip} style="background: #15111f; color: #f2a33a;">{t(lang, 'rpg.zip')}</a>}
       </div>
       <div class="files">
         {r.files.map((f) => (
           <div class="file">
             <div style="flex: 1 1 320px; min-width: 0;"><strong>{f.title[lang]}</strong><small>{f.desc[lang]}</small></div>
             <div class="dl">
-              <a href={f.it}>PDF IT</a>
+              {f.it ? <a href={f.it}>PDF IT</a> : <span>IT {t(lang, 'rpg.soon')}</span>}
               {f.en ? <a href={f.en}>PDF EN</a> : <span>EN {t(lang, 'rpg.soon')}</span>}
             </div>
           </div>
@@ -312,12 +312,12 @@ const st = item.kind === 'setting' ? item : null;
         <p class="serif" style="margin: 0; font-size: 19px; line-height: 1.6; color: #d8ccba;">{r.novelText[lang]}</p>
         {lang === 'en' && <p style="margin: 0; font-size: 14px; color: #a89bb8;">The novel is in Italian for now; the English translation will follow.</p>}
         <div class="row" style="gap: 12px; padding-top: 8px; align-items: center;">
-          <a class="btn coro-btn" href="#">{t(lang, 'rpg.novel.first')}</a>
+          {r.chapters[0]?.file && <a class="btn coro-btn" href={r.chapters[0].file}>{t(lang, 'rpg.novel.first')}</a>}
           <a href={`/${lang}/#lista`} style="font-family: var(--font-label); font-size: 15px;">{t(lang, 'rpg.novel.notify')}</a>
         </div>
       </div>
       <ol class="chapters">
-        {r.chapters.map((c, i) => <li><b>{String(i + 1).padStart(2, '0')}</b><a href="#">{c}</a></li>)}
+        {r.chapters.map((c, i) => <li><b>{String(i + 1).padStart(2, '0')}</b>{c.file ? <a href={c.file}>{c.title}</a> : <span class="chapters__soon">{c.title}</span>}</li>)}
         <li><b style="color: #8a8296;">{String(r.chapters.length + 1).padStart(2, '0')}</b><span class="label" style="font-size: 13px;">{t(lang, 'rpg.novel.next')}</span></li>
       </ol>
     </div>

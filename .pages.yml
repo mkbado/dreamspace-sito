@@ -1,0 +1,1508 @@
+# Configurazione del pannello Pages CMS (app.pagescms.org). Generata da tools/gen_pages.py.
+media:
+- name: images
+  label: Immagini
+  input: public/img
+  output: /img
+  rename: safe
+  extensions:
+  - webp
+  - jpg
+  - jpeg
+  - png
+  - gif
+  - svg
+- name: files
+  label: File da scaricare
+  input: public/files
+  output: /files
+  rename: safe
+  extensions:
+  - pdf
+  - zip
+  - epub
+content:
+- name: site
+  label: Impostazioni del sito
+  type: file
+  path: src/content/site.json
+  format: json
+  fields:
+  - name: kofi
+    label: "Link per le donazioni (es. https://ko-fi.com/…)"
+    type: string
+  - name: owner
+    label: Nome di chi gestisce il sito (footer)
+    type: string
+  - name: email
+    label: Email di contatto (footer)
+    type: string
+  - name: home
+    label: Home
+    type: object
+    fields:
+    - name: kicker
+      label: Occhiello
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: title
+      label: Titolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: bubble
+      label: Messaggio di benvenuto
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+      - name: en
+        label: English
+        type: text
+    - name: signature
+      label: Firma
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: image
+      label: Immagine
+      type: image
+      options:
+        media: images
+  - name: boardgames
+    label: Pagina Giochi da tavolo
+    type: object
+    fields:
+    - name: intro
+      label: Introduzione
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+      - name: en
+        label: English
+        type: text
+  - name: rpg
+    label: Pagina Giochi di ruolo
+    type: object
+    fields:
+    - name: intro
+      label: Introduzione
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+      - name: en
+        label: English
+        type: text
+- name: news
+  label: Novità
+  type: file
+  path: src/content/news.json
+  format: json
+  list: true
+  fields:
+  - name: date
+    label: Data
+    type: date
+  - name: title
+    label: Titolo
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: text
+    label: Testo
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: text
+    - name: en
+      label: English
+      type: text
+  - name: image
+    label: Immagine
+    type: image
+    options:
+      media: images
+  - name: link
+    label: Link (es. /it/giochi-da-tavolo/marsylvania/)
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+- name: games
+  label: Giochi da tavolo
+  type: collection
+  path: src/content/games
+  format: json
+  filename: "{primary}.json"
+  view:
+    primary: title
+  fields:
+  - &id001
+    name: order
+    label: Ordine (1 = primo)
+    type: number
+  - &id002
+    name: draft
+    label: Nascosto (bozza)
+    type: boolean
+  - &id003
+    name: slug
+    label: Indirizzo (slug) — non cambiarlo dopo la pubblicazione
+    type: string
+    required: true
+  - &id004
+    name: title
+    label: Titolo
+    type: string
+    required: true
+  - name: image
+    label: Immagine della scheda (960×600)
+    type: image
+    options:
+      media: images
+  - name: imageAlt
+    label: Descrizione immagine scheda
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: heroImage
+    label: Immagine grande nella pagina
+    type: image
+    options:
+      media: images
+  - name: heroAlt
+    label: Descrizione immagine grande
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: heroPortrait
+    label: Immagine grande verticale
+    type: boolean
+  - name: banner
+    label: Banner
+    type: image
+    options:
+      media: images
+  - name: bannerAlt
+    label: Descrizione banner
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: tag
+    label: Etichetta (es. Gioco da tavolo · competitivo)
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: status
+    label: Stato
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: players
+    label: Giocatori (es. 1–4)
+    type: string
+  - name: minutes
+    label: Durata in minuti (es. 60)
+    type: string
+  - name: age
+    label: Età (es. 14+, vuoto = nascosta)
+    type: string
+  - name: short
+    label: Descrizione breve (scheda)
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: text
+    - name: en
+      label: English
+      type: text
+  - name: pitch
+    label: Presentazione
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: text
+    - name: en
+      label: English
+      type: text
+  - name: waiting
+    label: Numero in lista d’attesa
+    type: string
+  - name: waitingWho
+    label: Chi aspetta (es. Dreamspacer)
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: cta
+    label: Testo del pulsante finale
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: fileName
+    label: Nome file (finestra pixel)
+    type: string
+  - name: briefing
+    label: Briefing
+    type: object
+    fields:
+    - name: kicker
+      label: Occhiello
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: title
+      label: Titolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: paragraphs
+      label: Paragrafi
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+        list: true
+      - name: en
+        label: English
+        type: text
+        list: true
+    - name: areas
+      label: Aree
+      type: object
+      fields:
+      - name: label
+        label: Etichetta
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: title
+        label: Titolo
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: text
+        label: Testo
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: text
+        - name: en
+          label: English
+          type: text
+      - name: dark
+        label: Scura
+        type: boolean
+      list: true
+  - name: features
+    label: Caratteristiche
+    type: object
+    fields:
+    - name: title
+      label: Titolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: list
+      label: Elenco
+      type: object
+      fields:
+      - name: title
+        label: Titolo
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: text
+        label: Testo
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: text
+        - name: en
+          label: English
+          type: text
+      list: true
+  - name: characters
+    label: Personaggi
+    type: object
+    fields:
+    - name: title
+      label: Titolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: note
+      label: Nota
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+      - name: en
+        label: English
+        type: text
+    - name: list
+      label: Personaggi
+      type: object
+      fields:
+      - name: name
+        label: Nome
+        type: string
+      - name: home
+        label: Provenienza
+        type: string
+      - name: ability
+        label: Abilità
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: image
+        label: Ritratto
+        type: image
+        options:
+          media: images
+      - name: color
+        label: "Colore sfondo (#hex)"
+        type: string
+      - name: ink
+        label: "Colore testo (#hex)"
+        type: string
+      - name: alt
+        label: Descrizione immagine
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: bio
+        label: Biografia
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: text
+        - name: en
+          label: English
+          type: text
+      list:
+        collapsible:
+          collapsed: true
+          summary: "{name}"
+  - name: gallery
+    label: Galleria
+    type: object
+    fields:
+    - name: title
+      label: Titolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: note
+      label: Nota
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+      - name: en
+        label: English
+        type: text
+    - name: items
+      label: Elementi
+      type: object
+      fields:
+      - name: name
+        label: Nome
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: image
+        label: Immagine
+        type: image
+        options:
+          media: images
+      - name: alt
+        label: Descrizione immagine
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: quote
+        label: Citazione
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: text
+        - name: en
+          label: English
+          type: text
+      list: true
+  - name: roster
+    label: Elenco personaggi (senza immagini)
+    type: object
+    fields:
+    - name: title
+      label: Titolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: note
+      label: Nota
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+      - name: en
+        label: English
+        type: text
+    - name: items
+      label: Voci
+      type: object
+      fields:
+      - name: name
+        label: Nome
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: role
+        label: Ruolo
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      list: true
+  - name: howToPlay
+    label: Come si gioca
+    type: object
+    fields:
+    - name: title
+      label: Titolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: steps
+      label: Passi
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+        list: true
+      - name: en
+        label: English
+        type: text
+        list: true
+    - name: note
+      label: Nota
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+      - name: en
+        label: English
+        type: text
+    - name: image
+      label: Immagine
+      type: image
+      options:
+        media: images
+    - name: imageAlt
+      label: Descrizione immagine
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: imageBare
+      label: Immagine senza cornice
+      type: boolean
+  - name: components
+    label: Componenti
+    type: object
+    fields:
+    - name: n
+      label: Quantità
+      type: string
+    - name: label
+      label: Componente
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    list: true
+  - name: componentsExtra
+    label: Nota sui componenti
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: text
+    - name: en
+      label: English
+      type: text
+  - name: team
+    label: Chi lo fa
+    type: object
+    fields:
+    - name: title
+      label: Titolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: text
+      label: Testo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+      - name: en
+        label: English
+        type: text
+- name: rpgs
+  label: "Giochi di ruolo: campagne"
+  type: collection
+  path: src/content/rpgs
+  format: json
+  filename: "{primary}.json"
+  view:
+    primary: title
+  fields:
+  - *id001
+  - *id002
+  - *id003
+  - *id004
+  - name: chapterTitle
+    label: Titolo del capitolo in evidenza
+    type: string
+  - name: chapterSeries
+    label: Occhiello capitolo (es. Capitolo 0 · Valtorva, ottobre 1914)
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: series
+    label: Sottotitolo campagna
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: cover
+    label: Copertina (verticale)
+    type: image
+    options:
+      media: images
+  - name: coverAlt
+    label: Descrizione copertina
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: cardImage
+    label: Immagine della scheda (960×600)
+    type: image
+    options:
+      media: images
+  - name: cardAlt
+    label: Descrizione immagine scheda
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: cardMeta
+    label: Riga info nella scheda
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: tag
+    label: Etichetta
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: players
+    label: Giocatori
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: length
+    label: Durata
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: genre
+    label: Genere
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: rules
+    label: Regolamento
+    type: string
+  - name: languages
+    label: Lingue
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: short
+    label: Descrizione breve (scheda)
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: text
+    - name: en
+      label: English
+      type: text
+  - name: campaignIntro
+    label: Presentazione della campagna (paragrafi)
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: text
+      list: true
+    - name: en
+      label: English
+      type: text
+      list: true
+  - name: campaignChapters
+    label: Capitoli della campagna
+    type: object
+    fields:
+    - name: n
+      label: Numero
+      type: string
+    - name: title
+      label: Titolo
+      type: string
+    - name: place
+      label: Luogo
+      type: string
+    - name: status
+      label: Stato
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: live
+      label: Disponibile (evidenziato)
+      type: boolean
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{n} {title}"
+  - name: pitch
+    label: Presentazione del capitolo (paragrafi)
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: text
+      list: true
+    - name: en
+      label: English
+      type: text
+      list: true
+  - name: warning
+    label: Avviso prima di giocare
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: text
+    - name: en
+      label: English
+      type: text
+  - name: files
+    label: File da scaricare
+    type: object
+    fields:
+    - name: title
+      label: Titolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: desc
+      label: Descrizione
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: it
+      label: PDF italiano
+      type: file
+      options:
+        media: files
+    - name: en
+      label: PDF inglese
+      type: file
+      options:
+        media: files
+    list: true
+  - name: zip
+    label: Pacchetto completo (ZIP)
+    type: file
+    options:
+      media: files
+  - name: locations
+    label: Luoghi (galleria)
+    type: object
+    fields:
+    - name: image
+      label: Immagine
+      type: image
+      options:
+        media: images
+    - name: title
+      label: Titolo
+      type: string
+    - name: caption
+      label: Didascalia
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{title}"
+  - name: investigatorsIntro
+    label: Introduzione investigatori
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: text
+    - name: en
+      label: English
+      type: text
+  - name: investigators
+    label: Investigatori
+    type: object
+    fields:
+    - name: name
+      label: Nome
+      type: string
+    - name: image
+      label: Ritratto
+      type: image
+      options:
+        media: images
+    - name: role
+      label: Mestiere
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{name}"
+  - name: novelText
+    label: "Romanzo: presentazione"
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: text
+    - name: en
+      label: English
+      type: text
+  - name: chapters
+    label: "Romanzo: capitoli"
+    type: object
+    fields:
+    - name: title
+      label: Titolo
+      type: string
+    - name: file
+      label: File (PDF)
+      type: file
+      options:
+        media: files
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{title}"
+  - name: kofi
+    label: Fascia donazioni
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: object
+      fields:
+      - name: title
+        label: Titolo
+        type: string
+      - name: text
+        label: Testo
+        type: text
+    - name: en
+      label: English
+      type: object
+      fields:
+      - name: title
+        label: Titolo
+        type: string
+      - name: text
+        label: Testo
+        type: text
+  - name: licence
+    label: Nota di licenza
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: text
+    - name: en
+      label: English
+      type: text
+- name: worlds
+  label: "Giochi di ruolo: ambientazioni"
+  type: collection
+  path: src/content/worlds
+  format: json
+  filename: "{primary}.json"
+  view:
+    primary: title
+  fields:
+  - *id001
+  - *id002
+  - *id003
+  - *id004
+  - name: image
+    label: Immagine della scheda (960×600)
+    type: image
+    options:
+      media: images
+  - name: imageAlt
+    label: Descrizione immagine scheda
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: banner
+    label: Banner
+    type: image
+    options:
+      media: images
+  - name: bannerAlt
+    label: Descrizione banner
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: tag
+    label: Etichetta
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: tagline
+    label: Sottotitolo
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: short
+    label: Descrizione breve (scheda)
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: text
+    - name: en
+      label: English
+      type: text
+  - name: cardMeta
+    label: Riga info nella scheda
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: novelTitle
+    label: Titolo del romanzo
+    type: string
+  - name: intro
+    label: Introduzione (paragrafi)
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: text
+      list: true
+    - name: en
+      label: English
+      type: text
+      list: true
+  - name: motto
+    label: Motto
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: sheet
+    label: Scheda tecnica
+    type: object
+    fields:
+    - name: label
+      label: Voce
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: value
+      label: Valore
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    list: true
+  - name: books
+    label: Libri
+    type: object
+    fields:
+    - name: n
+      label: Numero
+      type: string
+    - name: title
+      label: Titolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: text
+      label: Descrizione
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+      - name: en
+        label: English
+        type: text
+    - name: action
+      label: Testo del pulsante
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: file
+      label: File (PDF o link)
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: file
+        options:
+          media: files
+      - name: en
+        label: English
+        type: file
+        options:
+          media: files
+    list: true
+  - name: heroes
+    label: Eroi
+    type: object
+    fields:
+    - name: title
+      label: Titolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: note
+      label: Nota
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+      - name: en
+        label: English
+        type: text
+    - name: list
+      label: Eroi
+      type: object
+      fields:
+      - name: name
+        label: Nome
+        type: string
+      - name: role
+        label: Ruolo
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: image
+        label: Ritratto
+        type: image
+        options:
+          media: images
+      - name: alt
+        label: Descrizione immagine
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: bio
+        label: Biografia
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: text
+        - name: en
+          label: English
+          type: text
+      list:
+        collapsible:
+          collapsed: true
+          summary: "{name}"
+  - name: peoples
+    label: Popoli
+    type: object
+    fields:
+    - name: title
+      label: Titolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: list
+      label: Popoli
+      type: object
+      fields:
+      - name: name
+        label: Nome
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: text
+        label: Testo
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: text
+        - name: en
+          label: English
+          type: text
+      - name: where
+        label: Dove vivono
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      list: true
+    - name: more
+      label: Nota finale
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+      - name: en
+        label: English
+        type: text
+  - name: atlas
+    label: Atlante
+    type: object
+    fields:
+    - name: title
+      label: Titolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: list
+      label: Luoghi
+      type: object
+      fields:
+      - name: name
+        label: Nome
+        type: string
+      - name: dir
+        label: Direzione
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: text
+        label: Testo
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: text
+        - name: en
+          label: English
+          type: text
+      list:
+        collapsible:
+          collapsed: true
+          summary: "{name}"
+  - name: quote
+    label: Citazione
+    type: object
+    fields:
+    - name: text
+      label: Testo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+      - name: en
+        label: English
+        type: text
+    - name: who
+      label: Autore
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+  - name: bestiary
+    label: Bestiario
+    type: object
+    fields:
+    - name: title
+      label: Titolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: text
+      label: Testo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+      - name: en
+        label: English
+        type: text
+    - name: names
+      label: Creature
+      type: string
+      list: true
+  - name: licence
+    label: Nota di licenza
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: text
+    - name: en
+      label: English
+      type: text

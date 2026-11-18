@@ -1,0 +1,74 @@
+---
+import Base from '../../../layouts/Base.astro';
+import GameCard from '../../../components/GameCard.astro';
+import RpgCard from '../../../components/RpgCard.astro';
+import InterestForm from '../../../components/InterestForm.astro';
+import KofiBand from '../../../components/KofiBand.astro';
+import { t, langs, otherLang, sections, type Lang } from '../../../i18n/ui';
+import { games, rpgs, settings, site } from '../../../data/catalog';
+import { itemPath } from '../../../data/paths';
+
+export function getStaticPaths() {
+  return langs.flatMap((lang) => [
+    { params: { lang, section: sections[lang].games }, props: { kind: 'games' as const } },
+    { params: { lang, section: sections[lang].rpg }, props: { kind: 'rpg' as const } },
+  ]);
+}
+
+const lang = Astro.params.lang as Lang;
+const { kind } = Astro.props;
+const L = (it: string, en: string) => (lang === 'it' ? it : en);
+const other = otherLang(lang);
+const alt = `/${other}/${kind === 'games' ? sections[other].games : sections[other].rpg}/`;
+const title = kind === 'games' ? t(lang, 'nav.games') : t(lang, 'nav.rpg');
+const intro = kind === 'games' ? site.boardgames.intro[lang] : site.rpg.intro[lang];
+
+const novels = [
+  ...rpgs.map((r) => ({ title: r.chapterTitle, kicker: `${r.title} · ${L('romanzo a puntate', 'serial novel')}`, text: r.novelText[lang], href: `${itemPath(lang, r)}#romanzo` })),
+  ...settings.filter((s) => s.novelTitle).map((s) => ({
+    title: s.novelTitle,
+    kicker: `${s.title} · ${L('romanzo', 'novel')}`,
+    text: s.books.find((b) => b.n === '❦')?.text[lang] ?? s.short[lang],
+    href: `${itemPath(lang, s)}#libri`,
+  })),
+];
+---
+<Base lang={lang} title={title} description={intro} altPath={alt}>
+  <section class="container stack" style="padding-block: 56px 40px; gap: 16px;">
+    <nav class="crumbs" aria-label={L('Percorso', 'Breadcrumb')}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › {title}</nav>
+    <p class="label" style="margin: 0; color: var(--teal);">{kind === 'games' ? L('Catalogo · in arrivo', 'Catalogue · coming soon') : L('Catalogo · gratis', 'Catalogue · free')}</p>
+    <h1 class="pixel h1">{title}</h1>
+    <p style="margin: 0; max-width: 720px; font-size: 19px; color: var(--soft);">{intro}</p>
+  </section>
+
+  <section class="band-cream">
+    <div class="container stack pad" style="gap: 32px;">
+      <div class="cards">
+        {kind === 'games'
+          ? games.map((g) => <GameCard lang={lang} g={g} />)
+          : [...rpgs, ...settings].map((x) => <RpgCard lang={lang} item={x} />)}
+      </div>
+    </div>
+  </section>
+
+  {kind === 'rpg' && (
+    <section id="romanzi" class="container stack" style="padding-block: 72px; gap: 24px;">
+      <p class="label" style="margin: 0; color: var(--teal);">{L('Da leggere', 'To read')}</p>
+      <h2 class="pixel h2">{t(lang, 'nav.novels')}</h2>
+      <p style="margin: 0; max-width: 680px; color: var(--soft);">{L('Ogni gioco di ruolo ha il suo romanzo: si legge gratis, anche senza giocare.', 'Every roleplaying game has its own novel: free to read, even if you never play.')}</p>
+      <div class="novels">
+        {novels.map((n) => (
+          <a class="novel" href={n.href}>
+            <span class="label">{n.kicker}</span>
+            <strong>{n.title}</strong>
+            <p>{n.text}</p>
+            <span class="novel__go">{t(lang, 'card.read')} →</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {kind === 'games' && <InterestForm lang={lang} />}
+  <KofiBand lang={lang} />
+</Base>

@@ -1,0 +1,294 @@
+{
+  "order": 1,
+  "slug": "il-circolo-del-venerdi",
+  "title": "Il Circolo del Venerdì",
+  "chapterTitle": "La Notte del Coro",
+  "chapterSeries": {
+    "it": "Capitolo 0 · Valtorva, ottobre 1914",
+    "en": "Chapter 0 · Valtorva, October 1914"
+  },
+  "series": {
+    "it": "Campagna horror per Call of Cthulhu",
+    "en": "A horror campaign for Call of Cthulhu"
+  },
+  "cover": "/img/circolo/copertina.webp",
+  "coverAlt": {
+    "it": "Copertina: il campanile di Santa Maria del Silenzio disegnato a china, sovrastato da una presenza scura con due occhi chiari.",
+    "en": "Cover: the bell tower of Santa Maria del Silenzio in pen and ink, under a dark presence with two pale eyes."
+  },
+  "cardImage": "/img/circolo/card.webp",
+  "cardAlt": {
+    "it": "Il campanile di Santa Maria del Silenzio a china, con una presenza scura sopra le campane.",
+    "en": "The bell tower of Santa Maria del Silenzio in pen and ink, a dark presence above the bells."
+  },
+  "campaignIntro": {
+    "it": [
+      "Torino, 1910. Nello studio di via San Pietro in Vincoli 11, il professor Edoardo Valmarana fonda il Circolo del Venerdì e gli dà una regola sola: ogni fenomeno ha una spiegazione, e il compito del Circolo è trovarla, anche quando la spiegazione è più strana del fenomeno.",
+      "Il Circolo del Venerdì è una campagna horror su ciò che si tace, si nasconde e si dimentica, tra le Alpi e il mare. Ogni capitolo è un'avventura completa, con un romanzo che la accompagna."
+    ],
+    "en": [
+      "Turin, 1910. In a study at via San Pietro in Vincoli 11, Professor Edoardo Valmarana founds the Friday Circle and gives it a single rule: every phenomenon has an explanation, and the Circle’s task is to find it, even when the explanation is stranger than the phenomenon.",
+      "The Friday Circle is a horror campaign about what is kept silent, hidden and forgotten, between the Alps and the sea. Each chapter is a complete adventure, with a novel to go with it."
+    ]
+  },
+  "campaignChapters": [
+    {
+      "n": "0",
+      "title": "La Notte del Coro",
+      "place": "Valtorva",
+      "status": {
+        "it": "disponibile",
+        "en": "available"
+      },
+      "live": true
+    },
+    {
+      "n": "1",
+      "title": "Quello che resta del Venerdì",
+      "place": "Torino",
+      "status": {
+        "it": "in arrivo",
+        "en": "coming soon"
+      }
+    },
+    {
+      "n": "…",
+      "title": "",
+      "place": "",
+      "status": {
+        "it": "altri capitoli in preparazione",
+        "en": "more chapters in the works"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "image": "/img/circolo/ponte.webp",
+      "title": "Il ponte",
+      "caption": {
+        "it": "La corriera si ferma qui. Da qui sono due ore di mulattiera.",
+        "en": "The coach stops here. From here it is two hours on a mule track."
+      }
+    },
+    {
+      "image": "/img/circolo/strada-dei-segni.webp",
+      "title": "La strada dei segni",
+      "caption": {
+        "it": "Un segno inciso sopra la porta di mezzo paese.",
+        "en": "A sign carved above the doors of half the village."
+      }
+    },
+    {
+      "image": "/img/circolo/chiostro.webp",
+      "title": "Il chiostro",
+      "caption": {
+        "it": "Santa Maria del Silenzio, sotto la prima neve.",
+        "en": "Santa Maria del Silenzio, under the first snow."
+      }
+    }
+  ],
+  "tag": {
+    "it": "Gioco di ruolo · campagna e romanzo · gratis",
+    "en": "Roleplaying game · campaign and novel · free"
+  },
+  "players": {
+    "it": "3–6, personaggi pregenerati",
+    "en": "3–6, pregenerated characters"
+  },
+  "length": {
+    "it": "due sessioni, circa 8 ore",
+    "en": "two sessions, about 8 hours"
+  },
+  "genre": {
+    "it": "horror investigativo, anni '10",
+    "en": "investigative horror, 1910s"
+  },
+  "rules": "Call of Cthulhu",
+  "languages": {
+    "it": "italiano · inglese [IN ARRIVO]",
+    "en": "Italian · English [COMING]"
+  },
+  "short": {
+    "it": "Ottobre 1914. Sei studiosi dell'occulto salgono a Valtorva, sotto l'abbazia di Santa Maria del Silenzio. La prima neve sta per chiudere il passo.",
+    "en": "October 1914. Six scholars of the occult climb to Valtorva, below the abbey of Santa Maria del Silenzio. The first snow is about to close the pass."
+  },
+  "pitch": {
+    "it": [
+      "Ottobre 1914. L'abate di Santa Maria del Silenzio scrive a sei studiosi dell'occulto: a Valtorva, duecento anime a 1.400 metri nelle Alpi piemontesi, un frate è stato ucciso in una cappella sbarrata da fuori.",
+      "La corriera si ferma a fondovalle; da lì sono due ore di mulattiera. La prima neve sta per chiudere il passo: per tre giorni nessuno salirà e nessuno scenderà."
+    ],
+    "en": [
+      "October 1914. The abbot of Santa Maria del Silenzio writes to six scholars of the occult: in Valtorva, two hundred souls at 1,400 metres in the Piedmontese Alps, a friar has been killed in a chapel barred from the outside.",
+      "The coach stops at the bottom of the valley; from there it is two hours on a mule track. The first snow is about to close the pass: for three days, nobody will go up and nobody will come down."
+    ]
+  },
+  "warning": {
+    "it": "Orrore psicologico e temi pesanti che coinvolgono bambini. Tutto resta fuori scena. Tieni pronta una carta X e lascia qualche minuto per parlarne alla fine.",
+    "en": "Psychological horror and heavy themes involving children. Everything stays off-screen. Keep an X-card ready and leave a few minutes to talk at the end."
+  },
+  "files": [
+    {
+      "title": {
+        "it": "Guida del Custode",
+        "en": "Keeper’s Guide"
+      },
+      "desc": {
+        "it": "La verità, la struttura della sessione, le piste, le regole speciali · 53 pagine",
+        "en": "The truth, session structure, leads and special rules · 53 pages"
+      },
+      "it": "",
+      "en": ""
+    },
+    {
+      "title": {
+        "it": "Libro delle scene",
+        "en": "Book of Scenes"
+      },
+      "desc": {
+        "it": "Le scene da leggere al tavolo",
+        "en": "The scenes to read aloud at the table"
+      },
+      "it": "",
+      "en": ""
+    },
+    {
+      "title": {
+        "it": "I PNG",
+        "en": "The NPCs"
+      },
+      "desc": {
+        "it": "Monaci e abitanti di Valtorva: dove stanno, cosa dicono, cosa nascondono",
+        "en": "Monks and villagers of Valtorva: where they are, what they say, what they hide"
+      },
+      "it": "",
+      "en": ""
+    },
+    {
+      "title": {
+        "it": "I Luoghi",
+        "en": "The Locations"
+      },
+      "desc": {
+        "it": "Il borgo, l'abbazia e i dintorni",
+        "en": "The village, the abbey and the surroundings"
+      },
+      "it": "",
+      "en": ""
+    },
+    {
+      "title": {
+        "it": "Schede degli investigatori",
+        "en": "Investigator sheets"
+      },
+      "desc": {
+        "it": "Sei personaggi pronti, più le anteprime da dare ai giocatori",
+        "en": "Six ready-made characters, plus previews to hand to players"
+      },
+      "it": "",
+      "en": ""
+    }
+  ],
+  "investigatorsIntro": {
+    "it": "Sei investigatori, chiamati dall'abate. Ognuno sa chi è. Almeno, così crede.",
+    "en": "Six investigators, summoned by the abbot. Each knows who they are. Or so they believe."
+  },
+  "investigators": [
+    {
+      "name": "Prof. Edoardo Valmarana",
+      "image": "/img/circolo/edoardo-valmarana.webp",
+      "role": {
+        "it": "filologo torinese",
+        "en": "philologist from Turin"
+      }
+    },
+    {
+      "name": "Teresa Morandi",
+      "image": "/img/circolo/teresa-morandi.webp",
+      "role": {
+        "it": "maestra e folklorista",
+        "en": "teacher and folklorist"
+      }
+    },
+    {
+      "name": "Cap. Ruggero Alberti",
+      "image": "/img/circolo/ruggero-alberti.webp",
+      "role": {
+        "it": "ex ufficiale degli Alpini",
+        "en": "former Alpini officer"
+      }
+    },
+    {
+      "name": "Ida Cantoni",
+      "image": "/img/circolo/ida-cantoni.webp",
+      "role": {
+        "it": "fotografa e giornalista",
+        "en": "photographer and journalist"
+      }
+    },
+    {
+      "name": "Conte Aurelio Sanvitale",
+      "image": "/img/circolo/aurelio-sanvitale.webp",
+      "role": {
+        "it": "spiritista",
+        "en": "spiritualist"
+      }
+    },
+    {
+      "name": "Dott. Guido Ferrero",
+      "image": "/img/circolo/guido-ferrero.webp",
+      "role": {
+        "it": "medico chirurgo torinese",
+        "en": "surgeon from Turin"
+      }
+    }
+  ],
+  "novelText": {
+    "it": "Un frate ucciso, un borgo che non vuole forestieri, sei investigatori competenti. Ogni capitolo è raccontato da uno di loro. Un nuovo capitolo ogni [N] settimane.",
+    "en": "A murdered friar, a village that does not want strangers, six capable investigators. Each chapter is told by one of them. A new chapter every [N] weeks."
+  },
+  "chapters": [
+    {
+      "title": "La porta sbarrata",
+      "file": ""
+    },
+    {
+      "title": "L'ossario",
+      "file": ""
+    },
+    {
+      "title": "L'abate",
+      "file": ""
+    },
+    {
+      "title": "Il sagrestano",
+      "file": ""
+    },
+    {
+      "title": "Le donne del lavatoio",
+      "file": ""
+    },
+    {
+      "title": "La galleria",
+      "file": ""
+    }
+  ],
+  "kofi": {
+    "it": {
+      "title": "Vi ha tenuti svegli fino a tardi?",
+      "text": "Offri un caffè agli autori: aiuta a finire il Capitolo 1, «Quello che resta del Venerdì»."
+    },
+    "en": {
+      "title": "Did it keep you up late?",
+      "text": "Buy the authors a coffee: it helps finish Chapter 1, “What Remains of Friday”."
+    }
+  },
+  "licence": {
+    "it": "Questa avventura usa marchi e/o copyright di Chaosium Inc./Moon Design Publications LLC, con il permesso della Fan Material Policy di Chaosium. Non è approvata da Chaosium. È gratuita e non può essere venduta. [TESTO DA ALLINEARE A QUELLO UFFICIALE]",
+    "en": "This adventure uses trademarks and/or copyrights owned by Chaosium Inc./Moon Design Publications LLC, under Chaosium’s Fan Material Policy. It is not endorsed by Chaosium. It is free and may not be sold. [ALIGN WITH THE OFFICIAL WORDING]"
+  },
+  "cardMeta": {
+    "it": "Cap. 0 · La Notte del Coro · due sessioni, circa 8 ore",
+    "en": "Ch. 0 · La Notte del Coro · two sessions, about 8 hours"
+  },
+  "zip": ""
+}

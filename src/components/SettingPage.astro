@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import KofiBand from './KofiBand.astro';
-import { t, type Lang } from '../i18n/ui';
+import { t, sections, type Lang } from '../i18n/ui';
 import type { Setting } from '../data/catalog';
 
 interface Props { lang: Lang; s: Setting; altPath: string }
@@ -15,7 +15,7 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
 
   <section class="container row" style="padding-block: 48px 64px; gap: 48px;">
     <div class="stack" style="flex: 1 1 560px; min-width: 0; gap: 18px;">
-      <nav class="crumbs" aria-label={L('Percorso', 'Breadcrumb')}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › <a href={`/${lang}/#gdr`}>{t(lang, 'nav.rpg')}</a> › {s.title}</nav>
+      <nav class="crumbs" aria-label={L('Percorso', 'Breadcrumb')}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › <a href={`/${lang}/${sections[lang].rpg}/`}>{t(lang, 'nav.rpg')}</a> › {s.title}</nav>
       <p class="label" style="margin: 0; color: var(--mer-accent);">{s.tag[lang]}</p>
       <h1 class="pixel" style="font-size: clamp(48px, 7vw, 84px); line-height: 1;">{s.title}</h1>
       <p class="serif" style="margin: 0; font-size: 26px; font-style: italic; color: var(--mer-accent);">{s.tagline[lang]}</p>
@@ -48,7 +48,9 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
             <span class="mer-book__n">{b.n}</span>
             <h3>{b.title[lang]}</h3>
             <p>{b.text[lang]}</p>
-            <a href="#" class="mer-book__dl">{b.action[lang]}</a>
+            {(b.file?.[lang] || b.file?.it)
+              ? <a href={b.file[lang] || b.file.it} class="mer-book__dl">{b.action[lang]}</a>
+              : <span class="mer-book__dl mer-book__dl--soon">{b.action[lang]} · {L('in arrivo', 'coming soon')}</span>}
           </article>
         ))}
       </div>

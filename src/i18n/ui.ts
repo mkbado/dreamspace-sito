@@ -4,14 +4,14 @@ export const langs: Lang[] = ['it', 'en'];
 
 /** Segmenti di URL che cambiano con la lingua */
 export const sections = {
-  it: { games: 'giochi', rpg: 'gdr' },
-  en: { games: 'games', rpg: 'rpg' },
+  it: { games: 'giochi-da-tavolo', rpg: 'giochi-di-ruolo' },
+  en: { games: 'board-games', rpg: 'roleplaying-games' },
 } as const;
 
 export const ui = {
   it: {
     'nav.games': 'Giochi da tavolo',
-    'nav.rpg': 'GDR',
+    'nav.rpg': 'Giochi di ruolo',
     'nav.novels': 'Romanzi',
     'nav.about': 'Chi siamo',
     'nav.support': 'Sostienici',
@@ -58,8 +58,8 @@ export const ui = {
     'footer.privacy': 'Privacy',
     'footer.cookies': 'Cookie',
     'footer.notes': 'Note legali',
-    'footer.disclaimer': "Dreamspace Ltd è un nome di fantasia, preso dall'universo di Dreamspace. Sito gestito da [IL TUO NOME] · [CONTATTO]",
-    'meta.description': 'Avventure GDR e romanzi gratuiti, giochi da tavolo in arrivo. In italiano e in inglese.',
+    'footer.disclaimer': "Dreamspace Ltd è un nome di fantasia, preso dall'universo di Dreamspace.",
+    'meta.description': 'Avventure di giochi di ruolo e romanzi gratuiti, giochi da tavolo in arrivo. In italiano e in inglese.',
     'crumb.home': 'Home',
     'game.players': 'giocatori',
     'game.minutes': 'minuti',
@@ -87,7 +87,7 @@ export const ui = {
   },
   en: {
     'nav.games': 'Board games',
-    'nav.rpg': 'RPGs',
+    'nav.rpg': 'Roleplaying games',
     'nav.novels': 'Novels',
     'nav.about': 'About us',
     'nav.support': 'Support us',
@@ -134,8 +134,8 @@ export const ui = {
     'footer.privacy': 'Privacy',
     'footer.cookies': 'Cookies',
     'footer.notes': 'Legal notice',
-    'footer.disclaimer': 'Dreamspace Ltd is a fictional name from the Dreamspace universe. Site run by [YOUR NAME] · [CONTACT]',
-    'meta.description': 'Free RPG adventures and novels, upcoming board games. In Italian and English.',
+    'footer.disclaimer': 'Dreamspace Ltd is a fictional name from the Dreamspace universe.',
+    'meta.description': 'Free roleplaying adventures and novels, upcoming board games. In Italian and English.',
     'crumb.home': 'Home',
     'game.players': 'players',
     'game.minutes': 'minutes',

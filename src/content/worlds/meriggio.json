@@ -1,0 +1,466 @@
+{
+  "order": 1,
+  "slug": "meriggio",
+  "title": "Meriggio",
+  "image": "/img/meriggio/card.webp",
+  "imageAlt": {
+    "it": "Cinque viandanti di spalle guardano una valle di campi e casali, disegno a matita",
+    "en": "Five travellers seen from behind look down on a valley of fields and farmsteads, pencil drawing"
+  },
+  "banner": "/img/meriggio/banner.webp",
+  "bannerAlt": {
+    "it": "I cinque Guardiani di Primalba, un grufolo, un bardo, una guardia, un sacerdote dai capelli di fuoco e un monaco gigante, scendono verso una valle di campi; all’orizzonte un castello sotto nuvole scure. Disegno a matita",
+    "en": "The five Guardians of Primalba, a grufolo, a bard, a guard, a fire-haired priest and a giant monk, walk down towards a valley of fields; a castle under dark clouds on the horizon. Pencil drawing"
+  },
+  "tag": {
+    "it": "Gioco di ruolo · ambientazione, avventura e romanzo · gratis",
+    "en": "Roleplaying game · setting, adventure and novel · free"
+  },
+  "tagline": {
+    "it": "Il mondo dove il sole non tramonta mai.",
+    "en": "The world where the sun never sets."
+  },
+  "short": {
+    "it": "Il mondo dove il sole non tramonta mai: una fiaba di campagna con capre rubate, giganti smemorati e qualcosa di più antico che preme da sotto. Ambientazione, avventura, bestiario e romanzo.",
+    "en": "The world where the sun never sets: a country fairy tale of stolen goats, forgetful giants and something older pressing from beneath. Setting, adventure, bestiary and novel."
+  },
+  "intro": {
+    "it": [
+      "A Meriggio il sole scende piano fino a sfiorare le colline, resta lì qualche ora a tingere tutto d’oro, e poi torna a salire. Nessuno ha mai visto una stella. Nessuno ha mai avuto bisogno di una candela per trovare la strada di casa.",
+      "È un mondo piccolo, da fiaba di campagna: campi, siepi, boschi fitti, cinque fiumi e un anello di montagne tutt’intorno. La cosa peggiore che possa capitare a un allevatore, di solito, è che gli spariscano le capre. Di solito.",
+      "L’avventura porta i personaggi da un furto di capre in un villaggio di cento anime alla cima di una montagna, dove vedranno la prima notte della storia del mondo."
+    ],
+    "en": [
+      "In Meriggio the sun sinks slowly until it brushes the hills, lingers there a few hours gilding everything, and then climbs again. No one has ever seen a star. No one has ever needed a candle to find the way home.",
+      "It is a small world, a country fairy tale: fields, hedges, thick woods, five rivers and a ring of mountains all around. The worst that usually happens to a farmer is that their goats go missing. Usually.",
+      "The adventure takes the characters from a goat theft in a village of a hundred souls to the top of a mountain, where they will see the first night in the history of the world."
+    ]
+  },
+  "motto": {
+    "it": "Prima lo stupore, poi la battuta.",
+    "en": "Wonder first, then the joke."
+  },
+  "sheet": [
+    {
+      "label": {
+        "it": "Sistema",
+        "en": "System"
+      },
+      "value": {
+        "it": "compatibile 5ª edizione (SRD 5.1)",
+        "en": "5th edition compatible (SRD 5.1)"
+      }
+    },
+    {
+      "label": {
+        "it": "Giocatori",
+        "en": "Players"
+      },
+      "value": {
+        "it": "4–5 personaggi",
+        "en": "4–5 characters"
+      }
+    },
+    {
+      "label": {
+        "it": "Livelli",
+        "en": "Levels"
+      },
+      "value": {
+        "it": "dal 1 al 5",
+        "en": "1 to 5"
+      }
+    },
+    {
+      "label": {
+        "it": "Durata",
+        "en": "Length"
+      },
+      "value": {
+        "it": "circa dieci sessioni",
+        "en": "about ten sessions"
+      }
+    },
+    {
+      "label": {
+        "it": "Lingue",
+        "en": "Languages"
+      },
+      "value": {
+        "it": "italiano · inglese [IN ARRIVO]",
+        "en": "Italian · English [COMING]"
+      }
+    }
+  ],
+  "books": [
+    {
+      "n": "1",
+      "title": {
+        "it": "Guida al mondo",
+        "en": "World Guide"
+      },
+      "text": {
+        "it": "La storia, l’atlante, la vita quotidiana, le dieci stirpi giocabili e le regole proprie di Meriggio. I primi sei capitoli li possono leggere anche i giocatori.",
+        "en": "History, atlas, daily life, the ten playable lineages and Meriggio’s own rules. Players can read the first six chapters too."
+      },
+      "action": {
+        "it": "PDF IT",
+        "en": "PDF IT"
+      },
+      "file": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "n": "2",
+      "title": {
+        "it": "L’avventura",
+        "en": "The Adventure"
+      },
+      "text": {
+        "it": "I Guardiani di Primalba, Atto I: otto capitoli, quattro dungeon con mappa e missioni secondarie, dal livello 1 al 5.",
+        "en": "The Guardians of Primalba, Act I: eight chapters, four mapped dungeons and side quests, from level 1 to 5."
+      },
+      "action": {
+        "it": "PDF IT",
+        "en": "PDF IT"
+      },
+      "file": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "n": "3",
+      "title": {
+        "it": "Il bestiario",
+        "en": "The Bestiary"
+      },
+      "text": {
+        "it": "Oltre 40 schede di creature e personaggi non giocanti, dai lupi della Valle dei Rovi ai monaci di Brace Caduta.",
+        "en": "Over 40 stat blocks of creatures and NPCs, from the wolves of Valle dei Rovi to the monks of Brace Caduta."
+      },
+      "action": {
+        "it": "PDF IT",
+        "en": "PDF IT"
+      },
+      "file": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "n": "❦",
+      "title": {
+        "it": "Il romanzo",
+        "en": "The Novel"
+      },
+      "text": {
+        "it": "I Guardiani di Primalba raccontati come romanzo, in diciassette capitoli. Il prologo lo narra Olmo Cavo, l’albero più vecchio del Bosco Torto.",
+        "en": "The Guardians of Primalba told as a novel in seventeen chapters. The prologue is narrated by Olmo Cavo, the oldest tree in Bosco Torto."
+      },
+      "action": {
+        "it": "Leggi online",
+        "en": "Read online"
+      },
+      "file": {
+        "it": "",
+        "en": ""
+      }
+    }
+  ],
+  "heroes": {
+    "title": {
+      "it": "I Guardiani di Primalba",
+      "en": "The Guardians of Primalba"
+    },
+    "note": {
+      "it": "I protagonisti del romanzo, pronti da giocare.",
+      "en": "The novel’s heroes, ready to play."
+    },
+    "list": [
+      {
+        "name": "GZ",
+        "role": {
+          "it": "Guerriero terragno",
+          "en": "Terragno fighter"
+        },
+        "image": "/img/meriggio/gz.webp",
+        "alt": {
+          "it": "GZ, giovane terragno lentigginoso con la giacca rattoppata, cammina sorridendo e indica la strada",
+          "en": "GZ, a freckled young terragno in a patched jacket, walks smiling and points the way"
+        },
+        "bio": {
+          "it": "Guardia di Primalba, 1,05 m di energia. A ogni raccolto la madre gli manda una cesta di mele e un biglietto: «Torna quando ti sei calmato». Non è ancora tornato.",
+          "en": "Primalba’s guard, 1.05 m of energy. Every harvest his mother sends a basket of apples and a note: “Come home when you’ve calmed down.” He hasn’t gone home yet."
+        }
+      },
+      {
+        "name": "Panko Shine",
+        "role": {
+          "it": "Bardo sembiante",
+          "en": "Sembiante bard"
+        },
+        "image": "/img/meriggio/panko.webp",
+        "alt": {
+          "it": "Panko Shine, giovane bardo con il mantello lacero, stringe un liuto accanto a una pozzanghera",
+          "en": "Panko Shine, a young bard in a ragged cloak, hugs a lute beside a puddle"
+        },
+        "bio": {
+          "it": "Il suo liuto arrivò a Primalba un giorno prima di lui, con quel nome cucito sulla custodia. Se gli chiedi se il nome sia suo, pizzica tre note che vogliono dire: «Adesso è mio».",
+          "en": "His lute reached Primalba a day before he did, the name sewn on its case. Ask him if the name is his and he plucks three notes that mean: “It is now.”"
+        }
+      },
+      {
+        "name": "Ignazio",
+        "role": {
+          "it": "Chierico braciaro",
+          "en": "Braciaro cleric"
+        },
+        "image": "/img/meriggio/ignazio.webp",
+        "alt": {
+          "it": "Ignazio, sacerdote dai capelli di fiamma con bastone e braciere, in una valle con un carro",
+          "en": "Ignazio, a priest with flaming hair, holding a staff beside a brazier in a valley with a wagon"
+        },
+        "bio": {
+          "it": "Sacerdote della Brace, nato in carovana, ha fatto la cosa più scandalosa per un braciaro: si è fermato. La madre gli ha scritto «Un fuoco fermo si spegne»; lui le risponde con ricette di torta al miele.",
+          "en": "A priest of the Ember, born on the road, he did the most scandalous thing a braciaro can do: he stopped. His mother wrote “A still fire goes out”; he replies with honey-cake recipes."
+        }
+      },
+      {
+        "name": "Anacleto",
+        "role": {
+          "it": "Monaco di sangue di gigante",
+          "en": "Giant-blooded monk"
+        },
+        "image": "/img/meriggio/anacleto.webp",
+        "alt": {
+          "it": "Anacleto, monaco gigante con le braccia fasciate, si china sulla porta di un cottage davanti a due bambini",
+          "en": "Anacleto, a giant monk with bandaged arms, stoops at a cottage door in front of two children"
+        },
+        "bio": {
+          "it": "Monaco di Brace Caduta, 2,20 m: più del doppio di un terragno qualunque. In famiglia dicono che ci sia un gigante; sua madre sostiene che abbia solo mangiato troppa minestra.",
+          "en": "A monk of Brace Caduta, 2.20 m tall: twice any terragno. The family says there’s a giant in the bloodline; his mother says he just ate too much soup."
+        }
+      },
+      {
+        "name": "Zrak",
+        "role": {
+          "it": "Chierico grufolo",
+          "en": "Grufolo cleric"
+        },
+        "image": "/img/meriggio/zrak.webp",
+        "alt": {
+          "it": "Zrak, grufolo dalle orecchie a punta e dal mantello a brandelli, spalanca le braccia su una collina",
+          "en": "Zrak, a pointy-eared grufolo in a tattered cloak, throws his arms wide on a hilltop"
+        },
+        "bio": {
+          "it": "Chierico del Caos e profeta del Rumore, per nomina propria. Espulso dal consiglio della tana per aver cantato durante una riunione, riammesso, ed espulso di nuovo per aver cantato durante la riammissione.",
+          "en": "Cleric of Chaos and prophet of Noise, self-appointed. Expelled from the burrow council for singing during a meeting, readmitted, and expelled again for singing at his readmission."
+        }
+      }
+    ]
+  },
+  "peoples": {
+    "title": {
+      "it": "Le cinque genti",
+      "en": "The five peoples"
+    },
+    "list": [
+      {
+        "name": {
+          "it": "Terragni",
+          "en": "Terragni"
+        },
+        "text": {
+          "it": "Contadini e allevatori, bassi e larghi di spalle. Contano le capre tre volte.",
+          "en": "Farmers and herders, short and broad-shouldered. They count their goats three times."
+        },
+        "where": {
+          "it": "circa 30.000 · casali della pianura",
+          "en": "about 30,000 · lowland farmsteads"
+        }
+      },
+      {
+        "name": {
+          "it": "Braciari",
+          "en": "Braciari"
+        },
+        "text": {
+          "it": "Gente del fuoco, sempre in viaggio sui loro carri.",
+          "en": "Fire folk, always on the move in their wagons."
+        },
+        "where": {
+          "it": "circa 3.000 · Colline Rosse, in carovana",
+          "en": "about 3,000 · Red Hills, in caravans"
+        }
+      },
+      {
+        "name": {
+          "it": "Salmastri",
+          "en": "Salmastri"
+        },
+        "text": {
+          "it": "Gente d’acqua e di commerci, tra fiumi e lagune.",
+          "en": "Water folk and traders, among rivers and lagoons."
+        },
+        "where": {
+          "it": "circa 10.000 · fiumi e lagune",
+          "en": "about 10,000 · rivers and lagoons"
+        }
+      },
+      {
+        "name": {
+          "it": "Radicati",
+          "en": "Radicati"
+        },
+        "text": {
+          "it": "Gente dei boschi, alti e orgogliosi. Guardano tutti dall’alto in basso.",
+          "en": "Woodland folk, tall and proud. They look down on everyone."
+        },
+        "where": {
+          "it": "circa 20.000 · boschi",
+          "en": "about 20,000 · woods"
+        }
+      },
+      {
+        "name": {
+          "it": "Grufoli",
+          "en": "Grufoli"
+        },
+        "text": {
+          "it": "Ladruncoli caotici e rumorosi, che fanno «viaggiare» le cose altrui.",
+          "en": "Chaotic, noisy little thieves who make other people’s things “travel”."
+        },
+        "where": {
+          "it": "40.000 o 50.000, dipende dal giorno · tane sotto le colline",
+          "en": "40,000 or 50,000, depending on the day · burrows under the hills"
+        }
+      }
+    ],
+    "more": {
+      "it": "E poi sembianti, giganti, arborei, spiritelli e sorgivi: dieci stirpi giocabili in tutto. A Meriggio non ci sono umani.",
+      "en": "Plus sembianti, giants, arborei, spiritelli and sorgivi: ten playable lineages in all. There are no humans in Meriggio."
+    }
+  },
+  "atlas": {
+    "title": {
+      "it": "Atlante",
+      "en": "Atlas"
+    },
+    "list": [
+      {
+        "name": "Valle dei Rovi",
+        "dir": {
+          "it": "Sud-ovest",
+          "en": "South-west"
+        },
+        "text": {
+          "it": "Terra di terragni, di siepi e di capre. Qui comincia l’avventura.",
+          "en": "Land of terragni, hedges and goats. The adventure starts here."
+        }
+      },
+      {
+        "name": "Colline Rosse e Monte Fumalto",
+        "dir": {
+          "it": "Ovest",
+          "en": "West"
+        },
+        "text": {
+          "it": "Terra di braciari e di fuochi da custodire.",
+          "en": "Land of braciari and fires to tend."
+        }
+      },
+      {
+        "name": "Valle della Scodella",
+        "dir": {
+          "it": "Nord-ovest",
+          "en": "North-west"
+        },
+        "text": {
+          "it": "Un tempo la terra più ricca dei terragni. Oggi quasi vuota.",
+          "en": "Once the terragni’s richest land. Now almost empty."
+        }
+      },
+      {
+        "name": "Piana di Spigadoro",
+        "dir": {
+          "it": "Centro",
+          "en": "Centre"
+        },
+        "text": {
+          "it": "Il granaio del mondo.",
+          "en": "The granary of the world."
+        }
+      },
+      {
+        "name": "Selvamaggiore",
+        "dir": {
+          "it": "Sud-est",
+          "en": "South-east"
+        },
+        "text": {
+          "it": "La grande foresta.",
+          "en": "The great forest."
+        }
+      },
+      {
+        "name": "Monti Senzafine",
+        "dir": {
+          "it": "Tutt’intorno",
+          "en": "All around"
+        },
+        "text": {
+          "it": "Chiudono il mondo da ogni lato. Quello che c’è oltre non ha un nome.",
+          "en": "They close the world on every side. What lies beyond has no name."
+        }
+      }
+    ]
+  },
+  "quote": {
+    "text": {
+      "it": "Gli alberi non mentono mai. Qualche volta, però, decidiamo di non raccontare tutta la verità.",
+      "en": "Trees never lie. Sometimes, though, we choose not to tell the whole truth."
+    },
+    "who": {
+      "it": "Olmo Cavo, arboreo del Bosco Torto · dal prologo del romanzo",
+      "en": "Olmo Cavo, arboreo of Bosco Torto · from the novel’s prologue"
+    }
+  },
+  "bestiary": {
+    "title": {
+      "it": "Dal bestiario",
+      "en": "From the bestiary"
+    },
+    "text": {
+      "it": "Creature di fuoco, d’acqua e di bosco, e la gente che incontrerete per strada.",
+      "en": "Creatures of fire, water and wood, and the folk you will meet on the road."
+    },
+    "names": [
+      "Bollore",
+      "Braciaro cinereo",
+      "Rodiferro",
+      "Salmastro torbido",
+      "Sbuffo di lava",
+      "Sterpo",
+      "Spiritella",
+      "Troll rancido",
+      "Serpente di fuoco",
+      "Grufolo spinoso",
+      "Uvak Occhio Sguercio",
+      "Madama, la gigantessa",
+      "Ginestra del Tasso Vecchio",
+      "Sciamana del tuono"
+    ]
+  },
+  "licence": {
+    "it": "Meriggio è un’ambientazione originale di Dreamspace. This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC, licensed under the Creative Commons Attribution 4.0 International License (creativecommons.org/licenses/by/4.0).",
+    "en": "Meriggio is an original Dreamspace setting. This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC, licensed under the Creative Commons Attribution 4.0 International License (creativecommons.org/licenses/by/4.0)."
+  },
+  "cardMeta": {
+    "it": "compatibile 5ª edizione · livelli 1–5 · circa 10 sessioni",
+    "en": "5e compatible · levels 1–5 · about 10 sessions"
+  },
+  "novelTitle": "I Guardiani di Primalba"
+}

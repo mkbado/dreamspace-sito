@@ -7,7 +7,8 @@ import '@fontsource/spectral/400.css';
 import '@fontsource/spectral/400-italic.css';
 import '@fontsource/spectral/600.css';
 import '../styles/global.css';
-import { t, otherLang, langs, type Lang } from '../i18n/ui';
+import { t, otherLang, langs, sections, type Lang } from '../i18n/ui';
+import { site } from '../data/catalog';
 
 interface Props {
   lang: Lang;
@@ -46,10 +47,9 @@ const year = new Date().getFullYear();
     <div class="container">
       <a class="logo" href={`/${lang}/`} aria-label="Dreamspace Ltd, Home"><b>DREAMSPACE</b><span>LTD</span></a>
       <nav class="nav" aria-label={t(lang, 'nav.menu')}>
-        <a href={`/${lang}/#giochi`}>{t(lang, 'nav.games')}</a>
-        <a href={`/${lang}/#gdr`}>{t(lang, 'nav.rpg')}</a>
-        <a href={`/${lang}/#romanzi`}>{t(lang, 'nav.novels')}</a>
-        <a href={`/${lang}/#chi-siamo`}>{t(lang, 'nav.about')}</a>
+        <a href={`/${lang}/${sections[lang].games}/`} aria-current={here.startsWith(`/${lang}/${sections[lang].games}/`) ? 'page' : undefined}>{t(lang, 'nav.games')}</a>
+        <a href={`/${lang}/${sections[lang].rpg}/`} aria-current={here.startsWith(`/${lang}/${sections[lang].rpg}/`) ? 'page' : undefined}>{t(lang, 'nav.rpg')}</a>
+        <a href={`/${lang}/${sections[lang].rpg}/#romanzi`}>{t(lang, 'nav.novels')}</a>
         <span class="lang">
           {langs.map((l, i) => (
             <>
@@ -58,7 +58,7 @@ const year = new Date().getFullYear();
             </>
           ))}
         </span>
-        <a class="btn btn--teal" href={`/${lang}/#sostienici`}>{t(lang, 'nav.support')}</a>
+        <a class="btn btn--teal" href={site.kofi || `/${lang}/#sostienici`}>{t(lang, 'nav.support')}</a>
       </nav>
     </div>
   </header>
@@ -76,15 +76,15 @@ const year = new Date().getFullYear();
         </div>
         <nav aria-label={t(lang, 'footer.catalog')}>
           <span class="label muted" style="font-size: 12px;">{t(lang, 'footer.catalog')}</span>
-          <a href={`/${lang}/#giochi`}>{t(lang, 'nav.games')}</a>
-          <a href={`/${lang}/#gdr`}>{t(lang, 'nav.rpg')}</a>
-          <a href={`/${lang}/#romanzi`}>{t(lang, 'nav.novels')}</a>
+          <a href={`/${lang}/${sections[lang].games}/`}>{t(lang, 'nav.games')}</a>
+          <a href={`/${lang}/${sections[lang].rpg}/`}>{t(lang, 'nav.rpg')}</a>
+          <a href={`/${lang}/${sections[lang].rpg}/#romanzi`}>{t(lang, 'nav.novels')}</a>
         </nav>
         <nav aria-label="Dreamspace">
           <span class="label muted" style="font-size: 12px;">Dreamspace</span>
           <a href="#">{t(lang, 'nav.about')}</a>
-          <a href="#">{t(lang, 'footer.news')}</a>
-          <a href="#">{t(lang, 'footer.contact')}</a>
+          <a href={`/${lang}/#novita`}>{t(lang, 'footer.news')}</a>
+          <a href={site.email ? `mailto:${site.email}` : '#'}>{t(lang, 'footer.contact')}</a>
         </nav>
         <nav aria-label={t(lang, 'footer.legal')}>
           <span class="label muted" style="font-size: 12px;">{t(lang, 'footer.legal')}</span>
@@ -94,7 +94,7 @@ const year = new Date().getFullYear();
         </nav>
       </div>
       <slot name="licence" />
-      <p class="fine">{t(lang, 'footer.disclaimer')} · © {year}</p>
+      <p class="fine">{t(lang, 'footer.disclaimer')}{site.owner && ` ${lang === 'it' ? 'Sito gestito da' : 'Site run by'} ${site.owner}.`}{site.email && <> <a href={`mailto:${site.email}`}>{site.email}</a></>} · © {year}</p>
     </div>
   </footer>
 </body>

@@ -1,0 +1,299 @@
+{
+  "order": 2,
+  "slug": "intolleranti",
+  "title": "Intolleranti!",
+  "image": "/img/intolleranti/card.webp",
+  "imageAlt": {
+    "it": "Il Vampiro Astemio, con mantello rosso, guarda sconsolato un bicchiere d’acqua in una taverna, illustrazione in stile incisione",
+    "en": "The Teetotal Vampire, in a red cloak, stares glumly at a glass of water in a tavern, engraving-style illustration"
+  },
+  "heroImage": "/img/intolleranti/taverna.webp",
+  "heroAlt": {
+    "it": "Una taverna con il tetto a graticcio in fondo a una strada di campagna, illustrazione in stile incisione",
+    "en": "A half-timbered tavern at the end of a country road, engraving-style illustration"
+  },
+  "tag": {
+    "it": "Gioco di carte · push your luck",
+    "en": "Card game · push your luck"
+  },
+  "status": {
+    "it": "In sviluppo",
+    "en": "In development"
+  },
+  "players": "2–8",
+  "minutes": "20–40",
+  "age": "10+",
+  "short": {
+    "it": "Il gioco delle serate impossibili. Otto ospiti, otto intolleranze: un’altra uscita per fare punti, o una sera sul divano per metterli al sicuro?",
+    "en": "The game of impossible nights out. Eight guests, eight intolerances: one more night out to score, or a night on the sofa to bank your points?"
+  },
+  "pitch": {
+    "it": "Ogni giocatore è un ospite con un’intolleranza tutta sua. Esci a cena, sopravvivi alle Portate e accumula Uscite. Ma finché non torni a casa a incassarle, basta un fritto misto di troppo per perdere tutto.",
+    "en": "Each player is a guest with an intolerance all of their own. Go out to dinner, survive the courses and collect nights out. But until you go home to bank them, one fried platter too many and you lose everything."
+  },
+  "waiting": "[N]",
+  "waitingWho": {
+    "it": "commensali",
+    "en": "diners"
+  },
+  "fileName": "TAVERNA.PNG",
+  "cta": {
+    "it": "Vuoi sapere quando si va a cena?",
+    "en": "Want to know when dinner is served?"
+  },
+  "features": {
+    "title": {
+      "it": "Perché giocarci",
+      "en": "Why play it"
+    },
+    "list": [
+      {
+        "title": {
+          "it": "Sapere quando fermarsi",
+          "en": "Knowing when to stop"
+        },
+        "text": {
+          "it": "Ogni Uscita in più vale punti, ma mette a rischio tutte quelle che non hai ancora incassato.",
+          "en": "Every extra night out scores, but puts every unbanked one at risk."
+        }
+      },
+      {
+        "title": {
+          "it": "Inviti avvelenati",
+          "en": "Poisoned invitations"
+        },
+        "text": {
+          "it": "Invita un rivale alla tua cena: se accetta si carica di Malessere, se rifiuta si becca il Pacco.",
+          "en": "Invite a rival to your dinner: accept and they pile up Queasiness, refuse and they get stood-up points."
+        }
+      },
+      {
+        "title": {
+          "it": "Otto ospiti, otto stili",
+          "en": "Eight guests, eight styles"
+        },
+        "text": {
+          "it": "Dai fragilissimi ai corazzati: ognuno ha un colore, un limite di Malessere e due abilità.",
+          "en": "From the most fragile to the armour-plated: each has a colour, a Queasiness limit and two abilities."
+        }
+      },
+      {
+        "title": {
+          "it": "Da 2 a 8 a tavola",
+          "en": "From 2 to 8 at the table"
+        },
+        "text": {
+          "it": "Venti minuti in due, quaranta in otto. Perfetto per la fine di una cena vera.",
+          "en": "Twenty minutes for two, forty for eight. Perfect for the end of a real dinner."
+        }
+      }
+    ]
+  },
+  "gallery": {
+    "title": {
+      "it": "Gli ospiti della taverna",
+      "en": "The tavern guests"
+    },
+    "note": {
+      "it": "Le plance dei personaggi, in versione da stampa.",
+      "en": "The character boards, print version."
+    },
+    "items": [
+      {
+        "name": {
+          "it": "L’Orco Vegetariano",
+          "en": "The Vegetarian Orc"
+        },
+        "image": "/img/intolleranti/orco-vegetariano.webp",
+        "alt": {
+          "it": "Un orco anziano con una carota in mano che legge un libro",
+          "en": "An old orc holding a carrot while reading a book"
+        },
+        "quote": {
+          "it": "«Io prendo un contorno. Anzi due.»",
+          "en": "“I’ll have a side. Make that two.”"
+        }
+      },
+      {
+        "name": {
+          "it": "L’Elfa Celiaca",
+          "en": "The Coeliac Elf"
+        },
+        "image": "/img/intolleranti/elfa-celiaca.webp",
+        "alt": {
+          "it": "Un’elfa che esamina una briciola con la lente d’ingrandimento",
+          "en": "An elf inspecting a crumb with a magnifying glass"
+        },
+        "quote": {
+          "it": "«Pizza senza glutine: 14 euro, 40 minuti di attesa.»",
+          "en": "“Gluten-free pizza: 14 euros, 40-minute wait.”"
+        }
+      },
+      {
+        "name": {
+          "it": "Il Nano No al Lattosio",
+          "en": "The Lactose-Free Dwarf"
+        },
+        "image": "/img/intolleranti/nano-no-al-lattosio.webp",
+        "alt": {
+          "it": "Un nano dalla barba rossa che guarda preoccupato un cappuccino",
+          "en": "A red-bearded dwarf eyeing a cappuccino with worry"
+        },
+        "quote": {
+          "it": "«Ho la pastiglia e ho il piano di fuga.»",
+          "en": "“I’ve got the pill and the escape plan.”"
+        }
+      },
+      {
+        "name": {
+          "it": "Il Vampiro Astemio",
+          "en": "The Teetotal Vampire"
+        },
+        "image": "/img/intolleranti/vampiro-astemio.webp",
+        "alt": {
+          "it": "Un vampiro annoiato con un bicchiere d’acqua",
+          "en": "A bored vampire holding a glass of water"
+        },
+        "quote": {
+          "it": "«Guido io. Guido sempre io.»",
+          "en": "“I’m driving. I’m always driving.”"
+        }
+      },
+      {
+        "name": {
+          "it": "La Goblin Anti-Uova",
+          "en": "The Egg-Hating Goblin"
+        },
+        "image": "/img/intolleranti/goblin-anti-uova.webp",
+        "alt": {
+          "it": "Una goblin che prende a calci un uovo",
+          "en": "A goblin kicking an egg away"
+        },
+        "quote": {
+          "it": "«Carbonara? Maionese? Zabaione?»",
+          "en": "“Carbonara? Mayo? Zabaglione?”"
+        }
+      },
+      {
+        "name": {
+          "it": "La Fatina Diabetica",
+          "en": "The Diabetic Fairy"
+        },
+        "image": "/img/intolleranti/fatina-diabetica.webp",
+        "alt": {
+          "it": "Una fatina con un cupcake in una mano e il misuratore di glicemia nell’altra",
+          "en": "A fairy with a cupcake in one hand and a glucose meter in the other"
+        },
+        "quote": {
+          "it": "«La frutta è sana, dicevano.»",
+          "en": "“Fruit is healthy, they said.”"
+        }
+      },
+      {
+        "name": {
+          "it": "La Sirena Amica dei Pesci",
+          "en": "The Fish-Friendly Mermaid"
+        },
+        "image": "/img/intolleranti/sirena-amica-dei-pesci.webp",
+        "alt": {
+          "it": "Una sirena abbracciata a una boccia con un pesce rosso",
+          "en": "A mermaid hugging a goldfish bowl"
+        },
+        "quote": {
+          "it": "«Sushi party? Io porto i cartelli di protesta.»",
+          "en": "“Sushi party? I’ll bring the protest signs.”"
+        }
+      },
+      {
+        "name": {
+          "it": "Il Golem Palestrato",
+          "en": "The Gym Golem"
+        },
+        "image": "/img/intolleranti/golem-palestrato.webp",
+        "alt": {
+          "it": "Un golem di pietra muscoloso che pesa le porzioni con una bilancia",
+          "en": "A muscular stone golem weighing portions on a scale"
+        },
+        "quote": {
+          "it": "«Due porzioni: per me e per i miei bicipiti.»",
+          "en": "“Two portions: one for me, one for my biceps.”"
+        }
+      }
+    ]
+  },
+  "howToPlay": {
+    "title": {
+      "it": "Come si gioca",
+      "en": "How to play"
+    },
+    "steps": {
+      "it": [
+        "Pesca una carta Risposta",
+        "Esci o stai a casa? A casa incassi le Uscite e ti riprendi",
+        "Rivela l’Uscita: quanti punti vale, quanto si mangia e si beve",
+        "Invita un compagno, se vuoi metterlo nei guai",
+        "Pesca le Portate una alla volta: se hanno il tuo colore, Malessere",
+        "Sopravvissuto? L’Uscita è tua, ma non ancora al sicuro"
+      ],
+      "en": [
+        "Draw a Response card",
+        "Go out or stay home? At home you bank your nights out and recover",
+        "Reveal the night out: its points, how much you eat and drink",
+        "Invite a friend, if you want to get them in trouble",
+        "Draw the courses one by one: if they carry your colour, Queasiness",
+        "Survived? The night out is yours, but not safe yet"
+      ]
+    },
+    "note": {
+      "it": "Raggiungi il tuo limite di Malessere e vai in Nausea: perdi le Uscite non incassate e prendi 3 punti di penalità. Alla fine vince chi ha più punti.",
+      "en": "Hit your Queasiness limit and you’re Nauseous: you lose every unbanked night out and take a 3-point penalty. Most points wins."
+    },
+    "image": "/img/intolleranti/portate.webp",
+    "imageAlt": {
+      "it": "Quattro carte Portata: Frittata di Verdure, Patatine Fritte, Gelato Artigianale e Pizza Margherita, con in fondo gli ospiti che le temono",
+      "en": "Four Course cards: Vegetable Frittata, Chips, Artisan Gelato and Pizza Margherita, each listing the guests who fear it"
+    },
+    "imageBare": true
+  },
+  "components": [
+    {
+      "n": "8",
+      "label": {
+        "it": "Personaggi",
+        "en": "Characters"
+      }
+    },
+    {
+      "n": "28",
+      "label": {
+        "it": "Uscite",
+        "en": "Nights out"
+      }
+    },
+    {
+      "n": "72",
+      "label": {
+        "it": "Portate",
+        "en": "Courses"
+      }
+    },
+    {
+      "n": "52",
+      "label": {
+        "it": "Risposte",
+        "en": "Responses"
+      }
+    },
+    {
+      "n": "102",
+      "label": {
+        "it": "token",
+        "en": "tokens"
+      }
+    }
+  ],
+  "componentsExtra": {
+    "it": "Le Portate sono 36 di Cibo e 36 di Bevande.",
+    "en": "Courses are 36 Food and 36 Drinks."
+  }
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "date": "2026-11-18",
+    "title": {
+      "it": "Il Circolo del Venerdì: il Capitolo 0 è pronto",
+      "en": "The Friday Circle: Chapter 0 is ready"
+    },
+    "text": {
+      "it": "La Notte del Coro porta sei investigatori a Valtorva, sotto la prima neve. Due sessioni, circa 8 ore, con il romanzo a puntate che racconta la stessa notte.",
+      "en": "The Night of the Choir takes six investigators to Valtorva, under the first snow. Two sessions, about 8 hours, with a serial novel telling the same night."
+    },
+    "image": "/img/circolo/card.webp",
+    "link": {
+      "it": "/it/giochi-di-ruolo/il-circolo-del-venerdi/",
+      "en": "/en/roleplaying-games/il-circolo-del-venerdi/"
+    }
+  },
+  {
+    "date": "2026-11-18",
+    "title": {
+      "it": "Meriggio, il mondo dove il sole non tramonta",
+      "en": "Meriggio, the world where the sun never sets"
+    },
+    "text": {
+      "it": "Una nuova ambientazione compatibile con la 5ª edizione: guida al mondo, avventura, bestiario e il romanzo I Guardiani di Primalba.",
+      "en": "A new setting compatible with the 5th edition: world guide, adventure, bestiary and the novel I Guardiani di Primalba."
+    },
+    "image": "/img/meriggio/card.webp",
+    "link": {
+      "it": "/it/giochi-di-ruolo/meriggio/",
+      "en": "/en/roleplaying-games/meriggio/"
+    }
+  },
+  {
+    "date": "2026-11-18",
+    "title": {
+      "it": "Marsylvania: lista d'attesa aperta",
+      "en": "Marsylvania: waiting list open"
+    },
+    "text": {
+      "it": "I Dreamspacer stanno per atterrare. Lascia la tua email e ti avvisiamo appena apre la prenotazione.",
+      "en": "The Dreamspacers are about to land. Leave your email and we will tell you as soon as pre-orders open."
+    },
+    "image": "/img/card-marsylvania.webp",
+    "link": {
+      "it": "/it/giochi-da-tavolo/marsylvania/",
+      "en": "/en/board-games/marsylvania/"
+    }
+  }
+]

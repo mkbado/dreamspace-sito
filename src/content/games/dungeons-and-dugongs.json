@@ -1,0 +1,219 @@
+{
+  "order": 3,
+  "slug": "dungeons-and-dugongs",
+  "title": "Dungeons & Dugongs",
+  "image": "/img/dugongs/card.webp",
+  "imageAlt": {
+    "it": "Quattro dugonghi avventurieri, un cavaliere, un arciere, un mago e un ladro, nuotano in una grotta piena di tesori",
+    "en": "Four adventuring dugongs, a knight, an archer, a wizard and a rogue, swimming through a cave full of treasure"
+  },
+  "heroImage": "/img/dugongs/copertina.webp",
+  "heroAlt": {
+    "it": "Copertina di Dungeons & Dugongs: quattro dugonghi in armatura e mantello scendono in una grotta sottomarina, inseguiti da un mostro",
+    "en": "Dungeons & Dugongs cover: four dugongs in armour and cloaks dive into an underwater cave, chased by a monster"
+  },
+  "heroPortrait": true,
+  "tag": {
+    "it": "Gioco da tavolo · cooperativo",
+    "en": "Board game · co-op"
+  },
+  "status": {
+    "it": "In sviluppo",
+    "en": "In development"
+  },
+  "players": "1–4",
+  "minutes": "40–60",
+  "age": "8+",
+  "short": {
+    "it": "Quattro dugonghi scendono nell’Abisso per 13 Leghe con una sola riserva di ossigeno. Battete il Boss finale prima che l’aria finisca.",
+    "en": "Four dugongs dive 13 Leagues into the Abyss with a single shared oxygen supply. Beat the final Boss before the air runs out."
+  },
+  "pitch": {
+    "it": "Un gioco cooperativo di dadi e avventura. Ogni round tirate tutti insieme: le icone colpiscono il nemico, mentre lui morde l’ossigeno del gruppo. Ci si salva insieme, o si resta in fondo al mare insieme.",
+    "en": "A co-operative dice adventure. Every round you all roll together: the icons hit the enemy, while it bites into the group’s oxygen. You get out together, or stay at the bottom of the sea together."
+  },
+  "waiting": "[N]",
+  "waitingWho": {
+    "it": "dugonghi",
+    "en": "dugongs"
+  },
+  "fileName": "COPERTINA.PNG",
+  "cta": {
+    "it": "Vuoi sapere quando si scende nell’Abisso?",
+    "en": "Want to know when the dive begins?"
+  },
+  "features": {
+    "title": {
+      "it": "Perché giocarci",
+      "en": "Why play it"
+    },
+    "list": [
+      {
+        "title": {
+          "it": "Il tiro di gruppo",
+          "en": "The group roll"
+        },
+        "text": {
+          "it": "Si tira tutti insieme e si decide insieme cosa ritirare. «Ci manca un Arco! Nuoti a perdifiato?»",
+          "en": "Everyone rolls together and decides together what to reroll. “We need a Bow! Swim for it?”"
+        }
+      },
+      {
+        "title": {
+          "it": "Il rischio scelto",
+          "en": "Chosen risk"
+        },
+        "text": {
+          "it": "Ritirare costa Carisma o Ossigeno: ogni rilancio è una scommessa per tutta la squadra.",
+          "en": "Rerolling costs Charisma or Oxygen: every reroll is a bet for the whole team."
+        }
+      },
+      {
+        "title": {
+          "it": "Momenti da raccontare",
+          "en": "Moments to tell"
+        },
+        "text": {
+          "it": "La faccia Dugongo vale qualsiasi icona, due Dugonghi insieme fanno Branco e ogni nemico ha un colpo speciale da schivare.",
+          "en": "The Dugong face counts as any icon, two Dugongs make a Pod, and every enemy has a special attack to dodge."
+        }
+      }
+    ]
+  },
+  "roster": {
+    "title": {
+      "it": "Nove dugonghi, quattro in squadra",
+      "en": "Nine dugongs, four on the team"
+    },
+    "note": {
+      "it": "Ognuno ha il suo dado, la sua scheda e un oggetto iniziale.",
+      "en": "Each has its own die, sheet and starting item."
+    },
+    "items": [
+      {
+        "name": {
+          "it": "Guardiano",
+          "en": "Guardian"
+        },
+        "role": {
+          "it": "Difensore",
+          "en": "Defender"
+        }
+      },
+      {
+        "name": {
+          "it": "Barbaro",
+          "en": "Barbarian"
+        },
+        "role": {
+          "it": "Forza",
+          "en": "Strength"
+        }
+      },
+      {
+        "name": {
+          "it": "Arciere",
+          "en": "Archer"
+        },
+        "role": {
+          "it": "Mira",
+          "en": "Aim"
+        }
+      },
+      {
+        "name": {
+          "it": "Stregone",
+          "en": "Sorcerer"
+        },
+        "role": {
+          "it": "Magia",
+          "en": "Magic"
+        }
+      },
+      {
+        "name": {
+          "it": "Saggio",
+          "en": "Sage"
+        },
+        "role": {
+          "it": "Magia e difesa",
+          "en": "Magic and defence"
+        }
+      },
+      {
+        "name": {
+          "it": "Scout",
+          "en": "Scout"
+        },
+        "role": {
+          "it": "Esploratore",
+          "en": "Explorer"
+        }
+      },
+      {
+        "name": {
+          "it": "Furfante",
+          "en": "Rogue"
+        },
+        "role": {
+          "it": "Agilità",
+          "en": "Agility"
+        }
+      },
+      {
+        "name": {
+          "it": "Guaritore",
+          "en": "Healer"
+        },
+        "role": {
+          "it": "Cura",
+          "en": "Healing"
+        }
+      },
+      {
+        "name": {
+          "it": "Mangione",
+          "en": "Glutton"
+        },
+        "role": {
+          "it": "Cibo e difesa",
+          "en": "Food and defence"
+        }
+      }
+    ]
+  },
+  "components": [
+    {
+      "n": "1",
+      "label": {
+        "it": "tabellone",
+        "en": "board"
+      }
+    },
+    {
+      "n": "9",
+      "label": {
+        "it": "dadi Dugongo",
+        "en": "Dugong dice"
+      }
+    },
+    {
+      "n": "9",
+      "label": {
+        "it": "schede Dugongo",
+        "en": "Dugong sheets"
+      }
+    },
+    {
+      "n": "54",
+      "label": {
+        "it": "carte",
+        "en": "cards"
+      }
+    }
+  ],
+  "componentsExtra": {
+    "it": "Le carte: 24 Leghe tra nemici, trappole ed eventi, 3 Semi-Boss, 3 Boss e 24 oggetti.",
+    "en": "The cards: 24 Leagues of enemies, traps and events, 3 Semi-Bosses, 3 Bosses and 24 items."
+  }
+}

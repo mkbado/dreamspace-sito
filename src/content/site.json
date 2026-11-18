@@ -1,0 +1,36 @@
+{
+  "kofi": "",
+  "owner": "",
+  "email": "",
+  "home": {
+    "kicker": {
+      "it": "Comunicato della direzione · Pianeta Terra",
+      "en": "Memo from management · Planet Earth"
+    },
+    "title": {
+      "it": "Avventure, romanzi e giochi da tutto il multiverso.",
+      "en": "Adventures, novels and games from across the multiverse."
+    },
+    "bubble": {
+      "it": "Benvenuti, Dreamspacer! Qui la Dreamspace Ltd distribuisce gratis avventure e romanzi, e vi avvisa per primi quando un nuovo gioco sta per atterrare.",
+      "en": "Welcome, Dreamspacers! Here Dreamspace Ltd gives away adventures and novels for free, and tells you first when a new game is about to land."
+    },
+    "signature": {
+      "it": "— Mister D, CEO",
+      "en": "— Mister D, CEO"
+    },
+    "image": "/img/hero-caccia.webp"
+  },
+  "boardgames": {
+    "intro": {
+      "it": "Tre giochi in sviluppo nei laboratori Dreamspace. Iscriviti alla lista d'attesa: ti avvisiamo per primi quando apre la prenotazione.",
+      "en": "Three games in development in the Dreamspace labs. Join the waiting list: you will be the first to know when pre-orders open."
+    }
+  },
+  "rpg": {
+    "intro": {
+      "it": "Campagne, avventure e ambientazioni da scaricare gratis, ognuna con il suo romanzo da leggere.",
+      "en": "Campaigns, adventures and settings to download for free, each with its own novel to read."
+    }
+  }
+}

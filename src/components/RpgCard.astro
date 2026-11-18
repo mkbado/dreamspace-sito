@@ -1,0 +1,30 @@
+---
+import { t, type Lang } from '../i18n/ui';
+import type { Rpg, Setting } from '../data/catalog';
+import { itemPath } from '../data/paths';
+interface Props { lang: Lang; item: Rpg | Setting }
+const { lang, item } = Astro.props;
+const path = itemPath(lang, item);
+const img = item.kind === 'rpg' ? item.cardImage : item.image;
+const alt = item.kind === 'rpg' ? item.cardAlt[lang] : item.imageAlt[lang];
+const tagColor = item.kind === 'rpg' ? '#6b4a2b' : '#8a5a2b';
+---
+<article class="card">
+  <div class="card__media"><img src={img} width="960" height="600" alt={alt} loading="lazy" /></div>
+  <div class="card__body">
+    <p class="card__tag" style={`color: ${tagColor};`}>{item.tag[lang]}</p>
+    <h3 class="pixel h3">{item.title}</h3>
+    <p class="card__meta">{item.cardMeta[lang]}</p>
+    <p>{item.short[lang]}</p>
+    <div class="card__foot" style="justify-content: flex-start;">
+      {item.kind === 'rpg' ? (
+        <>
+          <a class="btn btn--orange" href={`${path}#capitolo-0`}>{t(lang, 'card.download')}</a>
+          <a href={`${path}#romanzo`} style="font-family: var(--font-label); font-size: 14px; color: var(--night);">{t(lang, 'card.read')}</a>
+        </>
+      ) : (
+        <a class="btn btn--orange" href={path}>{t(lang, 'card.discover')}</a>
+      )}
+    </div>
+  </div>
+</article>
