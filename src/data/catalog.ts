@@ -4,6 +4,10 @@ type L<T> = Record<Lang, T>;
 
 export interface Character {
   name: string;
+  /** nome tradotto, se diverso nelle due lingue */
+  title?: L<string>;
+  /** ruolo o statistiche, mostrati accanto al nome */
+  role?: L<string>;
   home?: string;
   ability?: L<string>;
   image: string;
@@ -42,7 +46,7 @@ export interface Game {
     areas: { label: L<string>; title: L<string>; text: L<string>; dark: boolean }[];
   };
   features?: { title: L<string>; list: { title: L<string>; text: L<string> }[] };
-  characters?: { title: L<string>; note: L<string>; list: Character[] };
+  characters?: { title: L<string>; note: L<string>; abilityLabel?: L<string>; list: Character[] };
   gallery?: { title: L<string>; note: L<string>; items: { name: L<string>; image: string; alt: L<string>; quote: L<string> }[] };
   roster?: { title: L<string>; note: L<string>; items: { name: L<string>; role: L<string> }[] };
   tableSections?: {

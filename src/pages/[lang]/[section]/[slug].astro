@@ -102,10 +102,10 @@ const st = item.kind === 'setting' ? item : null;
       <div class="row" style="gap: 20px;">
         {g.characters.list.map((c) => (
           <article class="hero-card">
-            <div class="hero-card__name" style={`background: ${c.color}; color: ${c.ink};`}>{c.name}{c.home && <span style="opacity: .75;"> · {c.home}</span>}</div>
+            <div class="hero-card__name" style={`background: ${c.color}; color: ${c.ink};`}>{c.title?.[lang] || c.name}{c.role?.[lang] ? <span style="opacity: .75;"> · {c.role[lang]}</span> : c.home && <span style="opacity: .75;"> · {c.home}</span>}</div>
             <div class="hero-card__img"><img src={c.image} alt={c.alt[lang]} loading="lazy" /></div>
             {c.bio[lang] ? <p>{c.bio[lang]}</p> : <p class="todo">{L('[Una riga su chi è e da dove viene]', '[One line on who they are and where they come from]')}</p>}
-            {c.ability && <p class="ability"><span>{L('Abilità', 'Ability')}</span> {c.ability[lang]}</p>}
+            {c.ability && <p class="ability"><span>{g.characters!.abilityLabel?.[lang] || L('Abilità', 'Ability')}</span> {c.ability[lang]}</p>}
           </article>
         ))}
       </div>

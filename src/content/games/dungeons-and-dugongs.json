@@ -4,13 +4,13 @@
   "title": "Dungeons & Dugongs",
   "image": "/img/dugongs/card.webp",
   "imageAlt": {
-    "it": "Quattro dugonghi avventurieri, un cavaliere, un arciere, un mago e un ladro, nuotano in una grotta piena di tesori",
-    "en": "Four adventuring dugongs, a knight, an archer, a wizard and a rogue, swimming through a cave full of treasure"
+    "it": "Il titolo Dungeons & Dugongs sopra i dugonghi avventurieri",
+    "en": "The Dungeons & Dugongs title above the adventuring dugongs"
   },
   "heroImage": "/img/dugongs/copertina.webp",
   "heroAlt": {
-    "it": "Copertina di Dungeons & Dugongs: quattro dugonghi in armatura e mantello scendono in una grotta sottomarina, inseguiti da un mostro",
-    "en": "Dungeons & Dugongs cover: four dugongs in armour and cloaks dive into an underwater cave, chased by a monster"
+    "it": "Copertina di Dungeons & Dugongs, Missione negli abissi: quattro dugonghi avventurieri nuotano verso le rovine di un castello sommerso, tra una murena, un granchio, una trappola a conchiglia e un forziere di monete",
+    "en": "Dungeons & Dugongs, Missione negli abissi cover: four adventuring dugongs swim towards the ruins of a sunken castle, past a moray eel, a crab, a clam trap and a chest of coins"
   },
   "heroPortrait": true,
   "tag": {
@@ -37,7 +37,7 @@
     "it": "dugonghi",
     "en": "dugongs"
   },
-  "fileName": "COPERTINA.PNG",
+  "fileName": "MISSIONE_ABISSI.PNG",
   "cta": {
     "it": "Vuoi sapere quando si scende nell’Abisso?",
     "en": "Want to know when the dive begins?"
@@ -80,108 +80,6 @@
       }
     ]
   },
-  "roster": {
-    "title": {
-      "it": "Nove dugonghi, quattro in squadra",
-      "en": "Nine dugongs, four on the team"
-    },
-    "note": {
-      "it": "Ognuno ha il suo dado, la sua scheda e un oggetto iniziale.",
-      "en": "Each has its own die, sheet and starting item."
-    },
-    "items": [
-      {
-        "name": {
-          "it": "Guardiano",
-          "en": "Guardian"
-        },
-        "role": {
-          "it": "Difensore",
-          "en": "Defender"
-        }
-      },
-      {
-        "name": {
-          "it": "Barbaro",
-          "en": "Barbarian"
-        },
-        "role": {
-          "it": "Forza",
-          "en": "Strength"
-        }
-      },
-      {
-        "name": {
-          "it": "Arciere",
-          "en": "Archer"
-        },
-        "role": {
-          "it": "Mira",
-          "en": "Aim"
-        }
-      },
-      {
-        "name": {
-          "it": "Stregone",
-          "en": "Sorcerer"
-        },
-        "role": {
-          "it": "Magia",
-          "en": "Magic"
-        }
-      },
-      {
-        "name": {
-          "it": "Saggio",
-          "en": "Sage"
-        },
-        "role": {
-          "it": "Magia e difesa",
-          "en": "Magic and defence"
-        }
-      },
-      {
-        "name": {
-          "it": "Scout",
-          "en": "Scout"
-        },
-        "role": {
-          "it": "Esploratore",
-          "en": "Explorer"
-        }
-      },
-      {
-        "name": {
-          "it": "Furfante",
-          "en": "Rogue"
-        },
-        "role": {
-          "it": "Agilità",
-          "en": "Agility"
-        }
-      },
-      {
-        "name": {
-          "it": "Guaritore",
-          "en": "Healer"
-        },
-        "role": {
-          "it": "Cura",
-          "en": "Healing"
-        }
-      },
-      {
-        "name": {
-          "it": "Mangione",
-          "en": "Glutton"
-        },
-        "role": {
-          "it": "Cibo e difesa",
-          "en": "Food and defence"
-        }
-      }
-    ]
-  },
   "components": [
     {
       "n": "1",
@@ -215,5 +113,255 @@
   "componentsExtra": {
     "it": "Le carte: 24 Leghe tra nemici, trappole ed eventi, 3 Semi-Boss, 3 Boss e 24 oggetti.",
     "en": "The cards: 24 Leagues of enemies, traps and events, 3 Semi-Bosses, 3 Bosses and 24 items."
+  },
+  "characters": {
+    "title": {
+      "it": "Nove dugonghi, quattro in squadra",
+      "en": "Nine dugongs, four on the team"
+    },
+    "note": {
+      "it": "Ognuno ha il suo dado, la sua scheda e un oggetto iniziale.",
+      "en": "Each has its own die, sheet and starting item."
+    },
+    "abilityLabel": {
+      "it": "Oggetto iniziale",
+      "en": "Starting item"
+    },
+    "list": [
+      {
+        "name": "Guardiano",
+        "title": {
+          "it": "Guardiano",
+          "en": "Guardian"
+        },
+        "role": {
+          "it": "Difensore · COS 4 · CAR 2",
+          "en": "Defender · CON 4 · CHA 2"
+        },
+        "image": "/img/dugongs/guardiano.webp",
+        "color": "#c8463c",
+        "ink": "#fff4dc",
+        "bio": {
+          "it": "Lo scudo è una conchiglia, il mantello è rosso e lo scampo sul bordo giura di essere il suo scudiero.",
+          "en": "His shield is a seashell, his cape is red, and the shrimp on the rim swears it is his squire."
+        },
+        "ability": {
+          "it": "Corazza di Tartaruga: con uno Scudo sul dado, +1 Scudo",
+          "en": "Turtle Shell Armour: with a Shield on the die, +1 Shield"
+        },
+        "alt": {
+          "it": "Un dugongo con mantello rosso che alza uno scudo a conchiglia, con uno scampo in cima",
+          "en": "A dugong in a red cape raising a seashell shield, a shrimp on top"
+        }
+      },
+      {
+        "name": "Barbaro",
+        "title": {
+          "it": "Barbaro",
+          "en": "Barbarian"
+        },
+        "role": {
+          "it": "Forza · COS 4 · CAR 2",
+          "en": "Strength · CON 4 · CHA 2"
+        },
+        "image": "/img/dugongs/barbaro.webp",
+        "color": "#b5532f",
+        "ink": "#fff4dc",
+        "bio": {
+          "it": "Pelliccia d'alghe, collana di denti e un martello di corallo: prima colpisce, poi fa domande.",
+          "en": "Seaweed fur, a tooth necklace and a coral hammer: hits first, asks questions later."
+        },
+        "ability": {
+          "it": "Pinne Affilate: +1 Pugno ogni round",
+          "en": "Sharp Flippers: +1 Fist every round"
+        },
+        "alt": {
+          "it": "Un dugongo barbaro con pelliccia di alghe rosse che brandisce un martello di corallo",
+          "en": "A barbarian dugong in red seaweed fur brandishing a coral hammer"
+        }
+      },
+      {
+        "name": "Arciere",
+        "title": {
+          "it": "Arciere",
+          "en": "Archer"
+        },
+        "role": {
+          "it": "Mira · COS 3 · CAR 3",
+          "en": "Aim · CON 3 · CHA 3"
+        },
+        "image": "/img/dugongs/arciere.webp",
+        "color": "#9b7fc4",
+        "ink": "#0a0d24",
+        "bio": {
+          "it": "Mira benissimo. Quasi sempre. Della freccia con la ventosa in fronte non si parla.",
+          "en": "A superb shot. Almost always. Nobody mentions the suction-cup arrow on his forehead."
+        },
+        "ability": {
+          "it": "Frecce Bioluminescenti: con un Arco sul dado, +1 Arco",
+          "en": "Glowing Arrows: with a Bow on the die, +1 Bow"
+        },
+        "alt": {
+          "it": "Un dugongo lilla con un arco di alghe e una freccia a ventosa attaccata alla fronte",
+          "en": "A lilac dugong with a seaweed bow and a suction-cup arrow stuck to its forehead"
+        }
+      },
+      {
+        "name": "Stregone",
+        "title": {
+          "it": "Stregone",
+          "en": "Sorcerer"
+        },
+        "role": {
+          "it": "Magia · COS 2 · CAR 4",
+          "en": "Magic · CON 2 · CHA 4"
+        },
+        "image": "/img/dugongs/stregone.webp",
+        "color": "#6a4fa3",
+        "ink": "#fff4dc",
+        "bio": {
+          "it": "Cappello a punta, bastone di legno di deriva e una nuvoletta che lo segue ovunque, sempre di cattivo umore.",
+          "en": "Pointy hat, driftwood staff and a little cloud that follows him everywhere, always in a bad mood."
+        },
+        "ability": {
+          "it": "Bacchetta di Corallo: con una Stella sul dado, +1 Stella",
+          "en": "Coral Wand: with a Star on the die, +1 Star"
+        },
+        "alt": {
+          "it": "Un dugongo stregone con cappello viola che agita un bastone, sotto una nuvoletta imbronciata",
+          "en": "A wizard dugong in a purple hat waving a staff under a grumpy little cloud"
+        }
+      },
+      {
+        "name": "Saggio",
+        "title": {
+          "it": "Saggio",
+          "en": "Sage"
+        },
+        "role": {
+          "it": "Magia e supporto · COS 2 · CAR 4",
+          "en": "Magic and support · CON 2 · CHA 4"
+        },
+        "image": "/img/dugongs/saggio.webp",
+        "color": "#7a4e7e",
+        "ink": "#fff4dc",
+        "bio": {
+          "it": "Occhiali, mantello e una mappa più lunga di lui: sa sempre dove andare, quasi mai quanto manca.",
+          "en": "Glasses, cloak and a map longer than he is: always knows where to go, rarely how far it is."
+        },
+        "ability": {
+          "it": "Nebbia Marina (una volta): il morso del round fa 2 danni in meno",
+          "en": "Sea Mist (once): this round’s bite deals 2 less damage"
+        },
+        "alt": {
+          "it": "Un dugongo anziano con occhiali e mantello che srotola una lunga mappa",
+          "en": "An old dugong with glasses and a cloak unrolling a long map"
+        }
+      },
+      {
+        "name": "Scout",
+        "title": {
+          "it": "Scout",
+          "en": "Scout"
+        },
+        "role": {
+          "it": "Esploratore · COS 3 · CAR 3",
+          "en": "Explorer · CON 3 · CHA 3"
+        },
+        "image": "/img/dugongs/scout.webp",
+        "color": "#2a9d8f",
+        "ink": "#0a0d24",
+        "bio": {
+          "it": "Bussola, occhialoni e uno zaino pieno di pergamene: apre la strada, anche quando i pesci non sanno indicargliela.",
+          "en": "Compass, goggles and a backpack full of scrolls: leads the way, even when the fish cannot tell him where."
+        },
+        "ability": {
+          "it": "Mantello di Alghe: +1 Schivata ogni round, anche nelle Trappole",
+          "en": "Seaweed Cloak: +1 Dodge every round, even in Traps"
+        },
+        "alt": {
+          "it": "Un dugongo verde acqua con occhialoni e bussola che chiede la strada a un pesciolino",
+          "en": "A teal dugong with goggles and a compass asking a little fish for directions"
+        }
+      },
+      {
+        "name": "Furfante",
+        "title": {
+          "it": "Furfante",
+          "en": "Rogue"
+        },
+        "role": {
+          "it": "Agilità · COS 3 · CAR 3",
+          "en": "Agility · CON 3 · CHA 3"
+        },
+        "image": "/img/dugongs/furfante.webp",
+        "color": "#a3478f",
+        "ink": "#fff4dc",
+        "bio": {
+          "it": "Si nasconde dietro le colonne e lascia una scia di monete. Le sue, dice.",
+          "en": "Hides behind columns and leaves a trail of coins. His own, he says."
+        },
+        "ability": {
+          "it": "Cannocchiale Rotto (una volta): scarta il Nemico appena rivelato e pescane un altro",
+          "en": "Broken Spyglass (once): discard the Enemy just revealed and draw another"
+        },
+        "alt": {
+          "it": "Un dugongo incappucciato nascosto dietro una colonna, con una borsa che perde monete",
+          "en": "A hooded dugong hiding behind a column, its bag spilling coins"
+        }
+      },
+      {
+        "name": "Guaritore",
+        "title": {
+          "it": "Guaritore",
+          "en": "Healer"
+        },
+        "role": {
+          "it": "Cura · COS 4 · CAR 2",
+          "en": "Healing · CON 4 · CHA 2"
+        },
+        "image": "/img/dugongs/guaritore.webp",
+        "color": "#5a9e4b",
+        "ink": "#fff4dc",
+        "bio": {
+          "it": "Bende rosa, erbe di mare e una corona di alghe: nessun granchio resta indietro.",
+          "en": "Pink bandages, sea herbs and a seaweed crown: no crab gets left behind."
+        },
+        "ability": {
+          "it": "Barriera Corallina Commestibile (una volta): +2 Ossigeno",
+          "en": "Edible Coral Reef (once): +2 Oxygen"
+        },
+        "alt": {
+          "it": "Un dugongo guaritore con corona di alghe che fascia la chela di un granchio",
+          "en": "A healer dugong in a seaweed crown bandaging a crab’s claw"
+        }
+      },
+      {
+        "name": "Mangione",
+        "title": {
+          "it": "Mangione",
+          "en": "Glutton"
+        },
+        "role": {
+          "it": "Cibo e difesa · COS 4 · CAR 2",
+          "en": "Food and defence · CON 4 · CHA 2"
+        },
+        "image": "/img/dugongs/mangione.webp",
+        "color": "#8fb9a8",
+        "ink": "#0a0d24",
+        "bio": {
+          "it": "Ha sempre un panino di alghe a portata di pinna. Anche sulla pancia.",
+          "en": "Always has a seaweed bun within flipper’s reach. Even on his belly."
+        },
+        "ability": {
+          "it": "Zuppa di Nettuno (una volta): +1 Ossigeno e +1 Carisma",
+          "en": "Neptune Soup (once): +1 Oxygen and +1 Charisma"
+        },
+        "alt": {
+          "it": "Un dugongo a pancia in su che mangia panini di alghe",
+          "en": "A dugong floating belly-up eating seaweed buns"
+        }
+      }
+    ]
   }
 }

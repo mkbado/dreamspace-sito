@@ -496,6 +496,16 @@ content:
       - name: en
         label: English
         type: text
+    - name: abilityLabel
+      label: Etichetta abilità (es. Oggetto iniziale)
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
     - name: list
       label: Personaggi
       type: object
@@ -503,6 +513,26 @@ content:
       - name: name
         label: Nome
         type: string
+      - name: title
+        label: Nome tradotto (facoltativo)
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: role
+        label: Ruolo (facoltativo)
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
       - name: home
         label: Provenienza
         type: string
