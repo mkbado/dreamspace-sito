@@ -298,3 +298,20 @@ a:hover { color: #7fe3d9; }
 .slider__arrow { min-width: 36px; height: 32px; padding: 0 8px; border: 2px solid var(--cream); background: var(--black); color: var(--cream); font-size: 12px; cursor: pointer; }
 .slider__arrow:hover, .slider__dots button:hover { border-color: var(--teal); color: var(--teal); }
 @media (prefers-reduced-motion: reduce) { .slide, .slide.is-on, .window__bar { transition: none; } }
+
+/* Gioco: blocchi di interazione con carte e token */
+.play-row { display: flex; flex-wrap: wrap; align-items: center; gap: 32px 56px; }
+.play-row--rev { flex-direction: row-reverse; }
+.play-fan { flex: 1 1 420px; min-width: 0; display: flex; justify-content: center; align-items: center; padding: 16px 0; }
+.play-card { width: clamp(120px, 15vw, 190px); height: auto; border-radius: 8px; border: 3px solid var(--black); box-shadow: 5px 5px 0 var(--black); background: #fff; transition: transform .15s; }
+.play-card + .play-card { margin-left: -28px; }
+.play-fan .play-card:nth-child(odd) { transform: rotate(-4deg); }
+.play-fan .play-card:nth-child(even) { transform: rotate(3deg) translateY(-10px); }
+.play-fan .play-card:hover { transform: rotate(0) translateY(-14px) scale(1.04); position: relative; z-index: 2; }
+.play-token { margin: 0 14px 0 0; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.play-token img { width: clamp(84px, 10vw, 120px); height: auto; filter: drop-shadow(4px 4px 0 var(--black)); }
+.play-token figcaption { font-family: var(--font-label); font-size: 12px; text-transform: uppercase; color: var(--night); background: var(--cream); border: 2px solid var(--black); padding: 3px 8px; white-space: nowrap; }
+@media (max-width: 640px) { .play-token { margin-right: 4px; } .play-token figcaption { font-size: 10px; padding: 2px 5px; } }
+.play-token + .play-card { margin-left: 8px; }
+@media (max-width: 640px) { .play-card { width: 31%; } .play-card + .play-card { margin-left: -6%; } }
+@media (prefers-reduced-motion: reduce) { .play-card { transition: none; } }

@@ -45,6 +45,10 @@ export interface Game {
   characters?: { title: L<string>; note: L<string>; list: Character[] };
   gallery?: { title: L<string>; note: L<string>; items: { name: L<string>; image: string; alt: L<string>; quote: L<string> }[] };
   roster?: { title: L<string>; note: L<string>; items: { name: L<string>; role: L<string> }[] };
+  interaction?: {
+    kicker: L<string>; title: L<string>; intro: L<string>;
+    blocks: { kicker: L<string>; title: L<string>; text: L<string>; images: { image: string; kind: string; alt: L<string>; caption?: L<string> }[] }[];
+  };
   howToPlay?: { title: L<string>; steps: L<string[]>; note: L<string>; image?: string; imageAlt?: L<string>; imageBare?: boolean };
   components?: { n: string; label: L<string> }[];
   componentsExtra?: L<string>;

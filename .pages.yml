@@ -664,6 +664,112 @@ content:
           label: English
           type: string
       list: true
+  - name: interaction
+    label: Al tavolo (Uscite, inviti, Risposte…)
+    type: object
+    fields:
+    - name: kicker
+      label: Occhiello
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: title
+      label: Titolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: intro
+      label: Introduzione
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+      - name: en
+        label: English
+        type: text
+    - name: blocks
+      label: Blocchi
+      type: object
+      fields:
+      - name: kicker
+        label: Occhiello
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: title
+        label: Titolo
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: text
+        label: Testo
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: text
+        - name: en
+          label: English
+          type: text
+      - name: images
+        label: Immagini
+        type: object
+        fields:
+        - name: image
+          label: Immagine
+          type: image
+          options:
+            media: images
+        - name: kind
+          label: Tipo
+          type: select
+          options:
+            values:
+            - card
+            - token
+        - name: alt
+          label: Descrizione immagine
+          type: object
+          fields:
+          - name: it
+            label: Italiano
+            type: string
+          - name: en
+            label: English
+            type: string
+        - name: caption
+          label: Didascalia (solo token)
+          type: object
+          fields:
+          - name: it
+            label: Italiano
+            type: string
+          - name: en
+            label: English
+            type: string
+        list: true
+      list: true
   - name: howToPlay
     label: Come si gioca
     type: object

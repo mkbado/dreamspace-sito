@@ -129,6 +129,32 @@ const st = item.kind === 'setting' ? item : null;
     </section>
   )}
 
+  {g.interaction && (
+    <section class="band-cream" style="border-top: 4px solid var(--black);">
+      <div class="container stack pad" style="gap: 48px;">
+        <div class="stack" style="gap: 10px; max-width: 760px;">
+          <p class="label" style="margin: 0; color: var(--orange-ink);">{g.interaction.kicker[lang]}</p>
+          <h2 class="pixel" style="font-size: 40px;">{g.interaction.title[lang]}</h2>
+          <p style="margin: 0; font-size: 18px; color: var(--text-dim);">{g.interaction.intro[lang]}</p>
+        </div>
+        {g.interaction.blocks.map((b, k) => (
+          <div class={`play-row${k % 2 ? ' play-row--rev' : ''}`}>
+            <div class="stack" style="flex: 1 1 360px; min-width: 0; gap: 12px;">
+              <p class="label" style="margin: 0; color: var(--orange-ink);">{b.kicker[lang]}</p>
+              <h3 class="pixel" style="font-size: 28px; line-height: 1.15;">{b.title[lang]}</h3>
+              <p style="margin: 0; font-size: 17px;">{b.text[lang]}</p>
+            </div>
+            <div class="play-fan">
+              {b.images.map((im) => im.kind === 'token'
+                ? <figure class="play-token"><img src={im.image} width="160" height="160" alt={im.alt[lang]} loading="lazy" />{im.caption && <figcaption>{im.caption[lang]}</figcaption>}</figure>
+                : <img class="play-card" src={im.image} width="400" height="558" alt={im.alt[lang]} loading="lazy" />)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
   {g.gallery && (
     <section class="band-cream" style="border-bottom: 0;">
       <div class="container stack pad" style="gap: 24px;">
