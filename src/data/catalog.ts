@@ -148,7 +148,7 @@ import newsData from '../content/news.json';
 export interface Slide { file: string; color: string; image: string; title: string; text: L<string>; alt: L<string>; link: L<string> }
 export interface News { date: string; title: L<string>; text: L<string>; image?: string; link?: L<string> }
 export const site = siteData as {
-  kofi?: string; owner?: string; email?: string;
+  kofi?: string; owner?: string; email?: string; analyticsToken?: string;
   home: { kicker: L<string>; title: L<string>; bubble: L<string>; signature: L<string>; slides: Slide[] };
   boardgames: { intro: L<string> };
   rpg: { intro: L<string> };

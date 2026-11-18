@@ -97,5 +97,8 @@ const year = new Date().getFullYear();
       <p class="fine">{t(lang, 'footer.disclaimer')}{site.owner && ` ${lang === 'it' ? 'Sito gestito da' : 'Site run by'} ${site.owner}.`}{site.email && <> <a href={`mailto:${site.email}`}>{site.email}</a></>} · © {year}</p>
     </div>
   </footer>
+  {site.analyticsToken && (
+    <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: site.analyticsToken })}></script>
+  )}
 </body>
 </html>

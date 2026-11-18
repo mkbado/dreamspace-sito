@@ -37,6 +37,9 @@ content:
   - name: email
     label: Email di contatto (footer)
     type: string
+  - name: analyticsToken
+    label: Token di Cloudflare Web Analytics (statistiche visite)
+    type: string
   - name: home
     label: Home
     type: object

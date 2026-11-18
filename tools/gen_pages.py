@@ -99,6 +99,7 @@ site = [
     S('kofi', 'Link per le donazioni (es. https://ko-fi.com/…)'),
     S('owner', 'Nome di chi gestisce il sito (footer)'),
     S('email', 'Email di contatto (footer)'),
+    S('analyticsToken', 'Token di Cloudflare Web Analytics (statistiche visite)'),
     O('home', 'Home', [L('kicker', 'Occhiello'), L('title', 'Titolo'), L('bubble', 'Messaggio di benvenuto', 'text'), L('signature', 'Firma'),
         O('slides', 'Carosello (finestre che scorrono)', [S('file', 'Nome finestra (es. INTOLLERANTI.PNG)'), S('color', 'Colore barra (#hex)'), IMG('image', 'Immagine quadrata (740×740)'),
             S('title', 'Titolo'), L('text', 'Riga di info'), L('alt', 'Descrizione immagine'), L('link', 'Link')], lst=True, summary='{fields.file}')]),
