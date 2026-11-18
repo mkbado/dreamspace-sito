@@ -95,8 +95,8 @@
       "en": "The tavern guests"
     },
     "note": {
-      "it": "Le plance dei personaggi, in versione da stampa.",
-      "en": "The character boards, print version."
+      "it": "Illustrazioni indicative: la grafica definitiva arriverà con le plance.",
+      "en": "Indicative illustrations: the final art will come with the boards."
     },
     "items": [
       {
@@ -196,8 +196,8 @@
         },
         "image": "/img/intolleranti/sirena-amica-dei-pesci.webp",
         "alt": {
-          "it": "Una sirena abbracciata a una boccia con un pesce rosso",
-          "en": "A mermaid hugging a goldfish bowl"
+          "it": "Una sirena che guarda con affetto un pesce rosso nella boccia",
+          "en": "A mermaid gazing fondly at a goldfish in its bowl"
         },
         "quote": {
           "it": "«Sushi party? Io porto i cartelli di protesta.»",
@@ -211,8 +211,8 @@
         },
         "image": "/img/intolleranti/golem-palestrato.webp",
         "alt": {
-          "it": "Un golem di pietra muscoloso che pesa le porzioni con una bilancia",
-          "en": "A muscular stone golem weighing portions on a scale"
+          "it": "Un golem di pietra con la corona d’alloro che pesa le porzioni con una bilancia",
+          "en": "A laurel-crowned stone golem weighing portions on a pair of scales"
         },
         "quote": {
           "it": "«Due porzioni: per me e per i miei bicipiti.»",
