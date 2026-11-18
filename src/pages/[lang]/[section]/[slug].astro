@@ -129,18 +129,18 @@ const st = item.kind === 'setting' ? item : null;
     </section>
   )}
 
-  {g.interaction && (
-    <section class="band-cream" style="border-top: 4px solid var(--black);">
+  {g.tableSections?.map((ts) => (
+    <section class={ts.dark ? 'play-dark' : 'band-cream'} style="border-top: 4px solid var(--black);">
       <div class="container stack pad" style="gap: 48px;">
         <div class="stack" style="gap: 10px; max-width: 760px;">
-          <p class="label" style="margin: 0; color: var(--orange-ink);">{g.interaction.kicker[lang]}</p>
-          <h2 class="pixel" style="font-size: 40px;">{g.interaction.title[lang]}</h2>
-          <p style="margin: 0; font-size: 18px; color: var(--text-dim);">{g.interaction.intro[lang]}</p>
+          <p class="label play-kicker">{ts.kicker[lang]}</p>
+          <h2 class="pixel" style="font-size: 40px;">{ts.title[lang]}</h2>
+          <p class="play-intro">{ts.intro[lang]}</p>
         </div>
-        {g.interaction.blocks.map((b, k) => (
+        {ts.blocks.map((b, k) => (
           <div class={`play-row${k % 2 ? ' play-row--rev' : ''}`}>
             <div class="stack" style="flex: 1 1 360px; min-width: 0; gap: 12px;">
-              <p class="label" style="margin: 0; color: var(--orange-ink);">{b.kicker[lang]}</p>
+              <p class="label play-kicker">{b.kicker[lang]}</p>
               <h3 class="pixel" style="font-size: 28px; line-height: 1.15;">{b.title[lang]}</h3>
               <p style="margin: 0; font-size: 17px;">{b.text[lang]}</p>
             </div>
@@ -153,7 +153,7 @@ const st = item.kind === 'setting' ? item : null;
         ))}
       </div>
     </section>
-  )}
+  ))}
 
   {g.gallery && (
     <section class="band-cream" style="border-bottom: 0;">

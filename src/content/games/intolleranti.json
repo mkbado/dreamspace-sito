@@ -248,12 +248,12 @@
       "it": "Raggiungi il tuo limite di Malessere e vai in Nausea: perdi le Uscite non incassate e prendi 3 punti di penalità. Alla fine vince chi ha più punti.",
       "en": "Hit your Queasiness limit and you’re Nauseous: you lose every unbanked night out and take a 3-point penalty. Most points wins."
     },
-    "image": "/img/intolleranti/portate.webp",
+    "image": "",
     "imageAlt": {
-      "it": "Quattro carte Portata: Frittata di Verdure, Patatine Fritte, Gelato Artigianale e Pizza Margherita, con in fondo gli ospiti che le temono",
-      "en": "Four Course cards: Vegetable Frittata, Chips, Artisan Gelato and Pizza Margherita, each listing the guests who fear it"
+      "it": "",
+      "en": ""
     },
-    "imageBare": true
+    "imageBare": false
   },
   "components": [
     {
@@ -297,148 +297,272 @@
     "en": "Courses are 36 Food and 36 Drinks."
   },
   "heroSquare": true,
-  "interaction": {
-    "kicker": {
-      "it": "Al tavolo",
-      "en": "At the table"
-    },
-    "title": {
-      "it": "Uscite, inviti e Risposte",
-      "en": "Outings, invitations and Responses"
-    },
-    "intro": {
-      "it": "A Intolleranti! non si esce mai da soli: ci si invita, ci si salva e ci si sabota a vicenda, anche quando non è il proprio turno.",
-      "en": "In Intolleranti! nobody goes out alone: you invite each other, save each other and sabotage each other, even when it is not your turn."
-    },
-    "blocks": [
-      {
-        "kicker": {
-          "it": "1 · Le Uscite",
-          "en": "1 · Outings"
-        },
-        "title": {
-          "it": "Scegli la serata",
-          "en": "Pick the night out"
-        },
-        "text": {
-          "it": "Nel tuo turno riveli un'Uscita: dall'Aperitivo da 1 punto al Matrimonio da 5. Ogni carta dice quante Portate di Cibo e di Bevande devi reggere per completarla. Più vale, più è facile finire in Nausea.",
-          "en": "On your turn you reveal an Outing: from a 1-point Aperitivo to a 5-point Wedding. Each card says how many Food and Drink Courses you must survive to complete it. The more it is worth, the easier it is to end up Nauseous."
-        },
-        "images": [
-          {
-            "image": "/img/intolleranti/carte/cena-romantica.webp",
-            "kind": "card",
-            "alt": {
-              "it": "Carta Uscita Cena Romantica: 2 punti, 3 Cibi, 3 Bevande",
-              "en": "Outing card Cena Romantica: 2 points, 3 Food, 3 Drinks"
-            }
-          },
-          {
-            "image": "/img/intolleranti/carte/capodanno.webp",
-            "kind": "card",
-            "alt": {
-              "it": "Carta Uscita Capodanno: 4 punti, 5 Cibi, 6 Bevande",
-              "en": "Outing card Capodanno (New Year's Eve): 4 points, 5 Food, 6 Drinks"
-            }
-          },
-          {
-            "image": "/img/intolleranti/carte/matrimonio.webp",
-            "kind": "card",
-            "alt": {
-              "it": "Carta Uscita Matrimonio: 5 punti, 7 Cibi, 7 Bevande",
-              "en": "Outing card Matrimonio (Wedding): 5 points, 7 Food, 7 Drinks"
-            }
-          }
-        ]
+  "tableSections": [
+    {
+      "kicker": {
+        "it": "Al tavolo",
+        "en": "At the table"
       },
-      {
-        "kicker": {
-          "it": "2 · L'invito",
-          "en": "2 · The invitation"
-        },
-        "title": {
-          "it": "Vieni con me, o mi fai il Pacco?",
-          "en": "Coming with me, or standing me up?"
-        },
-        "text": {
-          "it": "Prima delle Portate puoi invitare un altro giocatore. Se accetta, mangia e beve con te: se regge fino alla fine prende una Buona Uscita, +1 punto. Se rifiuta ti fa il famigerato Pacco… e si prende il token Pacco: −1 punto, fino a fine partita. Solo una Scusa Valida, o l'Allenamento alle 6 del Golem Palestrato, permette di dire di no senza pagare.",
-          "en": "Before the Courses you can invite another player. If they accept, they eat and drink with you: if they last to the end they get a Good Outing token, +1 point. If they refuse, they stand you up (the infamous Pacco)… and take a Pacco token: −1 point, until the end of the game. Only a Valid Excuse card, or the Golem's 6 AM Workout, lets you say no for free."
-        },
-        "images": [
-          {
-            "image": "/img/intolleranti/token-pacco.svg",
-            "kind": "token",
-            "alt": {
-              "it": "Token Pacco: una scatola di cartone",
-              "en": "Pacco token: a cardboard box"
-            },
-            "caption": {
-              "it": "Pacco · −1",
-              "en": "Pacco · −1"
-            }
-          },
-          {
-            "image": "/img/intolleranti/token-buona-uscita.svg",
-            "kind": "token",
-            "alt": {
-              "it": "Token Buona Uscita: una stella",
-              "en": "Good Outing token: a star"
-            },
-            "caption": {
-              "it": "Buona Uscita · +1",
-              "en": "Good Outing · +1"
-            }
-          },
-          {
-            "image": "/img/intolleranti/carte/scusa-valida.webp",
-            "kind": "card",
-            "alt": {
-              "it": "Carta Risposta Scusa Valida: rifiuti l'invito senza prendere il token Pacco",
-              "en": "Response card Scusa Valida (Valid Excuse): refuse the invitation without taking the Pacco token"
-            }
-          }
-        ]
+      "title": {
+        "it": "Uscite, inviti e Risposte",
+        "en": "Nights out, invitations and Responses"
       },
-      {
-        "kicker": {
-          "it": "3 · Le Risposte",
-          "en": "3 · Responses"
-        },
-        "title": {
-          "it": "Carte da giocare anche nel turno degli altri",
-          "en": "Cards you play on other people's turns too"
-        },
-        "text": {
-          "it": "Ognuno tiene in mano fino a 5 carte Risposta. Le Difese ti salvano la serata, i Dispetti la rovinano agli altri, le Neutre possono andare in un verso o nell'altro. E quando qualcuno esagera, c'è sempre un Ma anche no!",
-          "en": "Everyone holds up to 5 Response cards. Defences save your evening, Pranks ruin someone else's, Neutral cards can go either way. And when someone goes too far, there is always a Ma anche no! (Nope!)."
-        },
-        "images": [
-          {
-            "image": "/img/intolleranti/carte/caffe-corretto.webp",
-            "kind": "card",
-            "alt": {
-              "it": "Carta Risposta Dispetto Caffè corretto: la Bevanda appena rivelata dà 1 Malessere a tutti i partecipanti",
-              "en": "Prank Response card Caffè corretto: the Drink just revealed gives 1 Sickness to every participant"
-            }
+      "intro": {
+        "it": "A Intolleranti! non si esce mai da soli: ci si invita, ci si salva e ci si sabota a vicenda, anche quando non è il proprio turno.",
+        "en": "In Intolleranti! nobody goes out alone: you invite each other, save each other and sabotage each other, even when it is not your turn."
+      },
+      "blocks": [
+        {
+          "kicker": {
+            "it": "1 · Le Uscite",
+            "en": "1 · Nights out"
           },
-          {
-            "image": "/img/intolleranti/carte/imbucato.webp",
-            "kind": "card",
-            "alt": {
-              "it": "Carta Risposta Neutra Imbucato: partecipi come invitato extra",
-              "en": "Neutral Response card Imbucato (Gatecrasher): join as an extra guest"
-            }
+          "title": {
+            "it": "Scegli la serata",
+            "en": "Pick your night out"
           },
-          {
-            "image": "/img/intolleranti/carte/ma-anche-no.webp",
-            "kind": "card",
-            "alt": {
-              "it": "Carta Risposta Difesa Ma anche no!: annulla la carta Risposta appena giocata",
-              "en": "Defence Response card Ma anche no! (Nope!): cancel the Response card just played"
+          "text": {
+            "it": "Nel tuo turno riveli un'Uscita: dall'Aperitivo da 1 punto al Matrimonio da 5. Ogni carta dice quante Portate di Cibo e di Bevande devi reggere per completarla. Più vale, più è facile finire in Nausea.",
+            "en": "On your turn you reveal a night out: from a 1-point Aperitivo to a 5-point Wedding. Each card says how many Food and Drink Courses you must survive to complete it. The more it is worth, the easier it is to end up Nauseous."
+          },
+          "images": [
+            {
+              "image": "/img/intolleranti/carte/cena-romantica.webp",
+              "kind": "card",
+              "alt": {
+                "it": "Carta Uscita Cena Romantica: 2 punti, 3 Cibi, 3 Bevande",
+                "en": "Outing card Cena Romantica: 2 points, 3 Food, 3 Drinks"
+              }
+            },
+            {
+              "image": "/img/intolleranti/carte/capodanno.webp",
+              "kind": "card",
+              "alt": {
+                "it": "Carta Uscita Capodanno: 4 punti, 5 Cibi, 6 Bevande",
+                "en": "Outing card Capodanno (New Year's Eve): 4 points, 5 Food, 6 Drinks"
+              }
+            },
+            {
+              "image": "/img/intolleranti/carte/matrimonio.webp",
+              "kind": "card",
+              "alt": {
+                "it": "Carta Uscita Matrimonio: 5 punti, 7 Cibi, 7 Bevande",
+                "en": "Outing card Matrimonio (Wedding): 5 points, 7 Food, 7 Drinks"
+              }
             }
-          }
-        ]
-      }
-    ]
-  }
+          ]
+        },
+        {
+          "kicker": {
+            "it": "2 · L'invito",
+            "en": "2 · The invitation"
+          },
+          "title": {
+            "it": "Vieni con me, o mi fai il Pacco?",
+            "en": "Coming with me, or standing me up?"
+          },
+          "text": {
+            "it": "Prima delle Portate puoi invitare un altro giocatore. Se accetta, mangia e beve con te: se regge fino alla fine prende una Buona Uscita, +1 punto. Se rifiuta ti fa il famigerato Pacco… e si prende il token Pacco: −1 punto, fino a fine partita. Solo una Scusa Valida, o l'Allenamento alle 6 del Golem Palestrato, permette di dire di no senza pagare. E se proprio lo vuoi con te, giochi un Invito che non si può rifiutare.",
+            "en": "Before the Courses you can invite another player. If they accept, they eat and drink with you: if they last to the end they get a Good Night Out token, +1 point. If they refuse, they stand you up (the infamous Pacco)… and take a Pacco token: −1 point, until the end of the game. Only a Valid Excuse card, or the Golem's 6 AM Workout, lets you say no for free. And if you really want them along, you play an Invitation You Can't Refuse."
+          },
+          "images": [
+            {
+              "image": "/img/intolleranti/token-pacco.svg",
+              "kind": "token",
+              "alt": {
+                "it": "Token Pacco: una scatola di cartone",
+                "en": "Pacco token: a cardboard box"
+              },
+              "caption": {
+                "it": "Pacco · −1",
+                "en": "Pacco · −1"
+              }
+            },
+            {
+              "image": "/img/intolleranti/token-buona-uscita.svg",
+              "kind": "token",
+              "alt": {
+                "it": "Token Buona Uscita: una stella",
+                "en": "Good Night Out token: a star"
+              },
+              "caption": {
+                "it": "Buona Uscita · +1",
+                "en": "Good night out · +1"
+              }
+            },
+            {
+              "image": "/img/intolleranti/carte/scusa-valida.webp",
+              "kind": "card",
+              "alt": {
+                "it": "Carta Risposta Scusa Valida: rifiuti l'invito senza prendere il token Pacco",
+                "en": "Response card Scusa Valida (Valid Excuse): refuse the invitation without taking the Pacco token"
+              }
+            },
+            {
+              "image": "/img/intolleranti/carte/invito.webp",
+              "kind": "card",
+              "alt": {
+                "it": "Carta Risposta Dispetto Invito che non si può rifiutare: l'invitato non può rifiutare l'Uscita",
+                "en": "Prank Response card Invito che non si può rifiutare (An Invitation You Can't Refuse): the guest cannot refuse the night out"
+              }
+            }
+          ]
+        },
+        {
+          "kicker": {
+            "it": "3 · Le Risposte",
+            "en": "3 · Responses"
+          },
+          "title": {
+            "it": "Carte da giocare anche nel turno degli altri",
+            "en": "Cards you play on other people's turns too"
+          },
+          "text": {
+            "it": "Ognuno tiene in mano fino a 5 carte Risposta. Le Difese ti salvano la serata, i Dispetti la rovinano agli altri, le Neutre possono andare in un verso o nell'altro. E quando qualcuno esagera, c'è sempre un Ma anche no!",
+            "en": "Everyone holds up to 5 Response cards. Defences save your evening, Pranks ruin someone else's, Neutral cards can go either way. And when someone goes too far, there is always a Ma anche no! (Nope!)."
+          },
+          "images": [
+            {
+              "image": "/img/intolleranti/carte/caffe-corretto.webp",
+              "kind": "card",
+              "alt": {
+                "it": "Carta Risposta Dispetto Caffè corretto: la Bevanda appena rivelata dà 1 Malessere a tutti i partecipanti",
+                "en": "Prank Response card Caffè corretto (Spiked coffee): the Drink just revealed gives 1 Queasiness to every participant"
+              }
+            },
+            {
+              "image": "/img/intolleranti/carte/imbucato.webp",
+              "kind": "card",
+              "alt": {
+                "it": "Carta Risposta Neutra Imbucato: partecipi come invitato extra",
+                "en": "Neutral Response card Imbucato (Gatecrasher): join as an extra guest"
+              }
+            },
+            {
+              "image": "/img/intolleranti/carte/ma-anche-no.webp",
+              "kind": "card",
+              "alt": {
+                "it": "Carta Risposta Difesa Ma anche no!: annulla la carta Risposta appena giocata",
+                "en": "Defence Response card Ma anche no! (Nope!): cancel the Response card just played"
+              }
+            }
+          ]
+        }
+      ],
+      "dark": false
+    },
+    {
+      "dark": true,
+      "kicker": {
+        "it": "Il menù",
+        "en": "The menu"
+      },
+      "title": {
+        "it": "Cibi e Bevande",
+        "en": "Food and Drinks"
+      },
+      "intro": {
+        "it": "Ogni Portata porta in fondo i nomi degli ospiti che la temono. Se c'è il tuo, prendi un Malessere. Se c'è scritto TUTTI!, la serata si fa dura per tutto il tavolo.",
+        "en": "Every Course lists at the bottom the guests who dread it. If your name is there, you take a Queasiness. If it says TUTTI! (EVERYONE!), the whole table is in trouble."
+      },
+      "blocks": [
+        {
+          "kicker": {
+            "it": "Mazzo Cibo",
+            "en": "Food deck"
+          },
+          "title": {
+            "it": "Cosa c'è nel piatto?",
+            "en": "What's on the plate?"
+          },
+          "text": {
+            "it": "Un'Insalata non fa male a nessuno. La Pizza Margherita mette in crisi l'Elfa Celiaca e il Nano No al Lattosio, il Fritto Misto di Mare fa insorgere la Sirena. E del Cibo Misterioso è meglio non chiedere.",
+            "en": "A Salad hurts nobody. Pizza Margherita troubles the Gluten-free Elf and the Lactose-free Dwarf, the Mixed Seafood Fry sends the Mermaid into protest. And it is best not to ask about the Mystery Food."
+          },
+          "images": [
+            {
+              "image": "/img/intolleranti/carte/insalata.webp",
+              "kind": "card",
+              "alt": {
+                "it": "Carta Cibo Insalata: non colpisce nessuno",
+                "en": "Food card Salad: hits nobody"
+              }
+            },
+            {
+              "image": "/img/intolleranti/carte/pizza-margherita.webp",
+              "kind": "card",
+              "alt": {
+                "it": "Carta Cibo Pizza Margherita: colpisce l'Elfa Celiaca e il Nano No al Lattosio",
+                "en": "Food card Pizza Margherita: hits the Gluten-free Elf and the Lactose-free Dwarf"
+              }
+            },
+            {
+              "image": "/img/intolleranti/carte/fritto-misto.webp",
+              "kind": "card",
+              "alt": {
+                "it": "Carta Cibo Fritto Misto di Mare: colpisce l'Orco Vegetariano, la Sirena Amica dei Pesci e il Golem Palestrato",
+                "en": "Food card Mixed Seafood Fry: hits the Vegetarian Orc, the Fish-friendly Mermaid and the Gym Golem"
+              }
+            },
+            {
+              "image": "/img/intolleranti/carte/cibo-misterioso.webp",
+              "kind": "card",
+              "alt": {
+                "it": "Carta Cibo Misterioso: colpisce tutti",
+                "en": "Mystery Food card: hits everyone"
+              }
+            }
+          ]
+        },
+        {
+          "kicker": {
+            "it": "Mazzo Bevande",
+            "en": "Drinks deck"
+          },
+          "title": {
+            "it": "E da bere?",
+            "en": "And to drink?"
+          },
+          "text": {
+            "it": "Una Tisana va bene a tutti, il Cappuccino è l'incubo del Nano. Il Bombardino scontenta il Vampiro, il Golem e la Goblin in un sorso solo. E quando arriva il Giro di Shots, non si salva nessuno.",
+            "en": "Herbal tea suits everyone, a Cappuccino is the Dwarf's nightmare. A Bombardino upsets the Vampire, the Golem and the Goblin in a single sip. And when the Round of Shots arrives, nobody is safe."
+          },
+          "images": [
+            {
+              "image": "/img/intolleranti/carte/tisana.webp",
+              "kind": "card",
+              "alt": {
+                "it": "Carta Bevanda Tisana: non colpisce nessuno",
+                "en": "Drink card Herbal tea: hits nobody"
+              }
+            },
+            {
+              "image": "/img/intolleranti/carte/cappuccino.webp",
+              "kind": "card",
+              "alt": {
+                "it": "Carta Bevanda Cappuccino: colpisce il Nano No al Lattosio",
+                "en": "Drink card Cappuccino: hits the Lactose-free Dwarf"
+              }
+            },
+            {
+              "image": "/img/intolleranti/carte/bombardino.webp",
+              "kind": "card",
+              "alt": {
+                "it": "Carta Bevanda Bombardino: colpisce il Vampiro Astemio, il Golem Palestrato e la Goblin Anti-Uova",
+                "en": "Drink card Bombardino: hits the Teetotal Vampire, the Gym Golem and the Egg-hating Goblin"
+              }
+            },
+            {
+              "image": "/img/intolleranti/carte/giro-di-shots.webp",
+              "kind": "card",
+              "alt": {
+                "it": "Carta Bevanda Giro di Shots: colpisce tutti",
+                "en": "Drink card Round of Shots: hits everyone"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

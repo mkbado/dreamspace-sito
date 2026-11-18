@@ -315,3 +315,22 @@ a:hover { color: #7fe3d9; }
 .play-token + .play-card { margin-left: 8px; }
 @media (max-width: 640px) { .play-card { width: 31%; } .play-card + .play-card { margin-left: -6%; } }
 @media (prefers-reduced-motion: reduce) { .play-card { transition: none; } }
+.play-kicker { margin: 0; color: var(--orange-ink); }
+.play-intro { margin: 0; font-size: 18px; color: var(--text-dim); }
+.play-dark { background: #2b1d16 radial-gradient(circle at 20% 0%, #3d2a1e, transparent 60%); color: var(--cream); }
+.play-dark .play-kicker { color: #f2a33a; }
+.play-dark .play-intro { color: #e3cfae; }
+.play-dark .pad { padding-block: 72px; }
+.play-dark .play-card { box-shadow: 5px 5px 0 #000; }
+.play-fan:has(> :nth-child(4)) .play-card { width: clamp(100px, 12vw, 160px); }
+.play-fan:has(> :nth-child(4)) .play-card + .play-card { margin-left: -22px; }
+.play-fan:has(> :nth-child(4)) .play-token img { width: clamp(64px, 8vw, 96px); }
+.play-fan { overflow: visible; padding-inline: 12px; }
+@media (max-width: 640px) { .play-fan:has(> :nth-child(4)) .play-card { width: 27%; } .play-fan:has(> :nth-child(4)) .play-card + .play-card { margin-left: -5%; } .play-fan:has(> .play-token) .play-card { width: 26%; } .play-fan:has(> .play-token) .play-token img { width: 56px; } }
+@media (max-width: 640px) {
+  .play-fan:has(> .play-token) { flex-wrap: wrap; row-gap: 20px; }
+  .play-fan:has(> .play-token) .play-token { flex: 0 0 auto; margin: 0 12px; }
+  .play-fan:has(> .play-token) .play-token img { width: 72px; }
+  .play-fan:has(> .play-token) .play-card { width: 40%; }
+  .play-fan:has(> .play-token) .play-token + .play-card { margin-left: 0; }
+}

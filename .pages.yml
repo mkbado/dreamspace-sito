@@ -664,10 +664,13 @@ content:
           label: English
           type: string
       list: true
-  - name: interaction
-    label: Al tavolo (Uscite, inviti, Risposte…)
+  - name: tableSections
+    label: Sezioni con carte (Al tavolo, Cibi e Bevande…)
     type: object
     fields:
+    - name: dark
+      label: Sfondo scuro
+      type: boolean
     - name: kicker
       label: Occhiello
       type: object
@@ -770,6 +773,7 @@ content:
             type: string
         list: true
       list: true
+    list: true
   - name: howToPlay
     label: Come si gioca
     type: object
