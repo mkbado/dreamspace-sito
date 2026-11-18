@@ -1,4 +1,5 @@
 {
+  "kofi": "https://ko-fi.com/dreamspace_ltd",
   "owner": "Michele Badolato",
   "email": "dreamspace.boardgame@gmail.com",
   "home": {
@@ -11,117 +12,24 @@
       "en": "Adventures, novels and games from across the multiverse."
     },
     "bubble": {
-      "it": "Benvenuti, Dreamspacer! Qui la Dreamspace Ltd distribuisce gratis avventure e romanzi, e vi avvisa per primi quando un nuovo gioco sta per atterrare.",
+      "it": "Benvenuti, Dreamspacer! Qui la Dreamspace Ltd distribuisce avventure e romanzi gratuitamente, e vi avvisa per primi quando un nuovo gioco sta per atterrare.",
       "en": "Welcome, Dreamspacers! Here Dreamspace Ltd gives away adventures and novels for free, and tells you first when a new game is about to land."
     },
     "signature": {
-      "it": "— Mister D, CEO",
-      "en": "— Mister D, CEO"
-    },
-    "slides": [
-      {
-        "file": "MARSYLVANIA.EXE",
-        "color": "#d9442b",
-        "image": "/img/hero-caccia.webp",
-        "title": "Dreamspace: Mission to Marsylvania",
-        "text": {
-          "it": "Gioco da tavolo · 1–4 giocatori · 60 min · lista d'attesa aperta",
-          "en": "Board game · 1–4 players · 60 min · waiting list open"
-        },
-        "alt": {
-          "it": "Lord Caramel affronta con la spada di cristallo un verme gigante tra i canyon rossi di Marsylvania",
-          "en": "Lord Caramel swings his crystal sword at a giant worm among the red canyons of Marsylvania"
-        },
-        "link": {
-          "it": "/it/giochi-da-tavolo/marsylvania/",
-          "en": "/en/board-games/marsylvania/"
-        }
-      },
-      {
-        "file": "CIRCOLO_DEL_VENERDI.PNG",
-        "color": "#5a4560",
-        "image": "/img/slides/circolo.webp",
-        "title": "Il Circolo del Venerdì",
-        "text": {
-          "it": "Gioco di ruolo · Capitolo 0 gratis · due sessioni, circa 8 ore",
-          "en": "Roleplaying game · Chapter 0 free · two sessions, about 8 hours"
-        },
-        "alt": {
-          "it": "Copertina a china: il campanile di Santa Maria del Silenzio sotto una presenza scura",
-          "en": "Ink cover: the bell tower of Santa Maria del Silenzio under a dark presence"
-        },
-        "link": {
-          "it": "/it/giochi-di-ruolo/il-circolo-del-venerdi/",
-          "en": "/en/roleplaying-games/il-circolo-del-venerdi/"
-        }
-      },
-      {
-        "file": "INTOLLERANTI.PNG",
-        "color": "#8c1d2c",
-        "image": "/img/slides/intolleranti.webp",
-        "title": "Intolleranti!",
-        "text": {
-          "it": "Gioco di carte · 2–8 giocatori · 20–40 min · lista d'attesa aperta",
-          "en": "Card game · 2–8 players · 20–40 min · waiting list open"
-        },
-        "alt": {
-          "it": "Copertina di Intolleranti!: in una taverna, otto ospiti fantasy a tavola, ognuno alle prese con la sua intolleranza, mentre un golem cameriere porta i piatti",
-          "en": "Intolleranti! cover: in a tavern, eight fantasy guests at the table, each struggling with their intolerance, while a golem waiter brings the dishes"
-        },
-        "link": {
-          "it": "/it/giochi-da-tavolo/intolleranti/",
-          "en": "/en/board-games/intolleranti/"
-        }
-      },
-      {
-        "file": "MERIGGIO.PNG",
-        "color": "#6b7a3a",
-        "image": "/img/slides/meriggio.webp",
-        "title": "Meriggio",
-        "text": {
-          "it": "Gioco di ruolo · compatibile 5ª edizione · tre libri e un romanzo",
-          "en": "Roleplaying game · 5e compatible · three books and a novel"
-        },
-        "alt": {
-          "it": "Cinque viandanti guardano una valle di campi e villaggi",
-          "en": "Five travellers look out over a valley of fields and villages"
-        },
-        "link": {
-          "it": "/it/giochi-di-ruolo/meriggio/",
-          "en": "/en/roleplaying-games/meriggio/"
-        }
-      },
-      {
-        "file": "DUNGEONS_DUGONGS.PNG",
-        "color": "#1f7a8c",
-        "image": "/img/slides/dugongs.webp",
-        "title": "Dungeons & Dugongs",
-        "text": {
-          "it": "Gioco da tavolo cooperativo · 1–4 giocatori · 40–60 min",
-          "en": "Co-op board game · 1–4 players · 40–60 min"
-        },
-        "alt": {
-          "it": "Copertina di Dungeons & Dugongs, Missione negli abissi: quattro dugonghi avventurieri nuotano verso le rovine di un castello sommerso, tra una murena, un granchio, una trappola a conchiglia e un forziere di monete",
-          "en": "Dungeons & Dugongs, Missione negli abissi cover: four adventuring dugongs swim towards the ruins of a sunken castle, past a moray eel, a crab, a clam trap and a chest of coins"
-        },
-        "link": {
-          "it": "/it/giochi-da-tavolo/dungeons-and-dugongs/",
-          "en": "/en/board-games/dungeons-and-dugongs/"
-        }
-      }
-    ]
+      "it": "— Mister D, CEO della migliore azienda di cacciatori di taglie di tutto il multiverso",
+      "en": "— Mister D, CEO of the best bounty-hunter company of the whole multiverse"
+    }
   },
   "boardgames": {
     "intro": {
-      "it": "Tre giochi in sviluppo nei laboratori Dreamspace. Iscriviti alla lista d'attesa: ti avvisiamo per primi quando apre la prenotazione.",
-      "en": "Three games in development in the Dreamspace labs. Join the waiting list: you will be the first to know when pre-orders open."
+      "it": "Tre giochi in sviluppo nei laboratori Dreamspace. Iscriviti alla lista d'attesa: ti avvisiamo per primo su tutte le gustose novità.",
+      "en": "Three games in development in the Dreamspace labs. Join the waiting list: we'll let you know first about all the tasty news."
     }
   },
   "rpg": {
     "intro": {
-      "it": "Campagne, avventure e ambientazioni da scaricare gratis, ognuna con il suo romanzo da leggere.",
-      "en": "Campaigns, adventures and settings to download for free, each with its own novel to read."
+      "it": "Ambientazioni, campagne e avventure dei giochi di ruolo che ci appassionano, da studiare e scaricare gratuitamente, spesso abbinate al proprio romanzo da leggere per addentrarvi sempre più profondamente nella storia.",
+      "en": "Role-playing game settings, campaigns, and adventures we're passionate about, to study and download for free, often paired with your own novel to read and delve deeper into the story."
     }
-  },
-  "analyticsToken": "30002fc1873b491d9cd9e93faf302d0f"
+  }
 }
