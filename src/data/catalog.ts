@@ -18,6 +18,8 @@ export interface Character {
 }
 
 export interface Game {
+  /** citazioni di giocatori e playtester (vere, con il loro permesso) */
+  quotes?: Quote[];
   kind: 'game';
   slug: string;
   title: string;
@@ -62,6 +64,8 @@ export interface Game {
 }
 
 export interface Rpg {
+  /** citazioni di giocatori e playtester (vere, con il loro permesso) */
+  quotes?: Quote[];
   kind: 'rpg';
   slug: string;
   title: string;
@@ -103,6 +107,8 @@ export interface Rpg {
 }
 
 export interface Setting {
+  /** citazioni di giocatori e playtester (vere, con il loro permesso) */
+  quotes?: Quote[];
   kind: 'setting';
   slug: string;
   title: string;
@@ -157,10 +163,12 @@ import siteData from '../content/site.json';
 import newsData from '../content/news.json';
 
 export interface Slide { file: string; color: string; image: string; title: string; titleEn?: string; text: L<string>; alt: L<string>; link: L<string> }
+export interface Quote { text: L<string>; who: string; role?: L<string> }
 export interface News { date: string; title: L<string>; text: L<string>; image?: string; link?: L<string> }
 export const site = siteData as {
   kofi?: string; owner?: string; email?: string; analyticsToken?: string;
   home: { kicker: L<string>; title: L<string>; bubble: L<string>; signature: L<string>; slides: Slide[] };
+  crew?: { kicker: L<string>; title: L<string>; items: { badge: string; unit: L<string>; title: L<string>; text: L<string> }[] };
   boardgames: { intro: L<string> };
   rpg: { intro: L<string> };
 };

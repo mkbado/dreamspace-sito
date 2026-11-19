@@ -4,6 +4,7 @@ import '@fontsource/im-fell-english/400.css';
 import '@fontsource/im-fell-english/400-italic.css';
 import '@fontsource/special-elite/400.css';
 import Base from '../layouts/Base.astro';
+import Quotes from './Quotes.astro';
 import { t, sections, type Lang } from '../i18n/ui';
 import { site, tl, type Rpg } from '../data/catalog';
 
@@ -177,6 +178,8 @@ const chapterTitle = tl(lang, r.chapterTitle, r.chapterTitleEn);
       </ol>
     </div>
   </section>
+
+  <Quotes lang={lang} quotes={r.quotes} skin="noir" />
 
   <!-- Donazioni -->
   <section id="sostienici" class="nr-band nr-band--paper nr-kofi">

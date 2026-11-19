@@ -24,6 +24,7 @@ common_top = [
     B('draft', 'Nascosto (bozza)'),
     S('slug', "Indirizzo (slug) — non cambiarlo dopo la pubblicazione", required=True),
     S('title', 'Titolo', required=True),
+    O('quotes', 'Citazioni di giocatori e playtester', [L('text', 'Citazione', 'text'), S('who', 'Chi l’ha detta (nome o personaggio)'), L('role', 'Ruolo (es. playtester, giocatrice al tavolo)')], lst=True, summary='{fields.who}'),
 ]
 
 game = common_top + [
@@ -109,6 +110,8 @@ site = [
     O('home', 'Home', [L('kicker', 'Occhiello'), L('title', 'Titolo'), L('bubble', 'Messaggio di benvenuto', 'text'), L('signature', 'Firma'),
         O('slides', 'Carosello (finestre che scorrono)', [S('file', 'Nome finestra (es. INTOLLERANTI.PNG)'), S('color', 'Colore barra (#hex)'), IMG('image', 'Immagine quadrata (740×740)'),
             S('title', 'Titolo'), S('titleEn', 'Titolo in inglese (facoltativo)'), L('text', 'Riga di info'), L('alt', 'Descrizione immagine'), L('link', 'Link')], lst=True, summary='{fields.file}')]),
+    O('crew', 'Home: chi c’è dietro', [L('kicker', 'Occhiello'), L('title', 'Titolo'),
+        O('items', 'Riquadri', [S('badge', 'Numero o simbolo grande'), L('unit', 'Sotto il numero'), L('title', 'Titolo'), L('text', 'Testo', 'text')], lst=True)]),
     O('boardgames', 'Pagina Giochi da tavolo', [L('intro', 'Introduzione', 'text')]),
     O('rpg', 'Pagina Giochi di ruolo', [L('intro', 'Introduzione', 'text')]),
 ]

@@ -125,5 +125,62 @@
       "it": "Ambientazioni, campagne e avventure dei giochi di ruolo che ci appassionano, da studiare e scaricare gratuitamente, spesso abbinate al proprio romanzo da leggere per addentrarvi sempre più profondamente nella storia.",
       "en": "Role-playing game settings, campaigns, and adventures we're passionate about, to study and download for free, often paired with your own novel to read and delve deeper into the story."
     }
+  },
+  "crew": {
+    "kicker": {
+      "it": "Chi c’è dietro le missioni",
+      "en": "Who’s behind the missions"
+    },
+    "title": {
+      "it": "Fatti al tavolo, non in laboratorio",
+      "en": "Made at the table, not in a lab"
+    },
+    "items": [
+      {
+        "badge": "15",
+        "unit": {
+          "it": "anni",
+          "en": "years"
+        },
+        "title": {
+          "it": "da Dungeon Master",
+          "en": "as Dungeon Master"
+        },
+        "text": {
+          "it": "Ogni avventura e ogni gioco nasce da quindici anni passati dietro lo schermo del master, tra campagne lunghe, one-shot e serate finite troppo tardi. E da una passione per i giochi di ruolo e da tavolo che non si è mai spenta.",
+          "en": "Every adventure and game comes from fifteen years behind the Dungeon Master’s screen: long campaigns, one-shots and evenings that ran far too late. And from a passion for roleplaying and board games that has never faded."
+        }
+      },
+      {
+        "badge": "✓",
+        "unit": {
+          "it": "approvato",
+          "en": "approved"
+        },
+        "title": {
+          "it": "dai Dreamspacer",
+          "en": "by the Dreamspacers"
+        },
+        "text": {
+          "it": "I Dreamspacer sono il nostro gruppo di gioco: hanno interpretato i personaggi, rotto le regole, trovato i buchi e chiesto «ancora una partita». Niente esce da qui senza essere passato dal loro tavolo.",
+          "en": "The Dreamspacers are our gaming group: they played the characters, broke the rules, found the holes and asked for “one more game”. Nothing leaves here without passing across their table."
+        }
+      },
+      {
+        "badge": "~10",
+        "unit": {
+          "it": "anni",
+          "en": "years"
+        },
+        "title": {
+          "it": "di grafica professionale",
+          "en": "of professional design"
+        },
+        "text": {
+          "it": "Copertine, carte e impaginazione sono curate da un graphic designer con quasi dieci anni di esperienza sul campo: perché un bel gioco deve anche farsi guardare.",
+          "en": "Covers, cards and layout are handled by a graphic designer with almost ten years in the field: because a good game should also be a pleasure to look at."
+        }
+      }
+    ]
   }
 }

@@ -139,6 +139,68 @@ content:
         collapsible:
           collapsed: true
           summary: "{file}"
+  - name: crew
+    label: "Home: chi c’è dietro"
+    type: object
+    fields:
+    - name: kicker
+      label: Occhiello
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: title
+      label: Titolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: items
+      label: Riquadri
+      type: object
+      fields:
+      - name: badge
+        label: Numero o simbolo grande
+        type: string
+      - name: unit
+        label: Sotto il numero
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: title
+        label: Titolo
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: text
+        label: Testo
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: text
+        - name: en
+          label: English
+          type: text
+      list: true
   - name: boardgames
     label: Pagina Giochi da tavolo
     type: object
@@ -239,6 +301,38 @@ content:
     label: Titolo
     type: string
     required: true
+  - &id005
+    name: quotes
+    label: Citazioni di giocatori e playtester
+    type: object
+    fields:
+    - name: text
+      label: Citazione
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+      - name: en
+        label: English
+        type: text
+    - name: who
+      label: Chi l’ha detta (nome o personaggio)
+      type: string
+    - name: role
+      label: Ruolo (es. playtester, giocatrice al tavolo)
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{who}"
   - name: image
     label: Immagine della scheda (960×600)
     type: image
@@ -929,6 +1023,7 @@ content:
   - *id002
   - *id003
   - *id004
+  - *id005
   - name: titleEn
     label: Titolo in inglese
     type: string
@@ -1365,6 +1460,7 @@ content:
   - *id002
   - *id003
   - *id004
+  - *id005
   - name: image
     label: Immagine della scheda (960×600)
     type: image

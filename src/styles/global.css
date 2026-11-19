@@ -676,3 +676,33 @@ html.ds-intro-on body { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { #ds-sky, #ds-cursor, #ds-intro { display: none; } .stars { background-image: radial-gradient(var(--cream) 1px, transparent 1.5px), radial-gradient(var(--teal) 1px, transparent 1.5px); } }
 #ds-fly { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 2147482500; pointer-events: none; image-rendering: pixelated; }
 @media (prefers-reduced-motion: reduce) { #ds-fly { display: none; } }
+
+/* Home: chi c'è dietro */
+.crew__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+.crew__card { position: relative; display: flex; flex-direction: column; gap: 10px; padding: 26px 24px 24px; background: var(--night-2); border: 4px solid var(--black); box-shadow: 6px 6px 0 var(--black); }
+.crew__badge { display: flex; align-items: baseline; gap: 8px; }
+.crew__badge b { font-family: var(--font-pixel); font-size: 56px; line-height: 1; color: var(--orange); }
+.crew__card--1 .crew__badge b { color: var(--teal); }
+.crew__card--2 .crew__badge b { color: #f2c230; }
+.crew__badge span { font-family: var(--font-label); font-size: 13px; text-transform: uppercase; color: var(--soft); }
+.crew__card h3 { margin: 0; font-family: var(--font-label); font-size: 18px; text-transform: uppercase; color: var(--cream); }
+.crew__card p { margin: 0; color: var(--soft); font-size: 16px; }
+
+/* Citazioni dei giocatori */
+.quotes { padding-block: 72px; position: relative; z-index: 1; }
+.quotes__kicker { margin: 0; font-family: var(--font-label); font-size: 13px; text-transform: uppercase; color: var(--teal); }
+.quotes__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.quote { margin: 0; display: flex; flex-direction: column; gap: 14px; padding: 24px; background: var(--cream); color: var(--night); border: 4px solid var(--black); box-shadow: 6px 6px 0 var(--black); }
+.quote blockquote { margin: 0; font-size: 18px; line-height: 1.5; }
+.quote figcaption { display: flex; flex-direction: column; gap: 2px; font-family: var(--font-label); font-size: 13px; text-transform: uppercase; }
+.quote figcaption span { color: var(--orange-ink); font-size: 12px; }
+.quotes--noir .quotes__kicker { font-family: 'Special Elite', monospace; color: #9a958c; letter-spacing: .08em; }
+.quotes--noir .quote { background: transparent; color: #ece7dd; border: 0; border-left: 2px solid #ece7dd; box-shadow: none; padding: 6px 0 6px 22px; }
+.quotes--noir .quote blockquote { font-family: 'IM Fell English', Georgia, serif; font-style: italic; font-size: 22px; }
+.quotes--noir .quote figcaption { font-family: 'Special Elite', monospace; color: #9a958c; }
+.quotes--noir .quote figcaption span { color: #77736b; }
+.quotes--fiaba .quotes__kicker { font-family: 'EB Garamond', Georgia, serif; font-style: italic; text-transform: none; font-size: 20px; color: #b8862b; }
+.quotes--fiaba .quote { background: #fffaf0; color: #3b2a1a; border: 1px solid #dcc89a; border-radius: 18px; box-shadow: 0 12px 28px rgba(120, 84, 30, .14); }
+.quotes--fiaba .quote blockquote { font-family: 'EB Garamond', Georgia, serif; font-style: italic; font-size: 21px; }
+.quotes--fiaba .quote figcaption { font-family: 'Cinzel', Georgia, serif; text-transform: none; font-size: 15px; }
+.quotes--fiaba .quote figcaption span { color: #5f7d3a; font-family: 'EB Garamond', Georgia, serif; font-style: italic; }

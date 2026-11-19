@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import PixelTable from '../../../components/PixelTable.astro';
 import KofiBand from '../../../components/KofiBand.astro';
 import NotifyBox from '../../../components/NotifyBox.astro';
+import Quotes from '../../../components/Quotes.astro';
 import { t, langs, otherLang, sections, type Lang } from '../../../i18n/ui';
 import { games, rpgs, settings, type Game, type Rpg, type Setting } from '../../../data/catalog';
 import SettingPage from '../../../components/SettingPage.astro';
@@ -203,6 +204,8 @@ const st = item.kind === 'setting' ? item : null;
       </div>
     </section>
   )}
+
+  <Quotes lang={lang} quotes={g.quotes} />
 
   {g.team && (
     <section class="container row" style="padding-block: 72px; gap: 40px; align-items: center;">

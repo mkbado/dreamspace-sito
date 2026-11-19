@@ -1,0 +1,24 @@
+---
+// Citazioni di giocatori e playtester. Compare solo se ce n'è almeno una.
+import type { Lang } from '../i18n/ui';
+import type { Quote } from '../data/catalog';
+interface Props { lang: Lang; quotes?: Quote[]; skin?: 'pixel' | 'noir' | 'fiaba' }
+const { lang, quotes = [], skin = 'pixel' } = Astro.props;
+const L = (it: string, en: string) => (lang === 'it' ? it : en);
+const list = quotes.filter((q) => q.text?.[lang] || q.text?.it);
+---
+{list.length > 0 && (
+  <section class={`quotes quotes--${skin}`}>
+    <div class="container stack" style="gap: 28px;">
+      <p class="quotes__kicker">{L('Dal tavolo di gioco', 'From the gaming table')}</p>
+      <div class="quotes__grid">
+        {list.map((q) => (
+          <figure class="quote">
+            <blockquote>«{q.text[lang] || q.text.it}»</blockquote>
+            <figcaption><strong>{q.who}</strong>{q.role?.[lang] && <span>{q.role[lang]}</span>}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
