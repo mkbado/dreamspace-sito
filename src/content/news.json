@@ -2,6 +2,22 @@
   {
     "date": "2026-11-18",
     "title": {
+      "it": "Marsylvania: lista d'attesa aperta",
+      "en": "Marsylvania: waiting list open"
+    },
+    "text": {
+      "it": "I Dreamspacer stanno per atterrare. Lascia la tua email e ti avvisiamo appena apre la prenotazione.",
+      "en": "The Dreamspacers are about to land. Leave your email and we will tell you as soon as pre-orders open."
+    },
+    "image": "/img/card-marsylvania.webp",
+    "link": {
+      "it": "/it/giochi-da-tavolo/marsylvania/",
+      "en": "/en/board-games/marsylvania/"
+    }
+  },
+  {
+    "date": "2026-11-18",
+    "title": {
       "it": "Il Circolo del Venerdì: il Capitolo 0 è pronto",
       "en": "The Friday Circle: Chapter 0 is ready"
     },
@@ -29,22 +45,6 @@
     "link": {
       "it": "/it/giochi-di-ruolo/meriggio/",
       "en": "/en/roleplaying-games/meriggio/"
-    }
-  },
-  {
-    "date": "2026-11-18",
-    "title": {
-      "it": "Marsylvania: lista d'attesa aperta",
-      "en": "Marsylvania: waiting list open"
-    },
-    "text": {
-      "it": "I Dreamspacer stanno per atterrare. Lascia la tua email e ti avvisiamo appena apre la prenotazione.",
-      "en": "The Dreamspacers are about to land. Leave your email and we will tell you as soon as pre-orders open."
-    },
-    "image": "/img/card-marsylvania.webp",
-    "link": {
-      "it": "/it/giochi-da-tavolo/marsylvania/",
-      "en": "/en/board-games/marsylvania/"
     }
   }
 ]
