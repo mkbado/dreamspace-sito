@@ -674,3 +674,5 @@ html.ds-cursor select { cursor: pointer !important; }
 .ds-intro__skip:hover { background: var(--cream); color: var(--night); }
 html.ds-intro-on body { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { #ds-sky, #ds-cursor, #ds-intro { display: none; } .stars { background-image: radial-gradient(var(--cream) 1px, transparent 1.5px), radial-gradient(var(--teal) 1px, transparent 1.5px); } }
+#ds-fly { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 2147482500; pointer-events: none; image-rendering: pixelated; }
+@media (prefers-reduced-motion: reduce) { #ds-fly { display: none; } }
