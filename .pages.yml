@@ -1620,6 +1620,40 @@ content:
         collapsible:
           collapsed: true
           summary: "{name}"
+  - name: landscapes
+    label: Paesaggi (galleria)
+    type: object
+    fields:
+    - name: title
+      label: Titolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: list
+      label: Immagini
+      type: object
+      fields:
+      - name: image
+        label: Immagine
+        type: image
+        options:
+          media: images
+      - name: caption
+        label: Didascalia
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      list: true
   - name: peoples
     label: Popoli
     type: object

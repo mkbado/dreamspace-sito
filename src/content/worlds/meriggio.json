@@ -4,13 +4,13 @@
   "title": "Meriggio",
   "image": "/img/meriggio/card.webp",
   "imageAlt": {
-    "it": "Cinque viandanti di spalle guardano una valle di campi e casali, disegno a matita",
-    "en": "Five travellers seen from behind look down on a valley of fields and farmsteads, pencil drawing"
+    "it": "I Guardiani di Primalba all’ombra di una quercia: un grufolo, un bardo con il liuto, un giovane terragno con la spada, un sacerdote dai capelli di fuoco, un monaco gigante e un vecchio con una gallina sulla spalla e una capra, davanti a colline di campi e casette dal tetto di paglia",
+    "en": "The Guardians of Primalba in the shade of an oak: a grufolo, a bard with a lute, a young terragno with a sword, a fire-haired priest, a giant monk and an old man with a hen on his shoulder and a goat, in front of hills of fields and thatched cottages"
   },
   "banner": "/img/meriggio/banner.webp",
   "bannerAlt": {
-    "it": "I cinque Guardiani di Primalba, un grufolo, un bardo, una guardia, un sacerdote dai capelli di fuoco e un monaco gigante, scendono verso una valle di campi; all’orizzonte un castello sotto nuvole scure. Disegno a matita",
-    "en": "The five Guardians of Primalba, a grufolo, a bard, a guard, a fire-haired priest and a giant monk, walk down towards a valley of fields; a castle under dark clouds on the horizon. Pencil drawing"
+    "it": "I Guardiani di Primalba all’ombra di una quercia: un grufolo, un bardo con il liuto, un giovane terragno con la spada, un sacerdote dai capelli di fuoco, un monaco gigante e un vecchio con una gallina sulla spalla e una capra, davanti a colline di campi e casette dal tetto di paglia",
+    "en": "The Guardians of Primalba in the shade of an oak: a grufolo, a bard with a lute, a young terragno with a sword, a fire-haired priest, a giant monk and an old man with a hen on his shoulder and a goat, in front of hills of fields and thatched cottages"
   },
   "tag": {
     "it": "Compatibile con la 5ª edizione · ambientazione, avventura e romanzo",
@@ -188,8 +188,8 @@
         },
         "image": "/img/meriggio/gz.webp",
         "alt": {
-          "it": "GZ, giovane terragno lentigginoso con la giacca rattoppata, cammina sorridendo e indica la strada",
-          "en": "GZ, a freckled young terragno in a patched jacket, walks smiling and points the way"
+          "it": "GZ, giovane terragno con giacca rattoppata, spada corta e corno, a mani sui fianchi davanti a un cancello di legno",
+          "en": "GZ, a young terragno in a patched coat with a short sword and a horn, hands on hips by a wooden gate"
         },
         "bio": {
           "it": "Guardia di Primalba, 1,05 m di energia. A ogni raccolto la madre gli manda una cesta di mele e un biglietto: «Torna quando ti sei calmato». Non è ancora tornato.",
@@ -204,8 +204,8 @@
         },
         "image": "/img/meriggio/panko.webp",
         "alt": {
-          "it": "Panko Shine, giovane bardo con il mantello lacero, stringe un liuto accanto a una pozzanghera",
-          "en": "Panko Shine, a young bard in a ragged cloak, hugs a lute beside a puddle"
+          "it": "Panko Shine, bardo con il liuto e un mantello verde, appoggiato a un muretto; nella pozzanghera si riflette un volto diverso",
+          "en": "Panko Shine, a bard with a lute and a green cloak leaning on a stone wall; the puddle reflects a different face"
         },
         "bio": {
           "it": "Il suo liuto arrivò a Primalba un giorno prima di lui, con quel nome cucito sulla custodia. Se gli chiedi se il nome sia suo, pizzica tre note che vogliono dire: «Adesso è mio».",
@@ -220,8 +220,8 @@
         },
         "image": "/img/meriggio/ignazio.webp",
         "alt": {
-          "it": "Ignazio, sacerdote dai capelli di fiamma con bastone e braciere, in una valle con un carro",
-          "en": "Ignazio, a priest with flaming hair, holding a staff beside a brazier in a valley with a wagon"
+          "it": "Ignazio, sacerdote braciaro dai capelli di fuoco, con il bastone accanto a un braciere acceso e una carovana sullo sfondo",
+          "en": "Ignazio, a fire-haired braciaro priest with his staff beside a lit brazier, a caravan in the background"
         },
         "bio": {
           "it": "Sacerdote della Brace, nato in carovana, ha fatto la cosa più scandalosa per un braciaro: si è fermato. La madre gli ha scritto «Un fuoco fermo si spegne»; lui le risponde con ricette di torta al miele.",
@@ -236,8 +236,8 @@
         },
         "image": "/img/meriggio/anacleto.webp",
         "alt": {
-          "it": "Anacleto, monaco gigante con le braccia fasciate, si china sulla porta di un cottage davanti a due bambini",
-          "en": "Anacleto, a giant monk with bandaged arms, stoops at a cottage door in front of two children"
+          "it": "Anacleto, monaco gigante, si china sulla porta di un cottage verso due piccoli terragni; per terra è disegnata una capra",
+          "en": "Anacleto, a giant monk, stoops at a cottage door towards two small terragni; a goat is drawn on the ground"
         },
         "bio": {
           "it": "Monaco di Brace Caduta, 2,20 m: più del doppio di un terragno qualunque. In famiglia dicono che ci sia un gigante; sua madre sostiene che abbia solo mangiato troppa minestra.",
@@ -252,8 +252,8 @@
         },
         "image": "/img/meriggio/zrak.webp",
         "alt": {
-          "it": "Zrak, grufolo dalle orecchie a punta e dal mantello a brandelli, spalanca le braccia su una collina",
-          "en": "Zrak, a pointy-eared grufolo in a tattered cloak, throws his arms wide on a hilltop"
+          "it": "Zrak, grufolo dalle orecchie a punta, a braccia aperte su una roccia tra i fiori, con la sua tana alle spalle",
+          "en": "Zrak, a pointy-eared grufolo, arms wide on a rock among the flowers, his burrow behind him"
         },
         "bio": {
           "it": "Chierico del Caos e profeta del Rumore, per nomina propria. Espulso dal consiglio della tana per aver cantato durante una riunione, riammesso, ed espulso di nuovo per aver cantato durante la riammissione.",
@@ -467,5 +467,48 @@
     "it": "Esplora le valli soleggiate",
     "en": "Explore the sunlit valleys"
   },
-  "novelTitleEn": "The Guardians of Primalba"
+  "novelTitleEn": "The Guardians of Primalba",
+  "landscapes": {
+    "title": {
+      "it": "Cartoline dalla valle",
+      "en": "Postcards from the valley"
+    },
+    "list": [
+      {
+        "image": "/img/meriggio/paesaggio-valle.webp",
+        "caption": {
+          "it": "La valle, sempre al sole",
+          "en": "The valley, always in the sun"
+        }
+      },
+      {
+        "image": "/img/meriggio/paesaggio-villaggio.webp",
+        "caption": {
+          "it": "Un villaggio di terragni",
+          "en": "A terragni village"
+        }
+      },
+      {
+        "image": "/img/meriggio/paesaggio-sentiero.webp",
+        "caption": {
+          "it": "Verso la Piana di Spigadoro",
+          "en": "Towards the Spigadoro Plain"
+        }
+      },
+      {
+        "image": "/img/meriggio/paesaggio-olmo.webp",
+        "caption": {
+          "it": "Olmo Cavo, nel Bosco Torto",
+          "en": "Olmo Cavo, in the Crooked Wood"
+        }
+      },
+      {
+        "image": "/img/meriggio/paesaggio-citta.webp",
+        "caption": {
+          "it": "Una città tra le colline",
+          "en": "A town among the hills"
+        }
+      }
+    ]
+  }
 }

@@ -633,3 +633,17 @@ a:hover { color: #7fe3d9; }
 .skin-fiaba .thanks__kofi { border-radius: 999px; background: linear-gradient(180deg, #ffd978, #f3c14b); border: 2px solid #b8862b; box-shadow: 0 4px 0 #b8862b; font-family: 'Cinzel', Georgia, serif; font-weight: 700; text-transform: none; }
 .skin-fiaba .thanks::backdrop { background: rgba(60, 42, 20, .45); }
 @media (prefers-reduced-motion: reduce) { .thanks[open] { animation: none; } }
+.fb-postcards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+@media (max-width: 640px) { .fb-postcards { grid-template-columns: 1fr; } }
+.fb-postcard img { aspect-ratio: 2.4 / 1; object-fit: cover; }
+.fb-postcard--wide img { aspect-ratio: auto; }
+.fb-postcard { margin: 0; background: #fffaf0; padding: 10px 10px 14px; border-radius: 6px; box-shadow: 0 14px 30px rgba(70, 60, 20, .16); transition: transform .3s; }
+.fb-postcard:nth-child(even) { transform: rotate(.8deg); } .fb-postcard:nth-child(odd) { transform: rotate(-.6deg); }
+.fb-postcard:hover { transform: rotate(0) scale(1.02); }
+.fb-postcard--wide { grid-column: 1 / -1; }
+.fb-postcard img { display: block; width: 100%; height: auto; border-radius: 3px; }
+.fb-postcard figcaption { padding-top: 10px; text-align: center; font-family: var(--fb-text); font-style: italic; font-size: 18px; color: var(--fb-ink-2); }
+@media (prefers-reduced-motion: reduce) { .fb-postcard { transition: none; } }
+.fb-arch img { object-position: center 18%; max-height: 600px; }
+.fb-oval img { object-position: 50% 12%; transform: scale(1.45); transform-origin: 50% 18%; }
+.fb-hero-card:hover .fb-oval img { transform: scale(1.52); }

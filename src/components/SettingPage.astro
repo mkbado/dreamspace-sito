@@ -88,7 +88,7 @@ const novel = s.books.find((b) => b.n === '❦');
     <div class="fb-heroes">
       {s.heroes.list.map((h) => (
         <article class="fb-hero-card">
-          <div class="fb-oval"><img src={h.image} alt={h.alt[lang]} loading="lazy" width="640" height="960" /></div>
+          <div class="fb-oval"><img src={h.image} alt={h.alt[lang]} loading="lazy" width="700" height="980" /></div>
           <h3>{h.name}</h3>
           <p class="fb-label">{h.role[lang]}</p>
           <p class="fb-body">{h.bio[lang]}</p>
@@ -96,6 +96,26 @@ const novel = s.books.find((b) => b.n === '❦');
       ))}
     </div>
   </section>
+
+  <!-- Paesaggi -->
+  {s.landscapes && s.landscapes.list.length > 0 && (
+    <section class="fb-band fb-band--meadow">
+      <div class="container stack" style="gap: 32px;">
+        <div class="fb-head">
+          <p class="fb-kicker">{L('Dal taccuino di viaggio', 'From the travel sketchbook')}</p>
+          <h2 class="fb-h2">{s.landscapes.title[lang]}</h2>
+        </div>
+        <div class="fb-postcards">
+          {s.landscapes.list.map((x, i) => (
+            <figure class={`fb-postcard${i === 0 ? ' fb-postcard--wide' : ''}`}>
+              <img src={x.image} alt={x.caption[lang]} loading="lazy" width="1200" height="800" />
+              <figcaption>{x.caption[lang]}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Popoli e atlante -->
   <section class="fb-band fb-band--parchment">
