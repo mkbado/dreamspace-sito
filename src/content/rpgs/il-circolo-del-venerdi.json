@@ -33,7 +33,7 @@
   },
   "cardMeta": {
     "it": "Cap. 0 · La Notte del Coro · due-tre sessioni, circa 10 ore",
-    "en": "Ch. 0 · La Notte del Coro · two-three sessions, about 10 hours"
+    "en": "Ch. 0 · The Night of the Choir · two-three sessions, about 10 hours"
   },
   "cardButton": {
     "it": "Scopri i segreti del Circolo",
@@ -83,7 +83,8 @@
         "it": "disponibile",
         "en": "available"
       },
-      "live": true
+      "live": true,
+      "titleEn": "The Night of the Choir"
     },
     {
       "n": "1",
@@ -93,7 +94,8 @@
         "it": "in arrivo",
         "en": "coming soon"
       },
-      "live": false
+      "live": false,
+      "titleEn": "What Remains of Friday"
     },
     {
       "n": "…",
@@ -331,5 +333,7 @@
   "licence": {
     "it": "Il Circolo del Venerdì usa marchi o contenuti di Chaosium Inc./Moon Design Publications LLC secondo la Fan Material Policy di Chaosium. È vietato chiedere un pagamento per usarli o accedervi. Chaosium non ha pubblicato, approvato o patrocinato questa campagna. Per i prodotti Chaosium: chaosium.com.",
     "en": "The Friday Circle uses trademarks and/or copyrights owned by Chaosium Inc/Moon Design Publications LLC, which are used under Chaosium Inc’s Fan Material Policy. We are expressly prohibited from charging you to use or access this content. This campaign is not published, endorsed, or specifically approved by Chaosium Inc. For more information about Chaosium Inc’s products, please visit www.chaosium.com."
-  }
+  },
+  "titleEn": "The Friday Circle",
+  "chapterTitleEn": "The Night of the Choir"
 }

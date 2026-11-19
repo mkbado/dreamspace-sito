@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import InterestForm from '../../components/InterestForm.astro';
 import KofiBand from '../../components/KofiBand.astro';
 import { t, langs, otherLang, sections, type Lang } from '../../i18n/ui';
-import { games, rpgs, settings, news, site } from '../../data/catalog';
+import { games, rpgs, settings, news, site, tl } from '../../data/catalog';
 import { itemPath } from '../../data/paths';
 
 export function getStaticPaths() {
@@ -20,6 +20,7 @@ const slides = h.slides?.length ? h.slides : [...games, ...rpgs, ...settings].ma
   color: x.kind === 'game' ? '#d9442b' : '#5a4560',
   image: x.kind === 'rpg' ? x.cardImage : x.image,
   title: x.title,
+  titleEn: x.kind === 'rpg' ? x.titleEn : undefined,
   text: x.kind === 'game' ? { it: x.short.it, en: x.short.en } : x.cardMeta,
   alt: x.kind === 'rpg' ? x.cardAlt : x.imageAlt ?? { it: '', en: '' },
   link: { it: itemPath('it', x), en: itemPath('en', x) },
@@ -61,10 +62,10 @@ const nRpg = rpgs.length + settings.length;
         </div>
         <div class="slides">
           {slides.map((sl, i) => (
-            <a class="slide" href={sl.link[lang]} data-file={sl.file} data-color={sl.color} aria-hidden={i === 0 ? undefined : 'true'} tabindex={i === 0 ? undefined : -1} role="group" aria-roledescription="slide" aria-label={`${i + 1} / ${slides.length}: ${sl.title}`}>
+            <a class="slide" href={sl.link[lang]} data-file={sl.file} data-color={sl.color} aria-hidden={i === 0 ? undefined : 'true'} tabindex={i === 0 ? undefined : -1} role="group" aria-roledescription="slide" aria-label={`${i + 1} / ${slides.length}: ${tl(lang, sl.title, sl.titleEn)}`}>
               <img src={sl.image} width="740" height="740" alt={sl.alt[lang]} loading={i === 0 ? 'eager' : 'lazy'} />
               <span class="slide__cap">
-                <strong>{sl.title}</strong>
+                <strong>{tl(lang, sl.title, sl.titleEn)}</strong>
                 <span>{sl.text[lang]}</span>
               </span>
             </a>
@@ -75,7 +76,7 @@ const nRpg = rpgs.length + settings.length;
         <div class="slider__nav">
           <button type="button" class="slider__arrow" data-prev aria-label={L('Precedente', 'Previous')}>◀</button>
           <div class="slider__dots">
-            {slides.map((sl, i) => <button type="button" data-go={i} aria-label={sl.title} aria-current={i === 0 ? 'true' : undefined}></button>)}
+            {slides.map((sl, i) => <button type="button" data-go={i} aria-label={tl(lang, sl.title, sl.titleEn)} aria-current={i === 0 ? 'true' : undefined}></button>)}
           </div>
           <button type="button" class="slider__arrow" data-pause aria-label={L('Ferma', 'Pause')} aria-pressed="false">❚❚</button>
           <button type="button" class="slider__arrow" data-next aria-label={L('Successivo', 'Next')}>▶</button>

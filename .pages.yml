@@ -102,6 +102,9 @@ content:
       - name: title
         label: Titolo
         type: string
+      - name: titleEn
+        label: Titolo in inglese (facoltativo)
+        type: string
       - name: text
         label: Riga di info
         type: object
@@ -926,6 +929,12 @@ content:
   - *id002
   - *id003
   - *id004
+  - name: titleEn
+    label: Titolo in inglese
+    type: string
+  - name: chapterTitleEn
+    label: Titolo del capitolo in evidenza, in inglese
+    type: string
   - name: chapterTitle
     label: Titolo del capitolo in evidenza
     type: string
@@ -1108,6 +1117,9 @@ content:
       type: string
     - name: title
       label: Titolo
+      type: string
+    - name: titleEn
+      label: Titolo in inglese
       type: string
     - name: place
       label: Luogo
@@ -1435,6 +1447,9 @@ content:
       type: string
   - name: novelTitle
     label: Titolo del romanzo
+    type: string
+  - name: novelTitleEn
+    label: Titolo del romanzo in inglese
     type: string
   - name: intro
     label: Introduzione (paragrafi)

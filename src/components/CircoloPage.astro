@@ -5,22 +5,24 @@ import '@fontsource/im-fell-english/400-italic.css';
 import '@fontsource/special-elite/400.css';
 import Base from '../layouts/Base.astro';
 import { t, sections, type Lang } from '../i18n/ui';
-import { site, type Rpg } from '../data/catalog';
+import { site, tl, type Rpg } from '../data/catalog';
 
 interface Props { lang: Lang; r: Rpg; altPath: string }
 const { lang, r, altPath } = Astro.props;
 const L = (it: string, en: string) => (lang === 'it' ? it : en);
+const title = tl(lang, r.title, r.titleEn);
+const chapterTitle = tl(lang, r.chapterTitle, r.chapterTitleEn);
 ---
-<Base lang={lang} title={`${r.title} · ${r.chapterTitle}`} description={r.short[lang]} altPath={altPath} bodyClass="skin-noir" extraFonts>
+<Base lang={lang} title={`${title} · ${chapterTitle}`} description={r.short[lang]} altPath={altPath} bodyClass="skin-noir" extraFonts>
   <div class="nr-grain" aria-hidden="true"></div>
 
   <!-- Copertina della campagna -->
   <section class="nr-hero">
     <div class="container stack" style="gap: 28px; padding-block: 36px 72px;">
-      <nav class="crumbs nr-crumbs" aria-label={L('Percorso', 'Breadcrumb')}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › <a href={`/${lang}/${sections[lang].rpg}/`}>{t(lang, 'nav.rpg')}</a> › {r.title}</nav>
+      <nav class="crumbs nr-crumbs" aria-label={L('Percorso', 'Breadcrumb')}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › <a href={`/${lang}/${sections[lang].rpg}/`}>{t(lang, 'nav.rpg')}</a> › {title}</nav>
       <div class="nr-masthead">
         <p class="nr-type">{r.series[lang]} · {L('gratis', 'free')}</p>
-        <h1 class="nr-title">{r.title}</h1>
+        <h1 class="nr-title">{title}</h1>
         <p class="nr-type nr-type--dim">Torino · MCMX</p>
       </div>
       <div class="nr-intro">
@@ -42,7 +44,7 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
             {r.campaignChapters.map((c) => (
               <li class={c.live ? 'is-live' : ''}>
                 <b>{c.n === '…' ? '…' : L(`Cap. ${c.n}`, `Ch. ${c.n}`)}</b>
-                <span class="nr-chapters__t">{c.live ? <a href="#capitolo-0">{c.title}</a> : c.title}{c.place && <em> · {c.place}</em>}</span>
+                <span class="nr-chapters__t">{c.live ? <a href="#capitolo-0">{tl(lang, c.title, c.titleEn)}</a> : tl(lang, c.title, c.titleEn)}{c.place && <em> · {c.place}</em>}</span>
                 <span class="nr-chapters__s">{c.status[lang]}</span>
               </li>
             ))}
@@ -64,7 +66,7 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
       </figure>
       <div class="stack" style="flex: 1 1 520px; min-width: 0; gap: 20px;">
         <p class="nr-type">{r.chapterSeries[lang]}</p>
-        <h2 class="nr-h2">{r.chapterTitle}</h2>
+        <h2 class="nr-h2">{chapterTitle}</h2>
         <p class="nr-lead">{r.pitch[lang][0]}</p>
         {r.pitch[lang][1] && <p class="nr-body">{r.pitch[lang][1]}</p>}
         <dl class="nr-sheet">
@@ -106,7 +108,7 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
     <div class="container stack" style="gap: 28px;">
       <div class="row" style="align-items: end; justify-content: space-between; gap: 16px;">
         <div class="stack" style="gap: 6px;">
-          <p class="nr-type">{r.chapterSeries[lang].split(' · ')[0]} · {r.chapterTitle}</p>
+          <p class="nr-type">{r.chapterSeries[lang].split(' · ')[0]} · {chapterTitle}</p>
           <h2 class="nr-h2">{t(lang, 'rpg.files')}</h2>
         </div>
         {r.zip && <a class="nr-btn nr-btn--ink" download href={r.zip}>{t(lang, 'rpg.zip')}</a>}

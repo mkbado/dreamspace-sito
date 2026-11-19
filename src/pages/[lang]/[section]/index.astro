@@ -5,7 +5,7 @@ import RpgCard from '../../../components/RpgCard.astro';
 import InterestForm from '../../../components/InterestForm.astro';
 import KofiBand from '../../../components/KofiBand.astro';
 import { t, langs, otherLang, sections, type Lang } from '../../../i18n/ui';
-import { games, rpgs, settings, site } from '../../../data/catalog';
+import { games, rpgs, settings, site, tl } from '../../../data/catalog';
 import { itemPath } from '../../../data/paths';
 
 export function getStaticPaths() {
@@ -24,9 +24,9 @@ const title = kind === 'games' ? t(lang, 'nav.games') : t(lang, 'nav.rpg');
 const intro = kind === 'games' ? site.boardgames.intro[lang] : site.rpg.intro[lang];
 
 const novels = [
-  ...rpgs.map((r) => ({ title: r.chapterTitle, kicker: `${r.title} · ${L('romanzo a puntate', 'serial novel')}`, text: r.novelText[lang], href: `${itemPath(lang, r)}#romanzo` })),
+  ...rpgs.map((r) => ({ title: tl(lang, r.chapterTitle, r.chapterTitleEn), kicker: `${tl(lang, r.title, r.titleEn)} · ${L('romanzo a puntate', 'serial novel')}`, text: r.novelText[lang], href: `${itemPath(lang, r)}#romanzo` })),
   ...settings.filter((s) => s.novelTitle).map((s) => ({
-    title: s.novelTitle,
+    title: tl(lang, s.novelTitle, s.novelTitleEn),
     kicker: `${s.title} · ${L('romanzo', 'novel')}`,
     text: s.books.find((b) => b.n === '❦')?.text[lang] ?? s.short[lang],
     href: `${itemPath(lang, s)}#libri`,

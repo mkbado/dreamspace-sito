@@ -84,6 +84,9 @@ export interface Rpg {
   cardMeta: L<string>;
   cardButton?: L<string>;
   chapterTitle: string;
+  /** titoli in inglese (le avventure si traducono, i nomi propri no) */
+  titleEn?: string;
+  chapterTitleEn?: string;
   chapterSeries: L<string>;
   cover: string;
   coverAlt: L<string>;
@@ -93,7 +96,7 @@ export interface Rpg {
   cardImage: string;
   cardAlt: L<string>;
   campaignIntro: L<string[]>;
-  campaignChapters: { n: string; title: string; place: string; status: L<string>; live?: boolean }[];
+  campaignChapters: { n: string; title?: string; titleEn?: string; place: string; status: L<string>; live?: boolean }[];
   locations: { image: string; title: string; caption: L<string> }[];
   kofi: L<{ title: string; text: string }>;
   licence: L<string>;
@@ -117,6 +120,7 @@ export interface Setting {
   cardMeta: L<string>;
   cardButton?: L<string>;
   novelTitle: string;
+  novelTitleEn?: string;
   heroes: { title: L<string>; note: L<string>; list: { name: string; role: L<string>; image: string; alt: L<string>; bio: L<string> }[] };
   peoples: { title: L<string>; list: { name: L<string>; text: L<string>; where: L<string> }[]; more: L<string> };
   atlas: { title: L<string>; list: { name: string; dir: L<string>; text: L<string> }[] };
@@ -150,7 +154,7 @@ export const settings: Setting[] = load<Setting>(import.meta.glob('../content/wo
 import siteData from '../content/site.json';
 import newsData from '../content/news.json';
 
-export interface Slide { file: string; color: string; image: string; title: string; text: L<string>; alt: L<string>; link: L<string> }
+export interface Slide { file: string; color: string; image: string; title: string; titleEn?: string; text: L<string>; alt: L<string>; link: L<string> }
 export interface News { date: string; title: L<string>; text: L<string>; image?: string; link?: L<string> }
 export const site = siteData as {
   kofi?: string; owner?: string; email?: string; analyticsToken?: string;
@@ -168,3 +172,7 @@ export const pagePath = (lang: Lang, slug: string) => {
   const p = pages.find((x) => x.slug === slug);
   return p ? `/${lang}/${p.path[lang]}/` : `/${lang}/`;
 };
+
+/** Titolo nella lingua della pagina: in inglese usa la traduzione, se c'è. */
+export const tl = (lang: Lang, it?: string, en?: string) => (lang === 'en' && en ? en : it ?? '');
+export const itemTitle = (lang: Lang, x: { title: string; titleEn?: string }) => tl(lang, x.title, x.titleEn);

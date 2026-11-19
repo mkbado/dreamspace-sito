@@ -57,6 +57,7 @@ game = common_top + [
 ]
 
 rpg = common_top + [
+    S('titleEn', 'Titolo in inglese'), S('chapterTitleEn', 'Titolo del capitolo in evidenza, in inglese'),
     S('chapterTitle', 'Titolo del capitolo in evidenza'), L('chapterSeries', 'Occhiello capitolo (es. Capitolo 0 · Valtorva, ottobre 1914)'),
     L('series', 'Sottotitolo campagna'),
     IMG('campaignCover', 'Copertina della campagna (in alto)'), L('campaignCoverAlt', 'Descrizione copertina della campagna'),
@@ -66,7 +67,7 @@ rpg = common_top + [
     L('tag', 'Etichetta'), L('players', 'Giocatori'), L('length', 'Durata'), L('genre', 'Genere'), S('rules', 'Regolamento'), L('languages', 'Lingue'),
     L('short', 'Descrizione breve (scheda)', 'text'),
     L('campaignIntro', 'Presentazione della campagna (paragrafi)', 'text', lst=True),
-    O('campaignChapters', 'Capitoli della campagna', [S('n', 'Numero'), S('title', 'Titolo'), S('place', 'Luogo'), L('status', 'Stato'), B('live', 'Disponibile (evidenziato)')], lst=True, summary='{fields.n} {fields.title}'),
+    O('campaignChapters', 'Capitoli della campagna', [S('n', 'Numero'), S('title', 'Titolo'), S('titleEn', 'Titolo in inglese'), S('place', 'Luogo'), L('status', 'Stato'), B('live', 'Disponibile (evidenziato)')], lst=True, summary='{fields.n} {fields.title}'),
     L('pitch', 'Presentazione del capitolo (paragrafi)', 'text', lst=True),
     L('warning', 'Avviso prima di giocare', 'text'),
     O('files', 'File da scaricare', [L('title', 'Titolo'), L('desc', 'Descrizione'), FILE('it', 'PDF italiano'), FILE('en', 'PDF inglese')], lst=True, summary='{fields.title.it}'),
@@ -84,7 +85,7 @@ world = common_top + [
     IMG('image', 'Immagine della scheda (960×600)'), L('imageAlt', 'Descrizione immagine scheda'),
     IMG('banner', 'Banner'), L('bannerAlt', 'Descrizione banner'),
     L('tag', 'Etichetta'), L('tagline', 'Sottotitolo'), L('short', 'Descrizione breve (scheda)', 'text'), L('cardMeta', 'Riga info nella scheda'), L('cardButton', 'Testo del pulsante nella scheda'),
-    S('novelTitle', 'Titolo del romanzo'),
+    S('novelTitle', 'Titolo del romanzo'), S('novelTitleEn', 'Titolo del romanzo in inglese'),
     L('intro', 'Introduzione (paragrafi)', 'text', lst=True), L('motto', 'Motto'),
     O('sheet', 'Scheda tecnica', [L('label', 'Voce'), L('value', 'Valore')], lst=True, summary='{fields.label.it}'),
     O('books', 'Libri', [S('n', 'Numero'), L('title', 'Titolo'), L('text', 'Descrizione', 'text'), L('action', 'Testo del pulsante'), L('file', 'File (PDF o link)', 'file')], lst=True, summary='{fields.title.it}'),
@@ -104,7 +105,7 @@ site = [
     S('analyticsToken', 'Token di Cloudflare Web Analytics (statistiche visite)'),
     O('home', 'Home', [L('kicker', 'Occhiello'), L('title', 'Titolo'), L('bubble', 'Messaggio di benvenuto', 'text'), L('signature', 'Firma'),
         O('slides', 'Carosello (finestre che scorrono)', [S('file', 'Nome finestra (es. INTOLLERANTI.PNG)'), S('color', 'Colore barra (#hex)'), IMG('image', 'Immagine quadrata (740×740)'),
-            S('title', 'Titolo'), L('text', 'Riga di info'), L('alt', 'Descrizione immagine'), L('link', 'Link')], lst=True, summary='{fields.file}')]),
+            S('title', 'Titolo'), S('titleEn', 'Titolo in inglese (facoltativo)'), L('text', 'Riga di info'), L('alt', 'Descrizione immagine'), L('link', 'Link')], lst=True, summary='{fields.file}')]),
     O('boardgames', 'Pagina Giochi da tavolo', [L('intro', 'Introduzione', 'text')]),
     O('rpg', 'Pagina Giochi di ruolo', [L('intro', 'Introduzione', 'text')]),
 ]

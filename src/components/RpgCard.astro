@@ -1,6 +1,6 @@
 ---
 import { t, type Lang } from '../i18n/ui';
-import type { Rpg, Setting } from '../data/catalog';
+import { tl, type Rpg, type Setting } from '../data/catalog';
 import { itemPath } from '../data/paths';
 interface Props { lang: Lang; item: Rpg | Setting }
 const { lang, item } = Astro.props;
@@ -13,7 +13,7 @@ const tagColor = item.kind === 'rpg' ? '#6b4a2b' : '#8a5a2b';
   <div class="card__media"><img src={img} width="960" height="600" alt={alt} loading="lazy" /></div>
   <div class="card__body">
     <p class="card__tag" style={`color: ${tagColor};`}>{item.tag[lang]}</p>
-    <h3 class="pixel h3">{item.title}</h3>
+    <h3 class="pixel h3">{tl(lang, item.title, item.kind === 'rpg' ? item.titleEn : undefined)}</h3>
     <p class="card__meta">{item.cardMeta[lang]}</p>
     <p>{item.short[lang]}</p>
     <div class="card__foot" style="justify-content: flex-start;">
