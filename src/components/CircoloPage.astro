@@ -161,9 +161,8 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
         <p class="nr-type">{t(lang, 'rpg.novel.kicker')}</p>
         <h2 class="nr-h2">{t(lang, 'rpg.novel.title')}</h2>
         <p class="nr-body">{r.novelText[lang]}</p>
-        {lang === 'en' && <p class="nr-small">The novel is in Italian for now; the English translation will follow.</p>}
         <div class="row" style="gap: 14px; padding-top: 8px; align-items: center;">
-          {r.chapters[0]?.file && <a class="nr-btn" href={r.chapters[0].file}>{t(lang, 'rpg.novel.first')}</a>}
+          {r.chapters[0]?.file?.[lang] && <a class="nr-btn" href={r.chapters[0].file[lang]} target="_blank" rel="noopener">{t(lang, 'rpg.novel.first')}</a>}
           <a href={`/${lang}/#lista`} class="nr-link">{t(lang, 'rpg.novel.notify')}</a>
         </div>
       </div>
@@ -171,10 +170,10 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
         {r.chapters.map((c, i) => (
           <li>
             <b>{String(i + 1).padStart(2, '0')}</b>
-            <span class="nr-chapters__t">{c.file ? <a href={c.file}>{c.title}</a> : c.title}</span>
+            <span class="nr-chapters__t">{c.file?.[lang] ? <a href={c.file[lang]} target="_blank" rel="noopener">{c.title[lang]}</a> : c.title[lang]}</span>
+            {c.file?.[lang] ? <span class="nr-chapters__s">PDF · {L('leggi', 'read')}</span> : <span class="nr-chapters__s nr-dim">{L('in arrivo', 'coming soon')}</span>}
           </li>
         ))}
-        <li><b>{String(r.chapters.length + 1).padStart(2, '0')}</b><span class="nr-chapters__s">{t(lang, 'rpg.novel.next')}</span></li>
       </ol>
     </div>
   </section>

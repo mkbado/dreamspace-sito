@@ -79,7 +79,7 @@ export interface Rpg {
   investigatorsIntro: L<string>;
   investigators: { name: string; role: L<string>; image: string; sheet?: L<string> }[];
   novelText: L<string>;
-  chapters: { title: string; file: string }[];
+  chapters: { title: L<string>; file: L<string> }[];
   zip: string;
   cardMeta: L<string>;
   chapterTitle: string;

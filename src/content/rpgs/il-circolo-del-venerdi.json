@@ -274,22 +274,64 @@
   },
   "chapters": [
     {
-      "title": "La porta sbarrata"
+      "title": {
+        "it": "La porta sbarrata",
+        "en": "The Barred Door"
+      },
+      "file": {
+        "it": "/files/circolo/cap0/romanzo/La-Notte-del-Coro_Capitolo-1.pdf",
+        "en": "/files/circolo/cap0/romanzo/The-Night-of-the-Choir_Chapter-1.pdf"
+      }
     },
     {
-      "title": "L'ossario"
+      "title": {
+        "it": "L'ossario",
+        "en": "The Ossuary"
+      },
+      "file": {
+        "it": "",
+        "en": ""
+      }
     },
     {
-      "title": "L'abate"
+      "title": {
+        "it": "L'abate",
+        "en": "The Abbot"
+      },
+      "file": {
+        "it": "",
+        "en": ""
+      }
     },
     {
-      "title": "Il sagrestano"
+      "title": {
+        "it": "Il sagrestano",
+        "en": "The Sacristan"
+      },
+      "file": {
+        "it": "",
+        "en": ""
+      }
     },
     {
-      "title": "Le donne del lavatoio"
+      "title": {
+        "it": "Le donne del lavatoio",
+        "en": "The Washerwomen"
+      },
+      "file": {
+        "it": "",
+        "en": ""
+      }
     },
     {
-      "title": "La galleria"
+      "title": {
+        "it": "La galleria",
+        "en": "The Gallery"
+      },
+      "file": {
+        "it": "",
+        "en": ""
+      }
     }
   ],
   "kofi": {

@@ -75,7 +75,7 @@ rpg = common_top + [
     L('investigatorsIntro', 'Introduzione investigatori', 'text'),
     O('investigators', 'Investigatori', [S('name', 'Nome'), IMG('image', 'Ritratto'), L('role', 'Mestiere'), L('sheet', 'Scheda (PDF)', 'file')], lst=True, summary='{fields.name}'),
     L('novelText', 'Romanzo: presentazione', 'text'),
-    O('chapters', 'Romanzo: capitoli', [S('title', 'Titolo'), FILE('file', 'File (PDF)')], lst=True, summary='{fields.title}'),
+    O('chapters', 'Romanzo: capitoli', [L('title', 'Titolo'), L('file', 'File (PDF)', 'file')], lst=True),
     O('kofi', 'Fascia donazioni', [O('it', 'Italiano', [S('title', 'Titolo'), T('text', 'Testo')]), O('en', 'English', [S('title', 'Titolo'), T('text', 'Testo')])]),
     L('licence', 'Nota di licenza', 'text'),
 ]

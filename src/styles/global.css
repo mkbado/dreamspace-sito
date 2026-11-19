@@ -485,3 +485,4 @@ a:hover { color: #7fe3d9; }
 .skin-noir .site-footer, .skin-noir .site-footer p, .skin-noir .site-footer .fine { color: #77736b !important; border-color: var(--nr-line) !important; }
 .skin-noir .site-footer span[style*="--orange"] { font-family: var(--nr-typewriter) !important; font-weight: 400 !important; letter-spacing: .1em; }
 .nr-portrait__dl .nr-portrait__lbl { border: 0; padding: 5px 0; color: #77736b; font-size: 11px; }
+.nr-dim { color: #5f5b55; }

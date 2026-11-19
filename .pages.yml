@@ -1273,16 +1273,29 @@ content:
     fields:
     - name: title
       label: Titolo
-      type: string
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
     - name: file
       label: File (PDF)
-      type: file
-      options:
-        media: files
-    list:
-      collapsible:
-        collapsed: true
-        summary: "{title}"
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: file
+        options:
+          media: files
+      - name: en
+        label: English
+        type: file
+        options:
+          media: files
+    list: true
   - name: kofi
     label: Fascia donazioni
     type: object
