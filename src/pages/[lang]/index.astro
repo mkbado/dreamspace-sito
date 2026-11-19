@@ -29,7 +29,7 @@ const fmt = (d: string) => new Date(d + 'T12:00:00').toLocaleDateString(lang ===
 const nGames = games.length;
 const nRpg = rpgs.length + settings.length;
 ---
-<Base lang={lang} title="Dreamspace Ltd" altPath={`/${otherLang(lang)}/`}>
+<Base lang={lang} title="Dreamspace Ltd" altPath={`/${otherLang(lang)}/`} spaceIntro>
   <section class="container row" style="padding-block: 72px 80px; align-items: center; gap: 48px;">
     <div class="stack" style="flex: 1 1 480px; min-width: 0; gap: 24px;">
       <p class="label" style="margin: 0; color: var(--teal);">{h.kicker[lang]}</p>

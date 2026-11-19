@@ -11,6 +11,7 @@ import { t, otherLang, langs, sections, type Lang } from '../i18n/ui';
 import { site, pagePath } from '../data/catalog';
 import SignupScript from '../components/SignupScript.astro';
 import DownloadThanks from '../components/DownloadThanks.astro';
+import SpaceFX from '../components/SpaceFX.astro';
 
 interface Props {
   lang: Lang;
@@ -20,9 +21,10 @@ interface Props {
   altPath: string;
   bodyClass?: string;
   extraFonts?: boolean;
+  spaceIntro?: boolean;
 }
 
-const { lang, title, description = t(lang, 'meta.description'), altPath, bodyClass = 'stars', extraFonts = false } = Astro.props;
+const { lang, title, description = t(lang, 'meta.description'), altPath, bodyClass = 'stars', extraFonts = false, spaceIntro = false } = Astro.props;
 const other = otherLang(lang);
 const here = Astro.url.pathname;
 const fullTitle = title === 'Dreamspace Ltd' ? title : `${title} · Dreamspace Ltd`;
@@ -45,6 +47,7 @@ const year = new Date().getFullYear();
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 </head>
 <body class={bodyClass}>
+  {bodyClass === 'stars' && <SpaceFX lang={lang} intro={spaceIntro} />}
   <header class="site-header">
     <div class="container">
       <a class="logo" href={`/${lang}/`} aria-label="Dreamspace Ltd, Home"><b>DREAMSPACE</b><span>LTD</span></a>
