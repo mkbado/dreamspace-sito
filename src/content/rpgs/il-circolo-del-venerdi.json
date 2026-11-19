@@ -191,8 +191,8 @@
     }
   ],
   "investigatorsIntro": {
-    "it": "I sei investigatori del circolo, chiamati dall'abate per risolvere il misterioso caso di Valtorva.",
-    "en": "The six investigators of the circle, called by the abbot to solve the mysterious case of Valtorva."
+    "it": "I sei investigatori del circolo, chiamati dall'abate per risolvere il caso misterioso.",
+    "en": "The six investigators of the circle, called by the abbot to solve the mysterious case."
   },
   "investigators": [
     {
@@ -287,50 +287,30 @@
       "title": {
         "it": "L'ossario",
         "en": "The Ossuary"
-      },
-      "file": {
-        "it": "",
-        "en": ""
       }
     },
     {
       "title": {
         "it": "L'abate",
         "en": "The Abbot"
-      },
-      "file": {
-        "it": "",
-        "en": ""
       }
     },
     {
       "title": {
         "it": "Il sagrestano",
         "en": "The Sacristan"
-      },
-      "file": {
-        "it": "",
-        "en": ""
       }
     },
     {
       "title": {
         "it": "Le donne del lavatoio",
         "en": "The Washerwomen"
-      },
-      "file": {
-        "it": "",
-        "en": ""
       }
     },
     {
       "title": {
         "it": "La galleria",
         "en": "The Gallery"
-      },
-      "file": {
-        "it": "",
-        "en": ""
       }
     }
   ],
