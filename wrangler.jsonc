@@ -7,6 +7,9 @@
   "main": "./worker/index.js",
   // Non cancellare le variabili impostate a mano sul pannello di Cloudflare
   "keep_vars": true,
+  // Database delle iscrizioni alla lista d'attesa. Cloudflare lo crea da solo al primo deploy.
+  // Si consulta da dash.cloudflare.com → Storage & Databases → D1 → dreamspace-sito-db.
+  "d1_databases": [{ "binding": "DB", "database_name": "dreamspace-sito-db" }],
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",

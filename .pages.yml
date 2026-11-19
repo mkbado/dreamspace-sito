@@ -1699,3 +1699,59 @@ content:
     - name: en
       label: English
       type: text
+- name: pages
+  label: Pagine (Chi siamo, Privacy, Note legali)
+  type: collection
+  path: src/content/pages
+  format: json
+  filename: "{primary}.json"
+  view:
+    primary: title
+  fields:
+  - name: order
+    label: Ordine
+    type: number
+  - name: slug
+    label: Codice interno — non cambiarlo
+    type: string
+    required: true
+  - name: path
+    label: Indirizzo della pagina (es. chi-siamo / about)
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: title
+    label: Titolo
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: kicker
+    label: Occhiello
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: body
+    label: Testo
+    type: object
+    fields:
+    - name: it
+      label: Italiano (Markdown)
+      type: text
+    - name: en
+      label: English (Markdown)
+      type: text

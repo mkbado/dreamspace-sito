@@ -334,3 +334,21 @@ a:hover { color: #7fe3d9; }
   .play-fan:has(> .play-token) .play-card { width: 40%; }
   .play-fan:has(> .play-token) .play-token + .play-card { margin-left: 0; }
 }
+
+/* Pagine di testo (Chi siamo, Privacy, Note legali) */
+.prose { max-width: 720px; font-size: 18px; line-height: 1.65; }
+.prose h2 { font-family: var(--font-pixel); font-size: 28px; line-height: 1.2; margin: 40px 0 12px; scroll-margin-top: 90px; }
+.prose h2:first-child { margin-top: 0; }
+.prose p, .prose ul { margin: 0 0 16px; }
+.prose ul { padding-left: 22px; }
+.prose li { margin-bottom: 6px; }
+.prose a { color: var(--orange-ink); }
+.prose code { font-size: .9em; background: #0a0d2410; padding: 1px 5px; }
+
+/* Consenso nei moduli */
+.consent { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.45; cursor: pointer; }
+.consent input[type="checkbox"] { margin: 3px 0 0; padding: 0; flex: 0 0 18px; width: 18px !important; min-width: 0; height: 18px; min-height: 0; border: 0; box-shadow: none; accent-color: var(--orange); }
+.notify__form { flex-wrap: wrap; }
+.notify__form .consent { flex: 1 1 100%; color: var(--soft); }
+.notify__form .form-msg { flex: 1 1 100%; margin: 0; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }

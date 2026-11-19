@@ -1,0 +1,11 @@
+---
+import { t, type Lang } from '../i18n/ui';
+interface Props { lang: Lang; id: string; dark?: boolean }
+const { lang, id, dark = false } = Astro.props;
+---
+<input type="hidden" name="lingua" value={lang} />
+<div class="hp" aria-hidden="true"><label>Sito <input type="text" name="sito" tabindex="-1" autocomplete="off" /></label></div>
+<label class="consent" for={id}>
+  <input id={id} type="checkbox" name="privacy" value="si" required />
+  <span>{t(lang, 'list.consent')}<a href={`/${lang}/privacy/`} target="_blank" style={dark ? 'color: var(--teal);' : 'color: var(--orange-ink);'}>{t(lang, 'list.consentLink')}</a>.</span>
+</label>

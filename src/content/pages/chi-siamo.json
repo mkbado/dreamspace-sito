@@ -1,0 +1,20 @@
+{
+  "order": 1,
+  "slug": "chi-siamo",
+  "path": {
+    "it": "chi-siamo",
+    "en": "about"
+  },
+  "title": {
+    "it": "Chi siamo",
+    "en": "About us"
+  },
+  "kicker": {
+    "it": "Comunicato della direzione",
+    "en": "Memo from management"
+  },
+  "body": {
+    "it": "La **Dreamspace Ltd** è la più grande compagnia di cacciatori di taglie del multiverso. Nel tempo libero, tra una missione su Marsylvania e l'altra, pubblica giochi.\n\nFuori dalla finzione, Dreamspace Ltd è un nome di fantasia preso dall'universo di Dreamspace. Dietro c'è {{owner}}, che qui raccoglie i giochi da tavolo in sviluppo e le avventure e i romanzi dei suoi giochi di ruolo, scritti e provati al tavolo.\n\n## Cosa trovi qui\n\n- **Giochi da tavolo** in sviluppo: puoi iscriverti alla lista d'attesa per sapere quando escono prototipi, date e campagne.\n- **Giochi di ruolo**: avventure, ambientazioni e romanzi da scaricare e leggere gratis. Se ti sono piaciuti, puoi lasciare una donazione.\n\n## Scrivici\n\nPer domande, proposte o segnalazioni: [{{email}}](mailto:{{email}}).",
+    "en": "**Dreamspace Ltd** is the largest bounty-hunting company in the multiverse. In its spare time, between one mission to Marsylvania and the next, it publishes games.\n\nOutside the fiction, Dreamspace Ltd is a made-up name from the Dreamspace universe. Behind it is {{owner}}, who gathers here the board games in development and the adventures and novels from his roleplaying games, written and played at the table.\n\n## What you'll find here\n\n- **Board games** in development: join the waiting list to hear about prototypes, dates and campaigns.\n- **Roleplaying games**: adventures, settings and novels to download and read for free. If you enjoyed them, you can leave a donation.\n\n## Write to us\n\nQuestions, ideas or bug reports: [{{email}}](mailto:{{email}})."
+  }
+}

@@ -4,6 +4,7 @@ import InterestForm from '../../components/InterestForm.astro';
 import KofiBand from '../../components/KofiBand.astro';
 import { t, langs, otherLang, sections, type Lang } from '../../i18n/ui';
 import { games, rpgs, settings, news, site } from '../../data/catalog';
+import { itemPath } from '../../data/paths';
 
 export function getStaticPaths() {
   return langs.map((lang) => ({ params: { lang } }));
@@ -12,6 +13,17 @@ export function getStaticPaths() {
 const lang = Astro.params.lang as Lang;
 const L = (it: string, en: string) => (lang === 'it' ? it : en);
 const h = site.home;
+// Se le finestre del carosello mancano (per esempio salvate da una versione vecchia del pannello),
+// le ricostruiamo dal catalogo: una per gioco.
+const slides = h.slides?.length ? h.slides : [...games, ...rpgs, ...settings].map((x) => ({
+  file: `${x.slug.toUpperCase().replace(/-/g, '_')}.PNG`,
+  color: x.kind === 'game' ? '#d9442b' : '#5a4560',
+  image: x.kind === 'rpg' ? x.cardImage : x.image,
+  title: x.title,
+  text: x.kind === 'game' ? { it: x.short.it, en: x.short.en } : x.cardMeta,
+  alt: x.kind === 'rpg' ? x.cardAlt : x.imageAlt ?? { it: '', en: '' },
+  link: { it: itemPath('it', x), en: itemPath('en', x) },
+}));
 const fmt = (d: string) => new Date(d + 'T12:00:00').toLocaleDateString(lang === 'it' ? 'it-IT' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 const nGames = games.length;
 const nRpg = rpgs.length + settings.length;
@@ -43,13 +55,13 @@ const nRpg = rpgs.length + settings.length;
     </div>
     <div class="slider" data-slider style="flex: 1 1 380px; min-width: 0; max-width: 460px; margin: 0 auto;">
       <div class="window" role="region" aria-roledescription={L('carosello', 'carousel')} aria-label={L('I nostri giochi', 'Our games')}>
-        <div class="window__bar" data-bar style={`background: ${h.slides[0]?.color};`}>
-          <span data-file aria-hidden="true">{h.slides[0]?.file}</span>
+        <div class="window__bar" data-bar style={`background: ${slides[0]?.color};`}>
+          <span data-file aria-hidden="true">{slides[0]?.file}</span>
           <span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
         </div>
         <div class="slides">
-          {h.slides.map((sl, i) => (
-            <a class="slide" href={sl.link[lang]} data-file={sl.file} data-color={sl.color} aria-hidden={i === 0 ? undefined : 'true'} tabindex={i === 0 ? undefined : -1} role="group" aria-roledescription="slide" aria-label={`${i + 1} / ${h.slides.length}: ${sl.title}`}>
+          {slides.map((sl, i) => (
+            <a class="slide" href={sl.link[lang]} data-file={sl.file} data-color={sl.color} aria-hidden={i === 0 ? undefined : 'true'} tabindex={i === 0 ? undefined : -1} role="group" aria-roledescription="slide" aria-label={`${i + 1} / ${slides.length}: ${sl.title}`}>
               <img src={sl.image} width="740" height="740" alt={sl.alt[lang]} loading={i === 0 ? 'eager' : 'lazy'} />
               <span class="slide__cap">
                 <strong>{sl.title}</strong>
@@ -59,11 +71,11 @@ const nRpg = rpgs.length + settings.length;
           ))}
         </div>
       </div>
-      {h.slides.length > 1 && (
+      {slides.length > 1 && (
         <div class="slider__nav">
           <button type="button" class="slider__arrow" data-prev aria-label={L('Precedente', 'Previous')}>◀</button>
           <div class="slider__dots">
-            {h.slides.map((sl, i) => <button type="button" data-go={i} aria-label={sl.title} aria-current={i === 0 ? 'true' : undefined}></button>)}
+            {slides.map((sl, i) => <button type="button" data-go={i} aria-label={sl.title} aria-current={i === 0 ? 'true' : undefined}></button>)}
           </div>
           <button type="button" class="slider__arrow" data-pause aria-label={L('Ferma', 'Pause')} aria-pressed="false">❚❚</button>
           <button type="button" class="slider__arrow" data-next aria-label={L('Successivo', 'Next')}>▶</button>

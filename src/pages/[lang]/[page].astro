@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import { marked } from 'marked';
+import { t, langs, otherLang, type Lang } from '../../i18n/ui';
+import { pages, site } from '../../data/catalog';
+
+export function getStaticPaths() {
+  return langs.flatMap((lang) => pages.map((p) => ({ params: { lang, page: p.path[lang] }, props: { slug: p.slug } })));
+}
+
+const lang = Astro.params.lang as Lang;
+const p = pages.find((x) => x.slug === Astro.props.slug)!;
+const other = otherLang(lang);
+const fill = (s: string) => s.replaceAll('{{owner}}', site.owner || 'Dreamspace').replaceAll('{{email}}', site.email || '');
+// "## Titolo {#ancora}" diventa un titolo con id, per i link diretti (es. /privacy/#cookie)
+const html = (marked.parse(fill(p.body[lang]), { async: false }) as string).replace(/<h([23])>(.*?)\s*\{#([a-z0-9-]+)\}<\/h\1>/g, '<h$1 id="$3">$2</h$1>');
+---
+<Base lang={lang} title={p.title[lang]} description={p.title[lang]} altPath={`/${other}/${p.path[other]}/`}>
+  <section class="container stack" style="padding-block: 56px 24px; gap: 14px;">
+    <nav class="crumbs" aria-label={lang === 'it' ? 'Percorso' : 'Breadcrumb'}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › {p.title[lang]}</nav>
+    <p class="label" style="margin: 0; color: var(--teal);">{p.kicker[lang]}</p>
+    <h1 class="pixel h1">{p.title[lang]}</h1>
+  </section>
+  <section class="band-cream">
+    <div class="container pad">
+      <article class="prose" set:html={html} />
+    </div>
+  </section>
+</Base>

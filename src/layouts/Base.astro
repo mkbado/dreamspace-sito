@@ -8,7 +8,8 @@ import '@fontsource/spectral/400-italic.css';
 import '@fontsource/spectral/600.css';
 import '../styles/global.css';
 import { t, otherLang, langs, sections, type Lang } from '../i18n/ui';
-import { site } from '../data/catalog';
+import { site, pagePath } from '../data/catalog';
+import SignupScript from '../components/SignupScript.astro';
 
 interface Props {
   lang: Lang;
@@ -58,7 +59,7 @@ const year = new Date().getFullYear();
             </>
           ))}
         </span>
-        <a class="btn btn--teal" href={site.kofi || `/${lang}/#sostienici`}>{t(lang, 'nav.support')}</a>
+        <a class="btn btn--teal" href={site.kofi || `/${lang}/#sostienici`} target={site.kofi ? '_blank' : undefined} rel={site.kofi ? 'noopener' : undefined}>{t(lang, 'nav.support')}</a>
       </nav>
     </div>
   </header>
@@ -82,21 +83,22 @@ const year = new Date().getFullYear();
         </nav>
         <nav aria-label="Dreamspace">
           <span class="label muted" style="font-size: 12px;">Dreamspace</span>
-          <a href="#">{t(lang, 'nav.about')}</a>
+          <a href={pagePath(lang, 'chi-siamo')}>{t(lang, 'nav.about')}</a>
           <a href={`/${lang}/#novita`}>{t(lang, 'footer.news')}</a>
           <a href={site.email ? `mailto:${site.email}` : '#'}>{t(lang, 'footer.contact')}</a>
         </nav>
         <nav aria-label={t(lang, 'footer.legal')}>
           <span class="label muted" style="font-size: 12px;">{t(lang, 'footer.legal')}</span>
-          <a href="#">{t(lang, 'footer.privacy')}</a>
-          <a href="#">{t(lang, 'footer.cookies')}</a>
-          <a href="#">{t(lang, 'footer.notes')}</a>
+          <a href={pagePath(lang, 'privacy')}>{t(lang, 'footer.privacy')}</a>
+          <a href={`${pagePath(lang, 'privacy')}#cookie`}>{t(lang, 'footer.cookies')}</a>
+          <a href={pagePath(lang, 'note-legali')}>{t(lang, 'footer.notes')}</a>
         </nav>
       </div>
       <slot name="licence" />
       <p class="fine">{t(lang, 'footer.disclaimer')}{site.owner && ` ${lang === 'it' ? 'Sito gestito da' : 'Site run by'} ${site.owner}.`}{site.email && <> <a href={`mailto:${site.email}`}>{site.email}</a></>} · © {year}</p>
     </div>
   </footer>
+  <SignupScript lang={lang} />
   {site.analyticsToken && (
     <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: site.analyticsToken })}></script>
   )}

@@ -107,6 +107,14 @@
         "bio": {
           "it": "Lo scudo è una conchiglia, il mantello è rosso e lo scampo sul bordo giura di essere il suo scudiero.",
           "en": "His shield is a seashell, his cape is red, and the shrimp on the rim swears it is his squire."
+        },
+        "title": {
+          "it": "Guardiano",
+          "en": "Guardian"
+        },
+        "role": {
+          "it": "Difensore · COS 4 · CAR 2",
+          "en": "Defender · CON 4 · CHA 2"
         }
       },
       {
@@ -125,6 +133,14 @@
         "bio": {
           "it": "Pelliccia d'alghe, collana di denti e un martello di corallo: prima colpisce, poi fa domande.",
           "en": "Seaweed fur, a tooth necklace and a coral hammer: hits first, asks questions later."
+        },
+        "title": {
+          "it": "Barbaro",
+          "en": "Barbarian"
+        },
+        "role": {
+          "it": "Forza · COS 4 · CAR 2",
+          "en": "Strength · CON 4 · CHA 2"
         }
       },
       {
@@ -143,6 +159,14 @@
         "bio": {
           "it": "Mira benissimo. Quasi sempre. Della freccia con la ventosa in fronte non si parla.",
           "en": "A superb shot. Almost always. Nobody mentions the suction-cup arrow on his forehead."
+        },
+        "title": {
+          "it": "Arciere",
+          "en": "Archer"
+        },
+        "role": {
+          "it": "Mira · COS 3 · CAR 3",
+          "en": "Aim · CON 3 · CHA 3"
         }
       },
       {
@@ -161,6 +185,14 @@
         "bio": {
           "it": "Cappello a punta, bastone di legno di deriva e una nuvoletta che lo segue ovunque, sempre di cattivo umore.",
           "en": "Pointy hat, driftwood staff and a little cloud that follows him everywhere, always in a bad mood."
+        },
+        "title": {
+          "it": "Stregone",
+          "en": "Sorcerer"
+        },
+        "role": {
+          "it": "Magia · COS 2 · CAR 4",
+          "en": "Magic · CON 2 · CHA 4"
         }
       },
       {
@@ -179,6 +211,14 @@
         "bio": {
           "it": "Occhiali, mantello e una mappa più lunga di lui: sa sempre dove andare, quasi mai quanto manca.",
           "en": "Glasses, cloak and a map longer than he is: always knows where to go, rarely how far it is."
+        },
+        "title": {
+          "it": "Saggio",
+          "en": "Sage"
+        },
+        "role": {
+          "it": "Magia e supporto · COS 2 · CAR 4",
+          "en": "Magic and support · CON 2 · CHA 4"
         }
       },
       {
@@ -197,6 +237,14 @@
         "bio": {
           "it": "Bussola, occhialoni e uno zaino pieno di pergamene: apre la strada, anche quando i pesci non sanno indicargliela.",
           "en": "Compass, goggles and a backpack full of scrolls: leads the way, even when the fish cannot tell him where."
+        },
+        "title": {
+          "it": "Scout",
+          "en": "Scout"
+        },
+        "role": {
+          "it": "Esploratore · COS 3 · CAR 3",
+          "en": "Explorer · CON 3 · CHA 3"
         }
       },
       {
@@ -215,6 +263,14 @@
         "bio": {
           "it": "Si nasconde dietro le colonne e lascia una scia di monete. Le sue, dice.",
           "en": "Hides behind columns and leaves a trail of coins. His own, he says."
+        },
+        "title": {
+          "it": "Furfante",
+          "en": "Rogue"
+        },
+        "role": {
+          "it": "Agilità · COS 3 · CAR 3",
+          "en": "Agility · CON 3 · CHA 3"
         }
       },
       {
@@ -233,6 +289,14 @@
         "bio": {
           "it": "Bende rosa, erbe di mare e una corona di alghe: nessun granchio resta indietro.",
           "en": "Pink bandages, sea herbs and a seaweed crown: no crab gets left behind."
+        },
+        "title": {
+          "it": "Guaritore",
+          "en": "Healer"
+        },
+        "role": {
+          "it": "Cura · COS 4 · CAR 2",
+          "en": "Healing · CON 4 · CHA 2"
         }
       },
       {
@@ -251,9 +315,21 @@
         "bio": {
           "it": "Ha sempre un panino di alghe a portata di pinna. Anche sulla pancia.",
           "en": "Always has a seaweed bun within flipper’s reach. Even on his belly."
+        },
+        "title": {
+          "it": "Mangione",
+          "en": "Glutton"
+        },
+        "role": {
+          "it": "Cibo e difesa · COS 4 · CAR 2",
+          "en": "Food and defence · CON 4 · CHA 2"
         }
       }
-    ]
+    ],
+    "abilityLabel": {
+      "it": "Oggetto iniziale",
+      "en": "Starting item"
+    }
   },
   "howToPlay": {
     "imageBare": false

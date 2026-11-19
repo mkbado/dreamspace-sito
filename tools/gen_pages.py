@@ -127,6 +127,12 @@ cfg = {
         coll('games', 'Giochi da tavolo', 'src/content/games', game),
         coll('rpgs', 'Giochi di ruolo: campagne', 'src/content/rpgs', rpg),
         coll('worlds', 'Giochi di ruolo: ambientazioni', 'src/content/worlds', world),
+        {'name': 'pages', 'label': 'Pagine (Chi siamo, Privacy, Note legali)', 'type': 'collection', 'path': 'src/content/pages', 'format': 'json',
+         'filename': '{primary}.json', 'view': {'primary': 'title'}, 'fields': [
+            N('order', 'Ordine'), S('slug', 'Codice interno — non cambiarlo', required=True),
+            L('path', 'Indirizzo della pagina (es. chi-siamo / about)'), L('title', 'Titolo'), L('kicker', 'Occhiello'),
+            O('body', 'Testo', [{'name': 'it', 'label': 'Italiano (Markdown)', 'type': 'text'}, {'name': 'en', 'label': 'English (Markdown)', 'type': 'text'}]),
+        ]},
     ],
 }
 
@@ -148,6 +154,7 @@ for p in glob.glob('src/content/games/*.json'): problems += check(json.load(open
 for p in glob.glob('src/content/rpgs/*.json'): problems += check(json.load(open(p)), rpg, p)
 for p in glob.glob('src/content/worlds/*.json'): problems += check(json.load(open(p)), world, p)
 problems += check(json.load(open('src/content/site.json')), site, 'site')
+for p in glob.glob('src/content/pages/*.json'): problems += check(json.load(open(p)), [{'name':k,'type':'string'} for k in ('order','slug','path','title','kicker','body')], p)
 problems += check(json.load(open('src/content/news.json')), news, 'news')
 print('uncovered:', problems or 'none')
 

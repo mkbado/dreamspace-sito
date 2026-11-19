@@ -1,10 +1,10 @@
 ---
 import { t, type Lang } from '../i18n/ui';
 import { games } from '../data/catalog';
+import Consent from './Consent.astro';
 
 interface Props { lang: Lang; preselect?: string }
 const { lang, preselect = 'marsylvania' } = Astro.props;
-// TODO al lancio: sostituire action con l'indirizzo del modulo MailerLite (un gruppo per gioco)
 ---
 <section id="lista" class="container" style="padding-bottom: 80px;">
   <div class="signup">
@@ -13,7 +13,7 @@ const { lang, preselect = 'marsylvania' } = Astro.props;
       <h2 class="pixel" style="font-size: 40px;">{t(lang, 'list.title')}</h2>
       <p style="margin: 0;">{t(lang, 'list.text')}</p>
     </div>
-    <form class="js-interest" action="#" method="post" data-msg={t(lang, 'list.soon')}>
+    <form class="js-interest" action="/api/iscrizione" method="post">
       <label class="label" for="email-lista">{t(lang, 'list.email')}</label>
       <input id="email-lista" name="email" type="email" required autocomplete="email" placeholder={lang === 'it' ? 'nome@esempio.it' : 'name@example.com'} />
       <fieldset>
@@ -21,23 +21,12 @@ const { lang, preselect = 'marsylvania' } = Astro.props;
         {games.map((g) => (
           <label class="check"><input type="checkbox" name="giochi" value={g.slug} checked={g.slug === preselect} /> {g.title}</label>
         ))}
-        <label class="check"><input type="checkbox" name="news" value="news" /> {t(lang, 'list.news')}</label>
+        <label class="check"><input type="checkbox" name="giochi" value="novita" /> {t(lang, 'list.news')}</label>
       </fieldset>
+      <Consent lang={lang} id="privacy-lista" />
       <button class="btn btn--orange btn--big" type="submit" style="align-self: flex-start;">{t(lang, 'list.submit')}</button>
       <p class="form-msg" role="status" aria-live="polite"></p>
-      <p style="margin: 0; font-size: 13px; color: var(--text-dim);">{t(lang, 'list.note')} <a href="#" style="color: var(--orange-ink);">{t(lang, 'footer.privacy')}</a></p>
+      <p style="margin: 0; font-size: 13px; color: var(--text-dim);">{t(lang, 'list.note')}</p>
     </form>
   </div>
 </section>
-
-<script>
-  // Finché il modulo non è collegato al servizio newsletter, mostra solo un messaggio
-  document.querySelectorAll<HTMLFormElement>('form.js-interest').forEach((f) => {
-    f.addEventListener('submit', (e) => {
-      if (f.getAttribute('action') !== '#') return;
-      e.preventDefault();
-      const out = f.querySelector('.form-msg');
-      if (out) out.textContent = f.dataset.msg ?? '';
-    });
-  });
-</script>

@@ -300,15 +300,15 @@ const st = item.kind === 'setting' ? item : null;
           <p class="label" style="margin: 0; color: #6b4a2b;">{r.chapterSeries[lang].split(' · ')[0]} · {r.chapterTitle}</p>
           <h2 class="pixel" style="font-size: 40px;">{t(lang, 'rpg.files')}</h2>
         </div>
-        {r.zip && <a class="btn" href={r.zip} style="background: #15111f; color: #f2a33a;">{t(lang, 'rpg.zip')}</a>}
+        {r.zip && <a class="btn" download href={r.zip} style="background: #15111f; color: #f2a33a;">{t(lang, 'rpg.zip')}</a>}
       </div>
       <div class="files">
         {r.files.map((f) => (
           <div class="file">
             <div style="flex: 1 1 320px; min-width: 0;"><strong>{f.title[lang]}</strong><small>{f.desc[lang]}</small></div>
             <div class="dl">
-              {f.it ? <a href={f.it}>PDF IT</a> : <span>IT {t(lang, 'rpg.soon')}</span>}
-              {f.en ? <a href={f.en}>PDF EN</a> : <span>EN {t(lang, 'rpg.soon')}</span>}
+              {f.it ? <a href={f.it} download>PDF IT</a> : <span>IT {t(lang, 'rpg.soon')}</span>}
+              {f.en ? <a href={f.en} download>PDF EN</a> : <span>EN {t(lang, 'rpg.soon')}</span>}
             </div>
           </div>
         ))}

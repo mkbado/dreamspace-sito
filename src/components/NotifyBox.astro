@@ -1,18 +1,20 @@
 ---
 import { t, type Lang } from '../i18n/ui';
 import type { Game } from '../data/catalog';
+import Consent from './Consent.astro';
 interface Props { lang: Lang; game: Game }
 const { lang, game: g } = Astro.props;
 const L = (it: string, en: string) => (lang === 'it' ? it : en);
 ---
 <div class="notify" id="avvisami">
           <p class="label" style="color: var(--teal);">{t(lang, 'game.status')}: {g.status[lang]}</p>
-          <form class="js-interest" action="#" method="post" data-msg={t(lang, 'list.soon')}>
+          <form class="js-interest notify__form" action="/api/iscrizione" method="post">
             <label class="sr-only" for="email-g">{t(lang, 'list.email')}</label>
             <input id="email-g" name="email" type="email" required autocomplete="email" placeholder={t(lang, 'list.email')} />
             <input type="hidden" name="giochi" value={g.slug} />
             <button class="btn btn--orange" type="submit">{t(lang, 'card.notify')}</button>
+            <Consent lang={lang} id="privacy-g" dark />
+            <p class="form-msg" role="status" aria-live="polite" style="color: var(--teal);"></p>
           </form>
-          <p class="form-msg" role="status" aria-live="polite" style="color: var(--teal);"></p>
-          <p style="font-size: 14px; color: var(--soft);"><strong style="color: var(--cream);">{g.waiting} {g.waitingWho[lang]}</strong> {t(lang, 'game.waitingLine')}</p>
+          <p style="font-size: 14px; color: var(--soft);" data-count={g.slug} data-who={g.waitingWho[lang]} data-line={t(lang, 'game.waitingLine')}>{/^\d+$/.test(g.waiting) ? <><strong style="color: var(--cream);">{g.waiting} {g.waitingWho[lang]}</strong> {t(lang, 'game.waitingLine')}</> : t(lang, 'list.first')}</p>
         </div>

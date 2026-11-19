@@ -14,8 +14,12 @@
     "@fontsource-variable/space-grotesk": "^5.3.0",
     "@fontsource/silkscreen": "^5.3.0",
     "@fontsource/spectral": "^5.3.0",
-    "astro": "^7.4.12"
+    "astro": "^7.4.12",
+    "marked": "^18.2.1"
   },
   "type": "module",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "wrangler": "^4.165.0"
+  }
 }

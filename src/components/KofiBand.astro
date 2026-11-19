@@ -12,6 +12,8 @@ const KOFI = site.kofi || '#';
       <h2 class="pixel" style="font-size: 36px; margin-bottom: 8px;">{title}</h2>
       <p style="margin: 0; font-size: 18px;">{text}</p>
     </div>
-    <a class="btn btn--dark btn--big" href={KOFI} target={site.kofi ? '_blank' : undefined} rel={site.kofi ? 'noopener' : undefined}>{t(lang, 'kofi.button')}</a>
+    {site.kofi
+      ? <a class="btn btn--dark btn--big" href={KOFI} target="_blank" rel="noopener">{t(lang, 'kofi.button')}</a>
+      : <span class="btn btn--dark btn--big" aria-disabled="true" style="opacity: .6; cursor: default;">{lang === 'it' ? 'Ko-fi in arrivo' : 'Ko-fi coming soon'}</span>}
   </div>
 </section>

@@ -1,0 +1,50 @@
+---
+import { t, type Lang } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const msg = {
+  ok: t(lang, 'list.ok'), email: t(lang, 'list.errEmail'), privacy: t(lang, 'list.errPrivacy'),
+  other: t(lang, 'list.errOther'), sending: t(lang, 'list.sending'),
+};
+---
+<script is:inline define:vars={{ msg }}>
+  (function () {
+    // Moduli della lista d'attesa: invio al Worker (/api/iscrizione) senza ricaricare la pagina
+    document.querySelectorAll('form.js-interest').forEach(function (f) {
+      var out = f.querySelector('.form-msg') || (f.parentElement && f.parentElement.querySelector('.form-msg'));
+      var btn = f.querySelector('button[type="submit"]');
+      f.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var fd = new FormData(f);
+        var body = { email: fd.get('email'), giochi: fd.getAll('giochi'), lingua: fd.get('lingua'), privacy: fd.get('privacy'), sito: fd.get('sito') };
+        var label = btn ? btn.textContent : '';
+        if (btn) { btn.disabled = true; btn.textContent = msg.sending; }
+        fetch(f.action, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(body) })
+          .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+          .then(function (d) {
+            if (d.ok) { if (out) out.textContent = msg.ok; f.reset(); }
+            else if (out) out.textContent = msg[d.errore] || msg.other;
+          })
+          .catch(function () { if (out) out.textContent = msg.other; })
+          .finally(function () { if (btn) { btn.disabled = false; btn.textContent = label; } });
+      });
+    });
+    // Conferma dopo l'invio senza JavaScript
+    if (new URLSearchParams(location.search).get('iscritto') === '1') {
+      document.querySelectorAll('.form-msg').forEach(function (o) { o.textContent = msg.ok; });
+    }
+    // Numero reale di iscritti per gioco
+    var slots = document.querySelectorAll('[data-count]');
+    if (!slots.length) return;
+    fetch('/api/conteggio').then(function (r) { return r.json(); }).then(function (c) {
+      slots.forEach(function (el) {
+        var n = c[el.dataset.count];
+        if (!n) return;
+        if (el.hasAttribute('data-short')) { el.textContent = n + ' ' + el.dataset.who + ' ' + el.dataset.line; return; }
+        el.innerHTML = '';
+        var s = document.createElement('strong'); s.style.color = 'var(--cream)'; s.textContent = n + ' ' + el.dataset.who;
+        el.append(s, ' ' + el.dataset.line);
+      });
+    }).catch(function () {});
+  })();
+</script>
