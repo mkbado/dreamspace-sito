@@ -1,0 +1,43 @@
+---
+// Finestrella di ringraziamento dopo un download, con il link a Ko-fi.
+import { type Lang } from '../i18n/ui';
+import { site } from '../data/catalog';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const L = (it: string, en: string) => (lang === 'it' ? it : en);
+---
+{site.kofi && (
+  <dialog class="thanks" id="grazie-download" aria-labelledby="grazie-titolo">
+    <form method="dialog" class="thanks__box">
+      <button class="thanks__x" value="chiudi" aria-label={L('Chiudi', 'Close')}>×</button>
+      <p class="thanks__icon" aria-hidden="true">☕</p>
+      <h2 id="grazie-titolo" class="thanks__title">{L('Grazie per il download!', 'Thanks for downloading!')}</h2>
+      <p class="thanks__text">{L('Se ti è piaciuto il nostro lavoro, puoi offrire un caffè ai nostri Dreamspacer. Ci aiuta a scrivere il prossimo capitolo.', 'If you enjoyed our work, you can buy our Dreamspacers a coffee. It helps us write the next chapter.')}</p>
+      <div class="thanks__actions">
+        <a class="thanks__kofi" href={site.kofi} target="_blank" rel="noopener">{L('Offri un caffè su Ko-fi', 'Buy us a coffee on Ko-fi')}</a>
+        <button class="thanks__later" value="dopo">{L('Magari più tardi', 'Maybe later')}</button>
+      </div>
+    </form>
+  </dialog>
+  <script is:inline>
+    (function () {
+      var d = document.getElementById('grazie-download');
+      if (!d || typeof d.showModal !== 'function') return;
+      var KEY = 'ds_grazie_mostrato';
+      var seen = function () { try { return sessionStorage.getItem(KEY) === '1'; } catch (e) { return false; } };
+      var mark = function () { try { sessionStorage.setItem(KEY, '1'); } catch (e) {} };
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href]');
+        if (!a) return;
+        var href = a.getAttribute('href') || '';
+        var isFile = a.hasAttribute('download') || /\/files\/.+\.(pdf|zip|epub)$/i.test(href);
+        if (!isFile || seen()) return;
+        mark();
+        // lascia partire il download, poi ringrazia
+        setTimeout(function () { if (!d.open) d.showModal(); }, 700);
+      });
+      // clic fuori dal riquadro: chiude
+      d.addEventListener('click', function (e) { if (e.target === d) d.close(); });
+    })();
+  </script>
+)}

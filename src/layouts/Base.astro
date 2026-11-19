@@ -10,6 +10,7 @@ import '../styles/global.css';
 import { t, otherLang, langs, sections, type Lang } from '../i18n/ui';
 import { site, pagePath } from '../data/catalog';
 import SignupScript from '../components/SignupScript.astro';
+import DownloadThanks from '../components/DownloadThanks.astro';
 
 interface Props {
   lang: Lang;
@@ -99,6 +100,7 @@ const year = new Date().getFullYear();
     </div>
   </footer>
   <SignupScript lang={lang} />
+  <DownloadThanks lang={lang} />
   {site.analyticsToken && (
     <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: site.analyticsToken })}></script>
   )}
