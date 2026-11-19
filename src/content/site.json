@@ -2,6 +2,7 @@
   "kofi": "https://ko-fi.com/dreamspace_ltd",
   "owner": "Michele Badolato",
   "email": "dreamspace.boardgame@gmail.com",
+  "analyticsToken": "30002fc1873b491d9cd9e93faf302d0f",
   "home": {
     "kicker": {
       "it": "Comunicato della direzione · Pianeta Terra",
@@ -12,8 +13,8 @@
       "en": "Adventures, novels and games from across the multiverse."
     },
     "bubble": {
-      "it": "Benvenuti, Dreamspacer! Qui la Dreamspace Ltd distribuisce avventure e romanzi gratuitamente, e vi avvisa per primi quando un nuovo gioco sta per atterrare.",
-      "en": "Welcome, Dreamspacers! Here Dreamspace Ltd gives away adventures and novels for free, and tells you first when a new game is about to land."
+      "it": "Benvenuti, Dreamspacer! Qui la Dreamspace Ltd crea, prova e distribuisce avventure e romanzi gratuitamente, e vi avvisa per primi quando un nuovo gioco sta per atterrare.",
+      "en": "Welcome, Dreamspacers! Here Dreamspace Ltd creates, plays and gives away adventures and novels for free, and tells you first when a new game is about to land."
     },
     "signature": {
       "it": "— Mister D, CEO della migliore azienda di cacciatori di taglie di tutto il multiverso",
@@ -43,6 +44,7 @@
         "color": "#5a4560",
         "image": "/img/slides/circolo.webp",
         "title": "Il Circolo del Venerdì",
+        "titleEn": "The Friday Circle",
         "text": {
           "it": "Gioco di ruolo · Capitolo 0 gratis · due sessioni, circa 8 ore",
           "en": "Roleplaying game · Chapter 0 free · two sessions, about 8 hours"
@@ -54,8 +56,7 @@
         "link": {
           "it": "/it/giochi-di-ruolo/il-circolo-del-venerdi/",
           "en": "/en/roleplaying-games/il-circolo-del-venerdi/"
-        },
-        "titleEn": "The Friday Circle"
+        }
       },
       {
         "file": "INTOLLERANTI.PNG",
@@ -124,6 +125,5 @@
       "it": "Ambientazioni, campagne e avventure dei giochi di ruolo che ci appassionano, da studiare e scaricare gratuitamente, spesso abbinate al proprio romanzo da leggere per addentrarvi sempre più profondamente nella storia.",
       "en": "Role-playing game settings, campaigns, and adventures we're passionate about, to study and download for free, often paired with your own novel to read and delve deeper into the story."
     }
-  },
-  "analyticsToken": "30002fc1873b491d9cd9e93faf302d0f"
+  }
 }
