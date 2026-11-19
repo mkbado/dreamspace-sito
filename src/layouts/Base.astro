@@ -55,6 +55,7 @@ const year = new Date().getFullYear();
         <a href={`/${lang}/${sections[lang].games}/`} aria-current={here.startsWith(`/${lang}/${sections[lang].games}/`) ? 'page' : undefined}>{t(lang, 'nav.games')}</a>
         <a href={`/${lang}/${sections[lang].rpg}/`} aria-current={here.startsWith(`/${lang}/${sections[lang].rpg}/`) ? 'page' : undefined}>{t(lang, 'nav.rpg')}</a>
         <a href={`/${lang}/${sections[lang].rpg}/#romanzi`}>{t(lang, 'nav.novels')}</a>
+        <a href={pagePath(lang, 'chi-siamo')} aria-current={here === pagePath(lang, 'chi-siamo') ? 'page' : undefined}>{t(lang, 'nav.about')}</a>
         <span class="lang">
           {langs.map((l, i) => (
             <>

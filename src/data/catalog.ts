@@ -174,7 +174,8 @@ export const site = siteData as {
 };
 export const news: News[] = (newsData as News[]).slice().sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
 
-export interface InfoPage { order?: number; slug: string; path: L<string>; title: L<string>; kicker: L<string>; body: L<string> }
+export interface TeamMember { name: string; nick?: string; role: L<string>; icon?: string; color?: string }
+export interface InfoPage { order?: number; slug: string; path: L<string>; title: L<string>; kicker: L<string>; body: L<string>; team?: TeamMember[] }
 export const pages: InfoPage[] = Object.values(import.meta.glob('../content/pages/*.json', { eager: true }))
   .map((m) => (m as { default: InfoPage }).default)
   .sort((a, b) => (a.order ?? 99) - (b.order ?? 99));

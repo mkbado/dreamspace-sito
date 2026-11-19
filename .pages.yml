@@ -2035,3 +2035,40 @@ content:
     - name: en
       label: English (Markdown)
       type: text
+  - name: team
+    label: "Equipaggio (compare dove nel testo c’è {{team}})"
+    type: object
+    fields:
+    - name: name
+      label: Nome
+      type: string
+    - name: nick
+      label: Soprannome (aka…)
+      type: string
+    - name: role
+      label: Ruolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: icon
+      label: Icona
+      type: select
+      options:
+        values:
+        - master
+        - idee
+        - mago
+        - strega
+        - tester
+    - name: color
+      label: "Colore (#hex)"
+      type: string
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{name}"

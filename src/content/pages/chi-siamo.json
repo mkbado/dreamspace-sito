@@ -14,7 +14,59 @@
     "en": "Memo from management"
   },
   "body": {
-    "it": "La **Dreamspace Ltd** è la più grande compagnia di cacciatori di taglie del multiverso. Nel tempo libero, tra una missione su Marsylvania e l'altra, pubblica giochi.\n\nFuori dalla finzione, Dreamspace Ltd è un nome di fantasia preso dall'universo di Dreamspace. Dietro c'è {{owner}}, che qui raccoglie i giochi da tavolo in sviluppo e le avventure e i romanzi dei suoi giochi di ruolo, scritti e provati al tavolo.\n\n## Cosa trovi qui\n\n- **Giochi da tavolo** in sviluppo: puoi iscriverti alla lista d'attesa per sapere quando escono prototipi, date e campagne.\n- **Giochi di ruolo**: avventure, ambientazioni e romanzi da scaricare e leggere gratis. Se ti sono piaciuti, puoi lasciare una donazione.\n\n## Scrivici\n\nPer domande, proposte o segnalazioni: [{{email}}](mailto:{{email}}).",
-    "en": "**Dreamspace Ltd** is the largest bounty-hunting company in the multiverse. In its spare time, between one mission to Marsylvania and the next, it publishes games.\n\nOutside the fiction, Dreamspace Ltd is a made-up name from the Dreamspace universe. Behind it is {{owner}}, who gathers here the board games in development and the adventures and novels from his roleplaying games, written and played at the table.\n\n## What you'll find here\n\n- **Board games** in development: join the waiting list to hear about prototypes, dates and campaigns.\n- **Roleplaying games**: adventures, settings and novels to download and read for free. If you enjoyed them, you can leave a donation.\n\n## Write to us\n\nQuestions, ideas or bug reports: [{{email}}](mailto:{{email}})."
-  }
+    "it": "La **Dreamspace Ltd** è la più grande compagnia di cacciatori di taglie del multiverso. Nel tempo libero, tra una missione su Marsylvania e l'altra, pubblica giochi.\n\nFuori dalla finzione, Dreamspace Ltd è un piccolo equipaggio di amici con la stessa passione: i giochi di ruolo e da tavolo. A metterlo in piedi è stato **Michele Badolato**, che fa il Dungeon Master da quindici anni. Ogni avventura e ogni gioco che trovi qui è nato al suo tavolo ed è stato giocato, smontato e rigiocato dal gruppo.\n\n## L'equipaggio\n\n{{team}}\n\n## Cosa trovi qui\n\n- **Giochi da tavolo** in sviluppo: puoi iscriverti alla lista d'attesa per sapere quando escono prototipi, date e campagne.\n- **Giochi di ruolo**: avventure, ambientazioni e romanzi da scaricare e leggere gratis. Se ti sono piaciuti, puoi lasciare una donazione.\n\n## Scrivici\n\nPer domande, proposte o segnalazioni: [{{email}}](mailto:{{email}}).",
+    "en": "**Dreamspace Ltd** is the largest bounty-hunting company in the multiverse. In its spare time, between one mission to Marsylvania and the next, it publishes games.\n\nOutside the fiction, Dreamspace Ltd is a small crew of friends who share one passion: roleplaying and board games. It was started by **Michele Badolato**, who has been a Dungeon Master for fifteen years. Every adventure and game you find here was born at his table and was played, taken apart and played again by the group.\n\n## The crew\n\n{{team}}\n\n## What you'll find here\n\n- **Board games** in development: join the waiting list to hear about prototypes, dates and campaigns.\n- **Roleplaying games**: adventures, settings and novels to download and read for free. If you enjoyed them, you can leave a donation.\n\n## Write to us\n\nQuestions, ideas or bug reports: [{{email}}](mailto:{{email}})."
+  },
+  "team": [
+    {
+      "name": "Michele Badolato",
+      "nick": "The Mastermind",
+      "role": {
+        "it": "Creatore, game designer e Dungeon Master",
+        "en": "Creator, game designer and Dungeon Master"
+      },
+      "icon": "master",
+      "color": "#f26b1d"
+    },
+    {
+      "name": "Raffaele Guandalini",
+      "nick": "The Ideas Generator",
+      "role": {
+        "it": "Game designer",
+        "en": "Game designer"
+      },
+      "icon": "idee",
+      "color": "#f2c230"
+    },
+    {
+      "name": "Francesco Moretti",
+      "nick": "The Wizard",
+      "role": {
+        "it": "Graphic designer",
+        "en": "Graphic designer"
+      },
+      "icon": "mago",
+      "color": "#3f6fd1"
+    },
+    {
+      "name": "Sara Moretti",
+      "nick": "The Sorceress",
+      "role": {
+        "it": "Graphic designer",
+        "en": "Graphic designer"
+      },
+      "icon": "strega",
+      "color": "#a3478f"
+    },
+    {
+      "name": "Giacomo Polastri",
+      "nick": "",
+      "role": {
+        "it": "Leader dei Dream-tester",
+        "en": "Head of the Dream-testers"
+      },
+      "icon": "tester",
+      "color": "#3fc1b5"
+    }
+  ]
 }

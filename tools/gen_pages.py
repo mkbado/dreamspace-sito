@@ -141,6 +141,8 @@ cfg = {
             N('order', 'Ordine'), S('slug', 'Codice interno — non cambiarlo', required=True),
             L('path', 'Indirizzo della pagina (es. chi-siamo / about)'), L('title', 'Titolo'), L('kicker', 'Occhiello'),
             O('body', 'Testo', [{'name': 'it', 'label': 'Italiano (Markdown)', 'type': 'text'}, {'name': 'en', 'label': 'English (Markdown)', 'type': 'text'}]),
+            O('team', 'Equipaggio (compare dove nel testo c’è {{team}})', [S('name', 'Nome'), S('nick', 'Soprannome (aka…)'), L('role', 'Ruolo'),
+                {'name': 'icon', 'label': 'Icona', 'type': 'select', 'options': {'values': ['master', 'idee', 'mago', 'strega', 'tester']}}, S('color', 'Colore (#hex)')], lst=True, summary='{fields.name}'),
         ]},
     ],
 }
@@ -163,7 +165,7 @@ for p in glob.glob('src/content/games/*.json'): problems += check(json.load(open
 for p in glob.glob('src/content/rpgs/*.json'): problems += check(json.load(open(p)), rpg, p)
 for p in glob.glob('src/content/worlds/*.json'): problems += check(json.load(open(p)), world, p)
 problems += check(json.load(open('src/content/site.json')), site, 'site')
-for p in glob.glob('src/content/pages/*.json'): problems += check(json.load(open(p)), [{'name':k,'type':'string'} for k in ('order','slug','path','title','kicker','body')], p)
+for p in glob.glob('src/content/pages/*.json'): problems += check(json.load(open(p)), [{'name':k,'type':'string'} for k in ('order','slug','path','title','kicker','body','team')], p)
 problems += check(json.load(open('src/content/news.json')), news, 'news')
 print('uncovered:', problems or 'none')
 

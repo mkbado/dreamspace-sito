@@ -1,0 +1,28 @@
+---
+// Schede dell'equipaggio con un'icona in pixel art per ruolo.
+import type { Lang } from '../i18n/ui';
+import type { TeamMember } from '../data/catalog';
+interface Props { lang: Lang; team: TeamMember[] }
+const { lang, team } = Astro.props;
+const ICONS: Record<string, string[]> = {
+  master: ['............', '............', 'K....KK....K', 'KK..KYYK..KK', 'KYK.KYYK.KYK', 'KYYKYYYYKYYK', 'KYYYYRYYYYYK', 'KYYYYYYYYYYK', 'KYRYYYYYYRYK', 'KKKKKKKKKKKK', '............', '............'],
+  idee: ['....KKKK....', '...KYYYYK...', '..KYYWYYYK..', '..KYWYYYYK..', '..KYYYYYYK..', '..KYYYYYYK..', '...KYYYYK...', '....KYYK....', '....KGGK....', '....KGGK....', '.....KK.....', '............'],
+  mago: ['.....K......', '....KBK.....', '....KBBK....', '...KBBBK....', '...KBYBBK...', '..KBBBBBK...', '..KBBBBYBK..', '.KBBYBBBBK..', '.KBBBBBBBBK.', 'KKKKKKKKKKKK', 'KBBBBBBBBBBK', 'KKKKKKKKKKKK'],
+  strega: ['........KK..', '.......KYYK.', '......KYYYYK', '.......KYYK.', '......KPKK..', '.....KPK....', '....KPK.....', '...KPK......', '..KPK.......', '.KPK........', 'KPK.........', 'KK..........'],
+  tester: ['..KKKK......', '.KTTTTK.....', 'KTWTTTTK....', 'KTWTTTTK....', 'KTTTTTTK....', 'KTTTTTTK....', '.KTTTTK.....', '..KKKKKK....', '......KKK...', '.......KKK..', '........KKK.', '.........KK.'],
+};
+const COL: Record<string, string> = { K: '#0a0d24', Y: '#f2c230', R: '#d9442b', W: '#fff4dc', G: '#8a8296', B: '#3f6fd1', P: '#a3478f', T: '#3fc1b5' };
+const rects = (name?: string) => (ICONS[name ?? ''] ?? []).flatMap((row, y) => [...row].map((c, x) => (c === '.' ? '' : `<rect x="${x}" y="${y}" width="1" height="1" fill="${COL[c]}"/>`))).join('');
+---
+<div class="team">
+  {team.map((m) => (
+    <article class="team__card" style={`--accent: ${m.color || '#f26b1d'};`}>
+      <div class="team__avatar" aria-hidden="true">
+        <svg viewBox="-2 -2 16 16" width="96" height="96" shape-rendering="crispEdges" set:html={rects(m.icon)} />
+      </div>
+      <h3>{m.name}</h3>
+      {m.nick && <p class="team__nick">aka {m.nick}</p>}
+      <p class="team__role">{m.role[lang]}</p>
+    </article>
+  ))}
+</div>

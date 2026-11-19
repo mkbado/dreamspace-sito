@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { marked } from 'marked';
+import TeamCards from '../../components/TeamCards.astro';
 import { t, langs, otherLang, type Lang } from '../../i18n/ui';
 import { pages, site } from '../../data/catalog';
 
@@ -14,6 +15,8 @@ const other = otherLang(lang);
 const fill = (s: string) => s.replaceAll('{{owner}}', site.owner || 'Dreamspace').replaceAll('{{email}}', site.email || '');
 // "## Titolo {#ancora}" diventa un titolo con id, per i link diretti (es. /privacy/#cookie)
 const html = (marked.parse(fill(p.body[lang]), { async: false }) as string).replace(/<h([23])>(.*?)\s*\{#([a-z0-9-]+)\}<\/h\1>/g, '<h$1 id="$3">$2</h$1>');
+// {{team}} nel testo segna dove vanno le schede dell'equipaggio
+const [before, after] = p.team?.length && html.includes('<p>{{team}}</p>') ? html.split('<p>{{team}}</p>') : [html.replace('<p>{{team}}</p>', ''), ''];
 ---
 <Base lang={lang} title={p.title[lang]} description={p.title[lang]} altPath={`/${other}/${p.path[other]}/`}>
   <section class="container stack" style="padding-block: 56px 24px; gap: 14px;">
@@ -23,7 +26,9 @@ const html = (marked.parse(fill(p.body[lang]), { async: false }) as string).repl
   </section>
   <section class="band-cream">
     <div class="container pad">
-      <article class="prose" set:html={html} />
+      <article class="prose" set:html={before} />
+      {p.team?.length && after !== '' && <TeamCards lang={lang} team={p.team} />}
+      {after && <article class="prose" set:html={after} />}
     </div>
   </section>
 </Base>
