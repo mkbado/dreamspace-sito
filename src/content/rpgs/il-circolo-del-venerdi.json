@@ -1,5 +1,6 @@
 {
   "order": 1,
+  "draft": false,
   "slug": "il-circolo-del-venerdi",
   "title": "Il Circolo del Venerdì",
   "chapterTitle": "La Notte del Coro",
@@ -11,6 +12,15 @@
     "it": "Campagna horror per Call of Cthulhu",
     "en": "A horror campaign for Call of Cthulhu"
   },
+  "campaignCover": "/img/circolo/investigatori.webp",
+  "campaignCoverAlt": {
+    "it": "I sei investigatori del Circolo del Venerdì disegnati a china: Ruggero Alberti con una mappa, Edoardo Valmarana con un codice antico, Aurelio Sanvitale con un campanello e i tarocchi, Teresa Morandi con un diapason, Guido Ferrero con lo stetoscopio e Ida Cantoni con la macchina fotografica",
+    "en": "The six investigators of the Friday Circle in pen and ink: Ruggero Alberti with a map, Edoardo Valmarana with an old codex, Aurelio Sanvitale with a bell and tarot cards, Teresa Morandi with a tuning fork, Guido Ferrero with a stethoscope and Ida Cantoni with a camera"
+  },
+  "campaignRules": {
+    "it": "Si gioca anche solo con le Regole Introduttive del Richiamo di Cthulhu (7ª edizione). Ogni capitolo contiene tutto quello che serve per giocare l'avventura dall'inizio alla fine: guida del Custode, libro delle scene, handout da stampare e investigatori pregenerati.",
+    "en": "You can play with just the Call of Cthulhu Quick-Start Rules (7th edition). Every chapter contains everything you need to play the adventure from start to finish: Keeper's guide, scene book, printable handouts and pregenerated investigators."
+  },
   "cover": "/img/circolo/copertina.webp",
   "coverAlt": {
     "it": "Copertina: il campanile di Santa Maria del Silenzio disegnato a china, sovrastato da una presenza scura con due occhi chiari.",
@@ -20,6 +30,35 @@
   "cardAlt": {
     "it": "Il campanile di Santa Maria del Silenzio a china, con una presenza scura sopra le campane.",
     "en": "The bell tower of Santa Maria del Silenzio in pen and ink, a dark presence above the bells."
+  },
+  "cardMeta": {
+    "it": "Cap. 0 · La Notte del Coro · due-tre sessioni, circa 10 ore",
+    "en": "Ch. 0 · La Notte del Coro · two-three sessions, about 10 hours"
+  },
+  "tag": {
+    "it": "Gioco di ruolo · campagna e romanzo",
+    "en": "Roleplaying game · campaign and novel"
+  },
+  "players": {
+    "it": "3–6, investigatori pregenerati",
+    "en": "3–6, pregenerated investigators"
+  },
+  "length": {
+    "it": "due-tre sessioni, circa 10 ore",
+    "en": "two-three sessions, about 10 hours"
+  },
+  "genre": {
+    "it": "horror investigativo, anni '10",
+    "en": "investigative horror, 1910s"
+  },
+  "rules": "Call of Cthulhu 7e",
+  "languages": {
+    "it": "italiano · inglese [IN ARRIVO]",
+    "en": "Italian · English [COMING]"
+  },
+  "short": {
+    "it": "Ottobre 1914. Sei studiosi dell'occulto salgono a Valtorva, sotto l'abbazia di Santa Maria del Silenzio. La prima neve sta per chiudere il passo.",
+    "en": "October 1914. Six scholars of the occult climb to Valtorva, below the abbey of Santa Maria del Silenzio. The first snow is about to close the pass."
   },
   "campaignIntro": {
     "it": [
@@ -49,69 +88,18 @@
       "status": {
         "it": "in arrivo",
         "en": "coming soon"
-      }
+      },
+      "live": false
     },
     {
       "n": "…",
-      "title": "",
-      "place": "",
       "status": {
         "it": "altri capitoli in preparazione",
         "en": "more chapters in the works"
-      }
+      },
+      "live": false
     }
   ],
-  "locations": [
-    {
-      "image": "/img/circolo/ponte.webp",
-      "title": "Il ponte",
-      "caption": {
-        "it": "La corriera si ferma qui. Da qui sono due ore di mulattiera.",
-        "en": "The coach stops here. From here it is two hours on a mule track."
-      }
-    },
-    {
-      "image": "/img/circolo/strada-dei-segni.webp",
-      "title": "La strada dei segni",
-      "caption": {
-        "it": "Un segno inciso sopra la porta di mezzo paese.",
-        "en": "A sign carved above the doors of half the village."
-      }
-    },
-    {
-      "image": "/img/circolo/chiostro.webp",
-      "title": "Il chiostro",
-      "caption": {
-        "it": "Santa Maria del Silenzio, sotto la prima neve.",
-        "en": "Santa Maria del Silenzio, under the first snow."
-      }
-    }
-  ],
-  "tag": {
-    "it": "Gioco di ruolo · campagna e romanzo · gratis",
-    "en": "Roleplaying game · campaign and novel · free"
-  },
-  "players": {
-    "it": "3–6, investigatori pregenerati",
-    "en": "3–6, pregenerated investigators"
-  },
-  "length": {
-    "it": "due sessioni, circa 8 ore",
-    "en": "two sessions, about 8 hours"
-  },
-  "genre": {
-    "it": "horror investigativo, anni '10",
-    "en": "investigative horror, 1910s"
-  },
-  "rules": "Call of Cthulhu 7e",
-  "languages": {
-    "it": "italiano · inglese [IN ARRIVO]",
-    "en": "Italian · English [COMING]"
-  },
-  "short": {
-    "it": "Ottobre 1914. Sei studiosi dell'occulto salgono a Valtorva, sotto l'abbazia di Santa Maria del Silenzio. La prima neve sta per chiudere il passo.",
-    "en": "October 1914. Six scholars of the occult climb to Valtorva, below the abbey of Santa Maria del Silenzio. The first snow is about to close the pass."
-  },
   "pitch": {
     "it": [
       "Ottobre 1914. L'abate di Santa Maria del Silenzio scrive a sei studiosi dell'occulto: a Valtorva, duecento anime a 1.400 metri nelle Alpi piemontesi, un frate è stato ucciso in una cappella sbarrata da fuori.",
@@ -174,6 +162,32 @@
       },
       "it": "/files/circolo/cap0/La-Notte-del-Coro_Schede-Investigatori-IT.zip",
       "en": "/files/circolo/cap0/The-Night-of-the-Choir_Investigator-Sheets-EN.zip"
+    }
+  ],
+  "locations": [
+    {
+      "image": "/img/circolo/ponte.webp",
+      "title": "Il ponte",
+      "caption": {
+        "it": "La corriera si ferma qui. Da qui sono due ore di mulattiera.",
+        "en": "The coach stops here. From here it is two hours on a mule track."
+      }
+    },
+    {
+      "image": "/img/circolo/strada-dei-segni.webp",
+      "title": "La strada dei segni",
+      "caption": {
+        "it": "Un segno inciso sopra la porta di mezzo paese.",
+        "en": "A sign carved above the doors of half the village."
+      }
+    },
+    {
+      "image": "/img/circolo/chiostro.webp",
+      "title": "Il chiostro",
+      "caption": {
+        "it": "Santa Maria del Silenzio, sotto la prima neve.",
+        "en": "Santa Maria del Silenzio, under the first snow."
+      }
     }
   ],
   "investigatorsIntro": {
@@ -260,28 +274,22 @@
   },
   "chapters": [
     {
-      "title": "La porta sbarrata",
-      "file": ""
+      "title": "La porta sbarrata"
     },
     {
-      "title": "L'ossario",
-      "file": ""
+      "title": "L'ossario"
     },
     {
-      "title": "L'abate",
-      "file": ""
+      "title": "L'abate"
     },
     {
-      "title": "Il sagrestano",
-      "file": ""
+      "title": "Il sagrestano"
     },
     {
-      "title": "Le donne del lavatoio",
-      "file": ""
+      "title": "Le donne del lavatoio"
     },
     {
-      "title": "La galleria",
-      "file": ""
+      "title": "La galleria"
     }
   ],
   "kofi": {
@@ -297,19 +305,5 @@
   "licence": {
     "it": "Il Circolo del Venerdì usa marchi o contenuti di Chaosium Inc./Moon Design Publications LLC secondo la Fan Material Policy di Chaosium. È vietato chiedere un pagamento per usarli o accedervi. Chaosium non ha pubblicato, approvato o patrocinato questa campagna. Per i prodotti Chaosium: chaosium.com.",
     "en": "The Friday Circle uses trademarks and/or copyrights owned by Chaosium Inc/Moon Design Publications LLC, which are used under Chaosium Inc’s Fan Material Policy. We are expressly prohibited from charging you to use or access this content. This campaign is not published, endorsed, or specifically approved by Chaosium Inc. For more information about Chaosium Inc’s products, please visit www.chaosium.com."
-  },
-  "cardMeta": {
-    "it": "Cap. 0 · La Notte del Coro · due sessioni, circa 8 ore",
-    "en": "Ch. 0 · La Notte del Coro · two sessions, about 8 hours"
-  },
-  "zip": "",
-  "campaignCover": "/img/circolo/investigatori.webp",
-  "campaignCoverAlt": {
-    "it": "I sei investigatori del Circolo del Venerdì disegnati a china: Ruggero Alberti con una mappa, Edoardo Valmarana con un codice antico, Aurelio Sanvitale con un campanello e i tarocchi, Teresa Morandi con un diapason, Guido Ferrero con lo stetoscopio e Ida Cantoni con la macchina fotografica",
-    "en": "The six investigators of the Friday Circle in pen and ink: Ruggero Alberti with a map, Edoardo Valmarana with an old codex, Aurelio Sanvitale with a bell and tarot cards, Teresa Morandi with a tuning fork, Guido Ferrero with a stethoscope and Ida Cantoni with a camera"
-  },
-  "campaignRules": {
-    "it": "Si gioca anche solo con le Regole Introduttive del Richiamo di Cthulhu (7ª edizione). Ogni capitolo contiene tutto quello che serve per giocare l'avventura dall'inizio alla fine: guida del Custode, libro delle scene, handout da stampare e investigatori pregenerati.",
-    "en": "You can play with just the Call of Cthulhu Quick-Start Rules (7th edition). Every chapter contains everything you need to play the adventure from start to finish: Keeper's guide, scene book, printable handouts and pregenerated investigators."
   }
 }
