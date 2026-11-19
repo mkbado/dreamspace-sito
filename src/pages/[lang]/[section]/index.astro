@@ -27,9 +27,9 @@ const novels = [
   ...rpgs.map((r) => ({ title: tl(lang, r.chapterTitle, r.chapterTitleEn), kicker: `${tl(lang, r.title, r.titleEn)} · ${L('romanzo a puntate', 'serial novel')}`, text: r.novelText[lang], href: `${itemPath(lang, r)}#romanzo` })),
   ...settings.filter((s) => s.novelTitle).map((s) => ({
     title: tl(lang, s.novelTitle, s.novelTitleEn),
-    kicker: `${s.title} · ${L('romanzo', 'novel')}`,
-    text: s.books.find((b) => b.n === '❦')?.text[lang] ?? s.short[lang],
-    href: `${itemPath(lang, s)}#libri`,
+    kicker: `${s.title} · ${s.novel ? L('romanzo a puntate', 'serial novel') : L('romanzo', 'novel')}`,
+    text: s.novel?.text[lang] ?? s.books.find((b) => b.n === '❦')?.text[lang] ?? s.short[lang],
+    href: `${itemPath(lang, s)}${s.novel ? '#romanzo' : '#libri'}`,
   })),
 ];
 ---

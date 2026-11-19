@@ -8,7 +8,7 @@ import '@fontsource/eb-garamond/400-italic.css';
 import '@fontsource/eb-garamond/600.css';
 import Base from '../layouts/Base.astro';
 import { t, sections, type Lang } from '../i18n/ui';
-import { site, type Setting } from '../data/catalog';
+import { site, tl, type Setting } from '../data/catalog';
 
 interface Props { lang: Lang; s: Setting; altPath: string }
 const { lang, s, altPath } = Astro.props;
@@ -37,7 +37,7 @@ const novel = s.books.find((b) => b.n === '❦');
           {s.intro[lang].map((p, i) => <p class={i === 0 ? 'fb-lead fb-dropcap' : 'fb-body'}>{p}</p>)}
           <div class="row" style="gap: 12px; padding-top: 8px;">
             <a class="fb-btn" href="#libri">{L('Apri i libri', 'Open the books')}</a>
-            {novel && <a class="fb-btn fb-btn--ghost" href="#libri">{L('Leggi la fiaba', 'Read the tale')}</a>}
+            {(s.novel || novel) && <a class="fb-btn fb-btn--ghost" href={s.novel ? '#romanzo' : '#libri'}>{L('Leggi la fiaba', 'Read the tale')}</a>}
           </div>
         </div>
         <aside class="stack" style="flex: 1 1 320px; min-width: 0; gap: 22px;">
@@ -70,13 +70,37 @@ const novel = s.books.find((b) => b.n === '❦');
             <h3>{b.title[lang]}</h3>
             <p>{b.text[lang]}</p>
             {(b.file?.[lang] || b.file?.it)
-              ? <a href={b.file[lang] || b.file.it} class="fb-book__dl" download>{b.action[lang]}</a>
+              ? <a href={b.file[lang] || b.file.it} class="fb-book__dl" download={(b.file[lang] || b.file.it).startsWith('#') ? undefined : ''}>{b.action[lang]}</a>
               : <span class="fb-book__dl fb-book__dl--soon">{b.action[lang]} · {L('in arrivo', 'coming soon')}</span>}
           </article>
         ))}
       </div>
     </div>
   </section>
+
+  <!-- Romanzo a puntate -->
+  {s.novel && (
+    <section id="romanzo" class="container" style="padding-block: 88px 24px;">
+      <div class="fb-novel">
+        <div class="stack" style="flex: 1 1 380px; min-width: 0; gap: 16px;">
+          <p class="fb-kicker">{s.novel.kicker[lang]}</p>
+          <h2 class="fb-h2">{tl(lang, s.novelTitle, s.novelTitleEn)}</h2>
+          <p class="fb-body">{s.novel.text[lang]}</p>
+          {s.novel.chapters[0]?.file?.[lang] && <div class="row" style="padding-top: 6px;"><a class="fb-btn" href={s.novel.chapters[0].file[lang]} target="_blank" rel="noopener">{L('Inizia a leggere', 'Start reading')}</a></div>}
+          <a class="fb-small" href={`/${lang}/#lista`}>{L('Avvisami quando esce un nuovo capitolo', 'Tell me when a new chapter is out')}</a>
+        </div>
+        <ol class="fb-chapters">
+          {s.novel.chapters.map((c) => (
+            <li class={c.file?.[lang] ? 'is-out' : ''}>
+              <span class="fb-chapters__n">{c.label[lang]}</span>
+              <span class="fb-chapters__t">{c.file?.[lang] ? <a href={c.file[lang]} target="_blank" rel="noopener">{c.title[lang]}</a> : c.title[lang]}</span>
+              <span class="fb-chapters__s">{c.file?.[lang] ? L('leggi', 'read') : L('in arrivo', 'coming soon')}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  )}
 
   <!-- Eroi -->
   <section class="container stack" style="padding-block: 88px; gap: 32px;">

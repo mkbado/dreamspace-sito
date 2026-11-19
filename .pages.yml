@@ -1620,6 +1620,69 @@ content:
         collapsible:
           collapsed: true
           summary: "{name}"
+  - name: novel
+    label: Romanzo a puntate
+    type: object
+    fields:
+    - name: kicker
+      label: Occhiello
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: text
+      label: Presentazione
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+      - name: en
+        label: English
+        type: text
+    - name: chapters
+      label: Capitoli
+      type: object
+      fields:
+      - name: label
+        label: Etichetta (es. Capitolo 1)
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: title
+        label: Titolo
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: file
+        label: File (PDF)
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: file
+          options:
+            media: files
+        - name: en
+          label: English
+          type: file
+          options:
+            media: files
+      list: true
   - name: landscapes
     label: Paesaggi (galleria)
     type: object

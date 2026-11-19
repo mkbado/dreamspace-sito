@@ -4,13 +4,13 @@
   "title": "Meriggio",
   "image": "/img/meriggio/card.webp",
   "imageAlt": {
-    "it": "I Guardiani di Primalba all’ombra di una quercia: un grufolo, un bardo con il liuto, un giovane terragno con la spada, un sacerdote dai capelli di fuoco, un monaco gigante e un vecchio con una gallina sulla spalla e una capra, davanti a colline di campi e casette dal tetto di paglia",
-    "en": "The Guardians of Primalba in the shade of an oak: a grufolo, a bard with a lute, a young terragno with a sword, a fire-haired priest, a giant monk and an old man with a hen on his shoulder and a goat, in front of hills of fields and thatched cottages"
+    "it": "I Guardiani di Primalba all’ombra di una quercia: un grufolo, un bardo con il liuto, un giovane terragno con la spada, un sacerdote dai capelli di fuoco, un monaco gigante e Harlon Granazampa con una gallina sulla spalla e una capra, davanti a colline di campi e casette dal tetto di paglia",
+    "en": "The Guardians of Primalba in the shade of an oak: a grufolo, a bard with a lute, a young terragno with a sword, a fire-haired priest, a giant monk and Harlon Granazampa with a hen on his shoulder and a goat, in front of hills of fields and thatched cottages"
   },
   "banner": "/img/meriggio/banner.webp",
   "bannerAlt": {
-    "it": "I Guardiani di Primalba all’ombra di una quercia: un grufolo, un bardo con il liuto, un giovane terragno con la spada, un sacerdote dai capelli di fuoco, un monaco gigante e un vecchio con una gallina sulla spalla e una capra, davanti a colline di campi e casette dal tetto di paglia",
-    "en": "The Guardians of Primalba in the shade of an oak: a grufolo, a bard with a lute, a young terragno with a sword, a fire-haired priest, a giant monk and an old man with a hen on his shoulder and a goat, in front of hills of fields and thatched cottages"
+    "it": "I Guardiani di Primalba all’ombra di una quercia: un grufolo, un bardo con il liuto, un giovane terragno con la spada, un sacerdote dai capelli di fuoco, un monaco gigante e Harlon Granazampa con una gallina sulla spalla e una capra, davanti a colline di campi e casette dal tetto di paglia",
+    "en": "The Guardians of Primalba in the shade of an oak: a grufolo, a bard with a lute, a young terragno with a sword, a fire-haired priest, a giant monk and Harlon Granazampa with a hen on his shoulder and a goat, in front of hills of fields and thatched cottages"
   },
   "tag": {
     "it": "Compatibile con la 5ª edizione · ambientazione, avventura e romanzo",
@@ -157,16 +157,16 @@
         "en": "The Novel"
       },
       "text": {
-        "it": "I Guardiani di Primalba raccontati come romanzo, in diciassette capitoli. Il prologo lo narra Olmo Cavo, l’albero più vecchio del Bosco Torto.",
-        "en": "The Guardians of Primalba told as a novel in seventeen chapters. The prologue is narrated by Olmo Cavo, the oldest tree in Bosco Torto."
+        "it": "I Guardiani di Primalba raccontati come romanzo a puntate: un prologo e diciotto capitoli, uno alla volta. Il prologo lo narra Olmo Cavo, l’albero più vecchio del Bosco Torto.",
+        "en": "The Guardians of Primalba as a serial novel: a prologue and eighteen chapters, one at a time. The prologue is narrated by Olmo Cavo, the oldest tree in the Crooked Wood."
       },
       "action": {
-        "it": "Leggi online",
-        "en": "Read online"
+        "it": "Vai ai capitoli",
+        "en": "Go to the chapters"
       },
       "file": {
-        "it": "",
-        "en": ""
+        "it": "#romanzo",
+        "en": "#romanzo"
       }
     }
   ],
@@ -507,6 +507,284 @@
         "caption": {
           "it": "Una città tra le colline",
           "en": "A town among the hills"
+        }
+      }
+    ]
+  },
+  "novel": {
+    "kicker": {
+      "it": "Romanzo a puntate · gratis",
+      "en": "Serial novel · free"
+    },
+    "text": {
+      "it": "I Guardiani di Primalba raccontati come romanzo: un prologo e diciotto capitoli, pubblicati uno alla volta. Il prologo lo narra Olmo Cavo, l’albero più vecchio del Bosco Torto.",
+      "en": "The Guardians of Primalba told as a novel: a prologue and eighteen chapters, published one at a time. The prologue is narrated by Olmo Cavo, the oldest tree in the Crooked Wood."
+    },
+    "chapters": [
+      {
+        "label": {
+          "it": "Prologo",
+          "en": "Prologue"
+        },
+        "title": {
+          "it": "Radici",
+          "en": "Roots"
+        },
+        "file": {
+          "it": "",
+          "en": ""
+        }
+      },
+      {
+        "label": {
+          "it": "Capitolo 1",
+          "en": "Chapter 1"
+        },
+        "title": {
+          "it": "Come si trova una famiglia",
+          "en": "How to Find a Family"
+        },
+        "file": {
+          "it": "",
+          "en": ""
+        }
+      },
+      {
+        "label": {
+          "it": "Capitolo 2",
+          "en": "Chapter 2"
+        },
+        "title": {
+          "it": "Il grido di Harlon",
+          "en": "Harlon’s Cry"
+        },
+        "file": {
+          "it": "",
+          "en": ""
+        }
+      },
+      {
+        "label": {
+          "it": "Capitolo 3",
+          "en": "Chapter 3"
+        },
+        "title": {
+          "it": "Alla Locanda del Boccale",
+          "en": "At the Tankard Inn"
+        },
+        "file": {
+          "it": "",
+          "en": ""
+        }
+      },
+      {
+        "label": {
+          "it": "Capitolo 4",
+          "en": "Chapter 4"
+        },
+        "title": {
+          "it": "All’avventura",
+          "en": "Off to Adventure"
+        },
+        "file": {
+          "it": "",
+          "en": ""
+        }
+      },
+      {
+        "label": {
+          "it": "Capitolo 5",
+          "en": "Chapter 5"
+        },
+        "title": {
+          "it": "La Gola Rancida",
+          "en": "The Rancid Gorge"
+        },
+        "file": {
+          "it": "",
+          "en": ""
+        }
+      },
+      {
+        "label": {
+          "it": "Capitolo 6",
+          "en": "Chapter 6"
+        },
+        "title": {
+          "it": "Il trono di Uvak",
+          "en": "Uvak’s Throne"
+        },
+        "file": {
+          "it": "",
+          "en": ""
+        }
+      },
+      {
+        "label": {
+          "it": "Capitolo 7",
+          "en": "Chapter 7"
+        },
+        "title": {
+          "it": "Il Ritorno delle Capre",
+          "en": "The Return of the Goats"
+        },
+        "file": {
+          "it": "",
+          "en": ""
+        }
+      },
+      {
+        "label": {
+          "it": "Capitolo 8",
+          "en": "Chapter 8"
+        },
+        "title": {
+          "it": "Una sera al Boccale",
+          "en": "An Evening at the Tankard"
+        },
+        "file": {
+          "it": "",
+          "en": ""
+        }
+      },
+      {
+        "label": {
+          "it": "Capitolo 9",
+          "en": "Chapter 9"
+        },
+        "title": {
+          "it": "La Torre della Gigantessa",
+          "en": "The Giantess’s Tower"
+        },
+        "file": {
+          "it": "",
+          "en": ""
+        }
+      },
+      {
+        "label": {
+          "it": "Capitolo 10",
+          "en": "Chapter 10"
+        },
+        "title": {
+          "it": "I Rodiferro",
+          "en": "The Rodiferro"
+        },
+        "file": {
+          "it": "",
+          "en": ""
+        }
+      },
+      {
+        "label": {
+          "it": "Capitolo 11",
+          "en": "Chapter 11"
+        },
+        "title": {
+          "it": "L’Ingresso nel Bosco",
+          "en": "Into the Wood"
+        },
+        "file": {
+          "it": "",
+          "en": ""
+        }
+      },
+      {
+        "label": {
+          "it": "Capitolo 12",
+          "en": "Chapter 12"
+        },
+        "title": {
+          "it": "Le Ombre dei Salici",
+          "en": "The Shadows of the Willows"
+        },
+        "file": {
+          "it": "",
+          "en": ""
+        }
+      },
+      {
+        "label": {
+          "it": "Capitolo 13",
+          "en": "Chapter 13"
+        },
+        "title": {
+          "it": "I Custodi del Sottobosco",
+          "en": "The Keepers of the Undergrowth"
+        },
+        "file": {
+          "it": "",
+          "en": ""
+        }
+      },
+      {
+        "label": {
+          "it": "Capitolo 14",
+          "en": "Chapter 14"
+        },
+        "title": {
+          "it": "L’Olmo Cavo",
+          "en": "Olmo Cavo"
+        },
+        "file": {
+          "it": "",
+          "en": ""
+        }
+      },
+      {
+        "label": {
+          "it": "Capitolo 15",
+          "en": "Chapter 15"
+        },
+        "title": {
+          "it": "Lo Stregone degli Ossicini",
+          "en": "The Knucklebone Sorcerer"
+        },
+        "file": {
+          "it": "",
+          "en": ""
+        }
+      },
+      {
+        "label": {
+          "it": "Capitolo 16",
+          "en": "Chapter 16"
+        },
+        "title": {
+          "it": "La Resa dei Conti",
+          "en": "The Reckoning"
+        },
+        "file": {
+          "it": "",
+          "en": ""
+        }
+      },
+      {
+        "label": {
+          "it": "Capitolo 17",
+          "en": "Chapter 17"
+        },
+        "title": {
+          "it": "La Strada dei Segni",
+          "en": "The Road of Signs"
+        },
+        "file": {
+          "it": "",
+          "en": ""
+        }
+      },
+      {
+        "label": {
+          "it": "Capitolo 18",
+          "en": "Chapter 18"
+        },
+        "title": {
+          "it": "I Mostri della Notte",
+          "en": "The Monsters of the Night"
+        },
+        "file": {
+          "it": "",
+          "en": ""
         }
       }
     ]

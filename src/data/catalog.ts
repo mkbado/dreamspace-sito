@@ -121,6 +121,7 @@ export interface Setting {
   cardButton?: L<string>;
   novelTitle: string;
   novelTitleEn?: string;
+  novel?: { kicker: L<string>; text: L<string>; chapters: { label: L<string>; title: L<string>; file: L<string> }[] };
   landscapes?: { title: L<string>; list: { image: string; caption: L<string> }[] };
   heroes: { title: L<string>; note: L<string>; list: { name: string; role: L<string>; image: string; alt: L<string>; bio: L<string> }[] };
   peoples: { title: L<string>; list: { name: L<string>; text: L<string>; where: L<string> }[]; more: L<string> };

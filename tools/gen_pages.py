@@ -91,6 +91,8 @@ world = common_top + [
     O('books', 'Libri', [S('n', 'Numero'), L('title', 'Titolo'), L('text', 'Descrizione', 'text'), L('action', 'Testo del pulsante'), L('file', 'File (PDF o link)', 'file')], lst=True, summary='{fields.title.it}'),
     O('heroes', 'Eroi', [L('title', 'Titolo'), L('note', 'Nota', 'text'),
         O('list', 'Eroi', [S('name', 'Nome'), L('role', 'Ruolo'), IMG('image', 'Ritratto'), L('alt', 'Descrizione immagine'), L('bio', 'Biografia', 'text')], lst=True, summary='{fields.name}')]),
+    O('novel', 'Romanzo a puntate', [L('kicker', 'Occhiello'), L('text', 'Presentazione', 'text'),
+        O('chapters', 'Capitoli', [L('label', 'Etichetta (es. Capitolo 1)'), L('title', 'Titolo'), L('file', 'File (PDF)', 'file')], lst=True)]),
     O('landscapes', 'Paesaggi (galleria)', [L('title', 'Titolo'), O('list', 'Immagini', [IMG('image', 'Immagine'), L('caption', 'Didascalia')], lst=True)]),
     O('peoples', 'Popoli', [L('title', 'Titolo'), O('list', 'Popoli', [L('name', 'Nome'), L('text', 'Testo', 'text'), L('where', 'Dove vivono')], lst=True, summary='{fields.name.it}'), L('more', 'Nota finale', 'text')]),
     O('atlas', 'Atlante', [L('title', 'Titolo'), O('list', 'Luoghi', [S('name', 'Nome'), L('dir', 'Direzione'), L('text', 'Testo', 'text')], lst=True, summary='{fields.name}')]),
