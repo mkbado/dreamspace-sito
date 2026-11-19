@@ -36,8 +36,8 @@
     "en": "Ch. 0 · La Notte del Coro · two-three sessions, about 10 hours"
   },
   "tag": {
-    "it": "Gioco di ruolo · campagna e romanzo",
-    "en": "Roleplaying game · campaign and novel"
+    "it": "Il Richiamo di Cthulhu · campagna e romanzo",
+    "en": "Call of Cthulhu · campaign and novel"
   },
   "players": {
     "it": "3–6, investigatori pregenerati",
@@ -327,5 +327,9 @@
   "licence": {
     "it": "Il Circolo del Venerdì usa marchi o contenuti di Chaosium Inc./Moon Design Publications LLC secondo la Fan Material Policy di Chaosium. È vietato chiedere un pagamento per usarli o accedervi. Chaosium non ha pubblicato, approvato o patrocinato questa campagna. Per i prodotti Chaosium: chaosium.com.",
     "en": "The Friday Circle uses trademarks and/or copyrights owned by Chaosium Inc/Moon Design Publications LLC, which are used under Chaosium Inc’s Fan Material Policy. We are expressly prohibited from charging you to use or access this content. This campaign is not published, endorsed, or specifically approved by Chaosium Inc. For more information about Chaosium Inc’s products, please visit www.chaosium.com."
+  },
+  "cardButton": {
+    "it": "Scopri i segreti del Circolo",
+    "en": "Uncover the Circle’s secrets"
   }
 }

@@ -13,8 +13,8 @@
     "en": "The five Guardians of Primalba, a grufolo, a bard, a guard, a fire-haired priest and a giant monk, walk down towards a valley of fields; a castle under dark clouds on the horizon. Pencil drawing"
   },
   "tag": {
-    "it": "Gioco di ruolo · ambientazione, avventura e romanzo · gratis",
-    "en": "Roleplaying game · setting, adventure and novel · free"
+    "it": "Compatibile con la 5ª edizione · ambientazione, avventura e romanzo",
+    "en": "Compatible with 5th edition · setting, adventure and novel"
   },
   "tagline": {
     "it": "Il mondo dove il sole non tramonta mai.",
@@ -462,5 +462,9 @@
     "it": "compatibile 5ª edizione · livelli 1–5 · circa 10 sessioni",
     "en": "5e compatible · levels 1–5 · about 10 sessions"
   },
-  "novelTitle": "I Guardiani di Primalba"
+  "novelTitle": "I Guardiani di Primalba",
+  "cardButton": {
+    "it": "Esplora le valli soleggiate",
+    "en": "Explore the sunlit valleys"
+  }
 }

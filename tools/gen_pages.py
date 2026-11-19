@@ -62,7 +62,7 @@ rpg = common_top + [
     IMG('campaignCover', 'Copertina della campagna (in alto)'), L('campaignCoverAlt', 'Descrizione copertina della campagna'),
     L('campaignRules', 'Cosa serve per giocare', 'text'),
     IMG('cover', 'Copertina del capitolo in evidenza'), L('coverAlt', 'Descrizione copertina del capitolo'),
-    IMG('cardImage', 'Immagine della scheda (960×600)'), L('cardAlt', 'Descrizione immagine scheda'), L('cardMeta', 'Riga info nella scheda'),
+    IMG('cardImage', 'Immagine della scheda (960×600)'), L('cardAlt', 'Descrizione immagine scheda'), L('cardMeta', 'Riga info nella scheda'), L('cardButton', 'Testo del pulsante nella scheda'),
     L('tag', 'Etichetta'), L('players', 'Giocatori'), L('length', 'Durata'), L('genre', 'Genere'), S('rules', 'Regolamento'), L('languages', 'Lingue'),
     L('short', 'Descrizione breve (scheda)', 'text'),
     L('campaignIntro', 'Presentazione della campagna (paragrafi)', 'text', lst=True),
@@ -83,7 +83,7 @@ rpg = common_top + [
 world = common_top + [
     IMG('image', 'Immagine della scheda (960×600)'), L('imageAlt', 'Descrizione immagine scheda'),
     IMG('banner', 'Banner'), L('bannerAlt', 'Descrizione banner'),
-    L('tag', 'Etichetta'), L('tagline', 'Sottotitolo'), L('short', 'Descrizione breve (scheda)', 'text'), L('cardMeta', 'Riga info nella scheda'),
+    L('tag', 'Etichetta'), L('tagline', 'Sottotitolo'), L('short', 'Descrizione breve (scheda)', 'text'), L('cardMeta', 'Riga info nella scheda'), L('cardButton', 'Testo del pulsante nella scheda'),
     S('novelTitle', 'Titolo del romanzo'),
     L('intro', 'Introduzione (paragrafi)', 'text', lst=True), L('motto', 'Motto'),
     O('sheet', 'Scheda tecnica', [L('label', 'Voce'), L('value', 'Valore')], lst=True, summary='{fields.label.it}'),

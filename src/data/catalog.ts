@@ -82,6 +82,7 @@ export interface Rpg {
   chapters: { title: L<string>; file: L<string> }[];
   zip: string;
   cardMeta: L<string>;
+  cardButton?: L<string>;
   chapterTitle: string;
   chapterSeries: L<string>;
   cover: string;
@@ -114,6 +115,7 @@ export interface Setting {
   sheet: { label: L<string>; value: L<string> }[];
   books: { n: string; title: L<string>; text: L<string>; action: L<string>; file: L<string> }[];
   cardMeta: L<string>;
+  cardButton?: L<string>;
   novelTitle: string;
   heroes: { title: L<string>; note: L<string>; list: { name: string; role: L<string>; image: string; alt: L<string>; bio: L<string> }[] };
   peoples: { title: L<string>; list: { name: L<string>; text: L<string>; where: L<string> }[]; more: L<string> };
