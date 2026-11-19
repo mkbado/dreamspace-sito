@@ -370,7 +370,6 @@ a:hover { color: #7fe3d9; }
 
 /* intestazione e piè di pagina in bianco e nero */
 .skin-noir .site-header { background: rgba(8, 8, 9, .92); border-bottom: 1px solid var(--nr-line); }
-.skin-noir .site-header .logo b, .skin-noir .site-header .logo span { color: var(--nr-bone); }
 .skin-noir .nav a { color: var(--nr-ash); }
 .skin-noir .nav a:hover, .skin-noir .nav > a[aria-current="page"], .skin-noir .lang a[aria-current] { color: var(--nr-bone); }
 .skin-noir .site-header .btn--teal { background: var(--nr-bone); color: var(--nr-ink); border-color: var(--nr-bone); box-shadow: none; }
@@ -394,9 +393,10 @@ a:hover { color: #7fe3d9; }
 /* copertina */
 .nr-masthead { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; padding-top: 12px; }
 .nr-masthead::after { content: ''; width: min(420px, 70%); height: 1px; background: linear-gradient(90deg, transparent, var(--nr-ash), transparent); margin-top: 10px; }
-.nr-plate { margin: 0 auto; width: 100%; max-width: 920px; background: #f4f1ea; padding: clamp(10px, 2vw, 22px); box-shadow: 0 30px 80px rgba(0, 0, 0, .7), 0 0 0 1px #000; transform: rotate(-.4deg); }
+.nr-plate { margin: 0; flex: 0 1 440px; min-width: 260px; max-width: 100%; background: #f4f1ea; padding: clamp(10px, 2vw, 22px); box-shadow: 0 30px 80px rgba(0, 0, 0, .7), 0 0 0 1px #000; transform: rotate(-.4deg); }
 .nr-plate img { display: block; width: 100%; height: auto; filter: grayscale(1) contrast(1.05); }
-.nr-intro { display: flex; flex-wrap: wrap; gap: 40px 56px; padding-top: 20px; }
+.nr-intro { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px 56px; padding-top: 12px; }
+@media (max-width: 640px) { .nr-plate { flex-basis: 100%; } }
 .nr-note { border-left: 3px solid var(--nr-bone); padding: 6px 0 6px 18px; display: flex; flex-direction: column; gap: 8px; }
 .nr-note p:last-child { margin: 0; font-size: 17px; line-height: 1.6; }
 
@@ -478,8 +478,6 @@ a:hover { color: #7fe3d9; }
   .nr-band { padding-block: 64px; }
 }
 @media (prefers-reduced-motion: reduce) { .nr-grain, .nr-title { animation: none; } .nr-photo, .nr-portrait__img img { transition: none; } }
-.skin-noir .logo { background: transparent; border: 1px solid var(--nr-bone); box-shadow: none; }
-.skin-noir .logo b { font-family: var(--nr-typewriter); font-weight: 400; letter-spacing: .12em; }
 .skin-noir .nav a { font-family: var(--nr-typewriter); }
 .skin-noir .site-header .btn--teal { font-family: var(--nr-typewriter); }
 .skin-noir .site-footer, .skin-noir .site-footer p, .skin-noir .site-footer .fine { color: #77736b !important; border-color: var(--nr-line) !important; }

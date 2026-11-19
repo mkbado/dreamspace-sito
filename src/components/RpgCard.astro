@@ -19,7 +19,7 @@ const tagColor = item.kind === 'rpg' ? '#6b4a2b' : '#8a5a2b';
     <div class="card__foot" style="justify-content: flex-start;">
       {item.kind === 'rpg' ? (
         <>
-          <a class="btn btn--orange" href={`${path}#capitolo-0`}>{t(lang, 'card.download')}</a>
+          <a class="btn btn--orange" href={path}>{t(lang, 'card.download')}</a>
           <a href={`${path}#romanzo`} style="font-family: var(--font-label); font-size: 14px; color: var(--night);">{t(lang, 'card.read')}</a>
         </>
       ) : (

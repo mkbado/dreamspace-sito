@@ -23,13 +23,13 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
         <h1 class="nr-title">{r.title}</h1>
         <p class="nr-type nr-type--dim">Torino · MCMX</p>
       </div>
-      {r.campaignCover && (
-        <figure class="nr-plate">
-          <img src={r.campaignCover} alt={r.campaignCoverAlt?.[lang] ?? ''} width="1200" height="1262" />
-        </figure>
-      )}
       <div class="nr-intro">
-        <div class="stack" style="gap: 18px; flex: 1 1 520px; min-width: 0;">
+        {r.campaignCover && (
+          <figure class="nr-plate">
+            <img src={r.campaignCover} alt={r.campaignCoverAlt?.[lang] ?? ''} width="1200" height="1262" />
+          </figure>
+        )}
+        <div class="stack" style="gap: 18px; flex: 1 1 480px; min-width: 0;">
           {r.campaignIntro[lang].map((p, i) => <p class={i === 0 ? 'nr-lead' : 'nr-body'}>{p}</p>)}
           {r.campaignRules && (
             <div class="nr-note">
@@ -37,9 +37,7 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
               <p>{r.campaignRules[lang]}</p>
             </div>
           )}
-        </div>
-        <div class="stack" style="gap: 16px; flex: 1 1 340px; min-width: 0;">
-          <p class="nr-type">{L('I capitoli', 'The chapters')}</p>
+          <p class="nr-type" style="padding-top: 8px;">{L('I capitoli', 'The chapters')}</p>
           <ol class="nr-chapters">
             {r.campaignChapters.map((c) => (
               <li class={c.live ? 'is-live' : ''}>
