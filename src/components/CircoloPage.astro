@@ -1,0 +1,195 @@
+---
+// Pagina della campagna Il Circolo del Venerdì: grafica in bianco e nero, tono thriller/horror.
+import '@fontsource/im-fell-english/400.css';
+import '@fontsource/im-fell-english/400-italic.css';
+import '@fontsource/special-elite/400.css';
+import Base from '../layouts/Base.astro';
+import { t, sections, type Lang } from '../i18n/ui';
+import { site, type Rpg } from '../data/catalog';
+
+interface Props { lang: Lang; r: Rpg; altPath: string }
+const { lang, r, altPath } = Astro.props;
+const L = (it: string, en: string) => (lang === 'it' ? it : en);
+---
+<Base lang={lang} title={`${r.title} · ${r.chapterTitle}`} description={r.short[lang]} altPath={altPath} bodyClass="skin-noir" extraFonts>
+  <div class="nr-grain" aria-hidden="true"></div>
+
+  <!-- Copertina della campagna -->
+  <section class="nr-hero">
+    <div class="container stack" style="gap: 28px; padding-block: 36px 72px;">
+      <nav class="crumbs nr-crumbs" aria-label={L('Percorso', 'Breadcrumb')}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › <a href={`/${lang}/${sections[lang].rpg}/`}>{t(lang, 'nav.rpg')}</a> › {r.title}</nav>
+      <div class="nr-masthead">
+        <p class="nr-type">{r.series[lang]} · {L('gratis', 'free')}</p>
+        <h1 class="nr-title">{r.title}</h1>
+        <p class="nr-type nr-type--dim">Torino · MCMX</p>
+      </div>
+      {r.campaignCover && (
+        <figure class="nr-plate">
+          <img src={r.campaignCover} alt={r.campaignCoverAlt?.[lang] ?? ''} width="1200" height="1262" />
+        </figure>
+      )}
+      <div class="nr-intro">
+        <div class="stack" style="gap: 18px; flex: 1 1 520px; min-width: 0;">
+          {r.campaignIntro[lang].map((p, i) => <p class={i === 0 ? 'nr-lead' : 'nr-body'}>{p}</p>)}
+          {r.campaignRules && (
+            <div class="nr-note">
+              <p class="nr-type">{L('Cosa serve per giocare', 'What you need to play')}</p>
+              <p>{r.campaignRules[lang]}</p>
+            </div>
+          )}
+        </div>
+        <div class="stack" style="gap: 16px; flex: 1 1 340px; min-width: 0;">
+          <p class="nr-type">{L('I capitoli', 'The chapters')}</p>
+          <ol class="nr-chapters">
+            {r.campaignChapters.map((c) => (
+              <li class={c.live ? 'is-live' : ''}>
+                <b>{c.n === '…' ? '…' : L(`Cap. ${c.n}`, `Ch. ${c.n}`)}</b>
+                <span class="nr-chapters__t">{c.live ? <a href="#capitolo-0">{c.title}</a> : c.title}{c.place && <em> · {c.place}</em>}</span>
+                <span class="nr-chapters__s">{c.status[lang]}</span>
+              </li>
+            ))}
+          </ol>
+          <div class="row" style="gap: 12px; padding-top: 4px;">
+            <a class="nr-btn" href="#capitolo-0">{L('Inizia dal Capitolo 0', 'Start with Chapter 0')}</a>
+            <a class="nr-btn nr-btn--ghost" href="#romanzo">{t(lang, 'card.read')}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Capitolo 0 -->
+  <section id="capitolo-0" class="nr-band nr-band--paper">
+    <div class="container nr-chapter">
+      <figure class="nr-cover">
+        <img src={r.cover} alt={r.coverAlt[lang]} width="760" height="1140" loading="lazy" />
+      </figure>
+      <div class="stack" style="flex: 1 1 520px; min-width: 0; gap: 20px;">
+        <p class="nr-type">{r.chapterSeries[lang]}</p>
+        <h2 class="nr-h2">{r.chapterTitle}</h2>
+        <p class="nr-lead">{r.pitch[lang][0]}</p>
+        {r.pitch[lang][1] && <p class="nr-body">{r.pitch[lang][1]}</p>}
+        <dl class="nr-sheet">
+          <dt>{t(lang, 'rpg.players')}</dt><dd>{r.players[lang]}</dd>
+          <dt>{t(lang, 'rpg.length')}</dt><dd>{r.length[lang]}</dd>
+          <dt>{t(lang, 'rpg.genre')}</dt><dd>{r.genre[lang]}</dd>
+          <dt>{t(lang, 'rpg.rules')}</dt><dd>{r.rules}</dd>
+          <dt>{t(lang, 'rpg.langs')}</dt><dd>{r.languages[lang]}</dd>
+        </dl>
+        <div class="nr-warn">
+          <p class="nr-type">{t(lang, 'rpg.warning')}</p>
+          <p>{r.warning[lang]}</p>
+        </div>
+        <div class="row" style="gap: 12px;">
+          <a class="nr-btn nr-btn--ink" href="#download">{t(lang, 'card.download')}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valtorva -->
+  {r.locations.length > 0 && (
+    <section class="container stack" style="padding-block: 80px; gap: 28px;">
+      <p class="nr-type">{L('I luoghi', 'The places')}</p>
+      <h2 class="nr-h2">Valtorva</h2>
+      <div class="nr-places">
+        {r.locations.map((l, i) => (
+          <figure class={`nr-photo nr-photo--${i % 3}`}>
+            <img src={l.image} alt={`${l.title}: ${l.caption[lang]}`} width="1400" height="788" loading="lazy" />
+            <figcaption><strong>{l.title}</strong>{l.caption[lang]}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- Fascicolo da scaricare -->
+  <section id="download" class="nr-band nr-band--paper">
+    <div class="container stack" style="gap: 28px;">
+      <div class="row" style="align-items: end; justify-content: space-between; gap: 16px;">
+        <div class="stack" style="gap: 6px;">
+          <p class="nr-type">{r.chapterSeries[lang].split(' · ')[0]} · {r.chapterTitle}</p>
+          <h2 class="nr-h2">{t(lang, 'rpg.files')}</h2>
+        </div>
+        {r.zip && <a class="nr-btn nr-btn--ink" download href={r.zip}>{t(lang, 'rpg.zip')}</a>}
+      </div>
+      <div class="nr-files">
+        {r.files.map((f, i) => (
+          <div class="nr-file">
+            <span class="nr-file__n">{String(i + 1).padStart(2, '0')}</span>
+            <div style="flex: 1 1 300px; min-width: 0;"><strong>{f.title[lang]}</strong><small>{f.desc[lang]}</small></div>
+            <div class="nr-dl">
+              {f.it ? <a href={f.it} download>{f.it.endsWith('.zip') ? 'ZIP' : 'PDF'} IT</a> : <span>IT {t(lang, 'rpg.soon')}</span>}
+              {f.en ? <a href={f.en} download>{f.en.endsWith('.zip') ? 'ZIP' : 'PDF'} EN</a> : <span>EN {t(lang, 'rpg.soon')}</span>}
+            </div>
+          </div>
+        ))}
+      </div>
+      <p class="nr-small">{L('Materiale amatoriale gratuito. Stampa in bianco e nero: rende benissimo.', 'Free fan material. Print in black and white: it looks great.')}{site.kofi && <> {L('Se ti è piaciuto, puoi', 'If you enjoyed it, you can')} <a href={site.kofi} target="_blank" rel="noopener">{L('offrirci un caffè su Ko-fi', 'buy us a coffee on Ko-fi')}</a>.</>}</p>
+    </div>
+  </section>
+
+  <!-- Investigatori -->
+  <section id="investigatori" class="container stack" style="padding-block: 80px; gap: 28px;">
+    <p class="nr-type">{L('Gli investigatori', 'The investigators')}</p>
+    <h2 class="nr-h2">{L('Il Circolo', 'The Circle')}</h2>
+    <p class="nr-body" style="max-width: 680px;">{r.investigatorsIntro[lang]}</p>
+    <div class="nr-portraits">
+      {r.investigators.map((i) => (
+        <figure class="nr-portrait">
+          <div class="nr-portrait__img"><img src={i.image} alt={L(`Ritratto a china di ${i.name}`, `Pen-and-ink portrait of ${i.name}`)} width="400" height="600" loading="lazy" /></div>
+          <figcaption>
+            <strong>{i.name}</strong>
+            <span>{i.role[lang]}</span>
+            {i.sheet && (i.sheet.it || i.sheet.en) && (
+              <span class="nr-portrait__dl">
+                <span class="nr-portrait__lbl">{L('Scheda', 'Sheet')}</span>
+                {i.sheet.it && <a href={i.sheet.it} download aria-label={`${L('Scheda di', 'Sheet for')} ${i.name}, ${L('italiano', 'Italian')}`}>IT</a>}
+                {i.sheet.en && <a href={i.sheet.en} download aria-label={`${L('Scheda di', 'Sheet for')} ${i.name}, ${L('inglese', 'English')}`}>EN</a>}
+              </span>
+            )}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <!-- Romanzo -->
+  <section id="romanzo" class="nr-band nr-band--ink">
+    <div class="container row" style="gap: 48px;">
+      <div class="stack" style="flex: 1 1 440px; min-width: 0; gap: 16px;">
+        <p class="nr-type">{t(lang, 'rpg.novel.kicker')}</p>
+        <h2 class="nr-h2">{t(lang, 'rpg.novel.title')}</h2>
+        <p class="nr-body">{r.novelText[lang]}</p>
+        {lang === 'en' && <p class="nr-small">The novel is in Italian for now; the English translation will follow.</p>}
+        <div class="row" style="gap: 14px; padding-top: 8px; align-items: center;">
+          {r.chapters[0]?.file && <a class="nr-btn" href={r.chapters[0].file}>{t(lang, 'rpg.novel.first')}</a>}
+          <a href={`/${lang}/#lista`} class="nr-link">{t(lang, 'rpg.novel.notify')}</a>
+        </div>
+      </div>
+      <ol class="nr-chapters" style="flex: 1 1 380px; min-width: 0;">
+        {r.chapters.map((c, i) => (
+          <li>
+            <b>{String(i + 1).padStart(2, '0')}</b>
+            <span class="nr-chapters__t">{c.file ? <a href={c.file}>{c.title}</a> : c.title}</span>
+          </li>
+        ))}
+        <li><b>{String(r.chapters.length + 1).padStart(2, '0')}</b><span class="nr-chapters__s">{t(lang, 'rpg.novel.next')}</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Donazioni -->
+  <section id="sostienici" class="nr-band nr-band--paper nr-kofi">
+    <div class="container stack" style="gap: 14px; align-items: center; text-align: center;">
+      <p class="nr-type">{L('Sostieni il Circolo', 'Support the Circle')}</p>
+      <h2 class="nr-h2">{r.kofi[lang].title}</h2>
+      <p class="nr-body" style="max-width: 620px;">{r.kofi[lang].text}</p>
+      {site.kofi
+        ? <a class="nr-btn nr-btn--ink" href={site.kofi} target="_blank" rel="noopener">{t(lang, 'kofi.button')}</a>
+        : <span class="nr-btn nr-btn--ink" aria-disabled="true" style="opacity: .5;">{L('Ko-fi in arrivo', 'Ko-fi coming soon')}</span>}
+    </div>
+  </section>
+
+  <p slot="licence" class="nr-small" style="margin: 0;">{r.licence[lang]}</p>
+</Base>

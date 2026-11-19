@@ -77,7 +77,7 @@ export interface Rpg {
   warning: L<string>;
   files: { title: L<string>; desc: L<string>; it: string; en: string }[];
   investigatorsIntro: L<string>;
-  investigators: { name: string; role: L<string>; image: string }[];
+  investigators: { name: string; role: L<string>; image: string; sheet?: L<string> }[];
   novelText: L<string>;
   chapters: { title: string; file: string }[];
   zip: string;
@@ -86,6 +86,9 @@ export interface Rpg {
   chapterSeries: L<string>;
   cover: string;
   coverAlt: L<string>;
+  campaignCover?: string;
+  campaignCoverAlt?: L<string>;
+  campaignRules?: L<string>;
   cardImage: string;
   cardAlt: L<string>;
   campaignIntro: L<string[]>;

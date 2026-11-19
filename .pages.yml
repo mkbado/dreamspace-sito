@@ -949,13 +949,38 @@ content:
     - name: en
       label: English
       type: string
+  - name: campaignCover
+    label: Copertina della campagna (in alto)
+    type: image
+    options:
+      media: images
+  - name: campaignCoverAlt
+    label: Descrizione copertina della campagna
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: campaignRules
+    label: Cosa serve per giocare
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: text
+    - name: en
+      label: English
+      type: text
   - name: cover
-    label: Copertina (verticale)
+    label: Copertina del capitolo in evidenza
     type: image
     options:
       media: images
   - name: coverAlt
-    label: Descrizione copertina
+    label: Descrizione copertina del capitolo
     type: object
     fields:
     - name: it
@@ -1214,6 +1239,20 @@ content:
       - name: en
         label: English
         type: string
+    - name: sheet
+      label: Scheda (PDF)
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: file
+        options:
+          media: files
+      - name: en
+        label: English
+        type: file
+        options:
+          media: files
     list:
       collapsible:
         collapsed: true

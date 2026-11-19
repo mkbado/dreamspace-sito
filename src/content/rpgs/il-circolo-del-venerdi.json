@@ -92,8 +92,8 @@
     "en": "Roleplaying game · campaign and novel · free"
   },
   "players": {
-    "it": "3–6, personaggi pregenerati",
-    "en": "3–6, pregenerated characters"
+    "it": "3–6, investigatori pregenerati",
+    "en": "3–6, pregenerated investigators"
   },
   "length": {
     "it": "due sessioni, circa 8 ore",
@@ -103,7 +103,7 @@
     "it": "horror investigativo, anni '10",
     "en": "investigative horror, 1910s"
   },
-  "rules": "Call of Cthulhu",
+  "rules": "Call of Cthulhu 7e",
   "languages": {
     "it": "italiano · inglese [IN ARRIVO]",
     "en": "Italian · English [COMING]"
@@ -130,50 +130,38 @@
     {
       "title": {
         "it": "Guida del Custode",
-        "en": "Keeper’s Guide"
+        "en": "Keeper's Guide"
       },
       "desc": {
-        "it": "La verità, la struttura della sessione, le piste, le regole speciali · 53 pagine",
-        "en": "The truth, session structure, leads and special rules · 53 pages"
+        "it": "Retroscena, cronologia, indizi, personaggi, regole e finali · 30 pagine illustrate",
+        "en": "Background, timeline, clues, characters, rules and endings · 30 illustrated pages"
       },
-      "it": "",
-      "en": ""
+      "it": "/files/circolo/cap0/La-Notte-del-Coro_Guida-del-Custode.pdf",
+      "en": "/files/circolo/cap0/The-Night-of-the-Choir_Keepers-Guide.pdf"
     },
     {
       "title": {
-        "it": "Libro delle scene",
-        "en": "Book of Scenes"
+        "it": "Libro delle Scene",
+        "en": "Scene Book"
       },
       "desc": {
-        "it": "Le scene da leggere al tavolo",
-        "en": "The scenes to read aloud at the table"
+        "it": "Letture, dialoghi, prove e procedure. Riservato al Custode · 51 pagine illustrate",
+        "en": "Read-aloud text, dialogue, rolls and procedures. Keeper only · 52 illustrated pages"
       },
-      "it": "",
-      "en": ""
+      "it": "/files/circolo/cap0/La-Notte-del-Coro_Libro-delle-Scene.pdf",
+      "en": "/files/circolo/cap0/The-Night-of-the-Choir_Scene-Book.pdf"
     },
     {
       "title": {
-        "it": "I PNG",
-        "en": "The NPCs"
+        "it": "Handout",
+        "en": "Handouts"
       },
       "desc": {
-        "it": "Monaci e abitanti di Valtorva: dove stanno, cosa dicono, cosa nascondono",
-        "en": "Monks and villagers of Valtorva: where they are, what they say, what they hide"
+        "it": "Lettere, documenti, mappa e sei mazzi di frammenti da ritagliare · 24 pagine",
+        "en": "Letters, documents, a map and six fragment decks to cut out · 24 pages"
       },
-      "it": "",
-      "en": ""
-    },
-    {
-      "title": {
-        "it": "I Luoghi",
-        "en": "The Locations"
-      },
-      "desc": {
-        "it": "Il borgo, l'abbazia e i dintorni",
-        "en": "The village, the abbey and the surroundings"
-      },
-      "it": "",
-      "en": ""
+      "it": "/files/circolo/cap0/La-Notte-del-Coro_Handout.pdf",
+      "en": "/files/circolo/cap0/The-Night-of-the-Choir_Handouts.pdf"
     },
     {
       "title": {
@@ -181,11 +169,11 @@
         "en": "Investigator sheets"
       },
       "desc": {
-        "it": "Sei personaggi pronti, più le anteprime da dare ai giocatori",
-        "en": "Six ready-made characters, plus previews to hand to players"
+        "it": "I sei pregenerati, uno per giocatore, in un unico archivio ZIP. Le singole schede sono più sotto, con i ritratti.",
+        "en": "The six pregenerated investigators, one per player, in a single ZIP. Single sheets are further down, with the portraits."
       },
-      "it": "",
-      "en": ""
+      "it": "/files/circolo/cap0/La-Notte-del-Coro_Schede-Investigatori-IT.zip",
+      "en": "/files/circolo/cap0/The-Night-of-the-Choir_Investigator-Sheets-EN.zip"
     }
   ],
   "investigatorsIntro": {
@@ -199,6 +187,10 @@
       "role": {
         "it": "filologo torinese",
         "en": "philologist from Turin"
+      },
+      "sheet": {
+        "it": "/files/circolo/cap0/schede/Scheda_PG_Edoardo_Valmarana.pdf",
+        "en": "/files/circolo/cap0/sheets/CoC7-Edoardo-Valmarana-EN.pdf"
       }
     },
     {
@@ -207,6 +199,10 @@
       "role": {
         "it": "maestra e folklorista",
         "en": "teacher and folklorist"
+      },
+      "sheet": {
+        "it": "/files/circolo/cap0/schede/Scheda_PG_Teresa_Morandi.pdf",
+        "en": "/files/circolo/cap0/sheets/CoC7-Teresa-Morandi-EN.pdf"
       }
     },
     {
@@ -215,6 +211,10 @@
       "role": {
         "it": "ex ufficiale degli Alpini",
         "en": "former Alpini officer"
+      },
+      "sheet": {
+        "it": "/files/circolo/cap0/schede/Scheda_PG_Ruggero_Alberti.pdf",
+        "en": "/files/circolo/cap0/sheets/CoC7-Ruggero-Alberti-EN.pdf"
       }
     },
     {
@@ -223,6 +223,10 @@
       "role": {
         "it": "fotografa e giornalista",
         "en": "photographer and journalist"
+      },
+      "sheet": {
+        "it": "/files/circolo/cap0/schede/Scheda_PG_Ida_Cantoni.pdf",
+        "en": "/files/circolo/cap0/sheets/CoC7-Ida-Cantoni-EN.pdf"
       }
     },
     {
@@ -231,6 +235,10 @@
       "role": {
         "it": "spiritista",
         "en": "spiritualist"
+      },
+      "sheet": {
+        "it": "/files/circolo/cap0/schede/Scheda_PG_Aurelio_Sanvitale.pdf",
+        "en": "/files/circolo/cap0/sheets/CoC7-Aurelio-Sanvitale-EN.pdf"
       }
     },
     {
@@ -239,12 +247,16 @@
       "role": {
         "it": "medico chirurgo torinese",
         "en": "surgeon from Turin"
+      },
+      "sheet": {
+        "it": "/files/circolo/cap0/schede/Scheda_PG_Guido_Ferrero.pdf",
+        "en": "/files/circolo/cap0/sheets/CoC7-Guido-Ferrero-EN.pdf"
       }
     }
   ],
   "novelText": {
-    "it": "Un frate ucciso, un borgo che non vuole forestieri, sei investigatori competenti. Ogni capitolo è raccontato da uno di loro. Un nuovo capitolo ogni [N] settimane.",
-    "en": "A murdered friar, a village that does not want strangers, six capable investigators. Each chapter is told by one of them. A new chapter every [N] weeks."
+    "it": "Un frate ucciso, un borgo che non vuole forestieri, sei investigatori competenti. Ogni capitolo è raccontato da uno di loro. I capitoli escono uno alla volta.",
+    "en": "A murdered friar, a village that does not want strangers, six capable investigators. Each chapter is told by one of them. Chapters come out one at a time."
   },
   "chapters": [
     {
@@ -283,12 +295,21 @@
     }
   },
   "licence": {
-    "it": "Questa avventura usa marchi e/o copyright di Chaosium Inc./Moon Design Publications LLC, con il permesso della Fan Material Policy di Chaosium. Non è approvata da Chaosium. È gratuita e non può essere venduta. [TESTO DA ALLINEARE A QUELLO UFFICIALE]",
-    "en": "This adventure uses trademarks and/or copyrights owned by Chaosium Inc./Moon Design Publications LLC, under Chaosium’s Fan Material Policy. It is not endorsed by Chaosium. It is free and may not be sold. [ALIGN WITH THE OFFICIAL WORDING]"
+    "it": "Il Circolo del Venerdì usa marchi o contenuti di Chaosium Inc./Moon Design Publications LLC secondo la Fan Material Policy di Chaosium. È vietato chiedere un pagamento per usarli o accedervi. Chaosium non ha pubblicato, approvato o patrocinato questa campagna. Per i prodotti Chaosium: chaosium.com.",
+    "en": "The Friday Circle uses trademarks and/or copyrights owned by Chaosium Inc/Moon Design Publications LLC, which are used under Chaosium Inc’s Fan Material Policy. We are expressly prohibited from charging you to use or access this content. This campaign is not published, endorsed, or specifically approved by Chaosium Inc. For more information about Chaosium Inc’s products, please visit www.chaosium.com."
   },
   "cardMeta": {
     "it": "Cap. 0 · La Notte del Coro · due sessioni, circa 8 ore",
     "en": "Ch. 0 · La Notte del Coro · two sessions, about 8 hours"
   },
-  "zip": ""
+  "zip": "",
+  "campaignCover": "/img/circolo/investigatori.webp",
+  "campaignCoverAlt": {
+    "it": "I sei investigatori del Circolo del Venerdì disegnati a china: Ruggero Alberti con una mappa, Edoardo Valmarana con un codice antico, Aurelio Sanvitale con un campanello e i tarocchi, Teresa Morandi con un diapason, Guido Ferrero con lo stetoscopio e Ida Cantoni con la macchina fotografica",
+    "en": "The six investigators of the Friday Circle in pen and ink: Ruggero Alberti with a map, Edoardo Valmarana with an old codex, Aurelio Sanvitale with a bell and tarot cards, Teresa Morandi with a tuning fork, Guido Ferrero with a stethoscope and Ida Cantoni with a camera"
+  },
+  "campaignRules": {
+    "it": "Si gioca anche solo con le Regole Introduttive del Richiamo di Cthulhu (7ª edizione). Ogni capitolo contiene tutto quello che serve per giocare l'avventura dall'inizio alla fine: guida del Custode, libro delle scene, handout da stampare e investigatori pregenerati.",
+    "en": "You can play with just the Call of Cthulhu Quick-Start Rules (7th edition). Every chapter contains everything you need to play the adventure from start to finish: Keeper's guide, scene book, printable handouts and pregenerated investigators."
+  }
 }
