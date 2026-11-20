@@ -782,3 +782,70 @@ html.ds-intro-on body { overflow: hidden; }
 @media (max-width: 640px) { .nv-cover { flex-basis: 100%; max-width: 280px; margin-inline: auto; } .nv-elves { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; } .nv-elf h3 { font-size: 19px; } }
 @media (prefers-reduced-motion: reduce) { #ds-snow { display: none; } }
 .pixel, .h1, .h2, .h3, [class*='pixel'] { font-variant-ligatures: none; font-feature-settings: 'liga' 0, 'clig' 0; }
+
+/* ===== Marsylvania: banner con Dreamspacer cliccabili ===== */
+.ds-banner-wrap { background: var(--black); border-bottom: 4px solid var(--black); }
+.ds-banner { position: relative; max-width: 1680px; margin-inline: auto; }
+.ds-banner > img { width: 100%; height: auto; display: block; }
+.ds-spot { position: absolute; padding: 0; margin: 0; background: transparent; border: 3px dashed transparent; cursor: pointer; transition: border-color .15s, background-color .15s; }
+.ds-spot:hover, .ds-spot:focus-visible, .ds-spot.is-on { border-color: var(--cream); background: rgba(255, 244, 220, .08); outline: none; box-shadow: 0 0 0 3px var(--black), inset 0 0 0 3px var(--black); }
+.ds-spot__ping { position: absolute; right: 6px; top: 6px; width: 14px; height: 14px; background: var(--cream); border: 3px solid var(--black); transform: rotate(45deg); animation: ds-ping 1.6s steps(2, end) infinite; }
+.ds-spot:hover .ds-spot__ping, .ds-spot.is-on .ds-spot__ping { animation: none; background: var(--orange); }
+@keyframes ds-ping { 50% { background: var(--orange); } }
+@media (max-width: 760px) { .ds-spot { border-width: 2px; } .ds-spot__ping { width: 9px; height: 9px; border-width: 2px; right: 2px; top: 2px; } }
+@media (prefers-reduced-motion: reduce) { .ds-spot__ping { animation: none; } }
+.ds-banner__hint { margin: 0; padding: 8px 16px; text-align: center; font-family: var(--font-label); font-size: 12px; text-transform: uppercase; color: var(--teal); background: var(--black); }
+.ds-banner__hint span { color: var(--orange); }
+.ds-pop { position: absolute; z-index: 20; width: 300px; background: var(--night-2); color: var(--cream); border: 3px solid var(--black); box-shadow: 6px 6px 0 var(--black); font-size: 14px; line-height: 1.45; }
+.ds-pop[hidden] { display: none; }
+.ds-pop.is-sheet { position: fixed; left: 8px; right: 8px; bottom: 8px; top: auto; width: auto; max-height: 72vh; overflow: auto; z-index: 60; }
+.ds-pop__head { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 10px; background: var(--c); color: var(--ink); border-bottom: 3px solid var(--black); }
+.ds-pop__head b { display: block; font-family: var(--font-pixel); font-size: 20px; line-height: 1.1; }
+.ds-pop__head span { font-family: var(--font-label); font-size: 11px; text-transform: uppercase; opacity: .85; }
+.ds-pop__x { background: var(--black); color: var(--cream); border: 0; width: 28px; height: 28px; font-size: 20px; line-height: 1; cursor: pointer; flex: none; }
+.ds-pop__focus { margin: 8px 12px 0; font-family: var(--font-label); font-size: 11px; text-transform: uppercase; color: var(--teal); }
+.ds-pop__stats { list-style: none; margin: 8px 12px; padding: 6px; display: flex; justify-content: space-between; background: var(--black); }
+.ds-pop__stats li { display: flex; align-items: center; gap: 4px; }
+.ds-pop__stats b { font-family: var(--font-pixel); font-size: 20px; }
+.ds-pop__equip { display: flex; gap: 10px; padding: 0 12px; align-items: flex-start; }
+.ds-pop__equip > img { flex: none; image-rendering: pixelated; background: var(--black); padding: 4px; }
+.ds-pop__equip p { margin: 2px 0 0; color: var(--soft); }
+.ds-pop__more { display: block; margin: 10px 12px 12px; font-family: var(--font-label); font-size: 12px; text-transform: uppercase; }
+.ds-kicker { margin: 0; font-family: var(--font-label); font-size: 11px; text-transform: uppercase; color: var(--teal); display: flex; align-items: center; gap: 6px; }
+.ds-ico { display: inline-block; width: 1.25em; height: 1.25em; vertical-align: -0.28em; margin: 0 1px; }
+
+/* ===== Marsylvania: schede tecniche ===== */
+.ds-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; align-items: start; }
+.ds-sheet { border: 3px solid var(--black); background: var(--night-2); box-shadow: 5px 5px 0 var(--black); scroll-margin-top: 90px; }
+.ds-sheet:target { box-shadow: 0 0 0 4px var(--c), 5px 5px 0 4px var(--black); }
+.ds-sheet__scene { position: relative; aspect-ratio: 3 / 2; background: var(--night) center / cover no-repeat; image-rendering: pixelated; overflow: hidden; border-bottom: 3px solid var(--black); }
+.ds-sheet__sprite { position: absolute; left: 6%; bottom: 5%; height: 82%; width: auto; max-width: 62%; object-fit: contain; object-position: left bottom; filter: drop-shadow(4px 4px 0 rgba(10, 13, 36, .55)); }
+.ds-sheet__planet { position: absolute; right: 8px; top: 8px; padding: 3px 8px; background: var(--black); color: var(--cream); font-family: var(--font-label); font-size: 11px; text-transform: uppercase; }
+.ds-sheet__name { padding: 8px 14px; background: var(--c); color: var(--ink); border-bottom: 3px solid var(--black); }
+.ds-sheet__name h3 { margin: 0; font-family: var(--font-pixel); font-size: 26px; line-height: 1.1; }
+.ds-sheet__name p { margin: 2px 0 0; font-family: var(--font-label); font-size: 11px; text-transform: uppercase; opacity: .85; }
+.ds-sheet__body { padding: 14px; display: flex; flex-direction: column; gap: 14px; }
+.ds-lv { display: flex; gap: 0; align-self: flex-start; border: 3px solid var(--black); }
+.ds-lv button { font-family: var(--font-label); font-size: 13px; padding: 5px 14px; border: 0; background: var(--night); color: var(--mute); cursor: pointer; }
+.ds-lv button + button { border-left: 3px solid var(--black); }
+.ds-lv button[aria-pressed="true"] { background: var(--orange); color: var(--black); }
+.ds-stats { list-style: none; margin: 0; padding: 8px 4px; display: grid; grid-template-columns: repeat(5, 1fr); background: var(--black); text-align: center; }
+.ds-stats li { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.ds-stats img { image-rendering: auto; }
+.ds-stats b { font-family: var(--font-pixel); font-size: 24px; line-height: 1; }
+.ds-stats .lbl { font-family: var(--font-label); font-size: 9px; text-transform: uppercase; color: var(--mute); }
+.ds-stats .v2.up { color: #9be15d; }
+.ds-stats .v2.up::after { content: '▲'; font-size: 11px; margin-left: 2px; vertical-align: 4px; }
+.ds-sheet[data-lv="1"] .v2, .ds-sheet[data-lv="1"] .lv2only, .ds-sheet[data-lv="2"] .v1 { display: none; }
+.ds-equip { border: 3px solid var(--black); background: var(--night); padding: 10px; }
+.ds-equip__row { display: flex; gap: 12px; align-items: flex-start; margin-top: 8px; }
+.ds-equip__icon { flex: none; width: 64px; height: 64px; background: var(--black); padding: 6px; }
+.ds-equip h4, .ds-ab h4 { margin: 0; font-size: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.ds-equip p, .ds-ab p { margin: 3px 0 0; font-size: 14px; color: var(--soft); }
+.ds-abil { display: flex; flex-direction: column; gap: 10px; }
+.ds-ab { border-left: 4px solid var(--c); padding-left: 10px; }
+.ds-cost { font-family: var(--font-label); font-size: 11px; font-weight: 400; padding: 1px 6px; background: var(--black); color: var(--cream); white-space: nowrap; }
+.ds-cost--passive { background: transparent; border: 2px solid var(--mute); color: var(--mute); }
+.ds-new { font-family: var(--font-label); font-size: 10px; padding: 1px 5px; background: #9be15d; color: var(--black); }
+.ds-bio summary { cursor: pointer; font-family: var(--font-label); font-size: 12px; text-transform: uppercase; color: var(--teal); }
+.ds-bio p { margin: 6px 0 0; font-size: 14px; color: var(--soft); }

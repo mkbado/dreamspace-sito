@@ -384,6 +384,16 @@ content:
     - name: en
       label: English
       type: string
+  - name: bannerHint
+    label: Suggerimento sotto il banner (personaggi cliccabili)
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
   - name: tag
     label: Etichetta (es. Gioco da tavolo · competitivo)
     type: object
@@ -677,6 +687,139 @@ content:
         - name: en
           label: English
           type: text
+      - name: planet
+        label: Pianeta (scheda tecnica)
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: focus
+        label: Stile di gioco (scheda tecnica)
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: string
+        - name: en
+          label: English
+          type: string
+      - name: scene
+        label: Sfondo della scheda
+        type: image
+        options:
+          media: images
+      - name: spot
+        label: "Posizione nel banner (in % : x, y, larghezza, altezza)"
+        type: object
+        fields:
+        - name: x
+          label: x %
+          type: number
+        - name: y
+          label: y %
+          type: number
+        - name: w
+          label: Larghezza %
+          type: number
+        - name: h
+          label: Altezza %
+          type: number
+      - name: equip
+        label: Equipaggiamento iniziale
+        type: object
+        fields:
+        - name: name
+          label: Nome
+          type: object
+          fields:
+          - name: it
+            label: Italiano
+            type: string
+          - name: en
+            label: English
+            type: string
+        - name: type
+          label: Tipo
+          type: select
+          options:
+            values:
+            - weapon
+            - armor
+            - spell
+            - equip
+        - name: icon
+          label: Icona
+          type: image
+          options:
+            media: images
+        - name: cost
+          label: "Costo (es. 1 {mana})"
+          type: string
+        - name: text
+          label: "Effetto ({life} {atk} {def} {mana} {speed} diventano icone)"
+          type: object
+          fields:
+          - name: it
+            label: Italiano
+            type: text
+          - name: en
+            label: English
+            type: text
+      - name: levels
+        label: Livelli (1 e 2)
+        type: object
+        fields:
+        - name: stats
+          label: Statistiche
+          type: object
+          fields:
+          - name: life
+            label: Vita
+            type: number
+          - name: attack
+            label: Attacco
+            type: number
+          - name: defense
+            label: Difesa
+            type: number
+          - name: mana
+            label: Mana
+            type: number
+          - name: speed
+            label: Velocità
+            type: number
+        - name: abilities
+          label: Abilità
+          type: object
+          fields:
+          - name: name
+            label: Nome
+            type: string
+          - name: cost
+            label: "Costo (es. 1 {mana})"
+            type: string
+          - name: passive
+            label: Passiva
+            type: boolean
+          - name: text
+            label: Effetto
+            type: object
+            fields:
+            - name: it
+              label: Italiano
+              type: text
+            - name: en
+              label: English
+              type: text
+          list:
+            collapsible:
+              collapsed: true
+              summary: "{name}"
+        list: true
       list:
         collapsible:
           collapsed: true

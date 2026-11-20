@@ -2,15 +2,15 @@
   "order": 1,
   "slug": "marsylvania",
   "title": "Dreamspace: Mission to Marsylvania",
-  "image": "/img/card-marsylvania.webp",
+  "image": "/img/marsylvania/card.webp",
   "imageAlt": {
-    "it": "Prof Giraf e Queen Illuminati affrontano vampiri e un drago tra le rovine rosse di Marsylvania, in pixel art",
-    "en": "Prof Giraf and Queen Illuminati face vampires and a dragon among the red ruins of Marsylvania, in pixel art"
+    "it": "La copertina di Dreamspace: Mission to Marsylvania: i sei Dreamspacer di spalle guardano i canyon rossi, la luna rosa e il castello dei vampiri, in pixel art",
+    "en": "The Dreamspace: Mission to Marsylvania cover: the six Dreamspacers, seen from behind, gaze at the red canyons, the pink moon and the vampire castle, in pixel art"
   },
-  "banner": "/img/marsylvania-banner.webp",
+  "banner": "/img/marsylvania/banner.webp",
   "bannerAlt": {
-    "it": "I sei Dreamspacer a caccia di taglie su Marsylvania: vampiri, un verme gigante, draghi e soldati dell’Alleanza tra canyon rossi e castelli gotici, in pixel art",
-    "en": "The six Dreamspacers bounty hunting on Marsylvania: vampires, a giant worm, dragons and Alliance soldiers among red canyons and gothic castles, in pixel art"
+    "it": "I sei Dreamspacer in battaglia su Marsylvania: Prof Giraf lancia fuoco contro i vampiri, Queen Illuminati evoca l’occhio, Lord Caramel affronta il Wormalien, Venusian Ronin e Alligactor respingono soldati dell’Alleanza e lupi mannari, Chat Blob analizza tutto, in pixel art",
+    "en": "The six Dreamspacers in battle on Marsylvania: Prof Giraf hurls fire at vampires, Queen Illuminati summons the eye, Lord Caramel faces the Wormalien, Venusian Ronin and Alligactor fend off Alliance soldiers and werewolves, Chat Blob analyses everything, in pixel art"
   },
   "tag": {
     "it": "Gioco da tavolo · competitivo",
@@ -168,14 +168,14 @@
       "en": "The six Dreamspacers"
     },
     "note": {
-      "it": "La squadra di partenza della Dreamspace Ltd.",
-      "en": "Dreamspace Ltd’s starting team."
+      "it": "La squadra di partenza della Dreamspace Ltd. Ogni Dreamspacer sale al livello 2 quando conquista una nuova area: le abilità di livello 2 si aggiungono a quelle di livello 1.",
+      "en": "Dreamspace Ltd’s starting team. Each Dreamspacer reaches level 2 on conquering a new area: level 2 abilities add to those of level 1."
     },
     "list": [
       {
         "name": "Prof Giraf",
-        "home": "Savanya City",
-        "image": "/img/chars/prof-giraf.webp",
+        "home": "Savanya",
+        "image": "/img/marsylvania/sprite-prof-giraf.webp",
         "color": "#F28C28",
         "ink": "#0A0D24",
         "alt": {
@@ -189,12 +189,100 @@
         "ability": {
           "it": "Maestro degli incantesimi",
           "en": "Spell master"
-        }
+        },
+        "scene": "/img/marsylvania/scena-prof-giraf.webp",
+        "planet": {
+          "it": "Savanya",
+          "en": "Savanya"
+        },
+        "role": {
+          "it": "Incantatore",
+          "en": "Spellcaster"
+        },
+        "focus": {
+          "it": "Incantesimi e controllo del campo",
+          "en": "Spells & field control"
+        },
+        "spot": {
+          "x": 2.1,
+          "y": 13.2,
+          "w": 13.8,
+          "h": 37.1
+        },
+        "equip": {
+          "name": {
+            "it": "Dardo di fuoco della savana",
+            "en": "Savanya Dart"
+          },
+          "type": "spell",
+          "icon": "/img/marsylvania/icons/item-dardo-savana.png",
+          "cost": "1 {mana}",
+          "text": {
+            "it": "Attacco 2, oppure Attacco 3 contro un «Animale» o un «Lupo mannaro».",
+            "en": "Attack 2, or Attack 3 against an «Animal» or a «Werewolf»."
+          }
+        },
+        "levels": [
+          {
+            "stats": {
+              "life": 3,
+              "attack": 1,
+              "defense": 1,
+              "mana": 5,
+              "speed": 2
+            },
+            "abilities": [
+              {
+                "name": "Multiverse Knowledge",
+                "text": {
+                  "it": "All’inizio del tuo turno puoi sbirciare una zona coperta.",
+                  "en": "At the start of your turn you can spy on a hidden zone."
+                },
+                "passive": true
+              },
+              {
+                "name": "Arcane Recovery",
+                "text": {
+                  "it": "Recuperi 1 {mana} alla fine del tuo turno.",
+                  "en": "Recover 1 {mana} at the end of your turn."
+                },
+                "passive": true
+              }
+            ]
+          },
+          {
+            "stats": {
+              "life": 5,
+              "attack": 1,
+              "defense": 2,
+              "mana": 8,
+              "speed": 2
+            },
+            "abilities": [
+              {
+                "name": "Teleport",
+                "text": {
+                  "it": "Ti teletrasporti in una zona a scelta invece di tirare per il movimento.",
+                  "en": "Teleport to a zone of your choice instead of rolling for movement."
+                },
+                "cost": "2 {mana}"
+              },
+              {
+                "name": "Mana Flow",
+                "text": {
+                  "it": "I tuoi incantesimi costano 1 {mana} in meno.",
+                  "en": "Your spells cost 1 {mana} less."
+                },
+                "passive": true
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "Lord Caramel",
         "home": "Candyloon",
-        "image": "/img/chars/lord-caramel.webp",
+        "image": "/img/marsylvania/sprite-lord-caramel.webp",
         "color": "#EE7FB0",
         "ink": "#0A0D24",
         "alt": {
@@ -208,12 +296,99 @@
         "ability": {
           "it": "Attacco altissimo",
           "en": "High attack"
-        }
+        },
+        "scene": "/img/marsylvania/scena-lord-caramel.webp",
+        "planet": {
+          "it": "Candyloon",
+          "en": "Candyloon"
+        },
+        "role": {
+          "it": "Combattente",
+          "en": "Fighter"
+        },
+        "focus": {
+          "it": "Attacco e recupero di vita",
+          "en": "Attack & life gain"
+        },
+        "spot": {
+          "x": 20.2,
+          "y": 50.2,
+          "w": 27.6,
+          "h": 42.5
+        },
+        "equip": {
+          "name": {
+            "it": "Spada Zuccherata",
+            "en": "Sugar Sword"
+          },
+          "type": "weapon",
+          "icon": "/img/marsylvania/icons/item-spada-zuccherata.png",
+          "text": {
+            "it": "Recuperi 1 {life} quando infliggi danni.",
+            "en": "Recover 1 {life} when you deal damage."
+          }
+        },
+        "levels": [
+          {
+            "stats": {
+              "life": 3,
+              "attack": 3,
+              "defense": 2,
+              "mana": 2,
+              "speed": 1
+            },
+            "abilities": [
+              {
+                "name": "Glucose Plus",
+                "text": {
+                  "it": "Ottieni +1 {atk} per il turno.",
+                  "en": "Get +1 {atk} for the turn."
+                },
+                "cost": "1 {life}"
+              },
+              {
+                "name": "Caramel Skin",
+                "text": {
+                  "it": "Il nemico ha −1 {atk} per un round.",
+                  "en": "The enemy gets −1 {atk} for a round."
+                },
+                "cost": "1 {mana}"
+              }
+            ]
+          },
+          {
+            "stats": {
+              "life": 4,
+              "attack": 4,
+              "defense": 2,
+              "mana": 5,
+              "speed": 2
+            },
+            "abilities": [
+              {
+                "name": "Sugar Reserve",
+                "text": {
+                  "it": "Recuperi 1 {life}.",
+                  "en": "Recover 1 {life}."
+                },
+                "cost": "1 {mana}"
+              },
+              {
+                "name": "Glycemic Peak",
+                "text": {
+                  "it": "Ottieni +1 {atk} in modo permanente.",
+                  "en": "You get +1 {atk} permanently."
+                },
+                "passive": true
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "Chat Blob",
-        "home": "Oozonia",
-        "image": "/img/chars/chatblob.webp",
+        "home": "Oozedonia",
+        "image": "/img/marsylvania/sprite-chat-blob.webp",
         "color": "#9BE15D",
         "ink": "#0A0D24",
         "alt": {
@@ -221,18 +396,105 @@
           "en": "Chat Blob, a green ooze full of circuits, wires and holographic screens"
         },
         "bio": {
-          "it": "Una melma di Oozonia che ha assorbito un portatile con dentro una misteriosa IA, diventando intelligente e curiosa. Fa il cacciatore di taglie perché adora mangiare cose. E creature.",
-          "en": "An ooze from Oozonia that absorbed a laptop with a mysterious AI inside, gaining intelligence and curiosity. It hunts bounties because it loves eating things. And creatures."
+          "it": "Una melma di Oozedonia che ha assorbito un portatile con dentro una misteriosa IA, diventando intelligente e curiosa. Fa il cacciatore di taglie perché adora mangiare cose. E creature.",
+          "en": "An ooze from Oozedonia that absorbed a laptop with a mysterious AI inside, gaining intelligence and curiosity. It hunts bounties because it loves eating things. And creatures."
         },
         "ability": {
           "it": "Assorbimento cibernetico",
           "en": "Cyber absorption"
-        }
+        },
+        "scene": "/img/marsylvania/scena-chat-blob.webp",
+        "planet": {
+          "it": "Oozedonia",
+          "en": "Oozedonia"
+        },
+        "role": {
+          "it": "Esploratore",
+          "en": "Explorer"
+        },
+        "focus": {
+          "it": "Combo e protezione",
+          "en": "Combo & protection"
+        },
+        "spot": {
+          "x": 2.1,
+          "y": 57.4,
+          "w": 17.5,
+          "h": 32.3
+        },
+        "equip": {
+          "name": {
+            "it": "Laptop",
+            "en": "Laptop"
+          },
+          "type": "equip",
+          "icon": "/img/marsylvania/icons/item-laptop.png",
+          "text": {
+            "it": "Recuperi 1 {life} e 1 {mana} alla fine del tuo turno.",
+            "en": "Recover 1 {life} and 1 {mana} at the end of your turn."
+          }
+        },
+        "levels": [
+          {
+            "stats": {
+              "life": 4,
+              "attack": 2,
+              "defense": 1,
+              "mana": 4,
+              "speed": 1
+            },
+            "abilities": [
+              {
+                "name": "Algorithm",
+                "text": {
+                  "it": "Due volte per turno puoi costringere un nemico a ritirare un dado e ad accettare il secondo risultato.",
+                  "en": "Twice per turn, you can force an enemy to re-roll a die and accept the second result."
+                },
+                "passive": true
+              },
+              {
+                "name": "Cyber Absorption",
+                "text": {
+                  "it": "Quando sconfiggi un nemico tieni la sua carta: scartala per aggiungere il suo {atk} al tuo per un attacco (così però rinunci al token taglia).",
+                  "en": "When you defeat an enemy, keep its card: discard it to add its {atk} to yours for one attack (if you do, skip the bounty token)."
+                },
+                "cost": "2 {mana}"
+              }
+            ]
+          },
+          {
+            "stats": {
+              "life": 5,
+              "attack": 2,
+              "defense": 3,
+              "mana": 7,
+              "speed": 1
+            },
+            "abilities": [
+              {
+                "name": "Antivirus",
+                "text": {
+                  "it": "Ottieni +1 {def} per il turno e ignori le abilità del nemico.",
+                  "en": "Get +1 {def} for the turn and ignore the enemy’s abilities."
+                },
+                "cost": "2 {mana}"
+              },
+              {
+                "name": "ChatBlob 3.0",
+                "text": {
+                  "it": "Ottieni +2 {atk} e +2 {def} per il turno.",
+                  "en": "Get +2 {atk} and +2 {def} for the turn."
+                },
+                "cost": "1 {life} + 3 {mana}"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "Queen Illuminati",
-        "home": "Terra D-34",
-        "image": "/img/chars/queen-illuminati.webp",
+        "home": "Terra D-036",
+        "image": "/img/marsylvania/sprite-queen-illuminati.webp",
         "color": "#8A5CD8",
         "ink": "#FFF4DC",
         "alt": {
@@ -240,18 +502,106 @@
           "en": "Queen Illuminati, a crowned queen with an all-seeing-eye triangle above her hand"
         },
         "bio": {
-          "it": "Esiliata dalla Terra D-34 perché minaccia per la democrazia, ha sedotto un ricco imprenditore per farsi portare alla Dreamspace. Poi ha controllato i pensieri dell’NHR ed è diventata subito Dreamspacer a tempo pieno.",
-          "en": "Exiled from Earth D-34 as a threat to democracy, she charmed a rich entrepreneur into a trip to Dreamspace. Then she controlled NHR’s thoughts and became a full-time Dreamspacer on the spot."
+          "it": "Esiliata dalla Terra D-036 perché minaccia per la democrazia, ha sedotto un ricco imprenditore per farsi portare alla Dreamspace. Poi ha controllato i pensieri dell’NHR ed è diventata subito Dreamspacer a tempo pieno.",
+          "en": "Exiled from Earth D-036 as a threat to democracy, she charmed a rich entrepreneur into a trip to Dreamspace. Then she controlled NHR’s thoughts and became a full-time Dreamspacer on the spot."
         },
         "ability": {
           "it": "Fascino e persuasione",
           "en": "Charm and persuasion"
-        }
+        },
+        "scene": "/img/marsylvania/scena-queen-illuminati.webp",
+        "planet": {
+          "it": "Terra D-036",
+          "en": "Earth D-036"
+        },
+        "role": {
+          "it": "Incantatore",
+          "en": "Spellcaster"
+        },
+        "focus": {
+          "it": "Malus e tanto mana",
+          "en": "Debuff & mana sink"
+        },
+        "spot": {
+          "x": 31.9,
+          "y": 3.0,
+          "w": 14.3,
+          "h": 38.3
+        },
+        "equip": {
+          "name": {
+            "it": "Mental Burst",
+            "en": "Mental Burst"
+          },
+          "type": "spell",
+          "icon": "/img/marsylvania/icons/item-mental-burst.png",
+          "cost": "1 {mana}",
+          "text": {
+            "it": "Attacco 2, oppure Attacco 3 contro un «Umano».",
+            "en": "Attack 2, or Attack 3 against a «Human»."
+          }
+        },
+        "levels": [
+          {
+            "stats": {
+              "life": 4,
+              "attack": 1,
+              "defense": 1,
+              "mana": 5,
+              "speed": 1
+            },
+            "abilities": [
+              {
+                "name": "Charm",
+                "text": {
+                  "it": "Il nemico ha −1 {def} per il turno.",
+                  "en": "The enemy gets −1 {def} for the turn."
+                },
+                "cost": "1 {mana}"
+              },
+              {
+                "name": "Adept Ceremony",
+                "text": {
+                  "it": "Alla fine del tuo turno tira un dado: se esce «spada» recuperi 1 {life} e 1 {mana}.",
+                  "en": "At the end of your turn roll a die: on «sword» recover 1 {life} and 1 {mana}."
+                },
+                "passive": true
+              }
+            ]
+          },
+          {
+            "stats": {
+              "life": 4,
+              "attack": 1,
+              "defense": 2,
+              "mana": 10,
+              "speed": 2
+            },
+            "abilities": [
+              {
+                "name": "Save the Queen",
+                "text": {
+                  "it": "Quando stai per subire danni tira un dado: se esce «pozione» li subisce un altro personaggio a tua scelta.",
+                  "en": "When you are about to take damage, roll a die: on «potion» another character of your choice takes it instead."
+                },
+                "passive": true
+              },
+              {
+                "name": "Dominate Creature",
+                "text": {
+                  "it": "Il nemico ha −3 {def} per il turno.",
+                  "en": "The enemy gets −3 {def} for the turn."
+                },
+                "cost": "2 {mana}"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "Venusian Ronin",
-        "home": "Venere",
-        "image": "/img/chars/venusian-ronin.webp",
+        "home": "Venere B-41",
+        "image": "/img/marsylvania/sprite-venusian-ronin.webp",
         "color": "#3FA34D",
         "ink": "#0A0D24",
         "alt": {
@@ -259,18 +609,105 @@
           "en": "Venusian Ronin, a green warrior with leaf wings and a straw hat in a fighting stance"
         },
         "bio": {
-          "it": "Su una Venere diversa, un ronin lucertoloide in guerra contro i non morti per il dominio del pianeta. Dopo aver perso l’amata moglie è diventato uno dei cacciatori di taglie più temuti del suo universo.",
-          "en": "On a different Venus, a lizardfolk ronin fighting the undead for the planet. After losing his beloved wife he became one of the most feared bounty hunters in his universe."
+          "it": "Su Venere B-41, una Venere diversa dalla nostra, era un ronin lucertoloide in guerra contro i non morti per il dominio del pianeta. Dopo aver perso l’amata moglie è diventato uno dei cacciatori di taglie più temuti del suo universo.",
+          "en": "On Venus B-41, a different Venus from ours, he was a lizardfolk ronin fighting the undead for the planet. After losing his beloved wife he became one of the most feared bounty hunters in his universe."
         },
         "ability": {
           "it": "Difesa altissima",
           "en": "High defence"
-        }
+        },
+        "scene": "/img/marsylvania/scena-venusian-ronin.webp",
+        "planet": {
+          "it": "Venere B-41",
+          "en": "Venus B-41"
+        },
+        "role": {
+          "it": "Combattente",
+          "en": "Fighter"
+        },
+        "focus": {
+          "it": "Tank difensivo",
+          "en": "Defensive tank"
+        },
+        "spot": {
+          "x": 64.3,
+          "y": 19.7,
+          "w": 11.2,
+          "h": 30.5
+        },
+        "equip": {
+          "name": {
+            "it": "Corazza del Ronin",
+            "en": "Ronin Armor"
+          },
+          "type": "armor",
+          "icon": "/img/marsylvania/icons/item-corazza-ronin.png",
+          "text": {
+            "it": "Se ti attaccano ma non subisci danni, tira 2 dadi: infliggi 1 danno al nemico per ogni «scudo».",
+            "en": "If you are attacked but take no damage, roll 2 dice: deal 1 damage to the enemy for every «shield»."
+          }
+        },
+        "levels": [
+          {
+            "stats": {
+              "life": 4,
+              "attack": 1,
+              "defense": 3,
+              "mana": 1,
+              "speed": 2
+            },
+            "abilities": [
+              {
+                "name": "Martial Arts",
+                "text": {
+                  "it": "Ottieni +1 {atk} in modo permanente.",
+                  "en": "You get +1 {atk} permanently."
+                },
+                "passive": true
+              },
+              {
+                "name": "Zenkutsu Dachi",
+                "text": {
+                  "it": "Ottieni +1 {atk} e −1 {def} per un round.",
+                  "en": "Get +1 {atk} and −1 {def} for a round."
+                },
+                "cost": "0 {mana}"
+              }
+            ]
+          },
+          {
+            "stats": {
+              "life": 5,
+              "attack": 2,
+              "defense": 5,
+              "mana": 3,
+              "speed": 2
+            },
+            "abilities": [
+              {
+                "name": "Morote Uke",
+                "text": {
+                  "it": "Ottieni +2 {def} per un round.",
+                  "en": "Get +2 {def} for one round."
+                },
+                "cost": "1 {mana}"
+              },
+              {
+                "name": "Harakiri",
+                "text": {
+                  "it": "Infliggi 3 danni a un nemico.",
+                  "en": "Deal 3 damage to an enemy."
+                },
+                "cost": "1 {mana} + 2 {life}"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "Alligactor",
         "home": "Lizaurus",
-        "image": "/img/chars/alligactor.webp",
+        "image": "/img/marsylvania/sprite-alligactor.webp",
         "color": "#D9442B",
         "ink": "#FFF4DC",
         "alt": {
@@ -284,7 +721,94 @@
         "ability": {
           "it": "Barare e sperare nella fortuna",
           "en": "Cheating and luck"
-        }
+        },
+        "scene": "/img/marsylvania/scena-alligactor.webp",
+        "planet": {
+          "it": "Lizaurus",
+          "en": "Lizaurus"
+        },
+        "role": {
+          "it": "Esploratore",
+          "en": "Explorer"
+        },
+        "focus": {
+          "it": "Abilità e fortuna",
+          "en": "Skills & luck"
+        },
+        "spot": {
+          "x": 64.6,
+          "y": 54.4,
+          "w": 14.6,
+          "h": 40.1
+        },
+        "equip": {
+          "name": {
+            "it": "Carte da baro",
+            "en": "Cheater’s Cards"
+          },
+          "type": "equip",
+          "icon": "/img/marsylvania/icons/item-cheaters-cards.png",
+          "text": {
+            "it": "Due volte per turno puoi ritirare un dado, ma devi accettare il secondo risultato.",
+            "en": "Twice per turn you can re-roll a die; you have to accept the second result."
+          }
+        },
+        "levels": [
+          {
+            "stats": {
+              "life": 4,
+              "attack": 2,
+              "defense": 1,
+              "mana": 3,
+              "speed": 1
+            },
+            "abilities": [
+              {
+                "name": "Poker Player",
+                "text": {
+                  "it": "Prima di un combattimento tira 1 dado: con «spada» ottieni +1 {atk}, con «scudo» +1 {def}, con «teschio» perdi 1 {life}.",
+                  "en": "Before a combat roll 1 die: on «sword» get +1 {atk}, on «shield» +1 {def}, on «skull» lose 1 {life}."
+                },
+                "cost": "0 {mana}"
+              },
+              {
+                "name": "Ace in the Hole",
+                "text": {
+                  "it": "Tira 1 dado: con «spada» aggiungi 2 al tuo {atk}.",
+                  "en": "Roll 1 die: on «sword» add 2 to your {atk}."
+                },
+                "cost": "1 {mana}"
+              }
+            ]
+          },
+          {
+            "stats": {
+              "life": 4,
+              "attack": 3,
+              "defense": 2,
+              "mana": 7,
+              "speed": 2
+            },
+            "abilities": [
+              {
+                "name": "Pint of Beer",
+                "text": {
+                  "it": "Recuperi 1 {life} alla fine del tuo turno.",
+                  "en": "Recover 1 {life} at the end of your turn."
+                },
+                "passive": true
+              },
+              {
+                "name": "Grand Finale",
+                "text": {
+                  "it": "Tira 3 dadi: se escono tre risultati uguali infliggi 4 danni al nemico.",
+                  "en": "Roll 3 dice: if all three match, deal 4 damage to the enemy."
+                },
+                "cost": "2 {mana}"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -376,5 +900,9 @@
       "it": "Tre amici, da sempre appassionati di giochi da tavolo, giochi di ruolo e videogiochi. L’idea è nata dopo una partita a Talisman: renderlo più veloce e dare al fantasy classico una svolta tutta nuova. Marsylvania è solo il primo pianeta: il gioco è pensato per le espansioni.",
       "en": "Three friends and long-time lovers of board games, RPGs and video games. The idea came after a game of Talisman: make it faster and give classic fantasy a fresh twist. Marsylvania is only the first planet: the game is built for expansions."
     }
+  },
+  "bannerHint": {
+    "it": "Passa sopra o tocca un Dreamspacer per aprire la sua scheda",
+    "en": "Hover or tap a Dreamspacer to open their file"
   }
 }

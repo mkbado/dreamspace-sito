@@ -4,6 +4,8 @@ import PixelTable from '../../../components/PixelTable.astro';
 import KofiBand from '../../../components/KofiBand.astro';
 import NotifyBox from '../../../components/NotifyBox.astro';
 import Quotes from '../../../components/Quotes.astro';
+import BannerSpots from '../../../components/BannerSpots.astro';
+import DreamspacerSheets from '../../../components/DreamspacerSheets.astro';
 import { t, langs, otherLang, sections, type Lang } from '../../../i18n/ui';
 import { games, rpgs, settings, type Game, type Rpg, type Setting, oneshots, type OneShot } from '../../../data/catalog';
 import SettingPage from '../../../components/SettingPage.astro';
@@ -34,7 +36,8 @@ const os = item.kind === 'oneshot' ? item : null;
 
 {g && (
 <Base lang={lang} title={g.title} description={g.short[lang]} altPath={alt}>
-  {g.banner && (
+  {g.banner && g.characters?.list.some((c) => c.spot) && <BannerSpots lang={lang} g={g} />}
+  {g.banner && !g.characters?.list.some((c) => c.spot) && (
     <section style="border-bottom: 4px solid var(--black); background: var(--black);">
       <img src={g.banner} width="1881" height="836" alt={g.bannerAlt![lang]} style="width: 100%; max-height: 640px; object-fit: cover; object-position: center;" />
     </section>
@@ -105,6 +108,7 @@ const os = item.kind === 'oneshot' ? item : null;
         <h2 class="pixel" style="font-size: 40px;">{g.characters.title[lang]}</h2>
         <p class="muted" style="margin: 0; font-size: 14px;">{g.characters.note[lang]}</p>
       </div>
+      {g.characters.list.some((c) => c.levels?.length) ? <DreamspacerSheets lang={lang} list={g.characters.list} /> :
       <div class="row" style="gap: 20px;">
         {g.characters.list.map((c) => (
           <article class="hero-card">
@@ -114,7 +118,7 @@ const os = item.kind === 'oneshot' ? item : null;
             {c.ability && <p class="ability"><span>{g.characters!.abilityLabel?.[lang] || L('Abilità', 'Ability')}</span> {c.ability[lang]}</p>}
           </article>
         ))}
-      </div>
+      </div>}
     </section>
   )}
 

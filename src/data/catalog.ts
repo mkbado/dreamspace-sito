@@ -15,6 +15,13 @@ export interface Character {
   ink: string;
   alt: L<string>;
   bio: L<string>; // stringa vuota = da scrivere
+  /** scheda tecnica (Marsylvania) */
+  planet?: L<string>;
+  focus?: L<string>;
+  scene?: string;
+  spot?: { x: number; y: number; w: number; h: number };
+  equip?: { name: L<string>; type?: string; icon?: string; cost?: string; text: L<string> };
+  levels?: { stats: { life: number; attack: number; defense: number; mana: number; speed: number }; abilities: { name: string; cost?: string; passive?: boolean; text: L<string> }[] }[];
 }
 
 export interface Game {
@@ -32,6 +39,7 @@ export interface Game {
   heroSquare?: boolean;
   banner?: string;
   bannerAlt?: L<string>;
+  bannerHint?: L<string>;
   tag: L<string>;
   status: L<string>;
   players: string;

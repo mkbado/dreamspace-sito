@@ -1,0 +1,120 @@
+---
+// Banner con i Dreamspacer cliccabili: passando sopra (o toccando) si apre una mini scheda tecnica
+import type { Game } from '../data/catalog';
+import type { Lang } from '../i18n/ui';
+import { statKeys, statLabel, typeLabel, withIcons, statIcon, slugOf } from './dreamspacer';
+interface Props { lang: Lang; g: Game }
+const { lang, g } = Astro.props;
+const L = (it: string, en: string) => (lang === 'it' ? it : en);
+const spots = (g.characters?.list ?? []).filter((c) => c.spot);
+---
+<section class="ds-banner-wrap">
+  <div class="ds-banner">
+    <img src={g.banner} width="1882" height="836" alt={g.bannerAlt![lang]} fetchpriority="high" />
+    {spots.map((c) => {
+      const s = c.spot!;
+      const id = slugOf(c.name);
+      return (
+        <button type="button" class="ds-spot" data-pop={`pop-${id}`} aria-controls={`pop-${id}`} aria-expanded="false"
+          style={`left: ${s.x}%; top: ${s.y}%; width: ${s.w}%; height: ${s.h}%;`}
+          aria-label={L(`Apri la scheda di ${c.name}`, `Open ${c.name}’s file`)}>
+          <span class="ds-spot__ping" aria-hidden="true"></span>
+        </button>
+      );
+    })}
+    {spots.map((c) => {
+      const id = slugOf(c.name);
+      const st = c.levels?.[0]?.stats;
+      return (
+        <div class="ds-pop" id={`pop-${id}`} role="dialog" aria-label={c.name} hidden style={`--c: ${c.color}; --ink: ${c.ink};`}>
+          <header class="ds-pop__head">
+            <div><b>{c.name}</b><span>{c.planet?.[lang]}{c.role && <> · {c.role[lang]}</>}</span></div>
+            <button type="button" class="ds-pop__x" aria-label={L('Chiudi', 'Close')}>×</button>
+          </header>
+          {c.focus && <p class="ds-pop__focus">{c.focus[lang]}</p>}
+          {st && (
+            <ul class="ds-pop__stats">
+              {statKeys.map((k) => <li title={statLabel[k][lang]}><img src={statIcon(k)} alt={statLabel[k][lang]} width="22" height="22" /><b>{st[k]}</b></li>)}
+            </ul>
+          )}
+          {c.equip && (
+            <div class="ds-pop__equip">
+              {c.equip.icon && <img src={c.equip.icon} alt="" width="44" height="44" />}
+              <div>
+                <p class="ds-kicker">{L('Equip. iniziale', 'Starting equip')}{c.equip.type && c.equip.type !== 'equip' && <> · {typeLabel[c.equip.type]?.[lang]}</>}</p>
+                <b>{c.equip.name[lang]}</b>
+                <p set:html={withIcons((c.equip.cost ? c.equip.cost + ' · ' : '') + c.equip.text[lang], lang)} />
+              </div>
+            </div>
+          )}
+          <a class="ds-pop__more" href={`#ds-${id}`}>{L('Scheda completa e livello 2 ↓', 'Full file and level 2 ↓')}</a>
+        </div>
+      );
+    })}
+  </div>
+  {g.bannerHint && spots.length > 0 && <p class="ds-banner__hint"><span aria-hidden="true">▶</span> {g.bannerHint[lang]}</p>}
+</section>
+
+<script is:inline>
+(() => {
+  const wrap = document.querySelector('.ds-banner');
+  if (!wrap) return;
+  let cur = null, pinned = false, timer = 0;
+  const popOf = (b) => document.getElementById(b.dataset.pop);
+  const mobile = () => window.innerWidth < 760;
+
+  function place(btn, pop) {
+    pop.classList.toggle('is-sheet', mobile());
+    if (mobile()) { pop.style.left = pop.style.top = ''; return; }
+    const W = wrap.clientWidth, H = wrap.clientHeight;
+    const pw = pop.offsetWidth, ph = pop.offsetHeight;
+    const l = btn.offsetLeft, t = btn.offsetTop, w = btn.offsetWidth, h = btn.offsetHeight;
+    let x = l + w + 12;
+    if (x + pw > W - 8) x = l - pw - 12;
+    if (x < 8) x = Math.min(Math.max(8, l + w / 2 - pw / 2), W - pw - 8);
+    let y = t + h / 2 - ph / 2;
+    y = Math.max(8, Math.min(y, H - ph - 8));
+    pop.style.left = x + 'px';
+    pop.style.top = y + 'px';
+  }
+  function hide() {
+    clearTimeout(timer);
+    if (!cur) return;
+    popOf(cur).hidden = true;
+    cur.setAttribute('aria-expanded', 'false');
+    cur.classList.remove('is-on');
+    cur = null; pinned = false;
+  }
+  function show(btn, pin) {
+    clearTimeout(timer);
+    if (cur && cur !== btn) hide();
+    const pop = popOf(btn);
+    pop.hidden = false;
+    place(btn, pop);
+    btn.setAttribute('aria-expanded', 'true');
+    btn.classList.add('is-on');
+    cur = btn; pinned = pin || pinned;
+  }
+  const later = () => { if (!pinned) { clearTimeout(timer); timer = setTimeout(hide, 220); } };
+
+  wrap.querySelectorAll('.ds-spot').forEach((b) => {
+    b.addEventListener('mouseenter', () => { if (!pinned || cur === b) show(b, false); });
+    b.addEventListener('mouseleave', later);
+    b.addEventListener('focus', () => { if (!pinned) show(b, false); });
+    b.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (cur === b && pinned) hide(); else { pinned = false; show(b, true); }
+    });
+  });
+  wrap.querySelectorAll('.ds-pop').forEach((p) => {
+    p.addEventListener('mouseenter', () => clearTimeout(timer));
+    p.addEventListener('mouseleave', later);
+    p.addEventListener('click', (e) => e.stopPropagation());
+    p.querySelector('.ds-pop__x').addEventListener('click', hide);
+    p.querySelector('.ds-pop__more').addEventListener('click', hide);
+  });
+  document.addEventListener('click', hide);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && cur) { const b = cur; hide(); b.focus(); } });
+  window.addEventListener('resize', () => { if (cur) place(cur, popOf(cur)); });
+})();
+</script>
