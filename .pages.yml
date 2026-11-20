@@ -1804,6 +1804,11 @@ content:
         type: file
         options:
           media: files
+    - name: cover
+      label: Copertina del libro
+      type: image
+      options:
+        media: images
     list: true
   - name: heroes
     label: Eroi

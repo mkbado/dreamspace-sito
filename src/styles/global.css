@@ -878,3 +878,74 @@ a.card__media { display: block; cursor: pointer; }
 a.card__media img { transition: transform .25s ease, filter .25s ease; }
 a.card__media:hover img { transform: scale(1.03); filter: brightness(1.08); }
 @media (prefers-reduced-motion: reduce) { a.card__media img { transition: none; } a.card__media:hover img { transform: none; } }
+
+/* ===== Meriggio v3: copertina panoramica, libri, romanzo a puntate ===== */
+.fb-cover { position: relative; }
+.fb-cover__art { position: relative; margin: 14px 0 0; }
+.fb-cover__art img { display: block; width: 100%; height: auto; max-height: 78vh; object-fit: cover; object-position: center 30%; }
+.fb-cover__art::before, .fb-cover__art::after { content: ''; position: absolute; left: 0; right: 0; pointer-events: none; }
+.fb-cover__art::before { top: 0; height: 60px; background: linear-gradient(var(--fb-cream), rgba(252, 245, 227, 0)); }
+.fb-cover__art::after { bottom: 0; height: 140px; background: linear-gradient(rgba(252, 245, 227, 0), var(--fb-cream)); }
+@media (max-width: 700px) { .fb-cover__art img { min-height: 260px; object-position: 42% center; } .fb-cover__art::after { height: 70px; } }
+.fb-cover__body { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; margin-top: -48px; position: relative; padding-bottom: 24px; }
+.fb-paths { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; width: 100%; max-width: 1040px; margin-top: 22px; }
+.fb-path { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; gap: 2px 14px; align-items: center; text-align: left; padding: 16px 20px; border-radius: 18px; background: rgba(255, 250, 238, .9); border: 1px solid var(--fb-line); box-shadow: 0 10px 24px rgba(120, 84, 30, .12); text-decoration: none; color: var(--fb-ink) !important; transition: transform .2s, box-shadow .2s; }
+.fb-path:hover { transform: translateY(-3px); box-shadow: 0 16px 30px rgba(120, 84, 30, .2); }
+.fb-path:focus-visible { outline: 3px dashed var(--fb-leaf); outline-offset: 3px; }
+.fb-path__icon { grid-row: 1 / 3; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #ffe08a, var(--fb-sun)); border: 2px solid var(--fb-gold); font-size: 22px; color: var(--fb-ink); }
+.fb-path strong { font-family: var(--fb-caps); font-size: 17px; }
+.fb-path span:last-child { font-size: 15px; line-height: 1.35; color: var(--fb-ink-2); }
+.fb-intro { display: flex; flex-wrap: wrap; gap: 40px 64px; padding-block: 48px 96px; }
+
+/* libri del gioco come volumi illustrati */
+.fb-books { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
+.fb-book { padding: 0; gap: 0; overflow: visible; border-radius: 6px 20px 20px 6px; border-left-width: 16px; }
+.fb-book__cover { position: relative; aspect-ratio: 3 / 2; border-radius: 0 18px 0 0; overflow: hidden; border-bottom: 3px double var(--fb-line); }
+.fb-book__cover img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s; }
+.fb-book:hover .fb-book__cover img { transform: scale(1.04); }
+.fb-book__cover .fb-book__seal { top: auto; bottom: 12px; right: 14px; width: 52px; height: 52px; font-size: 18px; }
+.fb-book__body { display: flex; flex-direction: column; gap: 10px; padding: 20px 24px 24px; flex: 1; }
+.fb-book__body .fb-label { color: var(--book); }
+
+/* romanzo a puntate */
+.fb-band--dusk { background: radial-gradient(ellipse 90% 70% at 20% 0%, #ffe3a6 0%, rgba(255, 227, 166, 0) 60%), linear-gradient(180deg, #fbe7c4 0%, #f6d9b0 100%); border-block: 1px solid #e3c08a; }
+.fb-novel-head { display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: center; }
+.fb-novel-cover { flex: 0 1 380px; min-width: 240px; margin-inline: auto; position: relative; transform: rotate(-2deg); }
+.fb-novel-cover img { display: block; width: 100%; height: auto; border-radius: 4px 14px 14px 4px; border-left: 14px solid #7a4a2a; box-shadow: inset 0 0 0 1px rgba(0,0,0,.1), 0 26px 50px rgba(110, 60, 20, .35); }
+.fb-novel-cover::after { content: ''; position: absolute; left: 14px; top: 0; bottom: 0; width: 10px; background: linear-gradient(90deg, rgba(0,0,0,.28), transparent); border-radius: 0; }
+.fb-progress { display: flex; flex-direction: column; gap: 6px; max-width: 420px; }
+.fb-progress__bar { display: block; height: 10px; border-radius: 999px; background: rgba(122, 74, 42, .15); overflow: hidden; }
+.fb-progress__bar i { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--fb-leaf), var(--fb-sun)); }
+.fb-progress__txt { font-family: var(--fb-caps); font-size: 13px; letter-spacing: .06em; color: var(--fb-ink-2); }
+.fb-episodes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; }
+.fb-ep > a, .fb-ep > div { position: relative; display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto auto; gap: 0 12px; height: 100%; padding: 14px 16px; border-radius: 14px; background: rgba(255, 250, 238, .6); border: 1px dashed #d6b27a; text-decoration: none; color: var(--fb-ink-2) !important; }
+.fb-ep__n { grid-row: 1 / 4; align-self: start; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; border: 1px solid #d6b27a; font-family: var(--fb-title); font-weight: 700; font-size: 16px; color: #b49870; }
+.fb-ep__label { font-family: var(--fb-caps); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #a8875a; }
+.fb-ep__title { font-size: 18px; line-height: 1.25; }
+.fb-ep__state { padding-top: 6px; font-style: italic; font-size: 14px; color: #a8957a; }
+.fb-ep.is-out > a { background: #fffaf0; border: 1px solid var(--fb-gold); box-shadow: 0 8px 18px rgba(120, 84, 30, .14); color: var(--fb-ink) !important; transition: transform .2s, box-shadow .2s; }
+.fb-ep.is-out > a:hover { transform: translateY(-3px); box-shadow: 0 14px 24px rgba(120, 84, 30, .2); }
+.fb-ep.is-out .fb-ep__n { background: radial-gradient(circle at 35% 35%, #ffe08a, var(--fb-sun)); border-color: var(--fb-gold); color: var(--fb-ink); }
+.fb-ep.is-out .fb-ep__state { color: var(--fb-leaf); font-style: normal; font-family: var(--fb-caps); font-weight: 700; font-size: 13px; }
+.fb-ep.is-next > div { background: #fffaf0; border: 1px solid #c97b4a; }
+.fb-ep.is-next .fb-ep__state { color: #b5546c; font-style: normal; font-family: var(--fb-caps); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+.fb-ep a:focus-visible { outline: 3px dashed var(--fb-leaf); outline-offset: 3px; }
+
+/* ritratti ad arco, immagine intera */
+.fb-heroes { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 44px 26px; }
+.fb-portrait { width: 100%; max-width: 230px; aspect-ratio: 5 / 7; border-radius: 999px 999px 14px 14px; overflow: hidden; border: 5px solid #fff8e6; outline: 2px solid var(--fb-gold); outline-offset: 3px; box-shadow: 0 16px 34px rgba(120, 84, 30, .26); background: var(--fb-parch); }
+.fb-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform .5s; }
+.fb-hero-card:hover .fb-portrait img { transform: scale(1.05); }
+
+/* mosaico di cartoline */
+.fb-mosaic { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.fb-mosaic .fb-postcard img { aspect-ratio: 3 / 2; object-fit: cover; }
+.fb-mosaic .fb-postcard--big { grid-column: span 2; grid-row: span 2; }
+.fb-mosaic .fb-postcard--big img { aspect-ratio: auto; height: calc(100% - 40px); }
+.fb-mosaic .fb-postcard { display: flex; flex-direction: column; }
+.fb-mosaic figcaption { font-size: 16px; }
+@media (max-width: 900px) { .fb-mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .fb-mosaic { grid-template-columns: 1fr; } .fb-mosaic .fb-postcard--big { grid-column: auto; grid-row: auto; } .fb-mosaic .fb-postcard--big img { height: auto; aspect-ratio: 3 / 2; } }
+@media (prefers-reduced-motion: reduce) { .fb-path, .fb-book__cover img, .fb-portrait img, .fb-ep.is-out > a { transition: none; } }
+.fb-cover__art::before { height: 18px; }
+@media (max-width: 700px) { .fb-cover__art::before { display: none; } .fb-cover__body { margin-top: -6px; } .fb-cover__art img { min-height: 220px; } }

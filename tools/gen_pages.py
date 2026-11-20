@@ -95,7 +95,7 @@ world = common_top + [
     S('novelTitle', 'Titolo del romanzo'), S('novelTitleEn', 'Titolo del romanzo in inglese'),
     L('intro', 'Introduzione (paragrafi)', 'text', lst=True), L('motto', 'Motto'),
     O('sheet', 'Scheda tecnica', [L('label', 'Voce'), L('value', 'Valore')], lst=True, summary='{fields.label.it}'),
-    O('books', 'Libri', [S('n', 'Numero'), L('title', 'Titolo'), L('text', 'Descrizione', 'text'), L('action', 'Testo del pulsante'), L('file', 'File (PDF o link)', 'file')], lst=True, summary='{fields.title.it}'),
+    O('books', 'Libri', [S('n', 'Numero'), L('title', 'Titolo'), L('text', 'Descrizione', 'text'), L('action', 'Testo del pulsante'), L('file', 'File (PDF o link)', 'file'), IMG('cover', 'Copertina del libro')], lst=True, summary='{fields.title.it}'),
     O('heroes', 'Eroi', [L('title', 'Titolo'), L('note', 'Nota', 'text'),
         O('list', 'Eroi', [S('name', 'Nome'), L('role', 'Ruolo'), IMG('image', 'Ritratto'), L('alt', 'Descrizione immagine'), L('bio', 'Biografia', 'text')], lst=True, summary='{fields.name}')]),
     O('novel', 'Romanzo a puntate', [L('kicker', 'Occhiello'), L('text', 'Presentazione', 'text'),

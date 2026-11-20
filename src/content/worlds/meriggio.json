@@ -4,13 +4,13 @@
   "title": "Meriggio",
   "image": "/img/meriggio/card.webp",
   "imageAlt": {
-    "it": "I Guardiani di Primalba in cammino sotto una quercia: Zrak a braccia aperte, Panko con il liuto, Anacleto il gigante, GZ con la spada e Ignazio dai capelli di fuoco, tra colline di grano e casette dal tetto di paglia",
-    "en": "The Guardians of Primalba walking beneath an oak: Zrak with open arms, Panko with his lute, Anacleto the giant, GZ with his sword and fire-haired Ignazio, among wheat hills and thatched cottages"
+    "it": "La copertina di Meriggio: i cinque Guardiani di Primalba, di spalle sotto una quercia, guardano la valle soleggiata",
+    "en": "The Meriggio cover: the five Guardians of Primalba, seen from behind beneath an oak, gaze at the sunlit valley"
   },
   "banner": "/img/meriggio/banner.webp",
   "bannerAlt": {
-    "it": "I Guardiani di Primalba in cammino sotto una quercia: Zrak a braccia aperte, Panko con il liuto, Anacleto il gigante, GZ con la spada e Ignazio dai capelli di fuoco, tra colline di grano e casette dal tetto di paglia",
-    "en": "The Guardians of Primalba walking beneath an oak: Zrak with open arms, Panko with his lute, Anacleto the giant, GZ with his sword and fire-haired Ignazio, among wheat hills and thatched cottages"
+    "it": "Il titolo «Meriggio» dipinto nel cielo sopra una grande valle di campi, fiumi e casette dal tetto di paglia; i cinque Guardiani di Primalba la guardano da una rupe",
+    "en": "The title «Meriggio» painted in the sky above a wide valley of fields, rivers and thatched cottages; the five Guardians of Primalba look down on it from a cliff"
   },
   "tag": {
     "it": "Compatibile con la 5ª edizione · ambientazione, avventura e romanzo",
@@ -110,7 +110,8 @@
       "file": {
         "it": "",
         "en": ""
-      }
+      },
+      "cover": "/img/meriggio/luogo-pietrariva.webp"
     },
     {
       "n": "2",
@@ -129,7 +130,8 @@
       "file": {
         "it": "",
         "en": ""
-      }
+      },
+      "cover": "/img/meriggio/luogo-gola-dei-grufoli.webp"
     },
     {
       "n": "3",
@@ -148,7 +150,8 @@
       "file": {
         "it": "",
         "en": ""
-      }
+      },
+      "cover": "/img/meriggio/luogo-anfiteatro-delle-spalle.webp"
     },
     {
       "n": "❦",
@@ -167,7 +170,8 @@
       "file": {
         "it": "#romanzo",
         "en": "#romanzo"
-      }
+      },
+      "cover": "/img/meriggio/copertina.webp"
     }
   ],
   "heroes": {
@@ -188,8 +192,8 @@
         },
         "image": "/img/meriggio/gz.webp",
         "alt": {
-          "it": "GZ, giovane terragno con giacca rattoppata, spada corta e corno, appoggiato a un cancello di legno davanti ai campi di grano",
-          "en": "GZ, a young terragno in a patched coat with a short sword and horn, leaning on a wooden gate in front of wheat fields"
+          "it": "GZ, giovane terragno con la giacca rattoppata, il corno e la spada corta, accanto a un canale di pietra tra le colline",
+          "en": "GZ, a young terragno in a patched coat with horn and short sword, beside a stone canal among the hills"
         },
         "bio": {
           "it": "Guardia di Primalba, 1,05 m di energia. A ogni raccolto la madre gli manda una cesta di mele e un biglietto: «Torna quando ti sei calmato». Non è ancora tornato.",
@@ -204,8 +208,8 @@
         },
         "image": "/img/meriggio/panko.webp",
         "alt": {
-          "it": "Panko Shine, bardo con il liuto e un mantello verde, seduto su un muretto; nella pozzanghera si riflette un volto diverso",
-          "en": "Panko Shine, a bard with a lute and a green cloak, sitting on a stone wall; a different face is reflected in the puddle"
+          "it": "Panko Shine suona il liuto seduto su un sasso nel torrente; nell’acqua si riflette un volto diverso dal suo",
+          "en": "Panko Shine plays the lute sitting on a rock in the stream; the water reflects a face that is not his"
         },
         "bio": {
           "it": "Il suo liuto arrivò a Primalba un giorno prima di lui, con quel nome cucito sulla custodia. Se gli chiedi se il nome sia suo, pizzica tre note che vogliono dire: «Adesso è mio».",
@@ -220,8 +224,8 @@
         },
         "image": "/img/meriggio/ignazio.webp",
         "alt": {
-          "it": "Ignazio, sacerdote braciaro dai capelli di fuoco, con il bastone accanto a un braciere acceso e una carovana sullo sfondo",
-          "en": "Ignazio, a fire-haired braciaro priest with his staff beside a lit brazier, a caravan in the background"
+          "it": "Ignazio, braciaro dai capelli di fiamma, scalda la mano su un braciere accanto al carro dipinto",
+          "en": "Ignazio, a flame-haired braciaro, warms his hand over a brazier beside the painted wagon"
         },
         "bio": {
           "it": "Sacerdote della Brace, nato in carovana, ha fatto la cosa più scandalosa per un braciaro: si è fermato. La madre gli ha scritto «Un fuoco fermo si spegne»; lui le risponde con ricette di torta al miele.",
@@ -236,8 +240,8 @@
         },
         "image": "/img/meriggio/anacleto.webp",
         "alt": {
-          "it": "Anacleto, monaco gigante con le bende alle braccia, cammina sorridente davanti a un cottage dal tetto di paglia",
-          "en": "Anacleto, a giant monk with bandaged arms, walking with a smile past a thatched cottage"
+          "it": "Anacleto, monaco gigante, si fascia le braccia seduto sui gradini di una casetta dal tetto di paglia",
+          "en": "Anacleto, a giant monk, wraps his arms in bandages sitting on the steps of a thatched cottage"
         },
         "bio": {
           "it": "Monaco di Brace Caduta, 2,20 m: più del doppio di un terragno qualunque. In famiglia dicono che ci sia un gigante; sua madre sostiene che abbia solo mangiato troppa minestra.",
@@ -252,8 +256,8 @@
         },
         "image": "/img/meriggio/zrak.webp",
         "alt": {
-          "it": "Zrak, grufolo dalle orecchie a punta, a braccia aperte su una roccia tra il grano e i fiori",
-          "en": "Zrak, a pointy-eared grufolo with open arms on a rock among wheat and flowers"
+          "it": "Zrak, grufolo dal mantello di foglie, lancia in aria una moneta d’oro davanti a un arco di pietra",
+          "en": "Zrak, a grufolo in a cloak of leaves, flips a gold coin in front of a stone arch"
         },
         "bio": {
           "it": "Chierico del Caos e profeta del Rumore, per nomina propria. Espulso dal consiglio della tana per aver cantato durante una riunione, riammesso, ed espulso di nuovo per aver cantato durante la riammissione.",
@@ -475,38 +479,66 @@
     },
     "list": [
       {
-        "image": "/img/meriggio/paesaggio-valle.webp",
+        "image": "/img/meriggio/luogo-monti-senzafine.webp",
         "caption": {
-          "it": "La valle, sempre al sole",
-          "en": "The valley, always in the sun"
+          "it": "Sul passo dei Monti Senzafine",
+          "en": "On the pass of the Endless Mountains"
         }
       },
       {
-        "image": "/img/meriggio/paesaggio-villaggio.webp",
+        "image": "/img/meriggio/luogo-laguna-salmastra.webp",
         "caption": {
-          "it": "Un villaggio di terragni",
-          "en": "A terragni village"
+          "it": "La laguna salmastra, tra saline e palafitte",
+          "en": "The brackish lagoon, among salt pans and stilt houses"
         }
       },
       {
-        "image": "/img/meriggio/paesaggio-sentiero.webp",
+        "image": "/img/meriggio/luogo-pietrariva.webp",
         "caption": {
-          "it": "Verso la Piana di Spigadoro",
-          "en": "Towards the Spigadoro Plain"
+          "it": "Il mercato galleggiante di Pietrariva",
+          "en": "The floating market of Pietrariva"
         }
       },
       {
-        "image": "/img/meriggio/paesaggio-olmo.webp",
+        "image": "/img/meriggio/luogo-biancofusto.webp",
         "caption": {
-          "it": "Olmo Cavo, nel Bosco Torto",
-          "en": "Olmo Cavo, in the Crooked Wood"
+          "it": "Biancofusto, città di linfa, vetro e pietra",
+          "en": "Biancofusto, city of sap, glass and stone"
         }
       },
       {
-        "image": "/img/meriggio/paesaggio-citta.webp",
+        "image": "/img/meriggio/luogo-carovana-braciari.webp",
         "caption": {
-          "it": "Una città tra le colline",
-          "en": "A town among the hills"
+          "it": "La carovana dei braciari sulle Colline Rosse",
+          "en": "The braciari caravan on the Red Hills"
+        }
+      },
+      {
+        "image": "/img/meriggio/luogo-monte-fumalto.webp",
+        "caption": {
+          "it": "Il Monte Fumalto e il monastero di Brace Caduta",
+          "en": "Mount Fumalto and the monastery of Brace Caduta"
+        }
+      },
+      {
+        "image": "/img/meriggio/luogo-bosco-luci-alate.webp",
+        "caption": {
+          "it": "Il bosco nascosto delle luci alate",
+          "en": "The hidden wood of winged lights"
+        }
+      },
+      {
+        "image": "/img/meriggio/luogo-gola-dei-grufoli.webp",
+        "caption": {
+          "it": "La gola fumante dei grufoli",
+          "en": "The smoking gorge of the grufoli"
+        }
+      },
+      {
+        "image": "/img/meriggio/luogo-anfiteatro-delle-spalle.webp",
+        "caption": {
+          "it": "Il gigante nell’anfiteatro delle Spalle",
+          "en": "The giant in the amphitheatre of the Shoulders"
         }
       }
     ]

@@ -14,97 +14,150 @@ import { site, tl, type Setting } from '../data/catalog';
 interface Props { lang: Lang; s: Setting; altPath: string }
 const { lang, s, altPath } = Astro.props;
 const L = (it: string, en: string) => (lang === 'it' ? it : en);
-const novel = s.books.find((b) => b.n === '❦');
+const novelBook = s.books.find((b) => b.n === '❦');
+const gameBooks = s.books.filter((b) => b.n !== '❦');
+const roman = ['I', 'II', 'III', 'IV', 'V'];
+const chapters = s.novel?.chapters ?? [];
+const outCount = chapters.filter((c) => c.file?.[lang]).length;
+const firstOut = chapters.find((c) => c.file?.[lang]);
+const nextIdx = chapters.findIndex((c) => !c.file?.[lang]);
 ---
 <Base lang={lang} title={s.title} description={s.short[lang]} altPath={altPath} bodyClass="skin-fiaba" extraFonts>
   <div class="fb-motes" aria-hidden="true">{Array.from({ length: 14 }, (_, i) => <i style={`--i:${i}`}></i>)}</div>
 
   <!-- Copertina -->
-  <section class="fb-hero">
-    <div class="container stack" style="gap: 26px; padding-block: 32px 72px;">
+  <section class="fb-cover">
+    <div class="container" style="padding-top: 22px;">
       <nav class="crumbs fb-crumbs" aria-label={L('Percorso', 'Breadcrumb')}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › <a href={`/${lang}/${sections[lang].rpg}/`}>{t(lang, 'nav.rpg')}</a> › {s.title}</nav>
-      <div class="fb-masthead">
-        <p class="fb-kicker">{L('C’era una volta, in una valle sempre al sole…', 'Once upon a time, in a valley always in the sun…')}</p>
-        <h1 class="fb-title">{s.title}</h1>
-        <p class="fb-tagline">{s.tagline[lang]}</p>
-        <span class="fb-divider" aria-hidden="true"></span>
-      </div>
-      <figure class="fb-arch">
-        <img src={s.banner} width="1448" height="1086" alt={s.bannerAlt[lang]} />
-      </figure>
-      <div class="fb-intro">
-        <div class="stack" style="gap: 18px; flex: 1 1 540px; min-width: 0;">
-          <p class="fb-label">{s.tag[lang]}</p>
-          {s.intro[lang].map((p, i) => <p class={i === 0 ? 'fb-lead fb-dropcap' : 'fb-body'}>{p}</p>)}
-          <div class="row" style="gap: 12px; padding-top: 8px;">
-            <a class="fb-btn" href="#libri">{L('Apri i libri', 'Open the books')}</a>
-            {(s.novel || novel) && <a class="fb-btn fb-btn--ghost" href={s.novel ? '#romanzo' : '#libri'}>{L('Leggi la fiaba', 'Read the tale')}</a>}
-          </div>
-        </div>
-        <aside class="stack" style="flex: 1 1 320px; min-width: 0; gap: 22px;">
-          <div class="fb-scroll">
-            <p class="fb-label" style="text-align: center;">{t(lang, 'rpg.sheet')}</p>
-            <dl>
-              {s.sheet.map((x) => (<><dt>{x.label[lang]}</dt><dd>{x.value[lang]}</dd></>))}
-            </dl>
-          </div>
-          <blockquote class="fb-motto">
-            <p>«{s.motto[lang]}»</p>
-            <footer>{L('La regola d’oro per raccontare Meriggio', 'The golden rule for telling Meriggio')}</footer>
-          </blockquote>
-        </aside>
-      </div>
+    </div>
+    <figure class="fb-cover__art">
+      <img src={s.banner} width="1983" height="793" alt={s.bannerAlt[lang]} fetchpriority="high" />
+    </figure>
+    <div class="container fb-cover__body">
+      <h1 class="sr-only">{s.title}</h1>
+      <p class="fb-kicker">{L('C’era una volta, in una valle sempre al sole…', 'Once upon a time, in a valley always in the sun…')}</p>
+      <p class="fb-tagline">{s.tagline[lang]}</p>
+      <span class="fb-divider" aria-hidden="true"></span>
+      <nav class="fb-paths" aria-label={L('Cosa trovi in Meriggio', 'What you’ll find in Meriggio')}>
+        <a href="#libri" class="fb-path">
+          <span class="fb-path__icon" aria-hidden="true">📜</span>
+          <strong>{L('I libri del gioco', 'The game books')}</strong>
+          <span>{L('Guida al mondo, avventura e bestiario per chi narra', 'World guide, adventure and bestiary for the storyteller')}</span>
+        </a>
+        {s.novel && (
+          <a href="#romanzo" class="fb-path">
+            <span class="fb-path__icon" aria-hidden="true">❦</span>
+            <strong>{L('Il romanzo a puntate', 'The serial novel')}</strong>
+            <span>{tl(lang, s.novelTitle, s.novelTitleEn)} · {L('un capitolo alla volta', 'one chapter at a time')}</span>
+          </a>
+        )}
+        <a href="#compagnia" class="fb-path">
+          <span class="fb-path__icon" aria-hidden="true">✦</span>
+          <strong>{L('La valle e i suoi eroi', 'The valley and its heroes')}</strong>
+          <span>{L('Personaggi, luoghi, genti e creature', 'Characters, places, peoples and creatures')}</span>
+        </a>
+      </nav>
     </div>
   </section>
 
-  <!-- Libri -->
+  <!-- Presentazione -->
+  <section class="container fb-intro">
+    <div class="stack" style="gap: 18px; flex: 1 1 540px; min-width: 0;">
+      <p class="fb-label">{s.tag[lang]}</p>
+      {s.intro[lang].map((p, i) => <p class={i === 0 ? 'fb-lead fb-dropcap' : 'fb-body'}>{p}</p>)}
+    </div>
+    <aside class="stack" style="flex: 1 1 320px; min-width: 0; gap: 22px;">
+      <div class="fb-scroll">
+        <p class="fb-label" style="text-align: center;">{t(lang, 'rpg.sheet')}</p>
+        <dl>
+          {s.sheet.map((x) => (<><dt>{x.label[lang]}</dt><dd>{x.value[lang]}</dd></>))}
+        </dl>
+      </div>
+      <blockquote class="fb-motto">
+        <p>«{s.motto[lang]}»</p>
+        <footer>{L('La regola d’oro per raccontare Meriggio', 'The golden rule for telling Meriggio')}</footer>
+      </blockquote>
+    </aside>
+  </section>
+
+  <!-- Libri del gioco -->
   <section id="libri" class="fb-band fb-band--meadow">
-    <div class="container stack" style="gap: 32px;">
+    <div class="container stack" style="gap: 40px;">
       <div class="fb-head">
-        <p class="fb-kicker">{L('La biblioteca della valle', 'The valley library')}</p>
-        <h2 class="fb-h2">{L('Tre libri e una fiaba', 'Three books and a tale')}</h2>
+        <p class="fb-kicker">{L('Per chi narra · la biblioteca della valle', 'For the storyteller · the valley library')}</p>
+        <h2 class="fb-h2">{L('I libri del gioco', 'The game books')}</h2>
+        <p class="fb-body" style="max-width: 640px;">{L('Tutto il necessario per giocare Meriggio con la 5ª edizione: il mondo, la prima avventura e le creature che la abitano.', 'Everything you need to play Meriggio with 5th edition: the world, the first adventure and the creatures that live in it.')}</p>
       </div>
       <div class="fb-books">
-        {s.books.map((b, i) => (
-          <article class={`fb-book fb-book--${i % 4}`}>
-            <span class="fb-book__seal">{b.n}</span>
-            <h3>{b.title[lang]}</h3>
-            <p>{b.text[lang]}</p>
-            {(b.file?.[lang] || b.file?.it)
-              ? <a href={b.file[lang] || b.file.it} class="fb-book__dl" download={(b.file[lang] || b.file.it).startsWith('#') ? undefined : ''}>{b.action[lang]}</a>
-              : <span class="fb-book__dl fb-book__dl--soon">{b.action[lang]} · {L('in arrivo', 'coming soon')}</span>}
-          </article>
-        ))}
+        {gameBooks.map((b, i) => {
+          const f = b.file?.[lang] || b.file?.it;
+          return (
+            <article class={`fb-book fb-book--${i % 4}`}>
+              {b.cover && <div class="fb-book__cover"><img src={b.cover} alt="" loading="lazy" width="1400" height="933" /><span class="fb-book__seal">{roman[i] ?? b.n}</span></div>}
+              <div class="fb-book__body">
+                <p class="fb-label">{L('Libro', 'Book')} {roman[i] ?? b.n}</p>
+                <h3>{b.title[lang]}</h3>
+                <p>{b.text[lang]}</p>
+                {f
+                  ? <a href={f} class="fb-book__dl" download={f.startsWith('#') ? undefined : ''}>{b.action[lang]}</a>
+                  : <span class="fb-book__dl fb-book__dl--soon">{b.action[lang]} · {L('in arrivo', 'coming soon')}</span>}
+              </div>
+            </article>
+          );
+        })}
       </div>
     </div>
   </section>
 
   <!-- Romanzo a puntate -->
   {s.novel && (
-    <section id="romanzo" class="container" style="padding-block: 88px 24px;">
-      <div class="fb-novel">
-        <div class="stack" style="flex: 1 1 380px; min-width: 0; gap: 16px;">
-          <p class="fb-kicker">{s.novel.kicker[lang]}</p>
-          <h2 class="fb-h2">{tl(lang, s.novelTitle, s.novelTitleEn)}</h2>
-          <p class="fb-body">{s.novel.text[lang]}</p>
-          {s.novel.chapters[0]?.file?.[lang] && <div class="row" style="padding-top: 6px;"><a class="fb-btn" href={s.novel.chapters[0].file[lang]} target="_blank" rel="noopener">{L('Inizia a leggere', 'Start reading')}</a></div>}
-          <a class="fb-small" href={`/${lang}/#lista`}>{L('Avvisami quando esce un nuovo capitolo', 'Tell me when a new chapter is out')}</a>
+    <section id="romanzo" class="fb-band fb-band--dusk">
+      <div class="container stack" style="gap: 48px;">
+        <div class="fb-novel-head">
+          <div class="fb-novel-cover">
+            <img src={novelBook?.cover || s.image} alt={L(`La copertina di ${tl(lang, s.novelTitle, s.novelTitleEn)}`, `The cover of ${tl(lang, s.novelTitle, s.novelTitleEn)}`)} loading="lazy" width="900" height="900" />
+          </div>
+          <div class="stack" style="flex: 1 1 380px; min-width: 0; gap: 16px;">
+            <p class="fb-kicker">{s.novel.kicker[lang]}</p>
+            <h2 class="fb-h2">{tl(lang, s.novelTitle, s.novelTitleEn)}</h2>
+            <p class="fb-body">{s.novel.text[lang]}</p>
+            <div class="fb-progress" role="img" aria-label={L(`${outCount} puntate uscite su ${s.novel.chapters.length}`, `${outCount} of ${s.novel.chapters.length} episodes out`)}>
+              <span class="fb-progress__bar"><i style={`width: ${Math.max(2, (outCount / s.novel.chapters.length) * 100)}%`}></i></span>
+              <span class="fb-progress__txt">{L('Puntate uscite', 'Episodes out')}: <b>{outCount}</b> / {s.novel.chapters.length}</span>
+            </div>
+            <div class="row" style="gap: 12px; padding-top: 4px;">
+              {firstOut
+                ? <a class="fb-btn" href={firstOut.file[lang]} target="_blank" rel="noopener">{L('Inizia a leggere', 'Start reading')}</a>
+                : <a class="fb-btn" href={`/${lang}/#lista`}>{L('Avvisami alla prima puntata', 'Tell me when it starts')}</a>}
+              {firstOut && <a class="fb-btn fb-btn--ghost" href={`/${lang}/#lista`}>{L('Avvisami delle nuove puntate', 'Notify me of new episodes')}</a>}
+            </div>
+          </div>
         </div>
-        <ol class="fb-chapters">
-          {s.novel.chapters.map((c) => (
-            <li class={c.file?.[lang] ? 'is-out' : ''}>
-              <span class="fb-chapters__n">{c.label[lang]}</span>
-              <span class="fb-chapters__t">{c.file?.[lang] ? <a href={c.file[lang]} target="_blank" rel="noopener">{c.title[lang]}</a> : c.title[lang]}</span>
-              <span class="fb-chapters__s">{c.file?.[lang] ? L('leggi', 'read') : L('in arrivo', 'coming soon')}</span>
-            </li>
-          ))}
+        <ol class="fb-episodes">
+          {s.novel.chapters.map((c, i) => {
+            const f = c.file?.[lang];
+            const next = !f && i === nextIdx;
+            const inner = (
+              <>
+                <span class="fb-ep__n" aria-hidden="true">{i === 0 && !/\d/.test(c.label[lang]) ? '❦' : i}</span>
+                <span class="fb-ep__label">{c.label[lang]}</span>
+                <span class="fb-ep__title">{c.title[lang]}</span>
+                <span class="fb-ep__state">{f ? L('Leggi →', 'Read →') : next ? L('Prossima puntata', 'Next episode') : L('In arrivo', 'Coming soon')}</span>
+              </>
+            );
+            return (
+              <li class={`fb-ep${f ? ' is-out' : ''}${next ? ' is-next' : ''}`}>
+                {f ? <a href={f} target="_blank" rel="noopener">{inner}</a> : <div>{inner}</div>}
+              </li>
+            );
+          })}
         </ol>
       </div>
     </section>
   )}
 
   <!-- Eroi -->
-  <section class="container stack" style="padding-block: 88px; gap: 32px;">
+  <section id="compagnia" class="container stack" style="padding-block: 96px; gap: 40px;">
     <div class="fb-head">
       <p class="fb-kicker">{L('La compagnia', 'The fellowship')}</p>
       <h2 class="fb-h2">{s.heroes.title[lang]}</h2>
@@ -113,7 +166,7 @@ const novel = s.books.find((b) => b.n === '❦');
     <div class="fb-heroes">
       {s.heroes.list.map((h) => (
         <article class="fb-hero-card">
-          <div class="fb-oval"><img src={h.image} alt={h.alt[lang]} loading="lazy" width="700" height="980" /></div>
+          <div class="fb-portrait"><img src={h.image} alt={h.alt[lang]} loading="lazy" width="640" height="896" /></div>
           <h3>{h.name}</h3>
           <p class="fb-label">{h.role[lang]}</p>
           <p class="fb-body">{h.bio[lang]}</p>
@@ -130,10 +183,10 @@ const novel = s.books.find((b) => b.n === '❦');
           <p class="fb-kicker">{L('Dal taccuino di viaggio', 'From the travel sketchbook')}</p>
           <h2 class="fb-h2">{s.landscapes.title[lang]}</h2>
         </div>
-        <div class="fb-postcards">
+        <div class="fb-mosaic">
           {s.landscapes.list.map((x, i) => (
-            <figure class={`fb-postcard${i === 0 ? ' fb-postcard--wide' : ''}`}>
-              <img src={x.image} alt={x.caption[lang]} loading="lazy" width="1200" height="800" />
+            <figure class={`fb-postcard${i === 0 ? ' fb-postcard--big' : ''}`}>
+              <img src={x.image} alt={x.caption[lang]} loading="lazy" width="1400" height="933" />
               <figcaption>{x.caption[lang]}</figcaption>
             </figure>
           ))}

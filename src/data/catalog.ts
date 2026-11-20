@@ -132,7 +132,7 @@ export interface Setting {
   intro: L<string[]>;
   motto: L<string>;
   sheet: { label: L<string>; value: L<string> }[];
-  books: { n: string; title: L<string>; text: L<string>; action: L<string>; file: L<string> }[];
+  books: { n: string; title: L<string>; text: L<string>; action: L<string>; file: L<string>; cover?: string }[];
   cardMeta: L<string>;
   cardButton?: L<string>;
   novelTitle: string;
