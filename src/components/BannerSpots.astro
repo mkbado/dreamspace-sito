@@ -32,6 +32,7 @@ const spots = (g.characters?.list ?? []).filter((c) => c.spot);
             <button type="button" class="ds-pop__x" aria-label={L('Chiudi', 'Close')}>×</button>
           </header>
           {c.focus && <p class="ds-pop__focus">{c.focus[lang]}</p>}
+          {c.bio[lang] && <p class="ds-pop__bio">{c.bio[lang]}</p>}
           {st && (
             <ul class="ds-pop__stats">
               {statKeys.map((k) => <li title={statLabel[k][lang]}><img src={statIcon(k)} alt={statLabel[k][lang]} width="22" height="22" /><b>{st[k]}</b></li>)}
@@ -43,7 +44,6 @@ const spots = (g.characters?.list ?? []).filter((c) => c.spot);
               <div>
                 <p class="ds-kicker">{L('Equip. iniziale', 'Starting equip')}{c.equip.type && !['equip', 'other'].includes(c.equip.type) && <> · {typeLabel[c.equip.type]?.[lang]}</>}</p>
                 <b>{c.equip.name[lang]}</b>
-                <p set:html={withIcons((c.equip.cost ? c.equip.cost + ' · ' : '') + c.equip.text[lang], lang)} />
               </div>
             </div>
           )}

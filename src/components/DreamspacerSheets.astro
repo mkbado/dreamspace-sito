@@ -23,6 +23,7 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
           <p>{c.role?.[lang]}{c.focus && <> · {c.focus[lang]}</>}</p>
         </header>
         <div class="ds-sheet__body">
+          {c.bio[lang] && <p class="ds-sheet__bio">{c.bio[lang]}</p>}
           {l2 && (
             <div class="ds-lv" role="group" aria-label={L('Livello', 'Level')}>
               <button type="button" data-set="1" aria-pressed="true">LV 1</button>
@@ -48,8 +49,7 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
               <div class="ds-equip__row">
                 {c.equip.icon && <img class="ds-equip__icon" src={c.equip.icon} alt="" width="64" height="64" loading="lazy" />}
                 <div>
-                  <h4>{c.equip.name[lang]}{c.equip.cost && <span class="ds-cost" set:html={withIcons(c.equip.cost, lang)} />}</h4>
-                  <p set:html={withIcons(c.equip.text[lang], lang)} />
+                  <h4>{c.equip.name[lang]}</h4>
                 </div>
               </div>
             </div>
@@ -75,19 +75,13 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
 
           <div class="ds-abil">
             <p class="ds-kicker">{L('Abilità', 'Abilities')}</p>
-            {lv.map((level, i) => level.abilities.map((a) => (
-              <div class={`ds-ab${i > 0 ? ' lv2only' : ''}`}>
-                <h4>
-                  {nameOf(a.name, lang)}
-                  {i > 0 && <span class="ds-new">LV 2</span>}
-                  {a.passive ? <span class="ds-cost ds-cost--passive">{L('Passiva', 'Passive')}</span> : a.cost && <span class="ds-cost" set:html={withIcons(a.cost, lang)} />}
-                </h4>
-                <p set:html={withIcons(a.text[lang], lang)} />
-              </div>
-            )))}
+            <ul>
+              {lv.map((level, i) => level.abilities.map((a) => (
+                <li class={i > 0 ? 'lv2only' : ''}>{nameOf(a.name, lang)}{i > 0 && <span class="ds-new">LV 2</span>}</li>
+              )))}
+            </ul>
           </div>
 
-          {c.bio[lang] && <details class="ds-bio"><summary>{L('Chi è', 'Who they are')}</summary><p>{c.bio[lang]}</p></details>}
         </div>
       </article>
     );
