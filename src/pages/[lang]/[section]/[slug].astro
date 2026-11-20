@@ -7,7 +7,7 @@ import Quotes from '../../../components/Quotes.astro';
 import BannerSpots from '../../../components/BannerSpots.astro';
 import DreamspacerSheets from '../../../components/DreamspacerSheets.astro';
 import { t, langs, otherLang, sections, type Lang } from '../../../i18n/ui';
-import { games, rpgs, settings, type Game, type Rpg, type Setting, oneshots, type OneShot } from '../../../data/catalog';
+import { games, rpgs, settings, type Game, type Rpg, type Setting, oneshots, type OneShot, localImg } from '../../../data/catalog';
 import SettingPage from '../../../components/SettingPage.astro';
 import CircoloPage from '../../../components/CircoloPage.astro';
 import OneShotPage from '../../../components/OneShotPage.astro';
@@ -48,8 +48,8 @@ const os = item.kind === 'oneshot' ? item : null;
       {!g.banner && <div class="window" style={g.heroPortrait ? 'flex: 0 1 380px; min-width: 0; margin-inline: auto;' : g.heroSquare ? 'flex: 0 1 460px; min-width: 0; margin-inline: auto;' : 'flex: 1 1 520px; min-width: 0;'}>
         <div class="window__bar"><span>{g.fileName ?? `${g.slug.toUpperCase()}.PNG`}</span><span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
         {g.heroImage
-          ? <img src={g.heroImage} alt={g.heroAlt![lang]} style={`width: 100%; aspect-ratio: ${g.heroPortrait ? '2 / 3' : g.heroSquare ? '1 / 1' : '16 / 10'}; object-fit: cover;`} />
-          : <img src={g.image} alt={g.imageAlt![lang]} style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover;" />}
+          ? <img src={localImg(g.heroImage, lang)} alt={g.heroAlt![lang]} style={`width: 100%; aspect-ratio: ${g.heroPortrait ? '2 / 3' : g.heroSquare ? '1 / 1' : '16 / 10'}; object-fit: cover;`} />
+          : <img src={localImg(g.image, lang)} alt={g.imageAlt![lang]} style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover;" />}
       </div>}
       <div class="stack" style="flex: 1 1 400px; min-width: 0; gap: 20px;">
         <p class="label" style="margin: 0; color: var(--teal);">{g.tag[lang]}</p>
