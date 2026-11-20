@@ -4,13 +4,13 @@
   "title": "Meriggio",
   "image": "/img/meriggio/card.webp",
   "imageAlt": {
-    "it": "I Guardiani di Primalba all’ombra di una quercia: un grufolo, un bardo con il liuto, un giovane terragno con la spada, un sacerdote dai capelli di fuoco, un monaco gigante e Harlon Granazampa con una gallina sulla spalla e una capra, davanti a colline di campi e casette dal tetto di paglia",
-    "en": "The Guardians of Primalba in the shade of an oak: a grufolo, a bard with a lute, a young terragno with a sword, a fire-haired priest, a giant monk and Harlon Granazampa with a hen on his shoulder and a goat, in front of hills of fields and thatched cottages"
+    "it": "I Guardiani di Primalba in cammino sotto una quercia: Zrak a braccia aperte, Panko con il liuto, Anacleto il gigante, GZ con la spada e Ignazio dai capelli di fuoco, tra colline di grano e casette dal tetto di paglia",
+    "en": "The Guardians of Primalba walking beneath an oak: Zrak with open arms, Panko with his lute, Anacleto the giant, GZ with his sword and fire-haired Ignazio, among wheat hills and thatched cottages"
   },
   "banner": "/img/meriggio/banner.webp",
   "bannerAlt": {
-    "it": "I Guardiani di Primalba all’ombra di una quercia: un grufolo, un bardo con il liuto, un giovane terragno con la spada, un sacerdote dai capelli di fuoco, un monaco gigante e Harlon Granazampa con una gallina sulla spalla e una capra, davanti a colline di campi e casette dal tetto di paglia",
-    "en": "The Guardians of Primalba in the shade of an oak: a grufolo, a bard with a lute, a young terragno with a sword, a fire-haired priest, a giant monk and Harlon Granazampa with a hen on his shoulder and a goat, in front of hills of fields and thatched cottages"
+    "it": "I Guardiani di Primalba in cammino sotto una quercia: Zrak a braccia aperte, Panko con il liuto, Anacleto il gigante, GZ con la spada e Ignazio dai capelli di fuoco, tra colline di grano e casette dal tetto di paglia",
+    "en": "The Guardians of Primalba walking beneath an oak: Zrak with open arms, Panko with his lute, Anacleto the giant, GZ with his sword and fire-haired Ignazio, among wheat hills and thatched cottages"
   },
   "tag": {
     "it": "Compatibile con la 5ª edizione · ambientazione, avventura e romanzo",
@@ -188,8 +188,8 @@
         },
         "image": "/img/meriggio/gz.webp",
         "alt": {
-          "it": "GZ, giovane terragno con giacca rattoppata, spada corta e corno, a mani sui fianchi davanti a un cancello di legno",
-          "en": "GZ, a young terragno in a patched coat with a short sword and a horn, hands on hips by a wooden gate"
+          "it": "GZ, giovane terragno con giacca rattoppata, spada corta e corno, appoggiato a un cancello di legno davanti ai campi di grano",
+          "en": "GZ, a young terragno in a patched coat with a short sword and horn, leaning on a wooden gate in front of wheat fields"
         },
         "bio": {
           "it": "Guardia di Primalba, 1,05 m di energia. A ogni raccolto la madre gli manda una cesta di mele e un biglietto: «Torna quando ti sei calmato». Non è ancora tornato.",
@@ -204,8 +204,8 @@
         },
         "image": "/img/meriggio/panko.webp",
         "alt": {
-          "it": "Panko Shine, bardo con il liuto e un mantello verde, appoggiato a un muretto; nella pozzanghera si riflette un volto diverso",
-          "en": "Panko Shine, a bard with a lute and a green cloak leaning on a stone wall; the puddle reflects a different face"
+          "it": "Panko Shine, bardo con il liuto e un mantello verde, seduto su un muretto; nella pozzanghera si riflette un volto diverso",
+          "en": "Panko Shine, a bard with a lute and a green cloak, sitting on a stone wall; a different face is reflected in the puddle"
         },
         "bio": {
           "it": "Il suo liuto arrivò a Primalba un giorno prima di lui, con quel nome cucito sulla custodia. Se gli chiedi se il nome sia suo, pizzica tre note che vogliono dire: «Adesso è mio».",
@@ -236,8 +236,8 @@
         },
         "image": "/img/meriggio/anacleto.webp",
         "alt": {
-          "it": "Anacleto, monaco gigante, si china sulla porta di un cottage verso due piccoli terragni; per terra è disegnata una capra",
-          "en": "Anacleto, a giant monk, stoops at a cottage door towards two small terragni; a goat is drawn on the ground"
+          "it": "Anacleto, monaco gigante con le bende alle braccia, cammina sorridente davanti a un cottage dal tetto di paglia",
+          "en": "Anacleto, a giant monk with bandaged arms, walking with a smile past a thatched cottage"
         },
         "bio": {
           "it": "Monaco di Brace Caduta, 2,20 m: più del doppio di un terragno qualunque. In famiglia dicono che ci sia un gigante; sua madre sostiene che abbia solo mangiato troppa minestra.",
@@ -252,8 +252,8 @@
         },
         "image": "/img/meriggio/zrak.webp",
         "alt": {
-          "it": "Zrak, grufolo dalle orecchie a punta, a braccia aperte su una roccia tra i fiori, con la sua tana alle spalle",
-          "en": "Zrak, a pointy-eared grufolo, arms wide on a rock among the flowers, his burrow behind him"
+          "it": "Zrak, grufolo dalle orecchie a punta, a braccia aperte su una roccia tra il grano e i fiori",
+          "en": "Zrak, a pointy-eared grufolo with open arms on a rock among wheat and flowers"
         },
         "bio": {
           "it": "Chierico del Caos e profeta del Rumore, per nomina propria. Espulso dal consiglio della tana per aver cantato durante una riunione, riammesso, ed espulso di nuovo per aver cantato durante la riammissione.",
