@@ -24,15 +24,15 @@
       {
         "file": "MARSYLVANIA.EXE",
         "color": "#d9442b",
-        "image": "/img/hero-caccia.webp",
+        "image": "/img/marsylvania/cover.webp",
         "title": "Dreamspace: Mission to Marsylvania",
         "text": {
           "it": "Gioco da tavolo · 1–4 giocatori · 60 min · lista d'attesa aperta",
           "en": "Board game · 1–4 players · 60 min · waiting list open"
         },
         "alt": {
-          "it": "Lord Caramel affronta con la spada di cristallo un verme gigante tra i canyon rossi di Marsylvania",
-          "en": "Lord Caramel swings his crystal sword at a giant worm among the red canyons of Marsylvania"
+          "it": "La copertina di Dreamspace: Mission to Marsylvania: i sei Dreamspacer di spalle guardano i canyon rossi, la luna rosa e il castello dei vampiri",
+          "en": "The Dreamspace: Mission to Marsylvania cover: the six Dreamspacers, seen from behind, gaze at the red canyons, the pink moon and the vampire castle"
         },
         "link": {
           "it": "/it/giochi-da-tavolo/marsylvania/",
