@@ -6,7 +6,7 @@ import { type Lang } from '../i18n/ui';
 interface Props { lang: Lang; secret?: boolean }
 const { lang, secret = true } = Astro.props;
 const msg = lang === 'it' ? 'MISSIONE ACCETTATA!' : 'MISSION ACCEPTED!';
-const crew = ['chatblob', 'prof-giraf', 'lord-caramel', 'queen-illuminati', 'venusian-ronin', 'alligactor'].map((n) => `/img/chars/${n}.webp`);
+const crew = ['chat-blob', 'prof-giraf', 'lord-caramel', 'queen-illuminati', 'venusian-ronin', 'alligactor'].map((n) => `/img/marsylvania/sprite-${n}.webp`);
 ---
 <canvas id="ds-confetti" aria-hidden="true"></canvas>
 <div id="ds-mission" role="status" aria-live="polite"></div>
