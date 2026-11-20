@@ -83,19 +83,24 @@ const nRpg = rpgs.length + settings.length;
   <section id="novita" class="band-cream">
     <div class="container stack pad" style="gap: 32px;">
       <h2 class="pixel h2">{L('Novità', 'News')}</h2>
-      <div class="cards news">
-        {news.map((n) => (
-          <article class="card">
-            {n.image && <div class="card__media"><img src={n.image} width="960" height="600" alt="" loading="lazy" /></div>}
-            <div class="card__body">
-              <p class="card__tag"><time datetime={n.date}>{fmt(n.date)}</time></p>
-              <h3 class="pixel h3">{n.title[lang]}</h3>
-              <p>{n.text[lang]}</p>
-              {n.link?.[lang] && <div class="card__foot" style="justify-content: flex-start;"><a class="btn btn--orange" href={n.link[lang]}>{L('Scopri', 'Find out more')}</a></div>}
-            </div>
-          </article>
-        ))}
-      </div>
+      {[news.slice(0, 3), news.slice(3)].map((group, gi) => group.length > 0 && (
+        <>
+          {gi === 1 && <p class="label news__more">{L('Altre novità', 'More news')} <span aria-hidden="true">→</span></p>}
+          <div class={gi === 0 ? 'news__top' : 'news__rail'} tabindex={gi === 1 ? 0 : undefined} aria-label={gi === 1 ? L('Altre novità, scorri', 'More news, scroll') : undefined}>
+            {group.map((n) => (
+              <article class="card">
+                {n.image && <div class="card__media"><img src={n.image} width="960" height="600" alt="" loading="lazy" /></div>}
+                <div class="card__body">
+                  <p class="card__tag"><time datetime={n.date}>{fmt(n.date)}</time></p>
+                  <h3 class="pixel h3">{n.title[lang]}</h3>
+                  <p>{n.text[lang]}</p>
+                  {n.link?.[lang] && <div class="card__foot" style="justify-content: flex-start;"><a class="btn btn--orange" href={n.link[lang]}>{L('Scopri', 'Find out more')}</a></div>}
+                </div>
+              </article>
+            ))}
+          </div>
+        </>
+      ))}
     </div>
   </section>
 

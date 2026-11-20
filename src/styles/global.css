@@ -863,3 +863,14 @@ html.ds-intro-on body { overflow: hidden; }
 .ds-equip__row { align-items: center; }
 .ds-abil ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .ds-abil li { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: var(--night); border: 2px solid var(--black); border-left: 4px solid var(--c); font-size: 14px; font-weight: 600; }
+
+/* Novità: le prime tre in griglia, le altre in una fila che scorre */
+.news__top { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; align-items: stretch; }
+.news__top .card, .news__rail .card { display: flex; flex-direction: column; }
+.news__top .card__body, .news__rail .card__body { flex: 1; }
+.news__top .card__foot, .news__rail .card__foot { margin-top: auto; }
+.news__more { margin: 8px 0 -12px; color: var(--teal); }
+.news__rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(280px, calc((100% - 56px) / 3)); gap: 28px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 8px 18px 0; scrollbar-color: var(--orange) transparent; }
+.news__rail .card { scroll-snap-align: start; }
+.news__rail:focus-visible { outline: 3px dashed var(--orange); outline-offset: 6px; }
+@media (max-width: 900px) { .news__top { grid-template-columns: 1fr; } .news__rail { grid-auto-columns: 82%; } }
