@@ -89,7 +89,9 @@ const nRpg = rpgs.length + settings.length;
           <div class={gi === 0 ? 'news__top' : 'news__rail'} tabindex={gi === 1 ? 0 : undefined} aria-label={gi === 1 ? L('Altre novità, scorri', 'More news, scroll') : undefined}>
             {group.map((n) => (
               <article class="card">
-                {n.image && <div class="card__media"><img src={localImg(n.image, lang)} width="960" height="600" alt="" loading="lazy" /></div>}
+                {n.image && (n.link?.[lang]
+                  ? <a class="card__media" href={n.link[lang]} tabindex="-1" aria-hidden="true"><img src={localImg(n.image, lang)} width="960" height="600" alt="" loading="lazy" /></a>
+                  : <div class="card__media"><img src={localImg(n.image, lang)} width="960" height="600" alt="" loading="lazy" /></div>)}
                 <div class="card__body">
                   <p class="card__tag"><time datetime={n.date}>{fmt(n.date)}</time></p>
                   <h3 class="pixel h3">{n.title[lang]}</h3>

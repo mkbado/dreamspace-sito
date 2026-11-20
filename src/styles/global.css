@@ -874,3 +874,7 @@ html.ds-intro-on body { overflow: hidden; }
 .news__rail .card { scroll-snap-align: start; }
 .news__rail:focus-visible { outline: 3px dashed var(--orange); outline-offset: 6px; }
 @media (max-width: 900px) { .news__top { grid-template-columns: 1fr; } .news__rail { grid-auto-columns: 82%; } }
+a.card__media { display: block; cursor: pointer; }
+a.card__media img { transition: transform .25s ease, filter .25s ease; }
+a.card__media:hover img { transform: scale(1.03); filter: brightness(1.08); }
+@media (prefers-reduced-motion: reduce) { a.card__media img { transition: none; } a.card__media:hover img { transform: none; } }
