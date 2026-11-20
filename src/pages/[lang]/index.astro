@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import InterestForm from '../../components/InterestForm.astro';
 import KofiBand from '../../components/KofiBand.astro';
 import { t, langs, otherLang, sections, type Lang } from '../../i18n/ui';
-import { games, rpgs, settings, news, site, tl } from '../../data/catalog';
+import { games, rpgs, settings, news, site, tl, localImg } from '../../data/catalog';
 import { itemPath } from '../../data/paths';
 
 export function getStaticPaths() {
@@ -58,7 +58,7 @@ const nRpg = rpgs.length + settings.length;
         <div class="slides">
           {slides.map((sl, i) => (
             <a class="slide" href={sl.link[lang]} data-file={sl.file} data-color={sl.color} aria-hidden={i === 0 ? undefined : 'true'} tabindex={i === 0 ? undefined : -1} role="group" aria-roledescription="slide" aria-label={`${i + 1} / ${slides.length}: ${tl(lang, sl.title, sl.titleEn)}`}>
-              <img src={sl.image} width="740" height="740" alt={sl.alt[lang]} loading={i === 0 ? 'eager' : 'lazy'} />
+              <img src={localImg(sl.image, lang)} width="740" height="740" alt={sl.alt[lang]} loading={i === 0 ? 'eager' : 'lazy'} />
               <span class="slide__cap">
                 <strong>{tl(lang, sl.title, sl.titleEn)}</strong>
                 <span>{sl.text[lang]}</span>
@@ -89,7 +89,7 @@ const nRpg = rpgs.length + settings.length;
           <div class={gi === 0 ? 'news__top' : 'news__rail'} tabindex={gi === 1 ? 0 : undefined} aria-label={gi === 1 ? L('Altre novità, scorri', 'More news, scroll') : undefined}>
             {group.map((n) => (
               <article class="card">
-                {n.image && <div class="card__media"><img src={n.image} width="960" height="600" alt="" loading="lazy" /></div>}
+                {n.image && <div class="card__media"><img src={localImg(n.image, lang)} width="960" height="600" alt="" loading="lazy" /></div>}
                 <div class="card__body">
                   <p class="card__tag"><time datetime={n.date}>{fmt(n.date)}</time></p>
                   <h3 class="pixel h3">{n.title[lang]}</h3>

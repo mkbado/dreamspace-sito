@@ -1,12 +1,13 @@
 ---
 import { t, type Lang } from '../i18n/ui';
 import type { Game } from '../data/catalog';
+import { localImg } from '../data/catalog';
 import { itemPath } from '../data/paths';
 interface Props { lang: Lang; g: Game }
 const { lang, g } = Astro.props;
 ---
 <article class="card">
-  <div class="card__media"><img src={g.image} width="960" height="600" alt={g.imageAlt?.[lang] ?? ''} loading="lazy" /></div>
+  <div class="card__media"><img src={localImg(g.image, lang)} width="960" height="600" alt={g.imageAlt?.[lang] ?? ''} loading="lazy" /></div>
   <div class="card__body">
     <p class="card__tag">{g.tag[lang]}</p>
     <h3 class="pixel h3">{g.title}</h3>

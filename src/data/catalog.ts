@@ -195,6 +195,13 @@ export const pagePath = (lang: Lang, slug: string) => {
 };
 
 /** Titolo nella lingua della pagina: in inglese usa la traduzione, se c'è. */
+import { existsSync } from 'node:fs';
+/** Su /en/ usa la variante «-en» dell’immagine, se esiste (es. card-en.webp) */
+export const localImg = (src: string | undefined, lang: Lang) => {
+  if (!src || lang !== 'en') return src;
+  const en = src.replace(/(\.\w+)$/, '-en$1');
+  return existsSync(`public${en}`) ? en : src;
+};
 export const tl = (lang: Lang, it?: string, en?: string) => (lang === 'en' && en ? en : it ?? '');
 export const itemTitle = (lang: Lang, x: { title: string; titleEn?: string }) => tl(lang, x.title, x.titleEn);
 

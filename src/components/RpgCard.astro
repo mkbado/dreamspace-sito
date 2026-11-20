@@ -1,6 +1,6 @@
 ---
 import { t, type Lang } from '../i18n/ui';
-import { tl, type Rpg, type Setting, type OneShot } from '../data/catalog';
+import { tl, type Rpg, type Setting, type OneShot, localImg } from '../data/catalog';
 import { itemPath } from '../data/paths';
 interface Props { lang: Lang; item: Rpg | Setting | OneShot }
 const { lang, item } = Astro.props;
@@ -10,7 +10,7 @@ const alt = item.kind === 'rpg' ? item.cardAlt[lang] : item.imageAlt[lang];
 const tagColor = item.kind === 'rpg' ? '#6b4a2b' : item.kind === 'oneshot' ? '#a3262a' : '#8a5a2b';
 ---
 <article class="card">
-  <div class="card__media"><img src={img} width="960" height="600" alt={alt} loading="lazy" /></div>
+  <div class="card__media"><img src={localImg(img, lang)} width="960" height="600" alt={alt} loading="lazy" /></div>
   <div class="card__body">
     <p class="card__tag" style={`color: ${tagColor};`}>{item.tag[lang]}</p>
     <h3 class="pixel h3">{tl(lang, item.title, 'titleEn' in item ? item.titleEn : undefined)}</h3>
