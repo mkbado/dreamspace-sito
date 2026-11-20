@@ -41,7 +41,7 @@ const spots = (g.characters?.list ?? []).filter((c) => c.spot);
             <div class="ds-pop__equip">
               {c.equip.icon && <img src={c.equip.icon} alt="" width="44" height="44" />}
               <div>
-                <p class="ds-kicker">{L('Equip. iniziale', 'Starting equip')}{c.equip.type && c.equip.type !== 'equip' && <> · {typeLabel[c.equip.type]?.[lang]}</>}</p>
+                <p class="ds-kicker">{L('Equip. iniziale', 'Starting equip')}{c.equip.type && !['equip', 'other'].includes(c.equip.type) && <> · {typeLabel[c.equip.type]?.[lang]}</>}</p>
                 <b>{c.equip.name[lang]}</b>
                 <p set:html={withIcons((c.equip.cost ? c.equip.cost + ' · ' : '') + c.equip.text[lang], lang)} />
               </div>

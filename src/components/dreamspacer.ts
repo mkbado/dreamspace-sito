@@ -15,6 +15,8 @@ export const typeLabel: Record<string, { it: string; en: string }> = {
   armor: { it: 'Armatura', en: 'Armor' },
   spell: { it: 'Incantesimo', en: 'Spell' },
   equip: { it: 'Equipaggiamento', en: 'Equip' },
+  other: { it: 'Altro', en: 'Other' },
+  ally: { it: 'Alleato', en: 'Ally' },
 };
 
 const ICON = '/img/marsylvania/icons/';
@@ -33,5 +35,6 @@ export function withIcons(text: string, lang: 'it' | 'en'): string {
 }
 
 export const statIcon = (k: StatKey) => `${ICON}${k}.png`;
-export const typeIcon = (t?: string) => `${ICON}${t && typeLabel[t] ? t : 'equip'}.png`;
+export const typeIcon = (t?: string) => `${ICON}${t && typeLabel[t] && t !== 'other' ? t : 'equip'}.png`;
+export const nameOf = (n: string | { it: string; en: string }, lang: 'it' | 'en') => (typeof n === 'string' ? n : n[lang] || n.it);
 export const slugOf = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');

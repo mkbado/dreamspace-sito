@@ -168,8 +168,8 @@
       "en": "The six Dreamspacers"
     },
     "note": {
-      "it": "La squadra di partenza della Dreamspace Ltd. Ogni Dreamspacer sale al livello 2 quando conquista una nuova area: le abilità di livello 2 si aggiungono a quelle di livello 1.",
-      "en": "Dreamspace Ltd’s starting team. Each Dreamspacer reaches level 2 on conquering a new area: level 2 abilities add to those of level 1."
+      "it": "La squadra di partenza della Dreamspace Ltd. Ogni Dreamspacer sale al livello 2 quando conquista una nuova area: le abilità di livello 2 si aggiungono a quelle di livello 1. Valori del prototipo: possono ancora cambiare durante i test.",
+      "en": "Dreamspace Ltd’s starting team. Each Dreamspacer reaches level 2 on conquering a new area: level 2 abilities add to those of level 1. Prototype values: they may still change during playtesting."
     },
     "list": [
       {
@@ -200,7 +200,7 @@
           "en": "Spellcaster"
         },
         "focus": {
-          "it": "Incantesimi e controllo del campo",
+          "it": "Magie e controllo del campo",
           "en": "Spells & field control"
         },
         "spot": {
@@ -211,15 +211,15 @@
         },
         "equip": {
           "name": {
-            "it": "Dardo di fuoco della savana",
+            "it": "Dardo di Savanya",
             "en": "Savanya Dart"
           },
           "type": "spell",
           "icon": "/img/marsylvania/icons/item-dardo-savana.png",
           "cost": "1 {mana}",
           "text": {
-            "it": "Attacco 2, oppure Attacco 3 contro un «Animale» o un «Lupo mannaro».",
-            "en": "Attack 2, or Attack 3 against an «Animal» or a «Werewolf»."
+            "it": "Attacco 2, oppure Attacco 3 se attacchi un «Animale» o un «Mannaro».",
+            "en": "Attack 2, or Attack 3 if you attack an «Animal» or a «Werewolf»."
           }
         },
         "levels": [
@@ -233,17 +233,23 @@
             },
             "abilities": [
               {
-                "name": "Multiverse Knowledge",
+                "name": {
+                  "it": "Conoscenza del Multiverso",
+                  "en": "Multiverse Knowledge"
+                },
                 "text": {
-                  "it": "All’inizio del tuo turno puoi sbirciare una zona coperta.",
+                  "it": "All’inizio del tuo turno puoi spiare una zona coperta.",
                   "en": "At the start of your turn you can spy on a hidden zone."
                 },
                 "passive": true
               },
               {
-                "name": "Arcane Recovery",
+                "name": {
+                  "it": "Recupero Arcano",
+                  "en": "Arcane Recovery"
+                },
                 "text": {
-                  "it": "Recuperi 1 {mana} alla fine del tuo turno.",
+                  "it": "Recupera 1 {mana} alla fine del tuo turno.",
                   "en": "Recover 1 {mana} at the end of your turn."
                 },
                 "passive": true
@@ -260,23 +266,36 @@
             },
             "abilities": [
               {
-                "name": "Teleport",
+                "name": {
+                  "it": "Teletrasporto",
+                  "en": "Teleport"
+                },
                 "text": {
-                  "it": "Ti teletrasporti in una zona a scelta invece di tirare per il movimento.",
+                  "it": "Puoi teletrasportarti in una zona specifica invece di tirare per il movimento.",
                   "en": "Teleport to a zone of your choice instead of rolling for movement."
                 },
                 "cost": "2 {mana}"
               },
               {
-                "name": "Mana Flow",
+                "name": {
+                  "it": "Flusso di Mana",
+                  "en": "Mana Flow"
+                },
                 "text": {
-                  "it": "I tuoi incantesimi costano 1 {mana} in meno.",
+                  "it": "Le magie che lanci costano 1 {mana} in meno.",
                   "en": "Your spells cost 1 {mana} less."
                 },
                 "passive": true
               }
             ]
           }
+        ],
+        "briefcase": [
+          "weapon",
+          "spell",
+          "spell",
+          "spell",
+          "ally"
         ]
       },
       {
@@ -307,7 +326,7 @@
           "en": "Fighter"
         },
         "focus": {
-          "it": "Attacco e recupero di vita",
+          "it": "Attacco e recupero vita",
           "en": "Attack & life gain"
         },
         "spot": {
@@ -324,7 +343,7 @@
           "type": "weapon",
           "icon": "/img/marsylvania/icons/item-spada-zuccherata.png",
           "text": {
-            "it": "Recuperi 1 {life} quando infliggi danni.",
+            "it": "Recupera 1 {life} quando infliggi danno.",
             "en": "Recover 1 {life} when you deal damage."
           }
         },
@@ -339,7 +358,10 @@
             },
             "abilities": [
               {
-                "name": "Glucose Plus",
+                "name": {
+                  "it": "Glucosio Plus",
+                  "en": "Glucose Plus"
+                },
                 "text": {
                   "it": "Ottieni +1 {atk} per il turno.",
                   "en": "Get +1 {atk} for the turn."
@@ -347,9 +369,12 @@
                 "cost": "1 {life}"
               },
               {
-                "name": "Caramel Skin",
+                "name": {
+                  "it": "Pelle di Caramello",
+                  "en": "Caramel Skin"
+                },
                 "text": {
-                  "it": "Il nemico ha −1 {atk} per un round.",
+                  "it": "Il nemico ottiene −1 {atk} per un round.",
                   "en": "The enemy gets −1 {atk} for a round."
                 },
                 "cost": "1 {mana}"
@@ -366,23 +391,36 @@
             },
             "abilities": [
               {
-                "name": "Sugar Reserve",
+                "name": {
+                  "it": "Riserva di Zucchero",
+                  "en": "Sugar Reserve"
+                },
                 "text": {
-                  "it": "Recuperi 1 {life}.",
+                  "it": "Recupera 1 {life}.",
                   "en": "Recover 1 {life}."
                 },
                 "cost": "1 {mana}"
               },
               {
-                "name": "Glycemic Peak",
+                "name": {
+                  "it": "Picco Glicemico",
+                  "en": "Glycemic Peak"
+                },
                 "text": {
-                  "it": "Ottieni +1 {atk} in modo permanente.",
+                  "it": "Ottieni +1 {atk} permanente.",
                   "en": "You get +1 {atk} permanently."
                 },
                 "passive": true
               }
             ]
           }
+        ],
+        "briefcase": [
+          "weapon",
+          "weapon",
+          "armor",
+          "spell",
+          "ally"
         ]
       },
       {
@@ -427,10 +465,10 @@
             "it": "Laptop",
             "en": "Laptop"
           },
-          "type": "equip",
+          "type": "other",
           "icon": "/img/marsylvania/icons/item-laptop.png",
           "text": {
-            "it": "Recuperi 1 {life} e 1 {mana} alla fine del tuo turno.",
+            "it": "Recupera 1 {life} e 1 {mana} alla fine del tuo turno.",
             "en": "Recover 1 {life} and 1 {mana} at the end of your turn."
           }
         },
@@ -445,7 +483,10 @@
             },
             "abilities": [
               {
-                "name": "Algorithm",
+                "name": {
+                  "it": "Algoritmo",
+                  "en": "Algorithm"
+                },
                 "text": {
                   "it": "Due volte per turno puoi costringere un nemico a ritirare un dado e ad accettare il secondo risultato.",
                   "en": "Twice per turn, you can force an enemy to re-roll a die and accept the second result."
@@ -453,9 +494,12 @@
                 "passive": true
               },
               {
-                "name": "Cyber Absorption",
+                "name": {
+                  "it": "Cyber Assorbimento",
+                  "en": "Cyber Absorption"
+                },
                 "text": {
-                  "it": "Quando sconfiggi un nemico tieni la sua carta: scartala per aggiungere il suo {atk} al tuo per un attacco (così però rinunci al token taglia).",
+                  "it": "Attivala quando sconfiggi un nemico: tieni la carta, puoi scartarla per aggiungere il suo {atk} al tuo per un attacco (se lo fai, non prendi il segnalino taglia).",
                   "en": "When you defeat an enemy, keep its card: discard it to add its {atk} to yours for one attack (if you do, skip the bounty token)."
                 },
                 "cost": "2 {mana}"
@@ -472,7 +516,10 @@
             },
             "abilities": [
               {
-                "name": "Antivirus",
+                "name": {
+                  "it": "Antivirus",
+                  "en": "Antivirus"
+                },
                 "text": {
                   "it": "Ottieni +1 {def} per il turno e ignori le abilità del nemico.",
                   "en": "Get +1 {def} for the turn and ignore the enemy’s abilities."
@@ -480,7 +527,10 @@
                 "cost": "2 {mana}"
               },
               {
-                "name": "ChatBlob 3.0",
+                "name": {
+                  "it": "ChatBlob 3.0",
+                  "en": "ChatBlob 3.0"
+                },
                 "text": {
                   "it": "Ottieni +2 {atk} e +2 {def} per il turno.",
                   "en": "Get +2 {atk} and +2 {def} for the turn."
@@ -489,6 +539,13 @@
               }
             ]
           }
+        ],
+        "briefcase": [
+          "other",
+          "weapon",
+          "armor",
+          "spell",
+          "spell"
         ]
       },
       {
@@ -519,7 +576,7 @@
           "en": "Spellcaster"
         },
         "focus": {
-          "it": "Malus e tanto mana",
+          "it": "Debuff e consumo di mana",
           "en": "Debuff & mana sink"
         },
         "spot": {
@@ -530,14 +587,14 @@
         },
         "equip": {
           "name": {
-            "it": "Mental Burst",
+            "it": "Scarica Mentale",
             "en": "Mental Burst"
           },
           "type": "spell",
           "icon": "/img/marsylvania/icons/item-mental-burst.png",
           "cost": "1 {mana}",
           "text": {
-            "it": "Attacco 2, oppure Attacco 3 contro un «Umano».",
+            "it": "Attacco 2, oppure Attacco 3 se attacchi un «Umano».",
             "en": "Attack 2, or Attack 3 against a «Human»."
           }
         },
@@ -552,17 +609,23 @@
             },
             "abilities": [
               {
-                "name": "Charm",
+                "name": {
+                  "it": "Charme",
+                  "en": "Charm"
+                },
                 "text": {
-                  "it": "Il nemico ha −1 {def} per il turno.",
+                  "it": "Il nemico ottiene −1 {def} per il turno.",
                   "en": "The enemy gets −1 {def} for the turn."
                 },
                 "cost": "1 {mana}"
               },
               {
-                "name": "Adept Ceremony",
+                "name": {
+                  "it": "Cerimonia degli Adepti",
+                  "en": "Adept Ceremony"
+                },
                 "text": {
-                  "it": "Alla fine del tuo turno tira un dado: se esce «spada» recuperi 1 {life} e 1 {mana}.",
+                  "it": "Alla fine del tuo turno tira un dado: se esce «spada» recupera 1 {life} e 1 {mana}.",
                   "en": "At the end of your turn roll a die: on «sword» recover 1 {life} and 1 {mana}."
                 },
                 "passive": true
@@ -579,23 +642,36 @@
             },
             "abilities": [
               {
-                "name": "Save the Queen",
+                "name": {
+                  "it": "Salvate la Regina",
+                  "en": "Save the Queen"
+                },
                 "text": {
-                  "it": "Quando stai per subire danni tira un dado: se esce «pozione» li subisce un altro personaggio a tua scelta.",
+                  "it": "Se stai per subire danni tira un dado: se esce «pozione» il danno viene subito da un altro personaggio a tua scelta.",
                   "en": "When you are about to take damage, roll a die: on «potion» another character of your choice takes it instead."
                 },
                 "passive": true
               },
               {
-                "name": "Dominate Creature",
+                "name": {
+                  "it": "Dominare Creature",
+                  "en": "Dominate Creature"
+                },
                 "text": {
-                  "it": "Il nemico ha −3 {def} per il turno.",
+                  "it": "Il nemico ottiene −3 {def} per il turno.",
                   "en": "The enemy gets −3 {def} for the turn."
                 },
                 "cost": "2 {mana}"
               }
             ]
           }
+        ],
+        "briefcase": [
+          "weapon",
+          "spell",
+          "spell",
+          "ally",
+          "ally"
         ]
       },
       {
@@ -605,12 +681,12 @@
         "color": "#3FA34D",
         "ink": "#0A0D24",
         "alt": {
-          "it": "Venusian Ronin, guerriero verde con ali di foglia e cappello di paglia, in posa di combattimento",
-          "en": "Venusian Ronin, a green warrior with leaf wings and a straw hat in a fighting stance"
+          "it": "Venusian Ronin, guerriero mantide con ali verdi e cappello di paglia, in posa di combattimento",
+          "en": "Venusian Ronin, a mantis warrior with green wings and a straw hat in a fighting stance"
         },
         "bio": {
-          "it": "Su Venere B-41, una Venere diversa dalla nostra, era un ronin lucertoloide in guerra contro i non morti per il dominio del pianeta. Dopo aver perso l’amata moglie è diventato uno dei cacciatori di taglie più temuti del suo universo.",
-          "en": "On Venus B-41, a different Venus from ours, he was a lizardfolk ronin fighting the undead for the planet. After losing his beloved wife he became one of the most feared bounty hunters in his universe."
+          "it": "Su Venere B-41, una Venere diversa dalla nostra, era un ronin mantide in guerra contro i non morti per il dominio del pianeta. Dopo aver perso l’amata moglie è diventato uno dei cacciatori di taglie più temuti del suo universo.",
+          "en": "On Venus B-41, a different Venus from ours, he was a mantis ronin fighting the undead for the planet. After losing his beloved wife he became one of the most feared bounty hunters in his universe."
         },
         "ability": {
           "it": "Difesa altissima",
@@ -643,7 +719,7 @@
           "type": "armor",
           "icon": "/img/marsylvania/icons/item-corazza-ronin.png",
           "text": {
-            "it": "Se ti attaccano ma non subisci danni, tira 2 dadi: infliggi 1 danno al nemico per ogni «scudo».",
+            "it": "Se ti attaccano ma non ti infliggono danni, tira 2 dadi: infliggi 1 danno al nemico per ogni «scudo».",
             "en": "If you are attacked but take no damage, roll 2 dice: deal 1 damage to the enemy for every «shield»."
           }
         },
@@ -658,15 +734,21 @@
             },
             "abilities": [
               {
-                "name": "Martial Arts",
+                "name": {
+                  "it": "Arti Marziali",
+                  "en": "Martial Arts"
+                },
                 "text": {
-                  "it": "Ottieni +1 {atk} in modo permanente.",
+                  "it": "Ottieni +1 {atk} permanente.",
                   "en": "You get +1 {atk} permanently."
                 },
                 "passive": true
               },
               {
-                "name": "Zenkutsu Dachi",
+                "name": {
+                  "it": "Zenkutsu Dachi",
+                  "en": "Zenkutsu Dachi"
+                },
                 "text": {
                   "it": "Ottieni +1 {atk} e −1 {def} per un round.",
                   "en": "Get +1 {atk} and −1 {def} for a round."
@@ -685,7 +767,10 @@
             },
             "abilities": [
               {
-                "name": "Morote Uke",
+                "name": {
+                  "it": "Morote Uke",
+                  "en": "Morote Uke"
+                },
                 "text": {
                   "it": "Ottieni +2 {def} per un round.",
                   "en": "Get +2 {def} for one round."
@@ -693,7 +778,10 @@
                 "cost": "1 {mana}"
               },
               {
-                "name": "Harakiri",
+                "name": {
+                  "it": "Harakiri",
+                  "en": "Harakiri"
+                },
                 "text": {
                   "it": "Infliggi 3 danni a un nemico.",
                   "en": "Deal 3 damage to an enemy."
@@ -702,6 +790,13 @@
               }
             ]
           }
+        ],
+        "briefcase": [
+          "armor",
+          "weapon",
+          "armor",
+          "spell",
+          "ally"
         ]
       },
       {
@@ -743,13 +838,13 @@
         },
         "equip": {
           "name": {
-            "it": "Carte da baro",
+            "it": "Carte del Baro",
             "en": "Cheater’s Cards"
           },
-          "type": "equip",
+          "type": "other",
           "icon": "/img/marsylvania/icons/item-cheaters-cards.png",
           "text": {
-            "it": "Due volte per turno puoi ritirare un dado, ma devi accettare il secondo risultato.",
+            "it": "Due volte per turno puoi ritirare un dado: devi accettare il secondo risultato.",
             "en": "Twice per turn you can re-roll a die; you have to accept the second result."
           }
         },
@@ -764,17 +859,23 @@
             },
             "abilities": [
               {
-                "name": "Poker Player",
+                "name": {
+                  "it": "Giocatore di Poker",
+                  "en": "Poker Player"
+                },
                 "text": {
-                  "it": "Prima di un combattimento tira 1 dado: con «spada» ottieni +1 {atk}, con «scudo» +1 {def}, con «teschio» perdi 1 {life}.",
+                  "it": "Prima di un combattimento tira 1 dado: se esce «spada» ottieni +1 {atk}, se esce «scudo» +1 {def}, se esce «teschio» perdi 1 {life}.",
                   "en": "Before a combat roll 1 die: on «sword» get +1 {atk}, on «shield» +1 {def}, on «skull» lose 1 {life}."
                 },
                 "cost": "0 {mana}"
               },
               {
-                "name": "Ace in the Hole",
+                "name": {
+                  "it": "Asso nella Manica",
+                  "en": "Ace in the Hole"
+                },
                 "text": {
-                  "it": "Tira 1 dado: con «spada» aggiungi 2 al tuo {atk}.",
+                  "it": "Tira 1 dado: se esce «spada» aggiungi 2 al tuo {atk}.",
                   "en": "Roll 1 die: on «sword» add 2 to your {atk}."
                 },
                 "cost": "1 {mana}"
@@ -791,23 +892,36 @@
             },
             "abilities": [
               {
-                "name": "Pint of Beer",
+                "name": {
+                  "it": "Pinta di Birra",
+                  "en": "Pint of Beer"
+                },
                 "text": {
-                  "it": "Recuperi 1 {life} alla fine del tuo turno.",
+                  "it": "Recupera 1 {life} alla fine del tuo turno.",
                   "en": "Recover 1 {life} at the end of your turn."
                 },
                 "passive": true
               },
               {
-                "name": "Grand Finale",
+                "name": {
+                  "it": "Gran Finale",
+                  "en": "Grand Finale"
+                },
                 "text": {
-                  "it": "Tira 3 dadi: se escono tre risultati uguali infliggi 4 danni al nemico.",
+                  "it": "Tira 3 dadi: se ottieni 3 risultati uguali infliggi 4 danni al nemico.",
                   "en": "Roll 3 dice: if all three match, deal 4 damage to the enemy."
                 },
                 "cost": "2 {mana}"
               }
             ]
           }
+        ],
+        "briefcase": [
+          "other",
+          "weapon",
+          "armor",
+          "spell",
+          "ally"
         ]
       }
     ]

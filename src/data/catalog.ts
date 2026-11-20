@@ -21,7 +21,9 @@ export interface Character {
   scene?: string;
   spot?: { x: number; y: number; w: number; h: number };
   equip?: { name: L<string>; type?: string; icon?: string; cost?: string; text: L<string> };
-  levels?: { stats: { life: number; attack: number; defense: number; mana: number; speed: number }; abilities: { name: string; cost?: string; passive?: boolean; text: L<string> }[] }[];
+  /** slot della Briefcase; il primo dello stesso tipo dell’equip iniziale è bloccato */
+  briefcase?: string[];
+  levels?: { stats: { life: number; attack: number; defense: number; mana: number; speed: number }; abilities: { name: string | L<string>; cost?: string; passive?: boolean; text: L<string> }[] }[];
 }
 
 export interface Game {

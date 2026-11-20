@@ -2,7 +2,7 @@
 // Schede tecniche dei Dreamspacer: scena, statistiche per livello, equipaggiamento e abilità
 import type { Character } from '../data/catalog';
 import type { Lang } from '../i18n/ui';
-import { statKeys, statLabel, typeLabel, withIcons, statIcon, typeIcon, slugOf } from './dreamspacer';
+import { statKeys, statLabel, typeLabel, withIcons, statIcon, typeIcon, slugOf, nameOf } from './dreamspacer';
 interface Props { lang: Lang; list: Character[] }
 const { lang, list } = Astro.props;
 const L = (it: string, en: string) => (lang === 'it' ? it : en);
@@ -44,7 +44,7 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
 
           {c.equip && (
             <div class="ds-equip">
-              <p class="ds-kicker"><img src={typeIcon(c.equip.type)} alt="" width="18" height="18" />{L('Equipaggiamento iniziale', 'Starting equip')}{c.equip.type && c.equip.type !== 'equip' && <> · {typeLabel[c.equip.type]?.[lang]}</>}</p>
+              <p class="ds-kicker"><img src={typeIcon(c.equip.type)} alt="" width="18" height="18" />{L('Equipaggiamento iniziale', 'Starting equip')}{c.equip.type && !['equip', 'other'].includes(c.equip.type) && <> · {typeLabel[c.equip.type]?.[lang]}</>}</p>
               <div class="ds-equip__row">
                 {c.equip.icon && <img class="ds-equip__icon" src={c.equip.icon} alt="" width="64" height="64" loading="lazy" />}
                 <div>
@@ -55,12 +55,30 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
             </div>
           )}
 
+          {c.briefcase?.length && (() => {
+            const lock = c.briefcase!.indexOf(c.equip?.type === 'equip' ? 'other' : c.equip?.type ?? '');
+            return (
+              <div class="ds-brief">
+                <p class="ds-kicker">{L('Briefcase · slot oggetti', 'Briefcase · item slots')}</p>
+                <ul>
+                  {c.briefcase!.map((t, i) => (
+                    <li class={i === lock ? 'is-lock' : ''} title={i === lock ? `${c.equip!.name[lang]} · ${L('bloccato', 'locked')}` : typeLabel[t]?.[lang]}>
+                      <img src={i === lock && c.equip?.icon ? c.equip.icon : typeIcon(t)} alt="" width="34" height="34" loading="lazy" />
+                      <span>{i === lock ? L('Iniziale', 'Starter') : t === 'spell' ? L('Magia', 'Spell') : typeLabel[t]?.[lang]}</span>
+                    </li>
+                  ))}
+                </ul>
+                {c.briefcase!.includes('other') && <p class="ds-brief__note">{L('Gli oggetti «Altro» possono andare in qualsiasi slot.', '«Other» items can go in any slot.')}</p>}
+              </div>
+            );
+          })()}
+
           <div class="ds-abil">
             <p class="ds-kicker">{L('Abilità', 'Abilities')}</p>
             {lv.map((level, i) => level.abilities.map((a) => (
               <div class={`ds-ab${i > 0 ? ' lv2only' : ''}`}>
                 <h4>
-                  {a.name}
+                  {nameOf(a.name, lang)}
                   {i > 0 && <span class="ds-new">LV 2</span>}
                   {a.passive ? <span class="ds-cost ds-cost--passive">{L('Passiva', 'Passive')}</span> : a.cost && <span class="ds-cost" set:html={withIcons(a.cost, lang)} />}
                 </h4>
