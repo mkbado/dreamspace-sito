@@ -22,7 +22,7 @@ const msg = {
         fetch(f.action, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(body) })
           .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
           .then(function (d) {
-            if (d.ok) { if (out) out.textContent = msg.ok; f.reset(); }
+            if (d.ok) { if (out) out.textContent = msg.ok; f.reset(); if (window.DS_arcade && btn) { var r = btn.getBoundingClientRect(); window.DS_arcade(r.left + r.width / 2, r.top + r.height / 2); } }
             else if (out) out.textContent = msg[d.errore] || msg.other;
           })
           .catch(function () { if (out) out.textContent = msg.other; })

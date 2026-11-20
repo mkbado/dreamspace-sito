@@ -721,3 +721,17 @@ html.ds-intro-on body { overflow: hidden; }
 #ds-trans { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 2147483600; pointer-events: none; display: none; }
 #ds-trans.is-on { display: block; }
 @media (prefers-reduced-motion: reduce) { #ds-trans { display: none !important; } }
+
+/* Chicche arcade */
+#ds-confetti { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 2147483100; pointer-events: none; display: none; }
+#ds-confetti.is-on { display: block; }
+#ds-mission { position: fixed; left: 50%; top: 38%; z-index: 2147483200; pointer-events: none; transform: translate(-50%, -50%) scale(.2); opacity: 0;
+  font-family: var(--font-pixel); font-size: clamp(30px, 7vw, 72px); line-height: 1; text-align: center; white-space: nowrap; color: #f2c230;
+  text-shadow: 4px 4px 0 #0a0d24, -2px -2px 0 #0a0d24, 2px -2px 0 #0a0d24, -2px 2px 0 #0a0d24, 0 0 30px rgba(242, 194, 48, .6); }
+#ds-mission.is-on { animation: ds-mission 2.2s steps(1, end) forwards, ds-mission-pop 2.2s ease-out forwards; }
+@keyframes ds-mission-pop { 0% { transform: translate(-50%, -50%) scale(.2); opacity: 0; } 12% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; } 22% { transform: translate(-50%, -50%) scale(1); } 80% { opacity: 1; } 100% { transform: translate(-50%, -60%) scale(1); opacity: 0; } }
+@keyframes ds-mission { 0%, 30%, 50% { color: #f2c230; } 20%, 40% { color: #3fc1b5; } }
+.ds-cameo { position: fixed; left: 0; top: 0; z-index: 2147483300; pointer-events: none; height: auto; transform-origin: 50% 100%; filter: drop-shadow(6px 6px 0 rgba(10, 13, 36, .6)); }
+.skin-noir #ds-mission { font-family: 'Special Elite', monospace; color: #ece7dd; text-shadow: none; }
+.skin-fiaba #ds-mission { font-family: 'Cinzel Decorative', serif; color: #b8862b; text-shadow: 0 2px 0 #fff4d0; }
+@media (prefers-reduced-motion: reduce) { #ds-mission.is-on { animation: none; transform: translate(-50%, -50%); opacity: 1; } }

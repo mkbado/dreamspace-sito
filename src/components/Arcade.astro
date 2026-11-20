@@ -1,0 +1,92 @@
+---
+// Chicche "arcade" delle pagine Dreamspace:
+// - codice segreto ↑↑↓↓←→←→BA (o 5 tocchi sul logo dal telefono): passa un Dreamspacer
+// - iscrizione riuscita: coriandoli in pixel e "MISSIONE ACCETTATA"
+import { type Lang } from '../i18n/ui';
+interface Props { lang: Lang; secret?: boolean }
+const { lang, secret = true } = Astro.props;
+const msg = lang === 'it' ? 'MISSIONE ACCETTATA!' : 'MISSION ACCEPTED!';
+const crew = ['chatblob', 'prof-giraf', 'lord-caramel', 'queen-illuminati', 'venusian-ronin', 'alligactor'].map((n) => `/img/chars/${n}.webp`);
+---
+<canvas id="ds-confetti" aria-hidden="true"></canvas>
+<div id="ds-mission" role="status" aria-live="polite"></div>
+<script is:inline define:vars={{ msg, crew, secret }}>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cv = document.getElementById('ds-confetti'), ctx = cv.getContext('2d');
+  var banner = document.getElementById('ds-mission');
+  var bits = [], running = false;
+  function size() { cv.width = innerWidth; cv.height = innerHeight; }
+  size(); addEventListener('resize', size);
+  var COLS = ['#f26b1d', '#3fc1b5', '#f2c230', '#fff4dc', '#d9442b', '#9b7fc4'];
+  function loop() {
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    for (var i = bits.length - 1; i >= 0; i--) {
+      var b = bits[i];
+      b.vy += 0.25; b.vx *= 0.99; b.x += b.vx; b.y += b.vy; b.r += b.vr; b.l -= 0.006;
+      if (b.l <= 0 || b.y > cv.height + 20) { bits.splice(i, 1); continue; }
+      ctx.save(); ctx.translate(Math.round(b.x), Math.round(b.y)); ctx.rotate(Math.round(b.r / 1.57) * 1.57);
+      ctx.globalAlpha = Math.min(1, b.l * 2); ctx.fillStyle = b.c; ctx.fillRect(-b.s / 2, -b.s / 2, b.s, b.s * (b.flat ? 0.5 : 1));
+      ctx.restore();
+    }
+    if (bits.length) requestAnimationFrame(loop); else { running = false; cv.classList.remove('is-on'); }
+  }
+  // esplosione di coriandoli in pixel + scritta
+  window.DS_arcade = function (x, y) {
+    banner.textContent = msg;
+    banner.classList.remove('is-on'); void banner.offsetWidth; banner.classList.add('is-on');
+    setTimeout(function () { banner.classList.remove('is-on'); }, 2200);
+    if (reduce) return;
+    cv.classList.add('is-on');
+    for (var i = 0; i < 140; i++) {
+      var a = -Math.PI / 2 + (Math.random() - 0.5) * 2.4, s = 6 + Math.random() * 11;
+      bits.push({ x: x, y: y, vx: Math.cos(a) * s, vy: Math.sin(a) * s, r: 0, vr: (Math.random() - 0.5) * 0.4, l: 1, c: COLS[(Math.random() * COLS.length) | 0], s: 6 + ((Math.random() * 3) | 0) * 3, flat: Math.random() < 0.4 });
+    }
+    if (!running) { running = true; requestAnimationFrame(loop); }
+  };
+
+  if (!secret || reduce) return;
+  // ---------- codice segreto ----------
+  var CODE = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+  var pos = 0, flying = false;
+  function cameo() {
+    if (flying) return;
+    flying = true;
+    var src = crew[(Math.random() * crew.length) | 0];
+    var img = document.createElement('img');
+    img.src = src; img.alt = ''; img.className = 'ds-cameo';
+    document.body.appendChild(img);
+    var fromLeft = Math.random() < 0.5, W = innerWidth, H = innerHeight, size = Math.min(220, W * 0.4);
+    img.style.width = size + 'px';
+    var t0 = null, D = 3200, bounces = 4;
+    (function frame(t) {
+      if (t0 === null) t0 = t;
+      var p = (t - t0) / D;
+      if (p >= 1) { img.remove(); flying = false; return; }
+      var x = fromLeft ? -size + (W + size * 2) * p : W + size - (W + size * 2) * p;
+      var hop = Math.abs(Math.sin(p * Math.PI * bounces));
+      var y = H - size - 10 - hop * H * 0.35;
+      var squash = 1 - (1 - hop) * 0.25; // si schiaccia quando tocca terra
+      img.style.transform = 'translate(' + x + 'px,' + y + 'px) scale(' + (fromLeft ? 1 : -1) * (2 - squash) + ',' + squash + ') rotate(' + Math.sin(p * 20) * 6 + 'deg)';
+      requestAnimationFrame(frame);
+    })(performance.now());
+    window.DS_arcade && setTimeout(function () { bits.length < 40 && window.DS_arcade(innerWidth / 2, innerHeight * 0.4); banner.textContent = '★ ' + (document.documentElement.lang === 'it' ? 'CODICE SEGRETO TROVATO' : 'SECRET CODE FOUND') + ' ★'; }, 300);
+  }
+  addEventListener('keydown', function (e) {
+    var tag = (e.target.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'textarea' || e.target.isContentEditable) return;
+    var k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+    pos = k === CODE[pos] ? pos + 1 : k === CODE[0] ? 1 : 0;
+    if (pos === CODE.length) { pos = 0; cameo(); }
+  });
+  // dal telefono: 5 tocchi veloci sul logo
+  var logo = document.querySelector('.logo'), taps = [], lastTap = 0;
+  if (logo && window.matchMedia('(pointer: coarse)').matches) logo.addEventListener('click', function (e) {
+    var now = Date.now();
+    taps = taps.filter(function (t) { return now - t < 1800; }); taps.push(now);
+    if (taps.length >= 2) e.preventDefault(); // dal secondo tocco in poi non cambia pagina
+    if (taps.length >= 5) { taps = []; cameo(); }
+    else if (taps.length === 1) { lastTap = now; var href = logo.getAttribute('href'); setTimeout(function () { if (taps.length === 1 && Date.now() - lastTap >= 380) location.href = href; }, 400); e.preventDefault(); }
+  });
+})();
+</script>

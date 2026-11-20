@@ -13,6 +13,7 @@ import SignupScript from '../components/SignupScript.astro';
 import DownloadThanks from '../components/DownloadThanks.astro';
 import SpaceFX from '../components/SpaceFX.astro';
 import PageTransition from '../components/PageTransition.astro';
+import Arcade from '../components/Arcade.astro';
 
 interface Props {
   lang: Lang;
@@ -105,6 +106,7 @@ const year = new Date().getFullYear();
       <p class="fine">{t(lang, 'footer.disclaimer')}{site.owner && ` ${lang === 'it' ? 'Sito gestito da' : 'Site run by'} ${site.owner}.`}{site.email && <> <a href={`mailto:${site.email}`}>{site.email}</a></>} · © {year}</p>
     </div>
   </footer>
+  <Arcade lang={lang} secret={bodyClass === 'stars'} />
   <SignupScript lang={lang} />
   <DownloadThanks lang={lang} />
   {site.analyticsToken && (
