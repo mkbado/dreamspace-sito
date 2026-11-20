@@ -1,0 +1,242 @@
+{
+  "order": 1,
+  "slug": "la-scomparsa-di-babbo-natale",
+  "title": "La scomparsa di Babbo Natale",
+  "titleEn": "Santa Claus Is Missing",
+  "tag": {
+    "it": "Compatibile con la 5ª edizione · one-shot natalizia",
+    "en": "Compatible with 5th edition · Christmas one-shot"
+  },
+  "short": {
+    "it": "Babbo Natale è sparito a due giorni dalla Vigilia. Quattro elfi hanno una notte per ritrovarlo e salvare il Natale.",
+    "en": "Santa has vanished two days before Christmas Eve. Four elves have one night to find him and save Christmas."
+  },
+  "cardMeta": {
+    "it": "3–4 giocatori · livello 1 · 3–4 ore",
+    "en": "3–4 players · level 1 · 3–4 hours"
+  },
+  "cardButton": {
+    "it": "Salva il Natale",
+    "en": "Save Christmas"
+  },
+  "image": "/img/natale/card.webp",
+  "imageAlt": {
+    "it": "L’officina di Babbo Natale nella neve, con le luci accese e due elfi con una lanterna",
+    "en": "Santa’s workshop in the snow, lights on, two elves with a lantern"
+  },
+  "cover": "/img/natale/copertina.webp",
+  "coverAlt": {
+    "it": "Copertina in pixel art: l’officina di Babbo Natale sotto l’aurora boreale, due elfi si avvicinano con una lanterna",
+    "en": "Pixel-art cover: Santa’s workshop under the northern lights, two elves approaching with a lantern"
+  },
+  "kicker": {
+    "it": "Una one-shot natalizia",
+    "en": "A Christmas one-shot"
+  },
+  "pitch": {
+    "it": [
+      "22 dicembre, sera. Nell’officina di Babbo Natale tutte le lampade si spengono insieme, il chiavistello scatta e sotto il pavimento qualcosa batte tre colpi. Poi ricomincia, un po’ più vicino.",
+      "Babbo Natale è sparito, e con lui la magia che fa volare la slitta. Quattro elfi aiutanti hanno una notte per ritrovarlo: tra giocattoli ribelli, la Foresta Blu, testimoni poco affidabili e un villaggio innevato che nasconde più di un segreto. Se all’alba il Natale non è salvo, non lo sarà più."
+    ],
+    "en": [
+      "22 December, evening. In Santa’s workshop every lamp goes out at once, the latch clicks shut and beneath the floor something knocks three times. Then it starts again, a little closer.",
+      "Santa has vanished, and with him the magic that makes the sleigh fly. Four helper elves have one night to find him: rebellious toys, the Blue Forest, unreliable witnesses and a snowy village hiding more than one secret. If Christmas isn’t saved by dawn, it won’t be saved at all."
+    ]
+  },
+  "intro": {
+    "it": "Pensata come avventura introduttiva: va bene per chi non ha mai giocato, per una serata in famiglia o tra amici. Regole rapide incluse, quattro elfi pregenerati e nessun vicolo cieco: se il gruppo si blocca, un personaggio o un indizio lo rimette in strada.",
+    "en": "Designed as an introductory adventure: great for first-time players, a family evening or a night with friends. Quick rules included, four pregenerated elves and no dead ends: if the group gets stuck, a character or a clue puts them back on track."
+  },
+  "sheet": [
+    {
+      "label": {
+        "it": "Giocatori",
+        "en": "Players"
+      },
+      "value": {
+        "it": "3–4, elfi pregenerati",
+        "en": "3–4, pregenerated elves"
+      }
+    },
+    {
+      "label": {
+        "it": "Livello",
+        "en": "Level"
+      },
+      "value": {
+        "it": "1",
+        "en": "1"
+      }
+    },
+    {
+      "label": {
+        "it": "Durata",
+        "en": "Length"
+      },
+      "value": {
+        "it": "3–4 ore, una serata (versione da 3 ore inclusa)",
+        "en": "3–4 hours, one evening (3-hour version included)"
+      }
+    },
+    {
+      "label": {
+        "it": "Regole",
+        "en": "Rules"
+      },
+      "value": {
+        "it": "In stile 5ª edizione, regole rapide incluse",
+        "en": "5th-edition style, quick rules included"
+      }
+    },
+    {
+      "label": {
+        "it": "Lingue",
+        "en": "Languages"
+      },
+      "value": {
+        "it": "Italiano e inglese",
+        "en": "Italian and English"
+      }
+    }
+  ],
+  "files": [
+    {
+      "title": {
+        "it": "Avventura per il Game Master",
+        "en": "Game Master’s adventure"
+      },
+      "desc": {
+        "it": "Preparazione, quattro scene, mappe, PNG, mostri e ritagli da consegnare · 11 pagine",
+        "en": "Prep, four scenes, maps, NPCs, monsters and handouts · 11 pages"
+      },
+      "it": "/files/natale/La-scomparsa-di-Babbo-Natale_Avventura.pdf",
+      "en": "/files/natale/Santa-Claus-Is-Missing_Adventure.pdf"
+    },
+    {
+      "title": {
+        "it": "Schede degli elfi",
+        "en": "Elf character sheets"
+      },
+      "desc": {
+        "it": "I quattro elfi pregenerati, una pagina ciascuno, pronti da stampare · 4 pagine",
+        "en": "The four pregenerated elves, one page each, ready to print · 4 pages"
+      },
+      "it": "/files/natale/La-scomparsa-di-Babbo-Natale_Schede-Elfi.pdf",
+      "en": "/files/natale/Santa-Claus-Is-Missing_Character-Sheets.pdf"
+    }
+  ],
+  "heroesTitle": {
+    "it": "Gli elfi di Babbo Natale",
+    "en": "Santa’s elves"
+  },
+  "heroes": [
+    {
+      "name": "Barbarelfo",
+      "image": "/img/natale/barbarelfo.webp",
+      "role": {
+        "it": "Barbaro",
+        "en": "Barbarian"
+      },
+      "quote": {
+        "it": "Datemi del gelato, altrimenti rompo tutto.",
+        "en": "Give me ice cream or I’ll break everything."
+      },
+      "bio": {
+        "it": "Se si rompe qualcosa in officina, di solito è lui a ripararlo. Di solito è anche lui ad averlo rotto.",
+        "en": "When something breaks in the workshop, he’s usually the one who fixes it. He’s usually the one who broke it, too."
+      }
+    },
+    {
+      "name": "Arcierina",
+      "image": "/img/natale/arcierina.webp",
+      "role": {
+        "it": "Ranger",
+        "en": "Ranger"
+      },
+      "quote": {
+        "it": "Le orme raccontano tutto, se le lasci parlare.",
+        "en": "Footprints tell you everything if you let them speak."
+      },
+      "bio": {
+        "it": "Conosce ogni traccia della Foresta Blu e sa quali bacche rendono speciale una freccia.",
+        "en": "She knows every trail in the Blue Forest and which berries give an arrow a little extra punch."
+      }
+    },
+    {
+      "name": "Musichello",
+      "image": "/img/natale/musichello.webp",
+      "role": {
+        "it": "Bardo",
+        "en": "Bard"
+      },
+      "quote": {
+        "it": "Musica e il resto scompare.",
+        "en": "A little music and everything else fades away."
+      },
+      "bio": {
+        "it": "Le renne conoscono le sue canzoni. Il resto dell’officina ne conosce a memoria anche i ritornelli.",
+        "en": "The reindeer know his songs. Everyone else in the workshop knows the choruses by heart."
+      }
+    },
+    {
+      "name": "Stregnomo",
+      "image": "/img/natale/stregnomo.webp",
+      "role": {
+        "it": "Stregone",
+        "en": "Sorcerer"
+      },
+      "quote": {
+        "it": "Tutto è bene quel che non fa esplodere il laboratorio.",
+        "en": "All’s well that doesn’t blow up the lab."
+      },
+      "bio": {
+        "it": "Il soprannome se l’è guadagnato in laboratorio. Le sue pozioni scaldano persino le renne.",
+        "en": "He earned the nickname in the lab. His potions warm up even the reindeer."
+      }
+    }
+  ],
+  "placesTitle": {
+    "it": "Dove si va",
+    "en": "Where you’ll go"
+  },
+  "places": [
+    {
+      "image": "/img/natale/officina.webp",
+      "title": {
+        "it": "L’officina",
+        "en": "The workshop"
+      },
+      "caption": {
+        "it": "Le luci si spengono e il magazzino si chiude da solo.",
+        "en": "The lights go out and the storeroom locks itself."
+      }
+    },
+    {
+      "image": "/img/natale/foresta.webp",
+      "title": {
+        "it": "La Foresta Blu",
+        "en": "The Blue Forest"
+      },
+      "caption": {
+        "it": "Funghi che brillano, impronte nella neve e un pupazzo che guarda.",
+        "en": "Glowing mushrooms, footprints in the snow and a snowman watching."
+      }
+    },
+    {
+      "image": "/img/natale/lapvillage.webp",
+      "title": {
+        "it": "Lapvillage",
+        "en": "Lapvillage"
+      },
+      "caption": {
+        "it": "Dieci case, una locanda, un vecchio pozzo. E qualcuno che mente.",
+        "en": "Ten houses, an inn, an old well. And someone who is lying."
+      }
+    }
+  ],
+  "quotes": [],
+  "licence": {
+    "it": "La scomparsa di Babbo Natale è un’avventura originale e gratuita con regole in stile 5ª edizione. Non è affiliata né approvata da Wizards of the Coast.",
+    "en": "Santa Claus Is Missing is an original, free adventure with 5th-edition-style rules. It is not affiliated with or endorsed by Wizards of the Coast."
+  }
+}

@@ -5,7 +5,7 @@ import RpgCard from '../../../components/RpgCard.astro';
 import InterestForm from '../../../components/InterestForm.astro';
 import KofiBand from '../../../components/KofiBand.astro';
 import { t, langs, otherLang, sections, type Lang } from '../../../i18n/ui';
-import { games, rpgs, settings, site, tl } from '../../../data/catalog';
+import { games, rpgs, settings, oneshots, site, tl } from '../../../data/catalog';
 import { itemPath } from '../../../data/paths';
 
 export function getStaticPaths() {
@@ -46,7 +46,7 @@ const novels = [
       <div class="cards">
         {kind === 'games'
           ? games.map((g) => <GameCard lang={lang} g={g} />)
-          : [...rpgs, ...settings].map((x) => <RpgCard lang={lang} item={x} />)}
+          : [...oneshots, ...rpgs, ...settings].map((x) => <RpgCard lang={lang} item={x} />)}
       </div>
     </div>
   </section>

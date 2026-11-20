@@ -735,3 +735,50 @@ html.ds-intro-on body { overflow: hidden; }
 .skin-noir #ds-mission { font-family: 'Special Elite', monospace; color: #ece7dd; text-shadow: none; }
 .skin-fiaba #ds-mission { font-family: 'Cinzel Decorative', serif; color: #b8862b; text-shadow: 0 2px 0 #fff4d0; }
 @media (prefers-reduced-motion: reduce) { #ds-mission.is-on { animation: none; transform: translate(-50%, -50%); opacity: 1; } }
+
+/* ============ La scomparsa di Babbo Natale: notte d'inverno ============ */
+.skin-neve { background: #0d1636 linear-gradient(180deg, #13204a 0%, #0d1636 40%, #0a1028 100%) fixed; color: var(--cream); }
+.skin-neve main { position: relative; z-index: 1; }
+.skin-neve .site-header, .skin-neve .site-footer { position: relative; z-index: 2; }
+#ds-snow { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 3; pointer-events: none; image-rendering: pixelated; }
+.nv-hero { background: radial-gradient(ellipse 70% 40% at 70% 0%, rgba(80, 220, 170, .18), transparent 70%), radial-gradient(ellipse 50% 35% at 25% 5%, rgba(160, 110, 255, .16), transparent 70%); }
+.nv-intro { display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: flex-start; }
+.nv-cover { margin: 0; flex: 0 1 340px; min-width: 240px; border: 4px solid var(--black); box-shadow: 8px 8px 0 var(--black), 0 0 0 4px #fff inset; background: #fff; padding: 6px; transform: rotate(-1deg); }
+.nv-cover img { display: block; width: 100%; height: auto; image-rendering: pixelated; }
+.nv-kicker { margin: 0; font-family: var(--font-label); font-size: 14px; text-transform: uppercase; color: #ff6b6b; }
+.nv-title { font-size: clamp(40px, 6vw, 76px); line-height: 1; text-shadow: 4px 4px 0 #c8312f; }
+.nv-lead { margin: 0; font-size: 21px; line-height: 1.5; }
+.nv-body { margin: 0; font-size: 18px; line-height: 1.6; color: var(--soft); }
+.nv-note { border: 3px dashed #9fd3ff; padding: 14px 18px; background: rgba(159, 211, 255, .08); }
+.nv-note p { margin: 0; font-size: 16px; }
+.nv-btn { background: #c8312f; color: #fff !important; border-color: var(--black); }
+.nv-btn:hover { background: #e2453f; }
+.nv-btn--ghost { background: #2e8b57; }
+.nv-btn--ghost:hover { background: #3aa86a; }
+.nv-band { background: rgba(255, 255, 255, .04); border-block: 4px solid var(--black); padding-block: 64px; }
+.nv-sheet { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px 20px; padding: 22px 24px; background: #fff4dc; color: var(--night); border: 4px solid var(--black); box-shadow: 6px 6px 0 var(--black); }
+.nv-sheet dt { font-family: var(--font-label); font-size: 12px; text-transform: uppercase; color: #a3262a; padding-top: 3px; }
+.nv-sheet dd { margin: 0; }
+.nv-file { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding: 16px 18px; background: var(--night); border: 3px solid var(--black); box-shadow: 5px 5px 0 var(--black); }
+.nv-file strong { display: block; font-family: var(--font-label); font-size: 16px; text-transform: uppercase; }
+.nv-file small { display: block; padding-top: 4px; color: var(--soft); font-size: 14px; }
+.nv-dl { display: flex; gap: 10px; }
+.nv-dl a, .nv-dl span { font-family: var(--font-label); font-size: 13px; padding: 9px 12px; text-decoration: none; border: 2px solid var(--black); }
+.nv-dl a { background: #2e8b57; color: #fff !important; box-shadow: 3px 3px 0 var(--black); }
+.nv-dl a:hover { background: #3aa86a; }
+.nv-dl span { color: var(--soft); border-style: dashed; border-color: var(--soft); }
+.nv-elves { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; }
+.nv-elf { display: flex; flex-direction: column; gap: 6px; padding: 16px 16px 20px; background: var(--night); border: 4px solid var(--black); box-shadow: 6px 6px 0 var(--black); }
+.nv-elf__img { margin-bottom: 8px; border: 3px solid var(--black); }
+.nv-elf__img img { display: block; width: 100%; height: auto; image-rendering: pixelated; }
+.nv-elf h3 { margin: 0; font-family: var(--font-pixel); font-size: 24px; }
+.nv-elf__role { margin: 0; font-family: var(--font-label); font-size: 12px; text-transform: uppercase; color: #ff6b6b; }
+.nv-elf__quote { margin: 6px 0 0; font-style: italic; color: #9fd3ff; }
+.nv-elf__bio { margin: 0; font-size: 15px; color: var(--soft); }
+.nv-places { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
+.nv-place { margin: 0; }
+.nv-place img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; image-rendering: pixelated; }
+.nv-place figcaption { padding: 10px 14px 14px; font-size: 15px; color: var(--soft); background: var(--night); }
+@media (max-width: 640px) { .nv-cover { flex-basis: 100%; max-width: 280px; margin-inline: auto; } .nv-elves { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; } .nv-elf h3 { font-size: 19px; } }
+@media (prefers-reduced-motion: reduce) { #ds-snow { display: none; } }
+.pixel, .h1, .h2, .h3, [class*='pixel'] { font-variant-ligatures: none; font-feature-settings: 'liga' 0, 'clig' 0; }

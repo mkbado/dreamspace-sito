@@ -1979,6 +1979,291 @@ content:
     - name: en
       label: English
       type: text
+- name: oneshots
+  label: "Giochi di ruolo: one-shot"
+  type: collection
+  path: src/content/oneshots
+  format: json
+  filename: "{primary}.json"
+  view:
+    primary: title
+  fields:
+  - *id001
+  - *id002
+  - *id003
+  - *id004
+  - *id005
+  - name: titleEn
+    label: Titolo in inglese
+    type: string
+  - name: tag
+    label: Etichetta
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: short
+    label: Descrizione breve (scheda)
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: text
+    - name: en
+      label: English
+      type: text
+  - name: cardMeta
+    label: Riga info nella scheda
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: cardButton
+    label: Testo del pulsante nella scheda
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: image
+    label: Immagine della scheda (960×600)
+    type: image
+    options:
+      media: images
+  - name: imageAlt
+    label: Descrizione immagine scheda
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: cover
+    label: Copertina
+    type: image
+    options:
+      media: images
+  - name: coverAlt
+    label: Descrizione copertina
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: kicker
+    label: Occhiello
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: pitch
+    label: Presentazione (paragrafi)
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: text
+      list: true
+    - name: en
+      label: English
+      type: text
+      list: true
+  - name: intro
+    label: Riquadro introduttivo
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: text
+    - name: en
+      label: English
+      type: text
+  - name: sheet
+    label: Scheda tecnica
+    type: object
+    fields:
+    - name: label
+      label: Voce
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: value
+      label: Valore
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    list: true
+  - name: files
+    label: File da scaricare
+    type: object
+    fields:
+    - name: title
+      label: Titolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: desc
+      label: Descrizione
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: it
+      label: PDF italiano
+      type: file
+      options:
+        media: files
+    - name: en
+      label: PDF inglese
+      type: file
+      options:
+        media: files
+    list: true
+  - name: heroesTitle
+    label: Titolo personaggi
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: heroes
+    label: Personaggi
+    type: object
+    fields:
+    - name: name
+      label: Nome
+      type: string
+    - name: image
+      label: Immagine
+      type: image
+      options:
+        media: images
+    - name: role
+      label: Classe
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: quote
+      label: Motto
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: bio
+      label: Descrizione
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+      - name: en
+        label: English
+        type: text
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{name}"
+  - name: placesTitle
+    label: Titolo luoghi
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: places
+    label: Luoghi
+    type: object
+    fields:
+    - name: image
+      label: Immagine
+      type: image
+      options:
+        media: images
+    - name: title
+      label: Titolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: caption
+      label: Didascalia
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    list: true
+  - name: licence
+    label: Nota di licenza
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: text
+    - name: en
+      label: English
+      type: text
 - name: pages
   label: Pagine (Chi siamo, Privacy, Note legali)
   type: collection

@@ -136,6 +136,15 @@ cfg = {
         coll('games', 'Giochi da tavolo', 'src/content/games', game),
         coll('rpgs', 'Giochi di ruolo: campagne', 'src/content/rpgs', rpg),
         coll('worlds', 'Giochi di ruolo: ambientazioni', 'src/content/worlds', world),
+        coll('oneshots', 'Giochi di ruolo: one-shot', 'src/content/oneshots', common_top + [
+            S('titleEn', 'Titolo in inglese'), L('tag', 'Etichetta'), L('short', 'Descrizione breve (scheda)', 'text'), L('cardMeta', 'Riga info nella scheda'), L('cardButton', 'Testo del pulsante nella scheda'),
+            IMG('image', 'Immagine della scheda (960×600)'), L('imageAlt', 'Descrizione immagine scheda'), IMG('cover', 'Copertina'), L('coverAlt', 'Descrizione copertina'),
+            L('kicker', 'Occhiello'), L('pitch', 'Presentazione (paragrafi)', 'text', lst=True), L('intro', 'Riquadro introduttivo', 'text'),
+            O('sheet', 'Scheda tecnica', [L('label', 'Voce'), L('value', 'Valore')], lst=True, summary='{fields.label.it}'),
+            O('files', 'File da scaricare', [L('title', 'Titolo'), L('desc', 'Descrizione'), FILE('it', 'PDF italiano'), FILE('en', 'PDF inglese')], lst=True, summary='{fields.title.it}'),
+            L('heroesTitle', 'Titolo personaggi'), O('heroes', 'Personaggi', [S('name', 'Nome'), IMG('image', 'Immagine'), L('role', 'Classe'), L('quote', 'Motto'), L('bio', 'Descrizione', 'text')], lst=True, summary='{fields.name}'),
+            L('placesTitle', 'Titolo luoghi'), O('places', 'Luoghi', [IMG('image', 'Immagine'), L('title', 'Titolo'), L('caption', 'Didascalia')], lst=True, summary='{fields.title.it}'),
+            L('licence', 'Nota di licenza', 'text')]),
         {'name': 'pages', 'label': 'Pagine (Chi siamo, Privacy, Note legali)', 'type': 'collection', 'path': 'src/content/pages', 'format': 'json',
          'filename': '{primary}.json', 'view': {'primary': 'title'}, 'fields': [
             N('order', 'Ordine'), S('slug', 'Codice interno — non cambiarlo', required=True),
@@ -164,6 +173,7 @@ import glob
 for p in glob.glob('src/content/games/*.json'): problems += check(json.load(open(p)), game, p)
 for p in glob.glob('src/content/rpgs/*.json'): problems += check(json.load(open(p)), rpg, p)
 for p in glob.glob('src/content/worlds/*.json'): problems += check(json.load(open(p)), world, p)
+for p in glob.glob('src/content/oneshots/*.json'): problems += check(json.load(open(p)), [c for c in cfg['content'] if c['name']=='oneshots'][0]['fields'], p)
 problems += check(json.load(open('src/content/site.json')), site, 'site')
 for p in glob.glob('src/content/pages/*.json'): problems += check(json.load(open(p)), [{'name':k,'type':'string'} for k in ('order','slug','path','title','kicker','body','team')], p)
 problems += check(json.load(open('src/content/news.json')), news, 'news')

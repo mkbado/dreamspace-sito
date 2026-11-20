@@ -12,14 +12,15 @@
   var cv = document.getElementById('ds-trans');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var KEY = 'ds_transizione';
-  var FILL = { noir: '#0b0b0c', fiaba: '#fcf5e3', stars: '#12163a' };
+  var FILL = { noir: '#0b0b0c', fiaba: '#fcf5e3', stars: '#12163a', neve: '#f4f8ff' };
 
   function skinOf(path) {
     if (/\/il-circolo-del-venerdi\//.test(path)) return 'noir';
     if (/\/meriggio\//.test(path)) return 'fiaba';
+    if (/\/la-scomparsa-di-babbo-natale\//.test(path)) return 'neve';
     return 'stars';
   }
-  var here = document.body.classList.contains('skin-noir') ? 'noir' : document.body.classList.contains('skin-fiaba') ? 'fiaba' : 'stars';
+  var here = document.body.classList.contains('skin-noir') ? 'noir' : document.body.classList.contains('skin-fiaba') ? 'fiaba' : document.body.classList.contains('skin-neve') ? 'neve' : 'stars';
 
   var ctx = cv.getContext('2d'), W, H;
   function size() { W = cv.width = innerWidth; H = cv.height = innerHeight; }
@@ -77,20 +78,20 @@
     g.addColorStop(0, 'rgba(255,251,232,1)'); g.addColorStop(0.7, 'rgba(252,245,227,1)'); g.addColorStop(0.88, 'rgba(243,193,75,.75)'); g.addColorStop(1, 'rgba(243,193,75,0)');
     ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7); ctx.fill();
   }
-  var CELL = 26, cells = null;
+  var CELL = 26, cells = null, snowMode = false;
   function pixelGrid(cx, cy) {
     cells = [];
     var cols = Math.ceil(W / CELL), rows = Math.ceil(H / CELL), maxD = Math.hypot(W, H);
     for (var y = 0; y < rows; y++) for (var x = 0; x < cols; x++) {
       var d = Math.hypot(x * CELL - cx, y * CELL - cy) / maxD;
-      cells.push({ x: x * CELL, y: y * CELL, th: d * 0.75 + Math.random() * 0.25, c: Math.random() < 0.04 ? ['#3fc1b5', '#f26b1d', '#f2c230'][(Math.random() * 3) | 0] : FILL.stars });
+      cells.push({ x: x * CELL, y: y * CELL, th: d * 0.75 + Math.random() * 0.25, c: snowMode ? (Math.random() < 0.3 ? '#dbe9ff' : '#ffffff') : Math.random() < 0.04 ? ['#3fc1b5', '#f26b1d', '#f2c230'][(Math.random() * 3) | 0] : FILL.stars });
     }
   }
   function pixels(p, invert) {
     for (var i = 0; i < cells.length; i++) {
       var c = cells[i], on = invert ? p < c.th : p > c.th;
       if (!on) continue;
-      ctx.fillStyle = invert && p > c.th - 0.08 ? '#3fc1b5' : c.c;
+      ctx.fillStyle = invert && p > c.th - 0.08 ? (snowMode ? '#9fd3ff' : '#3fc1b5') : c.c;
       ctx.fillRect(c.x, c.y, CELL, CELL);
     }
   }
@@ -99,7 +100,8 @@
   function leave(to, href, cx, cy) {
     cv.classList.add('is-on');
     var t0 = performance.now(), D = to === 'stars' ? 620 : 720, seed = Math.random() * 10, sparked = false;
-    if (to === 'stars') pixelGrid(cx, cy);
+    snowMode = to === 'neve';
+    if (to === 'stars' || to === 'neve') pixelGrid(cx, cy);
     try { sessionStorage.setItem(KEY, JSON.stringify({ to: to, x: cx / W, y: cy / H })); } catch (e) {}
     (function frame(t) {
       var p = Math.min(1, (t - t0) / D);
@@ -121,7 +123,8 @@
     cv.classList.add('is-on');
     ctx.fillStyle = FILL[here]; ctx.fillRect(0, 0, W, H);
     var t0 = null, D = 900, seed = Math.random() * 10;
-    if (here === 'stars') pixelGrid(cx, cy);
+    snowMode = here === 'neve';
+    if (here === 'stars' || here === 'neve') pixelGrid(cx, cy);
     if (here === 'fiaba') for (var i = 0; i < 6; i++) spawnSparks(Math.random() * W, H * (0.4 + Math.random() * 0.6), 12, false);
     (function frame(t) {
       if (t0 === null) t0 = t + 120;

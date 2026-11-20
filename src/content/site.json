@@ -40,6 +40,25 @@
         }
       },
       {
+        "file": "BABBO_NATALE.PNG",
+        "color": "#c8312f",
+        "image": "/img/slides/natale.webp",
+        "title": "La scomparsa di Babbo Natale",
+        "titleEn": "Santa Claus Is Missing",
+        "text": {
+          "it": "Gioco di ruolo · one-shot natalizia gratis · 3–4 ore",
+          "en": "Roleplaying game · free Christmas one-shot · 3–4 hours"
+        },
+        "alt": {
+          "it": "Copertina in pixel art: l’officina di Babbo Natale sotto l’aurora boreale, due elfi si avvicinano con una lanterna",
+          "en": "Pixel-art cover: Santa’s workshop under the northern lights, two elves approaching with a lantern"
+        },
+        "link": {
+          "it": "/it/giochi-di-ruolo/la-scomparsa-di-babbo-natale/",
+          "en": "/en/roleplaying-games/la-scomparsa-di-babbo-natale/"
+        }
+      },
+      {
         "file": "CIRCOLO_DEL_VENERDI.PNG",
         "color": "#5a4560",
         "image": "/img/slides/circolo.webp",

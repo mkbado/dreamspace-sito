@@ -1,0 +1,131 @@
+---
+// Pagina di una one-shot: La scomparsa di Babbo Natale. Notte d'inverno in pixel art, con la neve.
+import Base from '../layouts/Base.astro';
+import Quotes from './Quotes.astro';
+import { t, sections, type Lang } from '../i18n/ui';
+import { site, tl, type OneShot } from '../data/catalog';
+
+interface Props { lang: Lang; o: OneShot; altPath: string }
+const { lang, o, altPath } = Astro.props;
+const L = (it: string, en: string) => (lang === 'it' ? it : en);
+const title = tl(lang, o.title, o.titleEn);
+---
+<Base lang={lang} title={title} description={o.short[lang]} altPath={altPath} bodyClass="skin-neve">
+  <canvas id="ds-snow" aria-hidden="true"></canvas>
+
+  <section class="nv-hero">
+    <div class="container stack" style="gap: 24px; padding-block: 32px 72px;">
+      <nav class="crumbs" aria-label={L('Percorso', 'Breadcrumb')}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › <a href={`/${lang}/${sections[lang].rpg}/`}>{t(lang, 'nav.rpg')}</a> › {title}</nav>
+      <div class="nv-intro">
+        <figure class="nv-cover">
+          <img src={o.cover} width="680" height="1020" alt={o.coverAlt[lang]} />
+        </figure>
+        <div class="stack" style="gap: 18px; flex: 1 1 480px; min-width: 0;">
+          <p class="nv-kicker">❄ {o.kicker[lang]} · {L('gratis', 'free')}</p>
+          <h1 class="pixel nv-title">{title}</h1>
+          <p class="label" style="margin: 0; color: #9fd3ff;">{o.tag[lang]}</p>
+          {o.pitch[lang].map((p, i) => <p class={i === 0 ? 'nv-lead' : 'nv-body'}>{p}</p>)}
+          <div class="nv-note"><p>{o.intro[lang]}</p></div>
+          <div class="row" style="gap: 12px; padding-top: 4px;">
+            <a class="btn btn--big nv-btn" href="#download">{t(lang, 'card.download')}</a>
+            <a class="btn btn--big nv-btn nv-btn--ghost" href="#elfi">{L('Conosci gli elfi', 'Meet the elves')}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nv-band">
+    <div class="container row" style="gap: 40px; align-items: flex-start;">
+      <dl class="nv-sheet" style="flex: 1 1 360px;">
+        {o.sheet.map((x) => (<><dt>{x.label[lang]}</dt><dd>{x.value[lang]}</dd></>))}
+      </dl>
+      <div id="download" class="stack" style="flex: 1 1 460px; min-width: 0; gap: 16px;">
+        <h2 class="pixel" style="font-size: 32px;">{L('Da scaricare', 'Downloads')}</h2>
+        {o.files.map((f) => (
+          <div class="nv-file">
+            <div style="flex: 1 1 240px; min-width: 0;"><strong>{f.title[lang]}</strong><small>{f.desc[lang]}</small></div>
+            <div class="nv-dl">
+              {f.it ? <a href={f.it} download>PDF IT</a> : <span>IT {t(lang, 'rpg.soon')}</span>}
+              {f.en ? <a href={f.en} download>PDF EN</a> : <span>EN {t(lang, 'rpg.soon')}</span>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="elfi" class="container stack" style="padding-block: 80px; gap: 28px;">
+    <h2 class="pixel h2">{o.heroesTitle[lang]}</h2>
+    <div class="nv-elves">
+      {o.heroes.map((h) => (
+        <article class="nv-elf">
+          <div class="nv-elf__img"><img src={h.image} width="627" height="627" alt={L(`${h.name}, elfo ${h.role.it.toLowerCase()} in pixel art`, `${h.name}, ${h.role.en.toLowerCase()} elf in pixel art`)} loading="lazy" /></div>
+          <h3>{h.name}</h3>
+          <p class="nv-elf__role">{h.role[lang]} · {L('livello 1', 'level 1')}</p>
+          <p class="nv-elf__quote">«{h.quote[lang]}»</p>
+          <p class="nv-elf__bio">{h.bio[lang]}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="nv-band">
+    <div class="container stack" style="gap: 28px;">
+      <h2 class="pixel h2">{o.placesTitle[lang]}</h2>
+      <div class="nv-places">
+        {o.places.map((p) => (
+          <figure class="window nv-place">
+            <div class="window__bar" style="background: #c8312f;"><span>{p.title[lang]}</span><span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+            <img src={p.image} alt={`${p.title[lang]}: ${p.caption[lang]}`} loading="lazy" />
+            <figcaption>{p.caption[lang]}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Quotes lang={lang} quotes={o.quotes} />
+
+  <section class="container stack" style="padding-block: 80px; gap: 14px; align-items: center; text-align: center;">
+    <p class="nv-kicker">🎁 {L('Un regalo da Dreamspace', 'A gift from Dreamspace')}</p>
+    <h2 class="pixel h2">{L('Ti è piaciuta? Offri una cioccolata agli elfi', 'Enjoyed it? Buy the elves a hot chocolate')}</h2>
+    <p style="margin: 0; max-width: 620px; color: var(--soft);">{L('L’avventura è gratis. Se avete salvato il Natale, una donazione ci aiuta a scrivere la prossima.', 'The adventure is free. If you saved Christmas, a donation helps us write the next one.')}</p>
+    {site.kofi
+      ? <a class="btn btn--big nv-btn" href={site.kofi} target="_blank" rel="noopener">{t(lang, 'kofi.button')}</a>
+      : <span class="btn btn--big nv-btn" aria-disabled="true" style="opacity: .55;">{L('Ko-fi in arrivo', 'Ko-fi coming soon')}</span>}
+  </section>
+
+  <p slot="licence" style="margin: 0; font-size: 13px; color: var(--mute);">{o.licence[lang]}</p>
+</Base>
+
+<script is:inline>
+(function () {
+  // Neve in pixel: una bufera all'arrivo, poi una nevicata leggera
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var cv = document.getElementById('ds-snow'), ctx = cv.getContext('2d'), S = 3, W, H, flakes = [], t0 = performance.now();
+  function size() { W = cv.width = Math.ceil(innerWidth / S); H = cv.height = Math.ceil(innerHeight / S); }
+  size(); addEventListener('resize', size);
+  function flake(top) {
+    return { x: Math.random() * W, y: top ? -Math.random() * H : Math.random() * H, v: 0.25 + Math.random() * 0.6, s: Math.random() < 0.25 ? 2 : 1, p: Math.random() * 6.28, c: Math.random() < 0.15 ? '#9fd3ff' : '#ffffff' };
+  }
+  var BURST = Math.round((W * H) / 70), CALM = Math.round((W * H) / 520);
+  for (var i = 0; i < BURST; i++) flakes.push(flake(true));
+  (function frame(t) {
+    var e = (t - t0) / 1000;
+    var wind = Math.sin(e * 0.4) * 0.3 + (e < 2.5 ? 0.9 * (1 - e / 2.5) : 0);
+    var boost = e < 2.5 ? 2.6 - e * 0.64 : 1;
+    ctx.clearRect(0, 0, W, H);
+    for (var i = flakes.length - 1; i >= 0; i--) {
+      var f = flakes[i];
+      f.y += f.v * boost; f.x += wind + Math.sin(e * 1.5 + f.p) * 0.15;
+      if (f.y > H + 2 || f.x > W + 4) {
+        if (flakes.length > CALM) { flakes.splice(i, 1); continue; }
+        f.y = -2; f.x = Math.random() * W - 20;
+      }
+      ctx.fillStyle = f.c; ctx.fillRect(Math.round(f.x), Math.round(f.y), f.s, f.s);
+    }
+    requestAnimationFrame(frame);
+  })(t0);
+})();
+</script>

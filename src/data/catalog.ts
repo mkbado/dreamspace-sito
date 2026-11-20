@@ -187,3 +187,17 @@ export const pagePath = (lang: Lang, slug: string) => {
 /** Titolo nella lingua della pagina: in inglese usa la traduzione, se c'è. */
 export const tl = (lang: Lang, it?: string, en?: string) => (lang === 'en' && en ? en : it ?? '');
 export const itemTitle = (lang: Lang, x: { title: string; titleEn?: string }) => tl(lang, x.title, x.titleEn);
+
+export interface OneShot {
+  kind: 'oneshot'; order?: number; slug: string; title: string; titleEn?: string;
+  quotes?: Quote[];
+  tag: L<string>; short: L<string>; cardMeta: L<string>; cardButton?: L<string>;
+  image: string; imageAlt: L<string>; cover: string; coverAlt: L<string>;
+  kicker: L<string>; pitch: L<string[]>; intro: L<string>;
+  sheet: { label: L<string>; value: L<string> }[];
+  files: { title: L<string>; desc: L<string>; it: string; en: string }[];
+  heroesTitle: L<string>; heroes: { name: string; image: string; role: L<string>; quote: L<string>; bio: L<string> }[];
+  placesTitle: L<string>; places: { image: string; title: L<string>; caption: L<string> }[];
+  licence: L<string>;
+}
+export const oneshots: OneShot[] = load<OneShot>(import.meta.glob('../content/oneshots/*.json', { eager: true }), 'oneshot');

@@ -1,5 +1,21 @@
 [
   {
+    "date": "2026-11-20",
+    "title": {
+      "it": "Nuova one-shot: La scomparsa di Babbo Natale",
+      "en": "New one-shot: Santa Claus Is Missing"
+    },
+    "text": {
+      "it": "Un’avventura natalizia introduttiva compatibile con la 5ª edizione: quattro elfi, una notte, un Natale da salvare. Gratis, in italiano e in inglese.",
+      "en": "An introductory Christmas adventure compatible with 5th edition: four elves, one night, one Christmas to save. Free, in Italian and English."
+    },
+    "image": "/img/natale/card.webp",
+    "link": {
+      "it": "/it/giochi-di-ruolo/la-scomparsa-di-babbo-natale/",
+      "en": "/en/roleplaying-games/la-scomparsa-di-babbo-natale/"
+    }
+  },
+  {
     "date": "2026-11-18",
     "title": {
       "it": "Marsylvania: lista d'attesa aperta",
