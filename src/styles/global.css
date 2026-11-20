@@ -716,3 +716,8 @@ html.ds-intro-on body { overflow: hidden; }
 .team__nick { margin: 0; font-family: var(--font-pixel); font-size: 17px; color: var(--accent); }
 .team__role { margin: 0; font-size: 15px; color: var(--soft); }
 @media (max-width: 640px) { .team { gap: 14px; } .team__card { padding: 16px 10px; } .team__avatar { width: 88px; height: 88px; } .team__avatar svg { width: 68px; height: 68px; } .team__card h3 { font-size: 14px; } }
+
+/* Passaggio tra pixel art, horror e fiaba */
+#ds-trans { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 2147483600; pointer-events: none; display: none; }
+#ds-trans.is-on { display: block; }
+@media (prefers-reduced-motion: reduce) { #ds-trans { display: none !important; } }

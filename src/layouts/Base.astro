@@ -12,6 +12,7 @@ import { site, pagePath } from '../data/catalog';
 import SignupScript from '../components/SignupScript.astro';
 import DownloadThanks from '../components/DownloadThanks.astro';
 import SpaceFX from '../components/SpaceFX.astro';
+import PageTransition from '../components/PageTransition.astro';
 
 interface Props {
   lang: Lang;
@@ -47,6 +48,7 @@ const year = new Date().getFullYear();
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 </head>
 <body class={bodyClass}>
+  <PageTransition />
   {bodyClass === 'stars' && <SpaceFX lang={lang} intro={spaceIntro} />}
   <header class="site-header">
     <div class="container">
