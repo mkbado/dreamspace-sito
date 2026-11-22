@@ -14,8 +14,8 @@
     "en": "Intolerant! cover in pixel art: under the title sign, the eight guests sit at a long table in the stone tavern, each struggling with their intolerance; the mermaid’s tail peeks out from under the tablecloth"
   },
   "tag": {
-    "it": "Gioco di carte · push your luck",
-    "en": "Card game · push your luck"
+    "it": "Party game di carte · push your luck",
+    "en": "Party card game · push your luck"
   },
   "status": {
     "it": "In sviluppo",
@@ -25,12 +25,12 @@
   "minutes": "20–40",
   "age": "10+",
   "short": {
-    "it": "Il gioco delle serate impossibili. Otto ospiti, otto intolleranze: un’altra uscita per fare punti, o una sera sul divano per metterli al sicuro?",
-    "en": "The game of impossible Outings. Eight guests, eight intolerances: one more Outing to score, or a night on the sofa to bank your points?"
+    "it": "Otto ospiti fantasy, otto intolleranze e un’agenda piena di cene. Vince chi sa quando dire basta… e chi convince gli altri a ordinare il fritto misto.",
+    "en": "Eight fantasy guests, eight intolerances and a calendar full of dinners. The winner knows when to say enough… and talks everyone else into the fried platter."
   },
   "pitch": {
-    "it": "Ogni giocatore è un ospite con un’intolleranza tutta sua. Esci a cena, sopravvivi alle Portate e accumula Uscite. Ma finché non torni a casa a incassarle, basta un fritto misto di troppo per perdere tutto.",
-    "en": "Each player is a guest with an intolerance all of their own. Go out to dinner, survive the courses and collect Outings. But until you go home to bank them, one fried platter too many and you lose everything."
+    "it": "Sei un orco vegetariano, un vampiro astemio, una fatina diabetica: tutti invitati a tutto, nessuno che può mangiare niente. Ogni sera fuori vale punti, ma ogni Portata può essere quella di troppo. Torna a casa e incassi, resta e rischi. E intanto inviti gli amici, li saboti col dolce e speri che nessuno ti tiri il pacco.",
+    "en": "You’re a vegetarian orc, a teetotal vampire, a diabetic fairy: invited to everything, able to eat nothing. Every Outing scores, but every Course could be the one too many. Go home and bank it, or stay and push your luck. Meanwhile you invite your friends, sabotage them with dessert and hope nobody bails on you."
   },
   "waiting": "[N]",
   "waitingWho": {
@@ -39,23 +39,23 @@
   },
   "fileName": "INTOLLERANTI.PNG",
   "cta": {
-    "it": "Vuoi sapere quando si va a cena?",
-    "en": "Want to know when dinner is served?"
+    "it": "Ti teniamo un posto a tavola? Niente glutine, promesso.",
+    "en": "Shall we save you a seat? Gluten-free, we promise."
   },
   "features": {
     "title": {
-      "it": "Perché giocarci",
-      "en": "Why play it"
+      "it": "Perché ci giocherai fino a tardi",
+      "en": "Why you’ll play until closing time"
     },
     "list": [
       {
         "title": {
-          "it": "Sapere quando fermarsi",
-          "en": "Knowing when to stop"
+          "it": "Un altro giro? Sì. No. Forse.",
+          "en": "One more round? Yes. No. Maybe."
         },
         "text": {
-          "it": "Ogni Uscita in più vale punti, ma mette a rischio tutte quelle che non hai ancora incassato.",
-          "en": "Every extra Outing scores, but puts every unbanked one at risk."
+          "it": "Ogni Uscita in più vale punti, ma rischi tutto quello che non hai ancora incassato. Il divano non è mai stato così strategico.",
+          "en": "Every extra Outing scores, but you risk everything you haven’t banked. The sofa has never been this strategic."
         }
       },
       {
@@ -64,28 +64,28 @@
           "en": "Poisoned invitations"
         },
         "text": {
-          "it": "Invita un rivale alla tua cena: se accetta si carica di Malessere, se rifiuta si becca il Pacco.",
-          "en": "Invite a rival to your dinner: accept and they pile up Discomfort, refuse and they take a Bail token."
+          "it": "Inviti un amico alla tua cena: se accetta si sorbisce le tue Portate, se rifiuta ti tira il pacco e se lo porta a casa: −1 punto.",
+          "en": "Invite a friend to your dinner: if they accept they suffer your Courses, if they bail they take the Bail token home: −1 point."
         }
       },
       {
         "title": {
-          "it": "Otto ospiti, otto stili",
-          "en": "Eight guests, eight styles"
+          "it": "Il tavolo che conosci",
+          "en": "A table you already know"
         },
         "text": {
-          "it": "Dai fragilissimi ai corazzati: ognuno ha un colore, un limite di Malessere e due abilità.",
-          "en": "From the most fragile to the armour-plated: each has a colour, a Discomfort limit and two abilities."
+          "it": "C’è sempre quello senza glutine, quella senza lattosio e quello che guida. Qui hanno poteri speciali, e un limite di Malessere tutto loro.",
+          "en": "There’s always the gluten-free one, the lactose-free one and the designated driver. Here they have special powers, and a Discomfort limit all their own."
         }
       },
       {
         "title": {
-          "it": "Da 2 a 8 a tavola",
-          "en": "From 2 to 8 at the table"
+          "it": "Da 2 a 8, con il dolce",
+          "en": "From 2 to 8, dessert included"
         },
         "text": {
-          "it": "Venti minuti in due, quaranta in otto. Perfetto per la fine di una cena vera.",
-          "en": "Twenty minutes for two, forty for eight. Perfect for the end of a real dinner."
+          "it": "Si spiega in cinque minuti, si gioca in venti. Perfetto a fine cena, mentre qualcuno ancora chiede se il tiramisù ha le uova.",
+          "en": "Five minutes to explain, twenty to play. Perfect after a real dinner, while someone is still asking if the tiramisù has eggs."
         }
       }
     ]
@@ -230,25 +230,25 @@
     },
     "steps": {
       "it": [
-        "Pesca una carta Risposta",
-        "Esci o stai a casa? A casa incassi le Uscite e ti riprendi",
-        "Rivela l’Uscita: quanti punti vale, quanto si mangia e si beve",
-        "Invita un compagno, se vuoi metterlo nei guai",
-        "Pesca le Portate una alla volta: se hanno il tuo colore, Malessere",
-        "Sopravvissuto? L’Uscita è tua, ma non ancora al sicuro"
+        "Pesca una carta Risposta: ti servirà, fidati",
+        "Esci o resti a casa? Sul divano incassi le Uscite e ti riprendi",
+        "Rivela l’Uscita: quanti punti vale, quanto si mangia, quanto si beve",
+        "Invita qualcuno a cena, magari proprio chi non regge il menù",
+        "Pesca le Portate una alla volta: se c’è il tuo nome, Malessere",
+        "Sopravvissuto? L’Uscita è tua. Al sicuro, però, solo a casa"
       ],
       "en": [
-        "Draw a Response card",
-        "Go out or stay home? At home you bank your Outings and recover",
-        "Reveal the Outing: its points, how much you eat and drink",
-        "Invite a friend, if you want to get them in trouble",
-        "Draw the courses one by one: if they carry your colour, Discomfort",
-        "Survived? The Outing is yours, but not safe yet"
+        "Draw a Response card: trust us, you’ll need it",
+        "Go out or stay in? On the sofa you bank your Outings and recover",
+        "Reveal the Outing: its points, how much food, how much drink",
+        "Invite someone along, ideally whoever can’t handle the menu",
+        "Draw the Courses one at a time: if your name is on it, Discomfort",
+        "Survived? The Outing is yours. But it’s only safe at home"
       ]
     },
     "note": {
-      "it": "Raggiungi il tuo limite di Malessere e vai in Nausea: perdi le Uscite non incassate e prendi 3 punti di penalità. Alla fine vince chi ha più punti.",
-      "en": "Hit your Discomfort limit and you’re Nauseous: you lose every unbanked Outing and take a 3-point penalty. Most points wins."
+      "it": "Arrivi al tuo limite di Malessere? Nausea: perdi tutte le Uscite non incassate e ti becchi 3 punti di penalità. A fine partita vince chi ha più punti (e lo stomaco più forte).",
+      "en": "Hit your Discomfort limit? Nausea: you lose every unbanked Outing and take a 3-point penalty. Most points wins (and the strongest stomach)."
     },
     "image": "",
     "imageAlt": {
@@ -310,8 +310,8 @@
         "en": "Outings, invitations and Responses"
       },
       "intro": {
-        "it": "A Intolleranti! non si esce mai da soli: ci si invita, ci si salva e ci si sabota a vicenda, anche quando non è il proprio turno.",
-        "en": "In Intolerant! nobody goes out alone: you invite each other, save each other and sabotage each other, even when it is not your turn."
+        "it": "A Intolleranti! non si esce mai da soli: ci si invita, ci si salva e ci si sabota a vicenda, anche quando non è il tuo turno. Proprio come nei gruppi WhatsApp delle cene vere.",
+        "en": "In Intolerant! nobody goes out alone: you invite, rescue and sabotage each other, even when it’s not your turn. Just like real dinner group chats."
       },
       "blocks": [
         {
@@ -320,12 +320,12 @@
             "en": "0 · Your player board"
           },
           "title": {
-            "it": "Un ospite, due abilità e il tuo limite",
-            "en": "One guest, two abilities and your limit"
+            "it": "Il tuo ospite, il tuo limite",
+            "en": "Your guest, your limit"
           },
           "text": {
-            "it": "Ogni giocatore riceve la plancia del suo ospite: un’abilità Passiva sempre attiva, un’abilità Attiva da usare al momento giusto e la scala del Malessere. Il limite cambia da ospite a ospite: il Golem regge fino a 8, la Goblin e la Sirena crollano già a 4. Sul retro c’è la sua frase tipica.",
-            "en": "Each player gets their guest’s player board: an always-on Passive ability, an Active ability to use at the right moment and the Discomfort track. The limit changes from guest to guest: the Golem can take up to 8, the Goblin and the Mermaid give in at 4. On the back is their signature line."
+            "it": "Ogni giocatore è un ospite con la sua plancia: un’abilità Passiva sempre attiva, un’abilità Attiva da giocare al momento giusto e la scala del Malessere. Il Golem Palestrato regge fino a 8, la Goblin Anti-Uova e la Sirena crollano già a 4. Scegli con lo stomaco.",
+            "en": "Each player is a guest with their own board: an always-on Passive ability, an Active ability to play at the right moment, and the Discomfort track. The Buff Golem can take 8, the Anti-Egg Goblin and the Mermaid give in at 4. Choose with your stomach."
           },
           "images": [
             {
@@ -344,12 +344,12 @@
             "en": "1 · Outings"
           },
           "title": {
-            "it": "Scegli la serata",
-            "en": "Pick your Outing"
+            "it": "Dall’aperitivo al matrimonio",
+            "en": "From aperitivo to wedding"
           },
           "text": {
-            "it": "Nel tuo turno riveli un'Uscita: dall'Aperitivo da 1 punto al Matrimonio da 5. Ogni carta dice quante Portate di Cibo e di Bevande devi reggere per completarla. Più vale, più è facile finire in Nausea.",
-            "en": "On your turn you reveal an Outing: from a 1-point Aperitivo to a 5-point Wedding. Each card says how many Food and Drink Courses you must survive to complete it. The more it is worth, the easier it is to end up Nauseous."
+            "it": "Nel tuo turno riveli un’Uscita: dall’Aperitivo da 1 punto al Matrimonio da 5. Ogni carta dice quante Portate di Cibo e Bevande devi reggere. Più punti, più piatti, più rischio: il matrimonio vale tanto, ma ricordati del pranzo di sette portate.",
+            "en": "On your turn you reveal an Outing: from a 1-point Aperitivo to a 5-point Wedding. Each card says how many Food and Drink Courses you must survive. More points, more plates, more risk: the wedding pays well, but remember the seven-course lunch."
           },
           "images": [
             {
@@ -384,12 +384,12 @@
             "en": "2 · The invitation"
           },
           "title": {
-            "it": "Vieni con me, o mi fai il Pacco?",
-            "en": "Coming with me, or standing me up?"
+            "it": "Vieni con me, o mi tiri il pacco?",
+            "en": "Coming with me, or bailing on me?"
           },
           "text": {
-            "it": "Prima delle Portate puoi invitare un altro giocatore. Se accetta, mangia e beve con te: se regge fino alla fine prende una Buona Uscita, +1 punto. Se rifiuta ti fa il famigerato Pacco… e si prende il token Pacco: −1 punto, fino a fine partita. Solo una Scusa Valida, o l'Allenamento alle 6 del Golem Palestrato, permette di dire di no senza pagare. E se proprio lo vuoi con te, giochi un Invito che non si può rifiutare.",
-            "en": "Before the Courses you can invite another player. If they accept, they eat and drink with you: if they last to the end they get a Good Night Out token, +1 point. If they refuse, they bail on you… and take a Bail token: −1 point, until the end of the game. Only A Good Excuse, or the Golem's 6 AM Workout, lets you say no for free. And if you really want them along, you play An Invite You Can't Refuse."
+            "it": "Prima delle Portate puoi invitare un altro giocatore. Se accetta mangia e beve con te, e se arriva in fondo si prende una Buona Uscita: +1 punto. Se rifiuta ti tira il pacco… e il token Pacco se lo tiene fino a fine partita: −1 punto. Solo una Scusa Valida, o l’Allenamento alle 6 del Golem, permettono di dire di no gratis. E se lo vuoi per forza al tuo tavolo? C’è l’Invito che non si può rifiutare.",
+            "en": "Before the Courses you can invite another player. If they accept they eat and drink with you, and if they make it to the end they get a Good Night Out: +1 point. If they refuse, they bail on you… and keep the Bail token until the end of the game: −1 point. Only A Good Excuse, or the Golem’s 6 AM Workout, lets you say no for free. And if you really want them at your table? There’s An Invite You Can’t Refuse."
           },
           "images": [
             {
@@ -400,7 +400,7 @@
                 "en": "Bail token: a cardboard box"
               },
               "caption": {
-                "it": "Bail · −1",
+                "it": "Pacco · −1",
                 "en": "Bail · −1"
               }
             },
@@ -440,20 +440,20 @@
             "en": "3 · Responses"
           },
           "title": {
-            "it": "Carte da giocare anche nel turno degli altri",
-            "en": "Cards you play on other people's turns too"
+            "it": "Il bello è rovinare la cena agli altri",
+            "en": "The fun part is ruining other people’s dinner"
           },
           "text": {
-            "it": "Ognuno tiene in mano fino a 5 carte Risposta. Le Difese ti salvano la serata, i Dispetti la rovinano agli altri, le Neutre possono andare in un verso o nell'altro. E quando qualcuno esagera, c'è sempre un Ma anche no!",
-            "en": "Everyone holds up to 5 Response cards. Defenses save your evening, Mischief cards ruin someone else's, Neutral cards can go either way. And when someone goes too far, there is always a Yeah, No!."
+            "it": "Ognuno tiene in mano fino a 5 carte Risposta, da giocare anche nel turno degli altri. Le Difese ti salvano la serata, i Dispetti la rovinano a chi è a tavola: «Un altro giro!» e all’improvviso servono due Bevande in più. E quando qualcuno esagera, c’è sempre un «Ma anche no!».",
+            "en": "Everyone holds up to 5 Response cards, playable on other people’s turns too. Defenses save your evening, Mischief cards wreck everyone else’s: «Another Round!» and suddenly the Outing needs two extra Drinks. And when someone goes too far, there’s always a «Yeah, No!»."
           },
           "images": [
             {
-              "image": "/img/intolleranti/carte/caffe-corretto.webp",
+              "image": "/img/intolleranti/carte/un-altro-giro.webp",
               "kind": "card",
               "alt": {
-                "it": "Carta Risposta Dispetto Caffè corretto: la Bevanda appena rivelata dà 1 Malessere a tutti i partecipanti",
-                "en": "Mischief Response card Spiked Coffee: the Drink just revealed gives 1 Discomfort to every participant"
+                "it": "Carta Risposta Dispetto Un altro giro!: prima della prima Portata, l’Uscita richiede 2 Bevande in più",
+                "en": "Mischief Response card Another Round!: before the first Course, the Outing requires 2 extra Drink cards"
               }
             },
             {
@@ -488,8 +488,8 @@
         "en": "Food and Drinks"
       },
       "intro": {
-        "it": "Ogni Portata porta in fondo i nomi degli ospiti che la temono. Se c'è il tuo, prendi un Malessere. Se c'è scritto TUTTI!, la serata si fa dura per tutto il tavolo.",
-        "en": "Every Course lists at the bottom the guests who dread it. If your name is there, you take a Discomfort. If it says EVERYONE!, the whole table is in trouble."
+        "it": "Ogni Portata ha scritto in fondo chi non la può vedere. Se c’è il tuo nome, Malessere. Se c’è scritto TUTTI!, auguri a tutto il tavolo.",
+        "en": "Every Course lists at the bottom who can’t stand it. If your name is there, Discomfort. If it says EVERYONE!, good luck to the whole table."
       },
       "blocks": [
         {
