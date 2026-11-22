@@ -28,6 +28,7 @@ common_top = [
 ]
 
 game = common_top + [
+    S('titleEn', 'Titolo in inglese (se diverso)'),
     IMG('image', 'Immagine della scheda (960×600)'), L('imageAlt', 'Descrizione immagine scheda'),
     IMG('heroImage', 'Immagine grande nella pagina'), L('heroAlt', 'Descrizione immagine grande'), B('heroPortrait', 'Immagine grande verticale'), B('heroSquare', 'Immagine grande quadrata'),
     IMG('banner', 'Banner'), L('bannerAlt', 'Descrizione banner'), L('bannerHint', 'Suggerimento sotto il banner (personaggi cliccabili)'),
@@ -48,13 +49,13 @@ game = common_top + [
                 IMG('icon', 'Icona'), S('cost', 'Costo (es. 1 {mana})'), L('text', 'Effetto ({life} {atk} {def} {mana} {speed} diventano icone)', 'text')]),
             O('levels', 'Livelli (1 e 2)', [O('stats', 'Statistiche', [N('life', 'Vita'), N('attack', 'Attacco'), N('defense', 'Difesa'), N('mana', 'Mana'), N('speed', 'Velocità')]),
                 O('abilities', 'Abilità', [L('name', 'Nome'), S('cost', 'Costo (es. 1 {mana})'), B('passive', 'Passiva'), L('text', 'Effetto', 'text')], lst=True, summary='{fields.name.it}')], lst=True)], lst=True, summary='{fields.name}')]),
-    O('gallery', 'Galleria', [L('title', 'Titolo'), L('note', 'Nota', 'text'),
+    O('gallery', 'Galleria', [L('title', 'Titolo'), L('note', 'Nota', 'text'), S('ratio', 'Proporzioni immagini (es. 3 / 2)'),
         O('items', 'Elementi', [L('name', 'Nome'), IMG('image', 'Immagine'), L('alt', 'Descrizione immagine'), L('quote', 'Citazione', 'text')], lst=True, summary='{fields.name.it}')]),
     O('roster', 'Elenco personaggi (senza immagini)', [L('title', 'Titolo'), L('note', 'Nota', 'text'),
         O('items', 'Voci', [L('name', 'Nome'), L('role', 'Ruolo')], lst=True, summary='{fields.name.it}')]),
     O('tableSections', 'Sezioni con carte (Al tavolo, Cibi e Bevande…)', [B('dark', 'Sfondo scuro'), L('kicker', 'Occhiello'), L('title', 'Titolo'), L('intro', 'Introduzione', 'text'),
         O('blocks', 'Blocchi', [L('kicker', 'Occhiello'), L('title', 'Titolo'), L('text', 'Testo', 'text'),
-            O('images', 'Immagini', [IMG('image', 'Immagine'), {'name': 'kind', 'label': 'Tipo', 'type': 'select', 'options': {'values': ['card', 'token']}},
+            O('images', 'Immagini', [IMG('image', 'Immagine'), {'name': 'kind', 'label': 'Tipo', 'type': 'select', 'options': {'values': ['card', 'token', 'board']}},
                 L('alt', 'Descrizione immagine'), L('caption', 'Didascalia (solo token)')], lst=True)], lst=True)], lst=True),
     O('howToPlay', 'Come si gioca', [L('title', 'Titolo'), L('steps', 'Passi', 'text', lst=True), L('note', 'Nota', 'text'),
         IMG('image', 'Immagine'), L('imageAlt', 'Descrizione immagine'), B('imageBare', 'Immagine senza cornice')]),

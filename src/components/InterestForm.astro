@@ -1,6 +1,6 @@
 ---
 import { t, type Lang } from '../i18n/ui';
-import { games } from '../data/catalog';
+import { games, itemTitle } from '../data/catalog';
 import Consent from './Consent.astro';
 
 interface Props { lang: Lang; preselect?: string }
@@ -19,7 +19,7 @@ const { lang, preselect = 'marsylvania' } = Astro.props;
       <fieldset>
         <legend class="label">{t(lang, 'list.interest')}</legend>
         {games.map((g) => (
-          <label class="check"><input type="checkbox" name="giochi" value={g.slug} checked={g.slug === preselect} /> {g.title}</label>
+          <label class="check"><input type="checkbox" name="giochi" value={g.slug} checked={g.slug === preselect} /> {itemTitle(lang, g)}</label>
         ))}
         <label class="check"><input type="checkbox" name="giochi" value="novita" /> {t(lang, 'list.news')}</label>
       </fieldset>

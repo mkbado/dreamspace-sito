@@ -333,6 +333,9 @@ content:
       collapsible:
         collapsed: true
         summary: "{who}"
+  - name: titleEn
+    label: Titolo in inglese (se diverso)
+    type: string
   - name: image
     label: Immagine della scheda (960×600)
     type: image
@@ -864,6 +867,9 @@ content:
       - name: en
         label: English
         type: text
+    - name: ratio
+      label: Proporzioni immagini (es. 3 / 2)
+      type: string
     - name: items
       label: Elementi
       type: object
@@ -1040,6 +1046,7 @@ content:
             values:
             - card
             - token
+            - board
         - name: alt
           label: Descrizione immagine
           type: object

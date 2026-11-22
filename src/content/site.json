@@ -87,13 +87,14 @@
           "en": "Card game · 2–8 players · 20–40 min · waiting list open"
         },
         "alt": {
-          "it": "Copertina di Intolleranti!: in una taverna, otto ospiti fantasy a tavola, ognuno alle prese con la sua intolleranza, mentre un golem cameriere porta i piatti",
-          "en": "Intolleranti! cover: in a tavern, eight fantasy guests at the table, each struggling with their intolerance, while a golem waiter brings the dishes"
+          "it": "Copertina di Intolleranti! in pixel art: l’insegna col titolo e otto riquadri con gli ospiti della taverna alle prese con le loro intolleranze",
+          "en": "Intolerant! cover in pixel art: the title sign and eight panels with the tavern guests struggling with their intolerances"
         },
         "link": {
           "it": "/it/giochi-da-tavolo/intolleranti/",
           "en": "/en/board-games/intolleranti/"
-        }
+        },
+        "titleEn": "Intolerant!"
       },
       {
         "file": "MERIGGIO.PNG",

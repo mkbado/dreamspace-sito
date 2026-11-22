@@ -7,7 +7,7 @@ import Quotes from '../../../components/Quotes.astro';
 import BannerSpots from '../../../components/BannerSpots.astro';
 import DreamspacerSheets from '../../../components/DreamspacerSheets.astro';
 import { t, langs, otherLang, sections, type Lang } from '../../../i18n/ui';
-import { games, rpgs, settings, type Game, type Rpg, type Setting, oneshots, type OneShot, localImg } from '../../../data/catalog';
+import { games, rpgs, settings, type Game, type Rpg, type Setting, oneshots, type OneShot, localImg, itemTitle } from '../../../data/catalog';
 import SettingPage from '../../../components/SettingPage.astro';
 import CircoloPage from '../../../components/CircoloPage.astro';
 import OneShotPage from '../../../components/OneShotPage.astro';
@@ -35,7 +35,7 @@ const os = item.kind === 'oneshot' ? item : null;
 {os && <OneShotPage lang={lang} o={os} altPath={alt} />}
 
 {g && (
-<Base lang={lang} title={g.title} description={g.short[lang]} altPath={alt}>
+<Base lang={lang} title={itemTitle(lang, g)} description={g.short[lang]} altPath={alt}>
   {g.banner && g.characters?.list.some((c) => c.spot) && <BannerSpots lang={lang} g={g} />}
   {g.banner && !g.characters?.list.some((c) => c.spot) && (
     <section style="border-bottom: 4px solid var(--black); background: var(--black);">
@@ -43,7 +43,7 @@ const os = item.kind === 'oneshot' ? item : null;
     </section>
   )}
   <section class="container stack" style="padding-block: 40px 72px; gap: 28px;">
-    <nav class="crumbs" aria-label={L('Percorso', 'Breadcrumb')}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › <a href={`/${lang}/${sections[lang].games}/`}>{t(lang, 'nav.games')}</a> › {g.title}</nav>
+    <nav class="crumbs" aria-label={L('Percorso', 'Breadcrumb')}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › <a href={`/${lang}/${sections[lang].games}/`}>{t(lang, 'nav.games')}</a> › {itemTitle(lang, g)}</nav>
     <div class="row" style="gap: 48px; align-items: flex-start;">
       {!g.banner && <div class="window" style={g.heroPortrait ? 'flex: 0 1 380px; min-width: 0; margin-inline: auto;' : g.heroSquare ? 'flex: 0 1 460px; min-width: 0; margin-inline: auto;' : 'flex: 1 1 520px; min-width: 0;'}>
         <div class="window__bar"><span>{g.fileName ?? `${g.slug.toUpperCase()}.PNG`}</span><span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
@@ -53,7 +53,7 @@ const os = item.kind === 'oneshot' ? item : null;
       </div>}
       <div class="stack" style="flex: 1 1 400px; min-width: 0; gap: 20px;">
         <p class="label" style="margin: 0; color: var(--teal);">{g.tag[lang]}</p>
-        <h1 class="pixel" style="font-size: clamp(38px, 5vw, 56px);">{g.title}</h1>
+        <h1 class="pixel" style="font-size: clamp(38px, 5vw, 56px);">{itemTitle(lang, g)}</h1>
         <div class="row" style="gap: 12px;">
           <div class="stat"><b>{g.players}</b><span>{t(lang, 'game.players')}</span></div>
           <div class="stat"><b>{g.minutes}</b><span>{t(lang, 'game.minutes')}</span></div>
@@ -155,9 +155,11 @@ const os = item.kind === 'oneshot' ? item : null;
               <p style="margin: 0; font-size: 17px;">{b.text[lang]}</p>
             </div>
             <div class="play-fan">
-              {b.images.map((im) => im.kind === 'token'
+              {b.images.map((im) => im.kind === 'board'
+                ? <img class="play-board" src={localImg(im.image, lang)} width="1000" height="710" alt={im.alt[lang]} loading="lazy" />
+                : im.kind === 'token'
                 ? <figure class="play-token"><img src={im.image} width="160" height="160" alt={im.alt[lang]} loading="lazy" />{im.caption && <figcaption>{im.caption[lang]}</figcaption>}</figure>
-                : <img class="play-card" src={im.image} width="400" height="558" alt={im.alt[lang]} loading="lazy" />)}
+                : <img class="play-card" src={localImg(im.image, lang)} width="400" height="558" alt={im.alt[lang]} loading="lazy" />)}
             </div>
           </div>
         ))}
@@ -172,10 +174,10 @@ const os = item.kind === 'oneshot' ? item : null;
           <h2 class="pixel" style="font-size: 40px;">{g.gallery.title[lang]}</h2>
           <p style="margin: 0; font-size: 14px; color: var(--text-dim);">{g.gallery.note[lang]}</p>
         </div>
-        <div class="gallery">
+        <div class="gallery" style={g.gallery.ratio ? `--ratio: ${g.gallery.ratio};` : undefined}>
           {g.gallery.items.map((x) => (
             <figure>
-              <img src={x.image} alt={x.alt[lang]} loading="lazy" />
+              <img src={localImg(x.image, lang)} alt={x.alt[lang]} loading="lazy" />
               <figcaption><strong>{x.name[lang]}</strong><span>{x.quote[lang]}</span></figcaption>
             </figure>
           ))}

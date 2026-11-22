@@ -32,6 +32,7 @@ export interface Game {
   kind: 'game';
   slug: string;
   title: string;
+  titleEn?: string;
   image?: string;
   imageAlt?: L<string>;
   /** immagine della scheda: sostituisce image nella pagina del gioco */
@@ -59,7 +60,7 @@ export interface Game {
   };
   features?: { title: L<string>; list: { title: L<string>; text: L<string> }[] };
   characters?: { title: L<string>; note: L<string>; abilityLabel?: L<string>; list: Character[] };
-  gallery?: { title: L<string>; note: L<string>; items: { name: L<string>; image: string; alt: L<string>; quote: L<string> }[] };
+  gallery?: { title: L<string>; note: L<string>; ratio?: string; items: { name: L<string>; image: string; alt: L<string>; quote: L<string> }[] };
   roster?: { title: L<string>; note: L<string>; items: { name: L<string>; role: L<string> }[] };
   tableSections?: {
     dark?: boolean; kicker: L<string>; title: L<string>; intro: L<string>;

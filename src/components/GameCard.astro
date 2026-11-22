@@ -1,7 +1,7 @@
 ---
 import { t, type Lang } from '../i18n/ui';
 import type { Game } from '../data/catalog';
-import { localImg } from '../data/catalog';
+import { localImg, itemTitle } from '../data/catalog';
 import { itemPath } from '../data/paths';
 interface Props { lang: Lang; g: Game }
 const { lang, g } = Astro.props;
@@ -10,7 +10,7 @@ const { lang, g } = Astro.props;
   <a class="card__media" href={itemPath(lang, g)} tabindex="-1" aria-hidden="true"><img src={localImg(g.image, lang)} width="960" height="600" alt={g.imageAlt?.[lang] ?? ''} loading="lazy" /></a>
   <div class="card__body">
     <p class="card__tag">{g.tag[lang]}</p>
-    <h3 class="pixel h3">{g.title}</h3>
+    <h3 class="pixel h3">{itemTitle(lang, g)}</h3>
     <p class="card__meta">{g.players} {t(lang, 'game.players')} · {g.minutes} {t(lang, 'game.minutes')}{g.age && ` · ${g.age}`}</p>
     <p>{g.short[lang]}</p>
     <div class="card__foot">

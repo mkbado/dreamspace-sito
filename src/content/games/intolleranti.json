@@ -2,15 +2,16 @@
   "order": 2,
   "slug": "intolleranti",
   "title": "Intolleranti!",
+  "titleEn": "Intolerant!",
   "image": "/img/intolleranti/card.webp",
   "imageAlt": {
-    "it": "Il titolo Intolleranti! sopra la taverna, con gli ospiti a tavola",
-    "en": "The Intolleranti! title above the tavern, with the guests at the table"
+    "it": "La copertina 8 bit di Intolleranti!: il titolo su un’insegna e otto riquadri con gli ospiti della taverna",
+    "en": "The 8-bit cover of Intolerant!: the title on a sign and eight panels with the tavern guests"
   },
   "heroImage": "/img/intolleranti/copertina.webp",
   "heroAlt": {
-    "it": "Copertina di Intolleranti!: in una taverna, otto ospiti fantasy a tavola, ognuno alle prese con la sua intolleranza, mentre un golem cameriere porta i piatti",
-    "en": "Intolleranti! cover: in a tavern, eight fantasy guests at the table, each struggling with their intolerance, while a golem waiter brings the dishes"
+    "it": "Copertina di Intolleranti! in pixel art: sotto l’insegna col titolo, otto riquadri mostrano gli ospiti della taverna alle prese con le loro intolleranze: il nano davanti al cappuccino, il vampiro col bicchiere d’acqua, l’orco col ricettario, l’elfa con la lente, la goblin che prende a calci un uovo, la fatina col cupcake, la sirena col pesce rosso e il golem con la bilancia",
+    "en": "Intolerant! cover in pixel art: under the title sign, eight panels show the tavern guests struggling with their intolerances: the dwarf facing a cappuccino, the vampire with a glass of water, the orc with a cookbook, the elf with a magnifying glass, the goblin kicking an egg, the fairy with a cupcake, the mermaid with a goldfish and the golem with a scale"
   },
   "tag": {
     "it": "Gioco di carte · push your luck",
@@ -25,11 +26,11 @@
   "age": "10+",
   "short": {
     "it": "Il gioco delle serate impossibili. Otto ospiti, otto intolleranze: un’altra uscita per fare punti, o una sera sul divano per metterli al sicuro?",
-    "en": "The game of impossible nights out. Eight guests, eight intolerances: one more night out to score, or a night on the sofa to bank your points?"
+    "en": "The game of impossible Outings. Eight guests, eight intolerances: one more Outing to score, or a night on the sofa to bank your points?"
   },
   "pitch": {
     "it": "Ogni giocatore è un ospite con un’intolleranza tutta sua. Esci a cena, sopravvivi alle Portate e accumula Uscite. Ma finché non torni a casa a incassarle, basta un fritto misto di troppo per perdere tutto.",
-    "en": "Each player is a guest with an intolerance all of their own. Go out to dinner, survive the courses and collect nights out. But until you go home to bank them, one fried platter too many and you lose everything."
+    "en": "Each player is a guest with an intolerance all of their own. Go out to dinner, survive the courses and collect Outings. But until you go home to bank them, one fried platter too many and you lose everything."
   },
   "waiting": "[N]",
   "waitingWho": {
@@ -54,7 +55,7 @@
         },
         "text": {
           "it": "Ogni Uscita in più vale punti, ma mette a rischio tutte quelle che non hai ancora incassato.",
-          "en": "Every extra night out scores, but puts every unbanked one at risk."
+          "en": "Every extra Outing scores, but puts every unbanked one at risk."
         }
       },
       {
@@ -64,7 +65,7 @@
         },
         "text": {
           "it": "Invita un rivale alla tua cena: se accetta si carica di Malessere, se rifiuta si becca il Pacco.",
-          "en": "Invite a rival to your dinner: accept and they pile up Queasiness, refuse and they get stood-up points."
+          "en": "Invite a rival to your dinner: accept and they pile up Discomfort, refuse and they take a Bail token."
         }
       },
       {
@@ -74,7 +75,7 @@
         },
         "text": {
           "it": "Dai fragilissimi ai corazzati: ognuno ha un colore, un limite di Malessere e due abilità.",
-          "en": "From the most fragile to the armour-plated: each has a colour, a Queasiness limit and two abilities."
+          "en": "From the most fragile to the armour-plated: each has a colour, a Discomfort limit and two abilities."
         }
       },
       {
@@ -95,8 +96,8 @@
       "en": "The tavern guests"
     },
     "note": {
-      "it": "Illustrazioni indicative: la grafica definitiva arriverà con le plance.",
-      "en": "Indicative illustrations: the final art will come with the boards."
+      "it": "Le illustrazioni delle plance definitive, in 8 bit.",
+      "en": "Art from the final player boards, in 8-bit."
     },
     "items": [
       {
@@ -106,42 +107,42 @@
         },
         "image": "/img/intolleranti/orco-vegetariano.webp",
         "alt": {
-          "it": "Un orco anziano con una carota in mano che legge un libro",
-          "en": "An old orc holding a carrot while reading a book"
+          "it": "L’Orco Vegetariano, in pixel art, legge un ricettario con gli occhiali sul naso accanto a una carota e a un’insalata",
+          "en": "The Vegetarian Orc, in pixel art, reads a cookbook with glasses on his nose beside a carrot and a salad"
         },
         "quote": {
-          "it": "«Io prendo un contorno. Anzi due.»",
-          "en": "“I’ll have a side. Make that two.”"
+          "it": "«Io prendo un contorno. Anzi due. Anzi, che contorni avete oltre alle patate?»",
+          "en": "“I’ll have a side. Make that two. Actually, what sides do you have besides potatoes?”"
         }
       },
       {
         "name": {
           "it": "L’Elfa Celiaca",
-          "en": "The Coeliac Elf"
+          "en": "The Celiac Elf"
         },
         "image": "/img/intolleranti/elfa-celiaca.webp",
         "alt": {
-          "it": "Un’elfa che esamina una briciola con la lente d’ingrandimento",
-          "en": "An elf inspecting a crumb with a magnifying glass"
+          "it": "L’Elfa Celiaca, in pixel art, col cappello da detective esamina le briciole di pane con la lente",
+          "en": "The Celiac Elf, in pixel art, in a detective hat inspects bread crumbs with a magnifying glass"
         },
         "quote": {
-          "it": "«Pizza senza glutine: 14 euro, 40 minuti di attesa.»",
-          "en": "“Gluten-free pizza: 14 euros, 40-minute wait.”"
+          "it": "«Pizza senza glutine: 14 euro, 40 minuti di attesa, gusto cartone. Ne prendo due.»",
+          "en": "“Gluten-free pizza: 14 euros, a 40-minute wait, and it tastes like cardboard. I’ll take two.”"
         }
       },
       {
         "name": {
           "it": "Il Nano No al Lattosio",
-          "en": "The Lactose-Free Dwarf"
+          "en": "The Lactose-Intolerant Dwarf"
         },
         "image": "/img/intolleranti/nano-no-al-lattosio.webp",
         "alt": {
-          "it": "Un nano dalla barba rossa che guarda preoccupato un cappuccino",
-          "en": "A red-bearded dwarf eyeing a cappuccino with worry"
+          "it": "Il Nano No al Lattosio, in pixel art, si ritrae inorridito davanti a un cappuccino",
+          "en": "The Lactose-Intolerant Dwarf, in pixel art, recoils in horror from a cappuccino"
         },
         "quote": {
-          "it": "«Ho la pastiglia e ho il piano di fuga.»",
-          "en": "“I’ve got the pill and the escape plan.”"
+          "it": "«Ho la pastiglia, ho il piano di fuga e so dov’è il bagno di ogni locale della città. Il cappuccino può anche provarci.»",
+          "en": "“I’ve got my pill, an escape plan, and I know where the bathroom is in every place in town. That cappuccino can try me.”"
         }
       },
       {
@@ -151,27 +152,27 @@
         },
         "image": "/img/intolleranti/vampiro-astemio.webp",
         "alt": {
-          "it": "Un vampiro annoiato con un bicchiere d’acqua",
-          "en": "A bored vampire holding a glass of water"
+          "it": "Il Vampiro Astemio, in pixel art, annoiato con un bicchiere d’acqua in mano",
+          "en": "The Teetotal Vampire, in pixel art, bored, holding a glass of water"
         },
         "quote": {
-          "it": "«Guido io. Guido sempre io.»",
-          "en": "“I’m driving. I’m always driving.”"
+          "it": "«Guido io. Guido sempre io. Da dodici anni. Qualcuno mi offra un succo, almeno.»",
+          "en": "“I’ll drive. I always drive. Twelve years and counting. Could someone at least get me a juice?”"
         }
       },
       {
         "name": {
           "it": "La Goblin Anti-Uova",
-          "en": "The Egg-Hating Goblin"
+          "en": "The Anti-Egg Goblin"
         },
         "image": "/img/intolleranti/goblin-anti-uova.webp",
         "alt": {
-          "it": "Una goblin che prende a calci un uovo",
-          "en": "A goblin kicking an egg away"
+          "it": "La Goblin Anti-Uova, in pixel art, in kimono da karate rompe un uovo con un calcio",
+          "en": "The Anti-Egg Goblin, in pixel art, in a karate gi, kicks an egg to pieces"
         },
         "quote": {
-          "it": "«Carbonara? Maionese? Zabaione?»",
-          "en": "“Carbonara? Mayo? Zabaglione?”"
+          "it": "«Carbonara? Maionese? Zabaione? Il menù di stasera è un campo minato.»",
+          "en": "“Carbonara? Mayo? Zabaglione? Tonight’s menu is a minefield.”"
         }
       },
       {
@@ -181,45 +182,46 @@
         },
         "image": "/img/intolleranti/fatina-diabetica.webp",
         "alt": {
-          "it": "Una fatina con un cupcake in una mano e il misuratore di glicemia nell’altra",
-          "en": "A fairy with a cupcake in one hand and a glucose meter in the other"
+          "it": "La Fatina Diabetica, in pixel art, ride stringendo un cupcake con la ciliegina",
+          "en": "The Diabetic Fairy, in pixel art, laughing as she clutches a cupcake with a cherry on top"
         },
         "quote": {
-          "it": "«La frutta è sana, dicevano.»",
-          "en": "“Fruit is healthy, they said.”"
+          "it": "«La frutta è sana, dicevano. Poi hanno inventato il succo di frutta.»",
+          "en": "“Fruit is good for you, they said. Then they invented fruit juice.”"
         }
       },
       {
         "name": {
           "it": "La Sirena Amica dei Pesci",
-          "en": "The Fish-Friendly Mermaid"
+          "en": "The Fish-Loving Mermaid"
         },
         "image": "/img/intolleranti/sirena-amica-dei-pesci.webp",
         "alt": {
-          "it": "Una sirena che guarda con affetto un pesce rosso nella boccia",
-          "en": "A mermaid gazing fondly at a goldfish in its bowl"
+          "it": "La Sirena Amica dei Pesci, in pixel art, sorride accanto a una boccia con un pesce rosso",
+          "en": "The Fish-Loving Mermaid, in pixel art, smiling beside a goldfish bowl"
         },
         "quote": {
           "it": "«Sushi party? Io porto i cartelli di protesta.»",
-          "en": "“Sushi party? I’ll bring the protest signs.”"
+          "en": "“A sushi party? I’ll bring the protest signs.”"
         }
       },
       {
         "name": {
           "it": "Il Golem Palestrato",
-          "en": "The Gym Golem"
+          "en": "The Buff Golem"
         },
         "image": "/img/intolleranti/golem-palestrato.webp",
         "alt": {
-          "it": "Un golem di pietra con la corona d’alloro che pesa le porzioni con una bilancia",
-          "en": "A laurel-crowned stone golem weighing portions on a pair of scales"
+          "it": "Il Golem Palestrato, in pixel art, pesa su una bilancia un cosciotto e un’insalata",
+          "en": "The Buff Golem, in pixel art, weighing a drumstick against a salad on a scale"
         },
         "quote": {
-          "it": "«Due porzioni: per me e per i miei bicipiti.»",
-          "en": "“Two portions: one for me, one for my biceps.”"
+          "it": "«Due porzioni, grazie. È per me e per i miei bicipiti.»",
+          "en": "“Two portions, please. One for me and one for my biceps.”"
         }
       }
-    ]
+    ],
+    "ratio": "3 / 2"
   },
   "howToPlay": {
     "title": {
@@ -237,16 +239,16 @@
       ],
       "en": [
         "Draw a Response card",
-        "Go out or stay home? At home you bank your nights out and recover",
-        "Reveal the night out: its points, how much you eat and drink",
+        "Go out or stay home? At home you bank your Outings and recover",
+        "Reveal the Outing: its points, how much you eat and drink",
         "Invite a friend, if you want to get them in trouble",
-        "Draw the courses one by one: if they carry your colour, Queasiness",
-        "Survived? The night out is yours, but not safe yet"
+        "Draw the courses one by one: if they carry your colour, Discomfort",
+        "Survived? The Outing is yours, but not safe yet"
       ]
     },
     "note": {
       "it": "Raggiungi il tuo limite di Malessere e vai in Nausea: perdi le Uscite non incassate e prendi 3 punti di penalità. Alla fine vince chi ha più punti.",
-      "en": "Hit your Queasiness limit and you’re Nauseous: you lose every unbanked night out and take a 3-point penalty. Most points wins."
+      "en": "Hit your Discomfort limit and you’re Nauseous: you lose every unbanked Outing and take a 3-point penalty. Most points wins."
     },
     "image": "",
     "imageAlt": {
@@ -264,21 +266,21 @@
       }
     },
     {
-      "n": "28",
+      "n": "30",
       "label": {
         "it": "Uscite",
-        "en": "Nights out"
+        "en": "Outings"
       }
     },
     {
-      "n": "72",
+      "n": "68",
       "label": {
         "it": "Portate",
         "en": "Courses"
       }
     },
     {
-      "n": "52",
+      "n": "54",
       "label": {
         "it": "Risposte",
         "en": "Responses"
@@ -293,8 +295,8 @@
     }
   ],
   "componentsExtra": {
-    "it": "Le Portate sono 36 di Cibo e 36 di Bevande.",
-    "en": "Courses are 36 Food and 36 Drinks."
+    "it": "Le Portate sono 36 di Cibo e 32 di Bevande.",
+    "en": "Courses are 36 Food and 32 Drinks."
   },
   "heroSquare": true,
   "tableSections": [
@@ -305,25 +307,49 @@
       },
       "title": {
         "it": "Uscite, inviti e Risposte",
-        "en": "Nights out, invitations and Responses"
+        "en": "Outings, invitations and Responses"
       },
       "intro": {
         "it": "A Intolleranti! non si esce mai da soli: ci si invita, ci si salva e ci si sabota a vicenda, anche quando non è il proprio turno.",
-        "en": "In Intolleranti! nobody goes out alone: you invite each other, save each other and sabotage each other, even when it is not your turn."
+        "en": "In Intolerant! nobody goes out alone: you invite each other, save each other and sabotage each other, even when it is not your turn."
       },
       "blocks": [
         {
           "kicker": {
+            "it": "0 · La tua plancia",
+            "en": "0 · Your player board"
+          },
+          "title": {
+            "it": "Un ospite, due abilità e il tuo limite",
+            "en": "One guest, two abilities and your limit"
+          },
+          "text": {
+            "it": "Ogni giocatore riceve la plancia del suo ospite: un’abilità Passiva sempre attiva, un’abilità Attiva da usare al momento giusto e la scala del Malessere. Il limite cambia da ospite a ospite: il Golem regge fino a 8, la Goblin e la Sirena crollano già a 4. Sul retro c’è la sua frase tipica.",
+            "en": "Each player gets their guest’s player board: an always-on Passive ability, an Active ability to use at the right moment and the Discomfort track. The limit changes from guest to guest: the Golem can take up to 8, the Goblin and the Mermaid give in at 4. On the back is their signature line."
+          },
+          "images": [
+            {
+              "image": "/img/intolleranti/plancia-orco.webp",
+              "kind": "board",
+              "alt": {
+                "it": "La plancia dell’Orco Vegetariano: illustrazione, abilità Passiva «Ortolano», abilità Attiva «È tutto vegetale, vero?» e la scala del Malessere da 0 a 7",
+                "en": "The Vegetarian Orc player board: art, Passive ability «Gardener», Active ability «Is It All Plant-Based?» and the Discomfort track from 0 to 7"
+              }
+            }
+          ]
+        },
+        {
+          "kicker": {
             "it": "1 · Le Uscite",
-            "en": "1 · Nights out"
+            "en": "1 · Outings"
           },
           "title": {
             "it": "Scegli la serata",
-            "en": "Pick your night out"
+            "en": "Pick your Outing"
           },
           "text": {
             "it": "Nel tuo turno riveli un'Uscita: dall'Aperitivo da 1 punto al Matrimonio da 5. Ogni carta dice quante Portate di Cibo e di Bevande devi reggere per completarla. Più vale, più è facile finire in Nausea.",
-            "en": "On your turn you reveal a night out: from a 1-point Aperitivo to a 5-point Wedding. Each card says how many Food and Drink Courses you must survive to complete it. The more it is worth, the easier it is to end up Nauseous."
+            "en": "On your turn you reveal an Outing: from a 1-point Aperitivo to a 5-point Wedding. Each card says how many Food and Drink Courses you must survive to complete it. The more it is worth, the easier it is to end up Nauseous."
           },
           "images": [
             {
@@ -363,7 +389,7 @@
           },
           "text": {
             "it": "Prima delle Portate puoi invitare un altro giocatore. Se accetta, mangia e beve con te: se regge fino alla fine prende una Buona Uscita, +1 punto. Se rifiuta ti fa il famigerato Pacco… e si prende il token Pacco: −1 punto, fino a fine partita. Solo una Scusa Valida, o l'Allenamento alle 6 del Golem Palestrato, permette di dire di no senza pagare. E se proprio lo vuoi con te, giochi un Invito che non si può rifiutare.",
-            "en": "Before the Courses you can invite another player. If they accept, they eat and drink with you: if they last to the end they get a Good Night Out token, +1 point. If they refuse, they stand you up (the infamous Pacco)… and take a Pacco token: −1 point, until the end of the game. Only a Valid Excuse card, or the Golem's 6 AM Workout, lets you say no for free. And if you really want them along, you play an Invitation You Can't Refuse."
+            "en": "Before the Courses you can invite another player. If they accept, they eat and drink with you: if they last to the end they get a Good Night Out token, +1 point. If they refuse, they bail on you… and take a Bail token: −1 point, until the end of the game. Only A Good Excuse, or the Golem's 6 AM Workout, lets you say no for free. And if you really want them along, you play An Invite You Can't Refuse."
           },
           "images": [
             {
@@ -371,11 +397,11 @@
               "kind": "token",
               "alt": {
                 "it": "Token Pacco: una scatola di cartone",
-                "en": "Pacco token: a cardboard box"
+                "en": "Bail token: a cardboard box"
               },
               "caption": {
-                "it": "Pacco · −1",
-                "en": "Pacco · −1"
+                "it": "Bail · −1",
+                "en": "Bail · −1"
               }
             },
             {
@@ -387,7 +413,7 @@
               },
               "caption": {
                 "it": "Buona Uscita · +1",
-                "en": "Good night out · +1"
+                "en": "Good Outing · +1"
               }
             },
             {
@@ -395,7 +421,7 @@
               "kind": "card",
               "alt": {
                 "it": "Carta Risposta Scusa Valida: rifiuti l'invito senza prendere il token Pacco",
-                "en": "Response card Scusa Valida (Valid Excuse): refuse the invitation without taking the Pacco token"
+                "en": "Defense Response card A Good Excuse: decline the invitation without taking a Bail token"
               }
             },
             {
@@ -403,7 +429,7 @@
               "kind": "card",
               "alt": {
                 "it": "Carta Risposta Dispetto Invito che non si può rifiutare: l'invitato non può rifiutare l'Uscita",
-                "en": "Prank Response card Invito che non si può rifiutare (An Invitation You Can't Refuse): the guest cannot refuse the night out"
+                "en": "Mischief Response card An Invite You Can't Refuse: the guest cannot refuse the Outing"
               }
             }
           ]
@@ -419,7 +445,7 @@
           },
           "text": {
             "it": "Ognuno tiene in mano fino a 5 carte Risposta. Le Difese ti salvano la serata, i Dispetti la rovinano agli altri, le Neutre possono andare in un verso o nell'altro. E quando qualcuno esagera, c'è sempre un Ma anche no!",
-            "en": "Everyone holds up to 5 Response cards. Defences save your evening, Pranks ruin someone else's, Neutral cards can go either way. And when someone goes too far, there is always a Ma anche no! (Nope!)."
+            "en": "Everyone holds up to 5 Response cards. Defenses save your evening, Mischief cards ruin someone else's, Neutral cards can go either way. And when someone goes too far, there is always a Yeah, No!."
           },
           "images": [
             {
@@ -427,7 +453,7 @@
               "kind": "card",
               "alt": {
                 "it": "Carta Risposta Dispetto Caffè corretto: la Bevanda appena rivelata dà 1 Malessere a tutti i partecipanti",
-                "en": "Prank Response card Caffè corretto (Spiked coffee): the Drink just revealed gives 1 Queasiness to every participant"
+                "en": "Mischief Response card Spiked Coffee: the Drink just revealed gives 1 Discomfort to every participant"
               }
             },
             {
@@ -435,7 +461,7 @@
               "kind": "card",
               "alt": {
                 "it": "Carta Risposta Neutra Imbucato: partecipi come invitato extra",
-                "en": "Neutral Response card Imbucato (Gatecrasher): join as an extra guest"
+                "en": "Neutral Response card Gatecrasher: join as an extra guest"
               }
             },
             {
@@ -443,7 +469,7 @@
               "kind": "card",
               "alt": {
                 "it": "Carta Risposta Difesa Ma anche no!: annulla la carta Risposta appena giocata",
-                "en": "Defence Response card Ma anche no! (Nope!): cancel the Response card just played"
+                "en": "Defense Response card Yeah, No!: cancel the Response card just played"
               }
             }
           ]
@@ -463,7 +489,7 @@
       },
       "intro": {
         "it": "Ogni Portata porta in fondo i nomi degli ospiti che la temono. Se c'è il tuo, prendi un Malessere. Se c'è scritto TUTTI!, la serata si fa dura per tutto il tavolo.",
-        "en": "Every Course lists at the bottom the guests who dread it. If your name is there, you take a Queasiness. If it says TUTTI! (EVERYONE!), the whole table is in trouble."
+        "en": "Every Course lists at the bottom the guests who dread it. If your name is there, you take a Discomfort. If it says EVERYONE!, the whole table is in trouble."
       },
       "blocks": [
         {
@@ -477,7 +503,7 @@
           },
           "text": {
             "it": "Un'Insalata non fa male a nessuno. La Pizza Margherita mette in crisi l'Elfa Celiaca e il Nano No al Lattosio, il Fritto Misto di Mare fa insorgere la Sirena. E del Cibo Misterioso è meglio non chiedere.",
-            "en": "A Salad hurts nobody. Pizza Margherita troubles the Gluten-free Elf and the Lactose-free Dwarf, the Mixed Seafood Fry sends the Mermaid into protest. And it is best not to ask about the Mystery Food."
+            "en": "A Salad hurts nobody. Pizza Margherita troubles the Celiac Elf and the Lactose-Intolerant Dwarf, the Fried Seafood Platter sends the Mermaid into protest. And it is best not to ask about the Mystery Food."
           },
           "images": [
             {
@@ -493,7 +519,7 @@
               "kind": "card",
               "alt": {
                 "it": "Carta Cibo Pizza Margherita: colpisce l'Elfa Celiaca e il Nano No al Lattosio",
-                "en": "Food card Pizza Margherita: hits the Gluten-free Elf and the Lactose-free Dwarf"
+                "en": "Food card Pizza Margherita: hits the Celiac Elf and the Lactose-Intolerant Dwarf"
               }
             },
             {
@@ -501,7 +527,7 @@
               "kind": "card",
               "alt": {
                 "it": "Carta Cibo Fritto Misto di Mare: colpisce l'Orco Vegetariano, la Sirena Amica dei Pesci e il Golem Palestrato",
-                "en": "Food card Mixed Seafood Fry: hits the Vegetarian Orc, the Fish-friendly Mermaid and the Gym Golem"
+                "en": "Food card Fried Seafood Platter: hits the Vegetarian Orc, the Fish-Loving Mermaid and the Buff Golem"
               }
             },
             {
@@ -541,7 +567,7 @@
               "kind": "card",
               "alt": {
                 "it": "Carta Bevanda Cappuccino: colpisce il Nano No al Lattosio",
-                "en": "Drink card Cappuccino: hits the Lactose-free Dwarf"
+                "en": "Drink card Cappuccino: hits the Lactose-Intolerant Dwarf"
               }
             },
             {
@@ -549,7 +575,7 @@
               "kind": "card",
               "alt": {
                 "it": "Carta Bevanda Bombardino: colpisce il Vampiro Astemio, il Golem Palestrato e la Goblin Anti-Uova",
-                "en": "Drink card Bombardino: hits the Teetotal Vampire, the Gym Golem and the Egg-hating Goblin"
+                "en": "Drink card Bombardino: hits the Teetotal Vampire, the Buff Golem and the Anti-Egg Goblin"
               }
             },
             {
