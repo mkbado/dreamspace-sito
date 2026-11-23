@@ -218,7 +218,7 @@ export interface OneShot {
   kicker: L<string>; pitch: L<string[]>; intro: L<string>;
   sheet: { label: L<string>; value: L<string> }[];
   files: { title: L<string>; desc: L<string>; it: string; en: string }[];
-  heroesTitle: L<string>; heroes: { name: string; image: string; role: L<string>; quote: L<string>; bio: L<string> }[];
+  heroesTitle: L<string>; heroes: { name: string; nameEn?: string; image: string; role: L<string>; quote: L<string>; bio: L<string> }[];
   placesTitle: L<string>; places: { image: string; title: L<string>; caption: L<string> }[];
   licence: L<string>;
 }

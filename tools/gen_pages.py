@@ -164,7 +164,7 @@ cfg = {
             L('kicker', 'Occhiello'), L('pitch', 'Presentazione (paragrafi)', 'text', lst=True), L('intro', 'Riquadro introduttivo', 'text'),
             O('sheet', 'Scheda tecnica', [L('label', 'Voce'), L('value', 'Valore')], lst=True, summary='{fields.label.it}'),
             O('files', 'File da scaricare', [L('title', 'Titolo'), L('desc', 'Descrizione'), FILE('it', 'PDF italiano'), FILE('en', 'PDF inglese')], lst=True, summary='{fields.title.it}'),
-            L('heroesTitle', 'Titolo personaggi'), O('heroes', 'Personaggi', [S('name', 'Nome'), IMG('image', 'Immagine'), L('role', 'Classe'), L('quote', 'Motto'), L('bio', 'Descrizione', 'text')], lst=True, summary='{fields.name}'),
+            L('heroesTitle', 'Titolo personaggi'), O('heroes', 'Personaggi', [S('name', 'Nome'), S('nameEn', 'Nome in inglese (se diverso)'), IMG('image', 'Immagine'), L('role', 'Classe'), L('quote', 'Motto'), L('bio', 'Descrizione', 'text')], lst=True, summary='{fields.name}'),
             L('placesTitle', 'Titolo luoghi'), O('places', 'Luoghi', [IMG('image', 'Immagine'), L('title', 'Titolo'), L('caption', 'Didascalia')], lst=True, summary='{fields.title.it}'),
             L('licence', 'Nota di licenza', 'text')]),
         {'name': 'pages', 'label': 'Pagine (Chi siamo, Privacy, Note legali)', 'type': 'collection', 'path': 'src/content/pages', 'format': 'json',

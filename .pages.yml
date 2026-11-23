@@ -2476,6 +2476,9 @@ content:
     - name: name
       label: Nome
       type: string
+    - name: nameEn
+      label: Nome in inglese (se diverso)
+      type: string
     - name: image
       label: Immagine
       type: image

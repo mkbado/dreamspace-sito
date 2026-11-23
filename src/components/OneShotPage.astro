@@ -61,8 +61,8 @@ const title = tl(lang, o.title, o.titleEn);
     <div class="nv-elves">
       {o.heroes.map((h) => (
         <article class="nv-elf">
-          <div class="nv-elf__img"><img src={h.image} width="627" height="627" alt={L(`${h.name}, elfo ${h.role.it.toLowerCase()} in pixel art`, `${h.name}, ${h.role.en.toLowerCase()} elf in pixel art`)} loading="lazy" /></div>
-          <h3>{h.name}</h3>
+          <div class="nv-elf__img"><img src={h.image} width="627" height="627" alt={L(`${h.name}, elfo ${h.role.it.toLowerCase()} in pixel art`, `${h.nameEn || h.name}, ${h.role.en.toLowerCase()} elf in pixel art`)} loading="lazy" /></div>
+          <h3>{lang === 'en' && h.nameEn ? h.nameEn : h.name}</h3>
           <p class="nv-elf__role">{h.role[lang]} · {L('livello 1', 'level 1')}</p>
           <p class="nv-elf__quote">«{h.quote[lang]}»</p>
           <p class="nv-elf__bio">{h.bio[lang]}</p>

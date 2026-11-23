@@ -145,7 +145,8 @@
       "bio": {
         "it": "Se si rompe qualcosa in officina, di solito è lui a ripararlo. Di solito è anche lui ad averlo rotto.",
         "en": "When something breaks in the workshop, he’s usually the one who fixes it. He’s usually the one who broke it, too."
-      }
+      },
+      "nameEn": "Barbarelf"
     },
     {
       "name": "Arcierina",
@@ -161,7 +162,8 @@
       "bio": {
         "it": "Conosce ogni traccia della Foresta Blu e sa quali bacche rendono speciale una freccia.",
         "en": "She knows every trail in the Blue Forest and which berries give an arrow a little extra punch."
-      }
+      },
+      "nameEn": "Archerina"
     },
     {
       "name": "Musichello",
@@ -177,7 +179,8 @@
       "bio": {
         "it": "Suona e canta in continuazione. Persino le renne conoscono le sue canzoni a memoria.",
         "en": "He plays and sings all the time. Even reindeer know his songs by heart."
-      }
+      },
+      "nameEn": "Melodelf"
     },
     {
       "name": "Stregnomo",
@@ -193,7 +196,8 @@
       "bio": {
         "it": "Il soprannome se l’è guadagnato in laboratorio. Le sue pozioni scaldano persino nelle giornate più fredde.",
         "en": "He earned the nickname in the lab. His potions warm up even on the coldest days."
-      }
+      },
+      "nameEn": "Witchgnome"
     }
   ],
   "placesTitle": {
