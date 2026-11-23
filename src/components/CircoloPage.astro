@@ -90,14 +90,24 @@ const chapterTitle = tl(lang, r.chapterTitle, r.chapterTitleEn);
 
   <!-- Valtorva -->
   {r.locations.length > 0 && (
-    <section class="container stack" style="padding-block: 80px; gap: 28px;">
-      <p class="nr-type">{L('I luoghi', 'The places')}</p>
-      <h2 class="nr-h2">Valtorva</h2>
-      <div class="nr-places">
-        {r.locations.map((l, i) => (
-          <figure class={`nr-photo nr-photo--${i % 3}`}>
-            <img src={l.image} alt={`${l.title}: ${l.caption[lang]}`} width="1100" height="730" loading="lazy" />
-            <figcaption><strong>{l.title}</strong>{l.caption[lang]}</figcaption>
+    <section class="nr-valley">
+      <div class="container stack" style="gap: 10px; padding-top: 80px;">
+        <p class="nr-type">{L('I luoghi', 'The places')}</p>
+        <h2 class="nr-h2">Valtorva</h2>
+      </div>
+      <figure class="nr-lantern nr-lantern--wide">
+        <img src={r.locations[0].image} alt={`${r.locations[0].title}: ${r.locations[0].caption[lang]}`} width="1100" height="730" loading="lazy" />
+        <figcaption class="container"><strong>{r.locations[0].title}</strong>{r.locations[0].caption[lang]}</figcaption>
+      </figure>
+      <div class="container nr-walk">
+        {r.locations.slice(1).map((l, i) => (
+          <figure class={`nr-step nr-step--${i % 2 ? 'r' : 'l'}`}>
+            <div class="nr-lantern"><img src={l.image} alt={`${l.title}: ${l.caption[lang]}`} width="1100" height="730" loading="lazy" /></div>
+            <figcaption>
+              <span class="nr-step__n">{['II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'][i]}</span>
+              <strong>{l.title}</strong>
+              <span>{l.caption[lang]}</span>
+            </figcaption>
           </figure>
         ))}
       </div>
@@ -138,7 +148,7 @@ const chapterTitle = tl(lang, r.chapterTitle, r.chapterTitleEn);
     <div class="nr-portraits">
       {r.investigators.map((i) => (
         <figure class="nr-portrait">
-          <div class="nr-portrait__img"><img src={i.image} alt={L(`Ritratto a china di ${i.name}`, `Pen-and-ink portrait of ${i.name}`)} width="460" height="484" loading="lazy" /></div>
+          <div class="nr-portrait__img nr-lantern nr-lantern--oval"><img src={i.image} alt={L(`Ritratto a china di ${i.name}`, `Pen-and-ink portrait of ${i.name}`)} width="460" height="484" loading="lazy" /></div>
           <figcaption>
             <strong>{i.name}</strong>
             <span>{i.role[lang]}</span>
@@ -156,8 +166,9 @@ const chapterTitle = tl(lang, r.chapterTitle, r.chapterTitleEn);
   </section>
 
   <!-- Romanzo -->
-  <section id="romanzo" class="nr-band nr-band--ink">
-    <div class="container row" style="gap: 48px;">
+  <section id="romanzo" class="nr-band nr-band--ink nr-novel">
+    <div class="nr-novel__art nr-lantern nr-lantern--side" aria-hidden="true"><img src="/img/circolo/romanzo-ruggero.webp" alt="" width="460" height="484" loading="lazy" /></div>
+    <div class="container row" style="gap: 48px; position: relative;">
       <div class="stack" style="flex: 1 1 440px; min-width: 0; gap: 16px;">
         <p class="nr-type">{t(lang, 'rpg.novel.kicker')}</p>
         <h2 class="nr-h2">{t(lang, 'rpg.novel.title')}</h2>

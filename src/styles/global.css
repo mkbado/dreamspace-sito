@@ -951,3 +951,35 @@ a.card__media:hover img { transform: scale(1.03); filter: brightness(1.08); }
 @media (max-width: 700px) { .fb-cover__art::before { display: none; } .fb-cover__body { margin-top: -6px; } .fb-cover__art img { min-height: 220px; } }
 .gallery img { aspect-ratio: var(--ratio, 1 / 1); }
 .play-board { width: 100%; max-width: 560px; height: auto; border: 3px solid var(--black); box-shadow: 6px 6px 0 var(--black); border-radius: 6px; }
+
+/* ===== Circolo: illustrazioni a china che sfumano nel buio, come al lume di una lanterna ===== */
+.nr-lantern { margin: 0; position: relative; }
+.nr-lantern img { display: block; width: 100%; height: auto; filter: grayscale(1) contrast(1.08) brightness(.96);
+  -webkit-mask-image: radial-gradient(ellipse 52% 54% at 50% 50%, #000 55%, rgba(0,0,0,.6) 75%, transparent 100%);
+          mask-image: radial-gradient(ellipse 52% 54% at 50% 50%, #000 55%, rgba(0,0,0,.6) 75%, transparent 100%); }
+.nr-lantern--wide img { max-height: 70vh; object-fit: cover; object-position: center 40%;
+  -webkit-mask-image: linear-gradient(transparent, #000 22%, #000 72%, transparent), linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+          mask-image: linear-gradient(transparent, #000 22%, #000 72%, transparent), linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+  -webkit-mask-composite: source-in; mask-composite: intersect; }
+.nr-lantern--wide figcaption { margin-top: -60px; position: relative; display: flex; flex-direction: column; gap: 4px; font-family: 'Spectral', Georgia, serif; font-style: italic; font-size: 19px; color: var(--nr-bone); }
+.nr-lantern--wide figcaption strong, .nr-step figcaption strong { font-family: var(--nr-typewriter); font-style: normal; font-weight: 400; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--nr-ash); }
+.nr-walk { display: flex; flex-direction: column; gap: 8px; padding-block: 40px 96px; }
+.nr-step { margin: 0; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: center; gap: 0 24px; }
+.nr-step--r { grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); }
+.nr-step--r .nr-lantern { order: 2; }
+.nr-step figcaption { display: flex; flex-direction: column; gap: 6px; font-family: 'Spectral', Georgia, serif; font-style: italic; font-size: 21px; line-height: 1.35; color: var(--nr-bone); }
+.nr-step--l figcaption { margin-left: -12%; }
+.nr-step--r figcaption { margin-right: -12%; text-align: right; }
+.nr-step__n { font-family: var(--nr-fell); font-style: normal; font-size: 64px; line-height: .9; color: #3d3b3f; }
+@media (max-width: 720px) { .nr-step, .nr-step--r { grid-template-columns: 1fr; } .nr-step--r .nr-lantern { order: 0; } .nr-step figcaption, .nr-step--r figcaption { margin: -40px 0 0; text-align: left; position: relative; } }
+.nr-portrait__img.nr-lantern { background: none; padding: 0; box-shadow: none; }
+.nr-lantern--oval img { aspect-ratio: 1 / 1; object-fit: cover;
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 46%, #000 50%, transparent 100%);
+          mask-image: radial-gradient(ellipse 50% 50% at 50% 46%, #000 50%, transparent 100%); }
+.nr-novel { overflow: hidden; }
+.nr-novel__art { position: absolute; left: -4%; top: 50%; transform: translateY(-50%); width: min(520px, 42vw); opacity: .22; pointer-events: none; }
+.nr-novel__art img { -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 30%, transparent 100%); mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 30%, transparent 100%); }
+@media (max-width: 720px) { .nr-novel__art { display: none; } }
+.nr-walk { max-width: 980px; }
+.nr-step + .nr-step { margin-top: -56px; }
+@media (max-width: 720px) { .nr-step + .nr-step { margin-top: 0; } }
