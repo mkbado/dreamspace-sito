@@ -84,8 +84,8 @@
           "en": "One more round? Yes. No. Maybe."
         },
         "text": {
-          "it": "Ogni Uscita in più vale punti, ma rischi tutto quello che non hai ancora incassato. Il divano non è mai stato così strategico.",
-          "en": "Every extra Outing scores, but you risk everything you haven’t banked. The sofa has never been this strategic."
+          "it": "Ogni uscita in più vale punti, ma rischi tutto quello che non hai ancora incassato. Il divano non è mai stato così strategico.",
+          "en": "Every extra outing scores, but you risk everything you haven’t banked. The sofa has never been this strategic."
         }
       },
       {
@@ -94,24 +94,24 @@
           "en": "Poisoned invitations"
         },
         "text": {
-          "it": "Inviti un amico alla tua cena: se accetta si sorbisce le tue Portate, se rifiuta ti tira il pacco e se lo porta a casa: −1 punto.",
-          "en": "Invite a friend to your dinner: if they accept they suffer your Courses, if they bail they take the Bail token home: −1 point."
+          "it": "Inviti un amico alla tua cena: se accetta si sorbisce le tue portate ma ottiene un punto per la buona uscita, se rifiuta ti tira il pacco e si porta a casa il misfatto: −1 punto.",
+          "en": "Invite a friend to your dinner: if he accepts, he can sip your dishes but gets a point for a good outing, if he refuses, he will take your package and take home the misdeed: −1 point."
         }
       },
       {
         "title": {
-          "it": "Il tavolo che conosci",
-          "en": "A table you already know"
+          "it": "Il tavolo che conosci, con poteri speciali",
+          "en": "A table you already know, with special powers"
         },
         "text": {
-          "it": "C’è sempre quello senza glutine, quella senza lattosio e quello che guida. Qui hanno poteri speciali, e un limite di Malessere tutto loro.",
-          "en": "There’s always the gluten-free one, the lactose-free one and the designated driver. Here they have special powers, and a Discomfort limit all their own."
+          "it": "C’è sempre quello senza glutine, quella senza lattosio e quello che guida. Qui hanno poteri speciali, ma anche un limite di sopportazione.",
+          "en": "There's always the gluten-free one, the lactose-free one, and the one that drives. Here they have special powers, but also a limit of endurance."
         }
       },
       {
         "title": {
-          "it": "Da 2 a 8, con il dolce",
-          "en": "From 2 to 8, dessert included"
+          "it": "Fino a 8 commensali, dolce e bevande comprese",
+          "en": "Up to 8 diners, including dessert and drinks"
         },
         "text": {
           "it": "Si spiega in cinque minuti, si gioca in venti. Perfetto a fine cena, mentre qualcuno ancora chiede se il tiramisù ha le uova.",
