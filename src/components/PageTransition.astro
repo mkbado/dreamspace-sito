@@ -28,32 +28,6 @@
   addEventListener('resize', size);
 
   // ---------- disegni ----------
-  function jagged(cx, cy, r, seed) {
-    ctx.beginPath();
-    for (var i = 0; i <= 140; i++) {
-      var a = (i / 140) * Math.PI * 2;
-      var rr = r * (1 + 0.16 * Math.sin(a * 7 + seed) + 0.09 * Math.sin(a * 17 + seed * 2) + 0.05 * Math.sin(a * 31 + seed * 3));
-      var x = cx + Math.cos(a) * rr, y = cy + Math.sin(a) * rr;
-      i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
-    }
-    ctx.closePath();
-  }
-  var tendrils = [];
-  for (var i = 0; i < 18; i++) tendrils.push({ a: Math.random() * Math.PI * 2, l: 0.15 + Math.random() * 0.25, w: 6 + Math.random() * 14 });
-  function inkGrow(cx, cy, p, seed) {
-    var R = Math.hypot(Math.max(cx, W - cx), Math.max(cy, H - cy)) * 1.25;
-    var r = R * p * p * (3 - 2 * p);
-    ctx.fillStyle = FILL.noir;
-    jagged(cx, cy, r, seed); ctx.fill();
-    // filamenti d'inchiostro davanti al fronte
-    for (var i = 0; i < tendrils.length; i++) {
-      var t = tendrils[i], len = r * t.l;
-      for (var k = 0; k < 6; k++) {
-        var d = r + (len * k) / 6, w = t.w * (1 - k / 6) * Math.min(1, p * 3);
-        ctx.beginPath(); ctx.arc(cx + Math.cos(t.a + k * 0.03) * d, cy + Math.sin(t.a + k * 0.03) * d, Math.max(0, w), 0, 7); ctx.fill();
-      }
-    }
-  }
   var sparks = [];
   function spawnSparks(cx, cy, n, out) {
     for (var i = 0; i < n; i++) {
@@ -78,20 +52,20 @@
     g.addColorStop(0, 'rgba(255,251,232,1)'); g.addColorStop(0.7, 'rgba(252,245,227,1)'); g.addColorStop(0.88, 'rgba(243,193,75,.75)'); g.addColorStop(1, 'rgba(243,193,75,0)');
     ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7); ctx.fill();
   }
-  var CELL = 26, cells = null, snowMode = false;
+  var CELL = 26, cells = null, snowMode = false, noirMode = false;
   function pixelGrid(cx, cy) {
     cells = [];
     var cols = Math.ceil(W / CELL), rows = Math.ceil(H / CELL), maxD = Math.hypot(W, H);
     for (var y = 0; y < rows; y++) for (var x = 0; x < cols; x++) {
       var d = Math.hypot(x * CELL - cx, y * CELL - cy) / maxD;
-      cells.push({ x: x * CELL, y: y * CELL, th: d * 0.75 + Math.random() * 0.25, c: snowMode ? (Math.random() < 0.3 ? '#dbe9ff' : '#ffffff') : Math.random() < 0.04 ? ['#3fc1b5', '#f26b1d', '#f2c230'][(Math.random() * 3) | 0] : FILL.stars });
+      cells.push({ x: x * CELL, y: y * CELL, th: d * 0.75 + Math.random() * 0.25, c: snowMode ? (Math.random() < 0.3 ? '#dbe9ff' : '#ffffff') : noirMode ? FILL.noir : Math.random() < 0.04 ? ['#3fc1b5', '#f26b1d', '#f2c230'][(Math.random() * 3) | 0] : FILL.stars });
     }
   }
   function pixels(p, invert) {
     for (var i = 0; i < cells.length; i++) {
       var c = cells[i], on = invert ? p < c.th : p > c.th;
       if (!on) continue;
-      ctx.fillStyle = invert && p > c.th - 0.08 ? (snowMode ? '#9fd3ff' : '#3fc1b5') : c.c;
+      ctx.fillStyle = (invert || noirMode) && p > c.th - 0.08 && p < c.th + 0.04 ? (snowMode ? '#9fd3ff' : noirMode ? '#f0eee8' : '#3fc1b5') : c.c;
       ctx.fillRect(c.x, c.y, CELL, CELL);
     }
   }
@@ -100,14 +74,13 @@
   function leave(to, href, cx, cy) {
     cv.classList.add('is-on');
     var t0 = performance.now(), D = to === 'stars' ? 620 : 720, seed = Math.random() * 10, sparked = false;
-    snowMode = to === 'neve';
-    if (to === 'stars' || to === 'neve') pixelGrid(cx, cy);
+    snowMode = to === 'neve'; noirMode = to === 'noir';
+    if (to === 'stars' || to === 'neve' || to === 'noir') pixelGrid(cx, cy);
     try { sessionStorage.setItem(KEY, JSON.stringify({ to: to, x: cx / W, y: cy / H })); } catch (e) {}
     (function frame(t) {
       var p = Math.min(1, (t - t0) / D);
       ctx.clearRect(0, 0, W, H);
-      if (to === 'noir') inkGrow(cx, cy, p, seed);
-      else if (to === 'fiaba') { if (!sparked) { spawnSparks(cx, cy, 70, true); sparked = true; } lightGrow(cx, cy, p); drawSparks(); }
+      if (to === 'fiaba') { if (!sparked) { spawnSparks(cx, cy, 70, true); sparked = true; } lightGrow(cx, cy, p); drawSparks(); }
       else pixels(p * 1.1, false);
       if (p < 1) requestAnimationFrame(frame);
       else { ctx.fillStyle = FILL[to]; ctx.fillRect(0, 0, W, H); location.href = href; }
@@ -123,21 +96,14 @@
     cv.classList.add('is-on');
     ctx.fillStyle = FILL[here]; ctx.fillRect(0, 0, W, H);
     var t0 = null, D = 900, seed = Math.random() * 10;
-    snowMode = here === 'neve';
-    if (here === 'stars' || here === 'neve') pixelGrid(cx, cy);
+    snowMode = here === 'neve'; noirMode = here === 'noir';
+    if (here === 'stars' || here === 'neve' || here === 'noir') pixelGrid(cx, cy);
     if (here === 'fiaba') for (var i = 0; i < 6; i++) spawnSparks(Math.random() * W, H * (0.4 + Math.random() * 0.6), 12, false);
     (function frame(t) {
       if (t0 === null) t0 = t + 120;
       var p = Math.max(0, Math.min(1, (t - t0) / D));
       ctx.clearRect(0, 0, W, H);
-      if (here === 'noir') {
-        // l'oscurità si ritira verso i bordi lasciando una vignetta
-        ctx.fillStyle = FILL.noir; ctx.fillRect(0, 0, W, H);
-        ctx.globalCompositeOperation = 'destination-out';
-        var R = Math.hypot(W, H) * 0.75;
-        jagged(W / 2, H / 2, R * p * p * (3 - 2 * p) * 1.15, seed); ctx.fill();
-        ctx.globalCompositeOperation = 'source-over';
-      } else if (here === 'fiaba') {
+      if (here === 'fiaba') {
         ctx.globalAlpha = 1 - p * p; ctx.fillStyle = FILL.fiaba; ctx.fillRect(0, 0, W, H);
         var g = ctx.createRadialGradient(W / 2, H * 0.3, 0, W / 2, H * 0.3, Math.max(W, H) * 0.7);
         g.addColorStop(0, 'rgba(255,224,138,.55)'); g.addColorStop(1, 'rgba(255,224,138,0)');

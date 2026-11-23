@@ -12,19 +12,19 @@
     "it": "Campagna horror per Call of Cthulhu",
     "en": "A horror campaign for Call of Cthulhu"
   },
-  "campaignCover": "/img/circolo/investigatori.webp",
+  "campaignCover": "/img/circolo/px/il-raduno-nel-bosco.png",
   "campaignCoverAlt": {
-    "it": "I sei investigatori del Circolo del Venerdì in sei ritratti a china: Ruggero Alberti con una mappa, Edoardo Valmarana con un codice antico, Aurelio Sanvitale con un campanello, Teresa Morandi con un diapason e un taccuino, Guido Ferrero con lo stetoscopio e una fiala, Ida Cantoni con la macchina fotografica",
-    "en": "The six investigators of the Friday Circle in six ink portraits: Ruggero Alberti with a map, Edoardo Valmarana with an old codex, Aurelio Sanvitale with a bell, Teresa Morandi with a tuning fork and notebook, Guido Ferrero with a stethoscope and a vial, Ida Cantoni with her camera"
+    "it": "Pixel art a 1 bit: figure incappucciate in fila nel bosco di notte, sotto la luna, verso una cappella.",
+    "en": "1-bit pixel art: hooded figures walking in line through the woods at night, under the moon, towards a chapel."
   },
   "campaignRules": {
     "it": "Si gioca anche solo con le Regole Introduttive del Richiamo di Cthulhu (7ª edizione). Ogni capitolo contiene tutto quello che serve per giocare l'avventura dall'inizio alla fine: guida del Custode, libro delle scene, handout da stampare e investigatori pregenerati.",
     "en": "You can play with just the Call of Cthulhu Quick-Start Rules (7th edition). Every chapter contains everything you need to play the adventure from start to finish: Keeper's guide, scene book, printable handouts and pregenerated investigators."
   },
-  "cover": "/img/circolo/copertina.webp",
+  "cover": "/img/circolo/px/copertina.png",
   "coverAlt": {
-    "it": "Copertina: il campanile di Santa Maria del Silenzio disegnato a china, sovrastato da una presenza scura con due occhi chiari.",
-    "en": "Cover: the bell tower of Santa Maria del Silenzio in pen and ink, under a dark presence with two pale eyes."
+    "it": "Copertina in pixel art a 1 bit: il campanile di Santa Maria del Silenzio sotto la pioggia, e una fila di figure incappucciate che sale verso il portale.",
+    "en": "1-bit pixel art cover: the bell tower of Santa Maria del Silenzio in the rain, and a line of hooded figures climbing towards the doorway."
   },
   "cardImage": "/img/circolo/card.webp",
   "cardAlt": {
@@ -172,39 +172,63 @@
   ],
   "locations": [
     {
-      "image": "/img/circolo/luogo-ponte.webp",
-      "title": "Il ponte",
+      "image": "/img/circolo/px/la-carrozza.png",
+      "title": "La carrozza",
+      "caption": {
+        "it": "La diligenza per Ponte Torva. Sei viaggiatori, sette posti.",
+        "en": "The coach to Ponte Torva. Six travellers, seven seats."
+      }
+    },
+    {
+      "image": "/img/circolo/px/ponte-torva.png",
+      "title": "Ponte Torva",
       "caption": {
         "it": "La corriera si ferma qui. Da qui sono due ore di mulattiera.",
-        "en": "The coach stops here. From here it is two hours on a mule track."
+        "en": "The coach stops here. From here it is two hours up the mule track."
       }
     },
     {
-      "image": "/img/circolo/luogo-arco.webp",
-      "title": "L’arco",
+      "image": "/img/circolo/px/la-mulattiera.png",
+      "title": "La mulattiera",
+      "caption": {
+        "it": "Due ore di salita sotto la pioggia, dietro una lanterna.",
+        "en": "Two hours uphill in the rain, following a lantern."
+      }
+    },
+    {
+      "image": "/img/circolo/px/il-portello.png",
+      "title": "Il Portello",
       "caption": {
         "it": "L’unica porta del borgo. Qualcuno vi aspetta con una lanterna.",
-        "en": "The only gate to the village. Someone waits there with a lantern."
+        "en": "The only gate into the village. Someone is waiting with a lantern."
       }
     },
     {
-      "image": "/img/circolo/luogo-strada-dei-segni.webp",
-      "title": "La strada dei segni",
+      "image": "/img/circolo/px/il-borgo.png",
+      "title": "Il borgo",
       "caption": {
-        "it": "Un cerchio inciso sopra la porta di mezzo paese.",
-        "en": "A circle carved above the doors of half the village."
+        "it": "Imposte chiuse, e un cerchio inciso sopra la porta di mezzo paese.",
+        "en": "Closed shutters, and a circle carved above half the doors in the village."
       }
     },
     {
-      "image": "/img/circolo/luogo-abbazia.webp",
+      "image": "/img/circolo/px/piazza-della-fontana.png",
+      "title": "Piazza della fontana",
+      "caption": {
+        "it": "Il cuore di Valtorva. Sotto la pioggia non c’è nessuno.",
+        "en": "The heart of Valtorva. In the rain, nobody is about."
+      }
+    },
+    {
+      "image": "/img/circolo/px/santa-maria-del-silenzio.png",
       "title": "Santa Maria del Silenzio",
       "caption": {
         "it": "L’abbazia sopra il borgo, addossata alla montagna.",
-        "en": "The abbey above the village, set against the mountain."
+        "en": "The abbey above the village, built against the mountain."
       }
     },
     {
-      "image": "/img/circolo/luogo-chiostro.webp",
+      "image": "/img/circolo/px/chiostro.png",
       "title": "Il chiostro",
       "caption": {
         "it": "Orme fresche nella prima neve.",
@@ -212,11 +236,43 @@
       }
     },
     {
-      "image": "/img/circolo/luogo-ossario.webp",
+      "image": "/img/circolo/px/la-foresteria.png",
+      "title": "La foresteria",
+      "caption": {
+        "it": "Dove dormono gli ospiti. Meglio tirare il chiavistello.",
+        "en": "Where guests sleep. Better slide the bolt."
+      }
+    },
+    {
+      "image": "/img/circolo/px/la-porta-dell-abbazia.png",
+      "title": "La porta sbarrata",
+      "caption": {
+        "it": "Sbarrata da fuori, e forzata con una leva.",
+        "en": "Barred from outside, and forced open with a lever."
+      }
+    },
+    {
+      "image": "/img/circolo/px/ossario.png",
       "title": "L’ossario",
       "caption": {
         "it": "Le ossa dei vecchi monaci, e sette ceri.",
         "en": "The bones of the old monks, and seven candles."
+      }
+    },
+    {
+      "image": "/img/circolo/px/la-cripta.png",
+      "title": "La cripta",
+      "caption": {
+        "it": "Sotto la chiesa, dove la luce non arriva.",
+        "en": "Beneath the church, where no light reaches."
+      }
+    },
+    {
+      "image": "/img/circolo/px/la-cava.png",
+      "title": "La cava",
+      "caption": {
+        "it": "Mezz’ora di sentiero sopra il bosco. Da qui viene la barra da mina.",
+        "en": "Half an hour’s climb above the woods. The blasting bar came from here."
       }
     }
   ],
@@ -227,7 +283,7 @@
   "investigators": [
     {
       "name": "Prof. Edoardo Valmarana",
-      "image": "/img/circolo/edoardo-valmarana.webp",
+      "image": "/img/circolo/px/edoardo-valmarana.png",
       "role": {
         "it": "filologo torinese",
         "en": "philologist from Turin"
@@ -239,7 +295,7 @@
     },
     {
       "name": "Teresa Morandi",
-      "image": "/img/circolo/teresa-morandi.webp",
+      "image": "/img/circolo/px/teresa-morandi.png",
       "role": {
         "it": "maestra e folklorista",
         "en": "teacher and folklorist"
@@ -251,7 +307,7 @@
     },
     {
       "name": "Cap. Ruggero Alberti",
-      "image": "/img/circolo/ruggero-alberti.webp",
+      "image": "/img/circolo/px/ruggero-alberti.png",
       "role": {
         "it": "ex ufficiale degli Alpini",
         "en": "former Alpini officer"
@@ -263,7 +319,7 @@
     },
     {
       "name": "Ida Cantoni",
-      "image": "/img/circolo/ida-cantoni.webp",
+      "image": "/img/circolo/px/ida-cantoni.png",
       "role": {
         "it": "fotografa e giornalista",
         "en": "photographer and journalist"
@@ -275,7 +331,7 @@
     },
     {
       "name": "Conte Aurelio Sanvitale",
-      "image": "/img/circolo/aurelio-sanvitale.webp",
+      "image": "/img/circolo/px/aurelio-sanvitale.png",
       "role": {
         "it": "spiritista",
         "en": "spiritualist"
@@ -287,7 +343,7 @@
     },
     {
       "name": "Dott. Guido Ferrero",
-      "image": "/img/circolo/guido-ferrero.webp",
+      "image": "/img/circolo/px/guido-ferrero.png",
       "role": {
         "it": "medico chirurgo torinese",
         "en": "surgeon from Turin"

@@ -2,7 +2,7 @@
 // Un romanzo con la sua carrellata di capitoli: leggi online, scarica il PDF o aspetta la prossima puntata
 import '../styles/novel-fonts';
 import type { Lang } from '../i18n/ui';
-import { type Novel, chapterWindow, chapterOut, chapterOnline, readingMinutes, rpgs, settings, tl } from '../data/catalog';
+import { type Novel, localImg, chapterWindow, chapterOut, chapterOnline, readingMinutes, rpgs, settings, tl } from '../data/catalog';
 import { chapterPath, novelPath, itemPath } from '../data/paths';
 interface Props { lang: Lang; n: Novel; heading?: 'h1' | 'h2' }
 const { lang, n, heading = 'h2' } = Astro.props;
@@ -15,7 +15,7 @@ const nextIdx = win.next;
 ---
 <section class={`nv nv--${n.skin}`} id={n.slug} data-novel={n.slug}>
   <div class="container nv__head">
-    <a class="nv__cover" href={novelPath(lang, n)}><img src={n.cover} alt={L(`Copertina di ${n.title.it}`, `Cover of ${n.title.en}`)} width="600" height="830" loading="lazy" /></a>
+    <a class="nv__cover" href={novelPath(lang, n)}><img src={localImg(n.cover, lang)} alt={L(`Copertina di ${n.title.it}`, `Cover of ${n.title.en}`)} width="600" height="830" loading="lazy" /></a>
     <div class="nv__intro">
       <p class="nv__kicker">{n.series[lang]}</p>
       <H class="nv__title"><a href={novelPath(lang, n)}>{n.title[lang]}</a></H>

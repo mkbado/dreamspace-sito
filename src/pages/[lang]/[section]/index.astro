@@ -5,7 +5,7 @@ import RpgCard from '../../../components/RpgCard.astro';
 import InterestForm from '../../../components/InterestForm.astro';
 import KofiBand from '../../../components/KofiBand.astro';
 import { t, langs, otherLang, sections, type Lang } from '../../../i18n/ui';
-import { games, rpgs, settings, oneshots, site, tl, novels as allNovels } from '../../../data/catalog';
+import { games, rpgs, settings, oneshots, site, tl, localImg, novels as allNovels } from '../../../data/catalog';
 import { itemPath, novelsPath, novelPath } from '../../../data/paths';
 import NovelList from '../../../components/NovelList.astro';
 
@@ -37,7 +37,7 @@ const intro = kind === 'games' ? site.boardgames.intro[lang] : kind === 'rpg' ? 
 
   {kind === 'novels' && (
     <nav class="container nv-toc" aria-label={L('Romanzi disponibili', 'Available novels')}>
-      {allNovels.map((n) => <a href={`#${n.slug}`} class={`nv-toc__i nv-toc__i--${n.skin}`}><img src={n.cover} alt="" width="80" height="80" /><span><b>{n.title[lang]}</b><small>{n.series[lang]}</small></span></a>)}
+      {allNovels.map((n) => <a href={`#${n.slug}`} class={`nv-toc__i nv-toc__i--${n.skin}`}><img src={localImg(n.cover, lang)} alt="" width="80" height="80" /><span><b>{n.title[lang]}</b><small>{n.series[lang]}</small></span></a>)}
     </nav>
   )}
   {kind === 'novels' && allNovels.map((n) => <NovelList lang={lang} n={n} />)}

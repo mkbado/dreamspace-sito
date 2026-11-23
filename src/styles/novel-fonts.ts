@@ -7,3 +7,4 @@ import '@fontsource/cinzel/700.css';
 import '@fontsource/eb-garamond/400.css';
 import '@fontsource/eb-garamond/400-italic.css';
 import '@fontsource/eb-garamond/600.css';
+import '@fontsource/vt323/400.css';
