@@ -1,7 +1,35 @@
 {
   "order": 2,
+  "draft": false,
   "slug": "intolleranti",
   "title": "Intolleranti!",
+  "playtest": {
+    "testers": [
+      "Filippo",
+      "Francesco",
+      "Piero",
+      "Giacomo",
+      "Giuseppe"
+    ],
+    "text": {
+      "it": "Per i Dream-tester l’idea è geniale e divertente: si impara subito e al tavolo funziona benissimo.",
+      "en": "The Dream-testers called the idea brilliant and fun: you learn it in a minute and it plays great at the table."
+    },
+    "moments": [
+      {
+        "it": "I Dispetti diventano i veri protagonisti e fanno alzare i toni al tavolo.",
+        "en": "The Mischief cards steal the show and get the whole table shouting."
+      },
+      {
+        "it": "Il momento più epico: l’Invito che non si può rifiutare giocato su chi è già a un passo dal Malessere, per spingerlo alla Nausea.",
+        "en": "The most epic moment: An Invite You Can’t Refuse played on someone one step from Discomfort, to push them into Nausea."
+      },
+      {
+        "it": "La vittoria si è decisa all’ultimo giro.",
+        "en": "The win came down to the very last round."
+      }
+    ]
+  },
   "titleEn": "Intolerant!",
   "image": "/img/intolleranti/card.webp",
   "imageAlt": {
@@ -13,6 +41,8 @@
     "it": "Copertina di Intolleranti! in pixel art: sotto l’insegna col titolo, gli otto ospiti seduti a una lunga tavolata nella taverna di pietra, ognuno alle prese con la sua intolleranza; la coda della sirena spunta da sotto la tovaglia",
     "en": "Intolerant! cover in pixel art: under the title sign, the eight guests sit at a long table in the stone tavern, each struggling with their intolerance; the mermaid’s tail peeks out from under the tablecloth"
   },
+  "heroPortrait": false,
+  "heroSquare": true,
   "tag": {
     "it": "Party game di carte · push your luck",
     "en": "Party card game · push your luck"
@@ -29,19 +59,19 @@
     "en": "Eight fantasy guests, eight intolerances and a calendar full of dinners. The winner knows when to say enough… and talks everyone else into the fried platter."
   },
   "pitch": {
-    "it": "Sei un orco vegetariano, un vampiro astemio, una fatina diabetica: tutti invitati a tutto, nessuno che può mangiare niente. Ogni sera fuori vale punti, ma ogni Portata può essere quella di troppo. Torna a casa e incassi, resta e rischi. E intanto inviti gli amici, li saboti col dolce e speri che nessuno ti tiri il pacco.",
-    "en": "You’re a vegetarian orc, a teetotal vampire, a diabetic fairy: invited to everything, able to eat nothing. Every Outing scores, but every Course could be the one too many. Go home and bank it, or stay and push your luck. Meanwhile you invite your friends, sabotage them with dessert and hope nobody bails on you."
+    "it": "Sei pronto ad interpretare un orco vegetariano, un vampiro astemio o una fatina diabetica? Poco importa chi tu sia, quello che importa è che dovrai affrontare uscite in taverna troppo pericolose per te!, Ogni sera fuori vale punti, ma ogni portata può essere quella di troppo. Torna a casa e incassi, o resti fuori e rischi il tuo bottino? E intanto invita gli amici a soffrire con te, li saboti al momento opportuno e speri che nessuno ti tiri il pacco!",
+    "en": "Are you ready to play a vegetarian orc, a teetotal vampire, or a diabetic fairy? It doesn't matter who you are, what matters is that you will have to face tavern outings that are too dangerous for you!, Every night out is worth points, but every course can be the final one. Do you go home and cash in, or do you stay out and risk your loot? And in the meantime, invite your friends to suffer with you, sabotage them at the right time, and hope no one bails on you!"
   },
   "waiting": "[N]",
   "waitingWho": {
     "it": "commensali",
     "en": "diners"
   },
-  "fileName": "INTOLLERANTI.PNG",
   "cta": {
     "it": "Ti teniamo un posto a tavola? Niente glutine, promesso.",
     "en": "Shall we save you a seat? Gluten-free, we promise."
   },
+  "fileName": "INTOLLERANTI.PNG",
   "features": {
     "title": {
       "it": "Perché ci giocherai fino a tardi",
@@ -99,6 +129,7 @@
       "it": "Le illustrazioni delle plance definitive, in 8 bit.",
       "en": "Art from the final player boards, in 8-bit."
     },
+    "ratio": "3 / 2",
     "items": [
       {
         "name": {
@@ -220,87 +251,11 @@
           "en": "“Two portions, please. One for me and one for my biceps.”"
         }
       }
-    ],
-    "ratio": "3 / 2"
+    ]
   },
-  "howToPlay": {
-    "title": {
-      "it": "Come si gioca",
-      "en": "How to play"
-    },
-    "steps": {
-      "it": [
-        "Pesca una carta Risposta: ti servirà, fidati",
-        "Esci o resti a casa? Sul divano incassi le Uscite e ti riprendi",
-        "Rivela l’Uscita: quanti punti vale, quanto si mangia, quanto si beve",
-        "Invita qualcuno a cena, magari proprio chi non regge il menù",
-        "Pesca le Portate una alla volta: se c’è il tuo nome, Malessere",
-        "Sopravvissuto? L’Uscita è tua. Al sicuro, però, solo a casa"
-      ],
-      "en": [
-        "Draw a Response card: trust us, you’ll need it",
-        "Go out or stay in? On the sofa you bank your Outings and recover",
-        "Reveal the Outing: its points, how much food, how much drink",
-        "Invite someone along, ideally whoever can’t handle the menu",
-        "Draw the Courses one at a time: if your name is on it, Discomfort",
-        "Survived? The Outing is yours. But it’s only safe at home"
-      ]
-    },
-    "note": {
-      "it": "Arrivi al tuo limite di Malessere? Nausea: perdi tutte le Uscite non incassate e ti becchi 3 punti di penalità. A fine partita vince chi ha più punti (e lo stomaco più forte).",
-      "en": "Hit your Discomfort limit? Nausea: you lose every unbanked Outing and take a 3-point penalty. Most points wins (and the strongest stomach)."
-    },
-    "image": "",
-    "imageAlt": {
-      "it": "",
-      "en": ""
-    },
-    "imageBare": false
-  },
-  "components": [
-    {
-      "n": "8",
-      "label": {
-        "it": "Personaggi",
-        "en": "Characters"
-      }
-    },
-    {
-      "n": "30",
-      "label": {
-        "it": "Uscite",
-        "en": "Outings"
-      }
-    },
-    {
-      "n": "68",
-      "label": {
-        "it": "Portate",
-        "en": "Courses"
-      }
-    },
-    {
-      "n": "54",
-      "label": {
-        "it": "Risposte",
-        "en": "Responses"
-      }
-    },
-    {
-      "n": "102",
-      "label": {
-        "it": "token",
-        "en": "tokens"
-      }
-    }
-  ],
-  "componentsExtra": {
-    "it": "Le Portate sono 36 di Cibo e 32 di Bevande.",
-    "en": "Courses are 36 Food and 32 Drinks."
-  },
-  "heroSquare": true,
   "tableSections": [
     {
+      "dark": false,
       "kicker": {
         "it": "Al tavolo",
         "en": "At the table"
@@ -474,8 +429,7 @@
             }
           ]
         }
-      ],
-      "dark": false
+      ]
     },
     {
       "dark": true,
@@ -591,31 +545,74 @@
       ]
     }
   ],
-  "playtest": {
-    "testers": [
-      "Filippo",
-      "Francesco",
-      "Piero",
-      "Giacomo",
-      "Giuseppe"
-    ],
-    "text": {
-      "it": "Per i Dream-tester l’idea è geniale e divertente: si impara subito e al tavolo funziona benissimo.",
-      "en": "The Dream-testers called the idea brilliant and fun: you learn it in a minute and it plays great at the table."
+  "howToPlay": {
+    "title": {
+      "it": "Come si gioca",
+      "en": "How to play"
     },
-    "moments": [
-      {
-        "it": "I Dispetti diventano i veri protagonisti e fanno alzare i toni al tavolo.",
-        "en": "The Mischief cards steal the show and get the whole table shouting."
-      },
-      {
-        "it": "Il momento più epico: l’Invito che non si può rifiutare giocato su chi è già a un passo dal Malessere, per spingerlo alla Nausea.",
-        "en": "The most epic moment: An Invite You Can’t Refuse played on someone one step from Discomfort, to push them into Nausea."
-      },
-      {
-        "it": "La vittoria si è decisa all’ultimo giro.",
-        "en": "The win came down to the very last round."
+    "steps": {
+      "it": [
+        "Pesca una carta Risposta: ti servirà, fidati",
+        "Esci o resti a casa? Sul divano incassi le Uscite e ti riprendi",
+        "Rivela l’Uscita: quanti punti vale, quanto si mangia, quanto si beve",
+        "Invita qualcuno a cena, magari proprio chi non regge il menù",
+        "Pesca le Portate una alla volta: se c’è il tuo nome, Malessere",
+        "Sopravvissuto? L’Uscita è tua. Al sicuro, però, solo a casa"
+      ],
+      "en": [
+        "Draw a Response card: trust us, you’ll need it",
+        "Go out or stay in? On the sofa you bank your Outings and recover",
+        "Reveal the Outing: its points, how much food, how much drink",
+        "Invite someone along, ideally whoever can’t handle the menu",
+        "Draw the Courses one at a time: if your name is on it, Discomfort",
+        "Survived? The Outing is yours. But it’s only safe at home"
+      ]
+    },
+    "note": {
+      "it": "Arrivi al tuo limite di Malessere? Nausea: perdi tutte le Uscite non incassate e ti becchi 3 punti di penalità. A fine partita vince chi ha più punti (e lo stomaco più forte).",
+      "en": "Hit your Discomfort limit? Nausea: you lose every unbanked Outing and take a 3-point penalty. Most points wins (and the strongest stomach)."
+    },
+    "imageBare": false
+  },
+  "components": [
+    {
+      "n": "8",
+      "label": {
+        "it": "Personaggi",
+        "en": "Characters"
       }
-    ]
+    },
+    {
+      "n": "30",
+      "label": {
+        "it": "Uscite",
+        "en": "Outings"
+      }
+    },
+    {
+      "n": "68",
+      "label": {
+        "it": "Portate",
+        "en": "Courses"
+      }
+    },
+    {
+      "n": "54",
+      "label": {
+        "it": "Risposte",
+        "en": "Responses"
+      }
+    },
+    {
+      "n": "102",
+      "label": {
+        "it": "token",
+        "en": "tokens"
+      }
+    }
+  ],
+  "componentsExtra": {
+    "it": "Le Portate sono 36 di Cibo e 32 di Bevande.",
+    "en": "Courses are 36 Food and 32 Drinks."
   }
 }
