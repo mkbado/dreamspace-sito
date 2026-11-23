@@ -590,5 +590,32 @@
         }
       ]
     }
-  ]
+  ],
+  "playtest": {
+    "testers": [
+      "Filippo",
+      "Francesco",
+      "Piero",
+      "Giacomo",
+      "Giuseppe"
+    ],
+    "text": {
+      "it": "Per i Dream-tester l’idea è geniale e divertente: si impara subito e al tavolo funziona benissimo.",
+      "en": "The Dream-testers called the idea brilliant and fun: you learn it in a minute and it plays great at the table."
+    },
+    "moments": [
+      {
+        "it": "I Dispetti diventano i veri protagonisti e fanno alzare i toni al tavolo.",
+        "en": "The Mischief cards steal the show and get the whole table shouting."
+      },
+      {
+        "it": "Il momento più epico: l’Invito che non si può rifiutare giocato su chi è già a un passo dal Malessere, per spingerlo alla Nausea.",
+        "en": "The most epic moment: An Invite You Can’t Refuse played on someone one step from Discomfort, to push them into Nausea."
+      },
+      {
+        "it": "La vittoria si è decisa all’ultimo giro.",
+        "en": "The win came down to the very last round."
+      }
+    ]
+  }
 }

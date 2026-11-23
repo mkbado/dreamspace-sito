@@ -1018,5 +1018,33 @@
   "bannerHint": {
     "it": "Passa sopra o tocca un Dreamspacer per aprire la sua scheda",
     "en": "Hover or tap a Dreamspacer to open their file"
+  },
+  "playtest": {
+    "testers": [
+      "Francesco",
+      "Cristian",
+      "Francesca",
+      "Lorenzo",
+      "Giacomo",
+      "Nicole"
+    ],
+    "more": {
+      "it": "e molti altri",
+      "en": "and many more"
+    },
+    "text": {
+      "it": "Tante partite, tanti tavoli diversi. Tutti si sono immersi nel gioco per provare a portare a casa la vittoria.",
+      "en": "Lots of games, lots of different tables. Everyone dived in, trying to bring home the win."
+    },
+    "moments": [
+      {
+        "it": "Il bello è esplorare e combattere nemici interpretati dall’amico seduto accanto, e gufare contro i tiri degli altri.",
+        "en": "The best part: exploring, fighting enemies played by the friend sitting next to you, and jinxing everyone else’s rolls."
+      },
+      {
+        "it": "Lo scontro con il Boss finale è stato epico, e qualche volta ha avuto la meglio su tutto il tavolo.",
+        "en": "The final Boss fight was epic, and more than once it beat the whole table."
+      }
+    ]
   }
 }

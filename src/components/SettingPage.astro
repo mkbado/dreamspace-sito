@@ -8,6 +8,7 @@ import '@fontsource/eb-garamond/400-italic.css';
 import '@fontsource/eb-garamond/600.css';
 import Base from '../layouts/Base.astro';
 import Quotes from './Quotes.astro';
+import Playtest from './Playtest.astro';
 import { t, sections, type Lang } from '../i18n/ui';
 import { site, tl, type Setting, novelFor, chapterOut, chapterOnline, chapterWindow } from '../data/catalog';
 import { chapterPath, novelPath } from '../data/paths';
@@ -237,6 +238,7 @@ const win = chapterWindow(chapters, lang);
     </div>
   </section>
 
+  <Playtest lang={lang} p={s.playtest} skin="fiaba" />
   <Quotes lang={lang} quotes={s.quotes} skin="fiaba" />
 
   <!-- Citazione -->

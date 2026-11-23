@@ -552,5 +552,19 @@
       "it": "I Guardiani di Primalba raccontati come romanzo: un prologo e diciotto capitoli, pubblicati uno alla volta. Il prologo lo narra Olmo Cavo, l’albero più vecchio del Bosco Torto.",
       "en": "The Guardians of Primalba told as a novel: a prologue and eighteen chapters, published one at a time. The prologue is narrated by Olmo Cavo, the oldest tree in the Crooked Wood."
     }
+  },
+  "playtest": {
+    "testers": [
+      "Giacomo",
+      "Nicola",
+      "Piero",
+      "Matteo",
+      "Sebastiano"
+    ],
+    "text": {
+      "it": "L’avventura l’ha provata un gruppo che gioca insieme a D&D da anni e ama il fantasy. A Meriggio hanno trovato quello che cercavano: un’atmosfera un po’ irriverente ed eroi improvvisati.",
+      "en": "The adventure was tested by a group that has played D&D together for years and loves fantasy. In Meriggio they found just what they were after: a slightly irreverent mood and improvised heroes."
+    },
+    "moments": []
   }
 }

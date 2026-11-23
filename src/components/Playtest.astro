@@ -1,0 +1,29 @@
+---
+// Com'è andata al tavolo di prova: i Dream-tester di questo gioco e i momenti da ricordare.
+import type { Lang } from '../i18n/ui';
+import type { Playtest } from '../data/catalog';
+interface Props { lang: Lang; p?: Playtest; skin?: 'pixel' | 'noir' | 'fiaba' }
+const { lang, p, skin = 'pixel' } = Astro.props;
+const L = (it: string, en: string) => (lang === 'it' ? it : en);
+const hue = (s: string) => [...s].reduce((a, c) => a + c.charCodeAt(0) * 37, 0) % 360;
+---
+{p && p.testers?.length > 0 && (
+  <section class={`pt pt--${skin}`} id="dream-tester">
+    <div class="container pt__in">
+      <div class="pt__head">
+        <p class="pt__kicker">{L('Dream-tester · al tavolo di prova', 'Dream-testers · at the test table')}</p>
+        <h2 class="pt__title">{L('Com’è andata', 'How it went')}</h2>
+        <p class="pt__text">{p.text[lang]}</p>
+      </div>
+      <ul class="pt__who" aria-label={L('I Dream-tester', 'The Dream-testers')}>
+        {p.testers.map((n) => <li class="pt__tester" style={`--h:${hue(n)}`}><i aria-hidden="true">{n[0]}</i>{n}</li>)}
+        {p.more?.[lang] && <li class="pt__tester pt__tester--more">{p.more[lang]}</li>}
+      </ul>
+      {p.moments && p.moments.length > 0 && (
+        <ul class="pt__moments">
+          {p.moments.map((m) => <li>{m[lang]}</li>)}
+        </ul>
+      )}
+    </div>
+  </section>
+)}

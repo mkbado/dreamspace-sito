@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { marked } from 'marked';
 import TeamCards from '../../components/TeamCards.astro';
+import DreamTesters from '../../components/DreamTesters.astro';
 import { t, langs, otherLang, type Lang } from '../../i18n/ui';
 import { pages, site } from '../../data/catalog';
 
@@ -31,4 +32,5 @@ const [before, after] = p.team?.length && html.includes('<p>{{team}}</p>') ? htm
       {after && <article class="prose" set:html={after} />}
     </div>
   </section>
+  {p.slug === 'chi-siamo' && <DreamTesters lang={lang} />}
 </Base>

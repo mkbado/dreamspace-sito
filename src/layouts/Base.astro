@@ -10,6 +10,7 @@ import '../styles/global.css';
 import { t, otherLang, langs, sections, type Lang } from '../i18n/ui';
 import { site, pagePath } from '../data/catalog';
 import SignupScript from '../components/SignupScript.astro';
+import DownloadGate from '../components/DownloadGate.astro';
 import DownloadThanks from '../components/DownloadThanks.astro';
 import SpaceFX from '../components/SpaceFX.astro';
 import PageTransition from '../components/PageTransition.astro';
@@ -108,6 +109,7 @@ const year = new Date().getFullYear();
   </footer>
   <Arcade lang={lang} secret={bodyClass === 'stars'} />
   <SignupScript lang={lang} />
+  <DownloadGate lang={lang} />
   <DownloadThanks lang={lang} />
   {site.analyticsToken && (
     <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: site.analyticsToken })}></script>

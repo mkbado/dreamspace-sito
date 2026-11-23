@@ -29,6 +29,7 @@ export interface Character {
 export interface Game {
   /** citazioni di giocatori e playtester (vere, con il loro permesso) */
   quotes?: Quote[];
+  playtest?: Playtest;
   kind: 'game';
   slug: string;
   title: string;
@@ -77,6 +78,7 @@ export interface Game {
 export interface Rpg {
   /** citazioni di giocatori e playtester (vere, con il loro permesso) */
   quotes?: Quote[];
+  playtest?: Playtest;
   kind: 'rpg';
   slug: string;
   title: string;
@@ -119,6 +121,7 @@ export interface Rpg {
 export interface Setting {
   /** citazioni di giocatori e playtester (vere, con il loro permesso) */
   quotes?: Quote[];
+  playtest?: Playtest;
   kind: 'setting';
   slug: string;
   title: string;
@@ -174,6 +177,7 @@ import newsData from '../content/news.json';
 
 export interface Slide { file: string; color: string; image: string; title: string; titleEn?: string; text: L<string>; alt: L<string>; link: L<string> }
 export interface Quote { text: L<string>; who: string; role?: L<string> }
+export interface Playtest { testers: string[]; more?: L<string>; text: L<string>; moments?: L<string>[] }
 export interface News { date: string; title: L<string>; text: L<string>; image?: string; link?: L<string> }
 export const site = siteData as {
   kofi?: string; owner?: string; email?: string; analyticsToken?: string;
@@ -208,6 +212,7 @@ export const itemTitle = (lang: Lang, x: { title: string; titleEn?: string }) =>
 export interface OneShot {
   kind: 'oneshot'; order?: number; slug: string; title: string; titleEn?: string;
   quotes?: Quote[];
+  playtest?: Playtest;
   tag: L<string>; short: L<string>; cardMeta: L<string>; cardButton?: L<string>;
   image: string; imageAlt: L<string>; cover: string; coverAlt: L<string>;
   kicker: L<string>; pitch: L<string[]>; intro: L<string>;

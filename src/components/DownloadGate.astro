@@ -1,0 +1,80 @@
+---
+// Per scaricare un file ci si iscrive agli aggiornamenti di almeno un gioco.
+// Una volta iscritti, il browser lo ricorda e i download partono subito.
+import { t, type Lang } from '../i18n/ui';
+import { games, rpgs, settings, oneshots, novels, itemTitle } from '../data/catalog';
+import Consent from './Consent.astro';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const L = (it: string, en: string) => (lang === 'it' ? it : en);
+const items = [...games, ...rpgs, ...settings, ...oneshots];
+const map = [...items.map((x) => [x.slug, x.slug]), ...novels.map((n) => [n.slug, n.game])];
+const msg = { email: t(lang, 'list.errEmail'), privacy: t(lang, 'list.errPrivacy'), other: t(lang, 'list.errOther'), sending: t(lang, 'list.sending'), pick: L('Scegli almeno un gioco da seguire.', 'Pick at least one game to follow.') };
+---
+<dialog class="gate" id="gate-download" aria-labelledby="gate-titolo">
+  <form class="gate__box js-gate" action="/api/iscrizione" method="post">
+    <button class="gate__x" type="button" value="chiudi" aria-label={L('Chiudi', 'Close')}>×</button>
+    <p class="gate__kicker">{L('Download gratuito', 'Free download')}</p>
+    <h2 id="gate-titolo" class="gate__title">{L('Entra nel Dreamspace', 'Join the Dreamspace')}</h2>
+    <p class="gate__text">{L('Il file è gratis. Ti chiediamo solo l’email e quali giochi vuoi seguire: ti scriviamo quando escono un capitolo, un’avventura o un prototipo nuovo. Niente spam, ti cancelli quando vuoi.', 'The file is free. We just ask for your email and which games you want to follow: we write when a new chapter, adventure or prototype is out. No spam, unsubscribe anytime.')}</p>
+    <label class="label" for="gate-email">{t(lang, 'list.email')}</label>
+    <input id="gate-email" name="email" type="email" required autocomplete="email" placeholder={lang === 'it' ? 'nome@esempio.it' : 'name@example.com'} />
+    <fieldset class="gate__games">
+      <legend class="label">{L('Voglio restare aggiornato su', 'Keep me posted about')}</legend>
+      {items.map((g) => <label class="check"><input type="checkbox" name="giochi" value={g.slug} /> {itemTitle(lang, g)}</label>)}
+      <label class="check"><input type="checkbox" name="giochi" value="novita" /> {t(lang, 'list.news')}</label>
+    </fieldset>
+    <Consent lang={lang} id="privacy-gate" />
+    <button class="btn btn--orange btn--big" type="submit">{L('Iscriviti e scarica', 'Sign up and download')}</button>
+    <p class="form-msg" role="status" aria-live="polite"></p>
+    <p class="gate__note">{L('Già iscritto da un altro dispositivo? Rimetti la stessa email: non ti iscriviamo due volte.', 'Already signed up on another device? Enter the same email: we won’t sign you up twice.')}</p>
+  </form>
+</dialog>
+<script is:inline define:vars={{ map, msg }}>
+  (function () {
+    var d = document.getElementById('gate-download');
+    if (!d || typeof d.showModal !== 'function') return;
+    var f = d.querySelector('form'), out = f.querySelector('.form-msg'), btn = f.querySelector('button[type="submit"]');
+    var KEY = 'ds_iscritto', pending = null;
+    var ok = function () { try { return localStorage.getItem(KEY) === '1'; } catch (e) { return false; } };
+    var isFile = function (a) { var h = a.getAttribute('href') || ''; return /\/files\/.+\.(pdf|zip|epub)$/i.test(h); };
+    function preselect() {
+      var p = location.pathname;
+      f.querySelectorAll('input[name="giochi"]').forEach(function (i) { i.checked = false; });
+      map.forEach(function (m) {
+        if (p.indexOf('/' + m[0] + '/') >= 0) { var i = f.querySelector('input[name="giochi"][value="' + m[1] + '"]'); if (i) i.checked = true; }
+      });
+    }
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (!a || !isFile(a) || ok()) return;
+      e.preventDefault(); e.stopPropagation();
+      pending = { href: a.href, name: a.getAttribute('download') };
+      preselect(); out.textContent = '';
+      d.showModal();
+    }, true);
+    d.querySelector('.gate__x').addEventListener('click', function () { d.close(); });
+    d.addEventListener('click', function (e) { if (e.target === d) d.close(); });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var fd = new FormData(f);
+      if (!fd.getAll('giochi').length) { out.textContent = msg.pick; return; }
+      var body = { email: fd.get('email'), giochi: fd.getAll('giochi'), lingua: fd.get('lingua'), privacy: fd.get('privacy'), sito: fd.get('sito') };
+      var label = btn.textContent; btn.disabled = true; btn.textContent = msg.sending;
+      fetch(f.action, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(body) })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (r) {
+          if (!r.ok) { out.textContent = msg[r.errore] || msg.other; return; }
+          try { localStorage.setItem(KEY, '1'); } catch (err) {}
+          d.close();
+          if (pending) {
+            var a = document.createElement('a'); a.href = pending.href;
+            if (pending.name !== null) a.setAttribute('download', pending.name);
+            document.body.appendChild(a); a.click(); a.remove(); pending = null;
+          }
+        })
+        .catch(function () { out.textContent = msg.other; })
+        .finally(function () { btn.disabled = false; btn.textContent = label; });
+    });
+  })();
+</script>

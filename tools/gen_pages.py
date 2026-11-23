@@ -24,6 +24,7 @@ common_top = [
     B('draft', 'Nascosto (bozza)'),
     S('slug', "Indirizzo (slug) — non cambiarlo dopo la pubblicazione", required=True),
     S('title', 'Titolo', required=True),
+    O('playtest', 'Dream-tester: com’è andata al tavolo di prova', [{'name': 'testers', 'label': 'Nomi dei Dream-tester', 'type': 'string', 'list': True}, L('more', 'Dopo i nomi (es. «e molti altri»)'), L('text', 'Racconto breve', 'text'), O('moments', 'Momenti memorabili', [{'name': 'it', 'label': 'Italiano', 'type': 'text'}, {'name': 'en', 'label': 'English', 'type': 'text'}], lst=True, summary='{fields.it}')]),
     O('quotes', 'Citazioni di giocatori e playtester', [L('text', 'Citazione', 'text'), S('who', 'Chi l’ha detta (nome o personaggio)'), L('role', 'Ruolo (es. playtester, giocatrice al tavolo)')], lst=True, summary='{fields.who}'),
 ]
 

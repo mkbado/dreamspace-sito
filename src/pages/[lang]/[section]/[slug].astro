@@ -4,6 +4,7 @@ import PixelTable from '../../../components/PixelTable.astro';
 import KofiBand from '../../../components/KofiBand.astro';
 import NotifyBox from '../../../components/NotifyBox.astro';
 import Quotes from '../../../components/Quotes.astro';
+import Playtest from '../../../components/Playtest.astro';
 import BannerSpots from '../../../components/BannerSpots.astro';
 import DreamspacerSheets from '../../../components/DreamspacerSheets.astro';
 import { t, langs, otherLang, sections, type Lang } from '../../../i18n/ui';
@@ -219,6 +220,7 @@ const os = item.kind === 'oneshot' ? item : null;
     </section>
   )}
 
+  <Playtest lang={lang} p={g.playtest} />
   <Quotes lang={lang} quotes={g.quotes} />
 
   {g.team && (

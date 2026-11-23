@@ -5,6 +5,7 @@ import '@fontsource/im-fell-english/400-italic.css';
 import '@fontsource/special-elite/400.css';
 import Base from '../layouts/Base.astro';
 import Quotes from './Quotes.astro';
+import Playtest from './Playtest.astro';
 import { t, sections, type Lang } from '../i18n/ui';
 import { site, tl, type Rpg, novelFor, chapterOut, chapterOnline, chapterWindow } from '../data/catalog';
 import { chapterPath, novelPath } from '../data/paths';
@@ -201,6 +202,7 @@ const chHref = (c) => (chapterOnline(c, lang) ? chapterPath(lang, nv!, c) : c.pd
     </div>
   </section>
 
+  <Playtest lang={lang} p={r.playtest} skin="noir" />
   <Quotes lang={lang} quotes={r.quotes} skin="noir" />
 
   <!-- Donazioni -->

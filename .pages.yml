@@ -302,6 +302,49 @@ content:
     type: string
     required: true
   - &id005
+    name: playtest
+    label: "Dream-tester: com’è andata al tavolo di prova"
+    type: object
+    fields:
+    - name: testers
+      label: Nomi dei Dream-tester
+      type: string
+      list: true
+    - name: more
+      label: Dopo i nomi (es. «e molti altri»)
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: text
+      label: Racconto breve
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+      - name: en
+        label: English
+        type: text
+    - name: moments
+      label: Momenti memorabili
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+      - name: en
+        label: English
+        type: text
+      list:
+        collapsible:
+          collapsed: true
+          summary: "{it}"
+  - &id006
     name: quotes
     label: Citazioni di giocatori e playtester
     type: object
@@ -1190,6 +1233,7 @@ content:
   - *id003
   - *id004
   - *id005
+  - *id006
   - name: titleEn
     label: Titolo in inglese
     type: string
@@ -1598,6 +1642,7 @@ content:
   - *id003
   - *id004
   - *id005
+  - *id006
   - name: image
     label: Immagine della scheda (960×600)
     type: image
@@ -2248,6 +2293,7 @@ content:
   - *id003
   - *id004
   - *id005
+  - *id006
   - name: titleEn
     label: Titolo in inglese
     type: string

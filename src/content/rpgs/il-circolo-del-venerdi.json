@@ -317,5 +317,33 @@
     "en": "The Friday Circle uses trademarks and/or copyrights owned by Chaosium Inc/Moon Design Publications LLC, which are used under Chaosium Inc’s Fan Material Policy. We are expressly prohibited from charging you to use or access this content. This campaign is not published, endorsed, or specifically approved by Chaosium Inc. For more information about Chaosium Inc’s products, please visit www.chaosium.com."
   },
   "titleEn": "The Friday Circle",
-  "chapterTitleEn": "The Night of the Choir"
+  "chapterTitleEn": "The Night of the Choir",
+  "playtest": {
+    "testers": [
+      "Giacomo",
+      "Caterina",
+      "Letizia",
+      "Nicola",
+      "Matteo",
+      "Saverio"
+    ],
+    "text": {
+      "it": "Sei Dream-tester, una notte a Valtorva. Si sono divertiti tutti, e quasi nessuno voleva alzarsi dal tavolo.",
+      "en": "Six Dream-testers, one night in Valtorva. Everyone had fun, and hardly anyone wanted to leave the table."
+    },
+    "moments": [
+      {
+        "it": "Caterina giocava di ruolo per la prima volta. A fine serata non voleva più smettere.",
+        "en": "It was Caterina’s first ever roleplaying game. By the end of the night she didn’t want to stop."
+      },
+      {
+        "it": "Matteo moriva di paura, ma non riusciva a smettere di giocare.",
+        "en": "Matteo was scared to death, and still couldn’t stop playing."
+      },
+      {
+        "it": "Giacomo è rimasto scioccato dalla rivelazione finale.",
+        "en": "Giacomo was left in shock by the final revelation."
+      }
+    ]
+  }
 }
