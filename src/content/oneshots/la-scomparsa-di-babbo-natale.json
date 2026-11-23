@@ -1,5 +1,6 @@
 {
   "order": 1,
+  "draft": false,
   "slug": "la-scomparsa-di-babbo-natale",
   "title": "La scomparsa di Babbo Natale",
   "titleEn": "Santa Claus Is Missing",
@@ -35,17 +36,17 @@
   },
   "pitch": {
     "it": [
-      "22 dicembre, sera. Nell’officina di Babbo Natale tutte le lampade si spengono insieme, il chiavistello scatta e sotto il pavimento qualcosa batte tre colpi. Poi ricomincia, un po’ più vicino.",
-      "Babbo Natale è sparito, e con lui la magia che fa volare la slitta. Quattro elfi aiutanti hanno una notte per ritrovarlo: tra giocattoli ribelli, la Foresta Blu, testimoni poco affidabili e un villaggio innevato che nasconde più di un segreto. Se all’alba il Natale non è salvo, non lo sarà più."
+      "Notte del 22 dicembre. Nell’officina di Babbo Natale tutte le lampade si spengono all'improvviso. Babbo Natale è sparito, e con lui la magia che tiene accesa la fabbrica di giocattoli. Quattro elfi aiutanti hanno una notte per ritrovarlo, siete pronti a salvare il Natale?",
+      "Tra giocattoli ribelli, la misteriosa e fredda Foresta Blu, testimoni poco affidabili e un villaggio innevato che nasconde più di un segreto, dovrete capire cosa è successo al povero Babbo Natale. Dovete trovarlo prima dell'alba, il Natale è a rischio!"
     ],
     "en": [
-      "22 December, evening. In Santa’s workshop every lamp goes out at once, the latch clicks shut and beneath the floor something knocks three times. Then it starts again, a little closer.",
-      "Santa has vanished, and with him the magic that makes the sleigh fly. Four helper elves have one night to find him: rebellious toys, the Blue Forest, unreliable witnesses and a snowy village hiding more than one secret. If Christmas isn’t saved by dawn, it won’t be saved at all."
+      "Night of December 22nd. In Santa's workshop all the lamps suddenly go out. Santa Claus is gone, and with him the magic that keeps the toy factory burning. Four helper elves have a night to find him, are you ready to save Christmas?",
+      "Between rebellious toys, the mysterious and cold Blue Forest, unreliable witnesses, and a snowy village that hides more than one secret, you'll have to figure out what happened to poor Santa Claus. You must find it before dawn, Christmas is at risk!"
     ]
   },
   "intro": {
-    "it": "Pensata come avventura introduttiva: va bene per chi non ha mai giocato, per una serata in famiglia o tra amici. Regole rapide incluse, quattro elfi pregenerati e nessun vicolo cieco: se il gruppo si blocca, un personaggio o un indizio lo rimette in strada.",
-    "en": "Designed as an introductory adventure: great for first-time players, a family evening or a night with friends. Quick rules included, four pregenerated elves and no dead ends: if the group gets stuck, a character or a clue puts them back on track."
+    "it": "Pensata come avventura introduttiva: perfetta per chi ha poca esperienza con i giochi di ruolo, per una serata in famiglia o tra amici. Regole rapide incluse, quattro elfi pregenerati e un paio d'ore di divertimento al tavolo! ",
+    "en": "Designed as an introductory adventure: perfect for those with little experience with role-playing games, for an evening with family or friends. Quick rules included, four pre-generated elves, and a couple of hours of fun at the table! "
   },
   "sheet": [
     {
@@ -218,7 +219,7 @@
         "en": "The Blue Forest"
       },
       "caption": {
-        "it": "Funghi che brillano, impronte nella neve e un pupazzo che guarda.",
+        "it": "Funghi che brillano, impronte nella neve e un pupazzo che vi osserva.",
         "en": "Glowing mushrooms, footprints in the snow and a snowman watching."
       }
     },
@@ -234,7 +235,6 @@
       }
     }
   ],
-  "quotes": [],
   "licence": {
     "it": "La scomparsa di Babbo Natale è un’avventura originale e gratuita con regole in stile 5ª edizione. Non è affiliata né approvata da Wizards of the Coast.",
     "en": "Santa Claus Is Missing is an original, free adventure with 5th-edition-style rules. It is not affiliated with or endorsed by Wizards of the Coast."
