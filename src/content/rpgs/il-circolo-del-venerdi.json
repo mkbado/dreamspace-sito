@@ -139,8 +139,8 @@
         "en": "Scene Book"
       },
       "desc": {
-        "it": "Letture, dialoghi, prove e procedure. Riservato al Custode · 51 pagine",
-        "en": "Read-aloud text, dialogue, rolls and procedures. Keeper only · 52 pages"
+        "it": "Letture, dialoghi, prove e procedure. Riservato al Custode · 53 pagine",
+        "en": "Read-aloud text, dialogue, rolls and procedures. Keeper only · 54 pages"
       },
       "it": "/files/circolo/cap0/La-Notte-del-Coro_Libro-delle-Scene.pdf",
       "en": "/files/circolo/cap0/The-Night-of-the-Choir_Scene-Book.pdf"
@@ -257,14 +257,6 @@
       "caption": {
         "it": "Le ossa dei vecchi monaci, e sette ceri.",
         "en": "The bones of the old monks, and seven candles."
-      }
-    },
-    {
-      "image": "/img/circolo/px/la-cripta.png",
-      "title": "La cripta",
-      "caption": {
-        "it": "Sotto la chiesa, dove la luce non arriva.",
-        "en": "Beneath the church, where no light reaches."
       }
     },
     {
