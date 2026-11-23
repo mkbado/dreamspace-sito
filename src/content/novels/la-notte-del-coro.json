@@ -107,14 +107,14 @@
       }
     },
     {
-      "slug": "l-abate",
+      "slug": "capitolo-4",
       "label": {
         "it": "Capitolo 4",
         "en": "Chapter 4"
       },
       "title": {
-        "it": "L'abate",
-        "en": "The Abbot"
+        "it": "",
+        "en": ""
       },
       "narrator": {
         "it": "",
@@ -136,14 +136,14 @@
       }
     },
     {
-      "slug": "il-sagrestano",
+      "slug": "capitolo-5",
       "label": {
         "it": "Capitolo 5",
         "en": "Chapter 5"
       },
       "title": {
-        "it": "Il sagrestano",
-        "en": "The Sacristan"
+        "it": "",
+        "en": ""
       },
       "narrator": {
         "it": "",
@@ -165,14 +165,14 @@
       }
     },
     {
-      "slug": "le-donne-del-lavatoio",
+      "slug": "capitolo-6",
       "label": {
         "it": "Capitolo 6",
         "en": "Chapter 6"
       },
       "title": {
-        "it": "Le donne del lavatoio",
-        "en": "The Washerwomen"
+        "it": "",
+        "en": ""
       },
       "narrator": {
         "it": "",
@@ -194,14 +194,1029 @@
       }
     },
     {
-      "slug": "la-galleria",
+      "slug": "capitolo-7",
       "label": {
         "it": "Capitolo 7",
         "en": "Chapter 7"
       },
       "title": {
-        "it": "La galleria",
-        "en": "The Gallery"
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-8",
+      "label": {
+        "it": "Capitolo 8",
+        "en": "Chapter 8"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-9",
+      "label": {
+        "it": "Capitolo 9",
+        "en": "Chapter 9"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-10",
+      "label": {
+        "it": "Capitolo 10",
+        "en": "Chapter 10"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-11",
+      "label": {
+        "it": "Capitolo 11",
+        "en": "Chapter 11"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-12",
+      "label": {
+        "it": "Capitolo 12",
+        "en": "Chapter 12"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-13",
+      "label": {
+        "it": "Capitolo 13",
+        "en": "Chapter 13"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-14",
+      "label": {
+        "it": "Capitolo 14",
+        "en": "Chapter 14"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-15",
+      "label": {
+        "it": "Capitolo 15",
+        "en": "Chapter 15"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-16",
+      "label": {
+        "it": "Capitolo 16",
+        "en": "Chapter 16"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-17",
+      "label": {
+        "it": "Capitolo 17",
+        "en": "Chapter 17"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-18",
+      "label": {
+        "it": "Capitolo 18",
+        "en": "Chapter 18"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-19",
+      "label": {
+        "it": "Capitolo 19",
+        "en": "Chapter 19"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-20",
+      "label": {
+        "it": "Capitolo 20",
+        "en": "Chapter 20"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-21",
+      "label": {
+        "it": "Capitolo 21",
+        "en": "Chapter 21"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-22",
+      "label": {
+        "it": "Capitolo 22",
+        "en": "Chapter 22"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-23",
+      "label": {
+        "it": "Capitolo 23",
+        "en": "Chapter 23"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-24",
+      "label": {
+        "it": "Capitolo 24",
+        "en": "Chapter 24"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-25",
+      "label": {
+        "it": "Capitolo 25",
+        "en": "Chapter 25"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-26",
+      "label": {
+        "it": "Capitolo 26",
+        "en": "Chapter 26"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-27",
+      "label": {
+        "it": "Capitolo 27",
+        "en": "Chapter 27"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-28",
+      "label": {
+        "it": "Capitolo 28",
+        "en": "Chapter 28"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-29",
+      "label": {
+        "it": "Capitolo 29",
+        "en": "Chapter 29"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-30",
+      "label": {
+        "it": "Capitolo 30",
+        "en": "Chapter 30"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-31",
+      "label": {
+        "it": "Capitolo 31",
+        "en": "Chapter 31"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-32",
+      "label": {
+        "it": "Capitolo 32",
+        "en": "Chapter 32"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-33",
+      "label": {
+        "it": "Capitolo 33",
+        "en": "Chapter 33"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-34",
+      "label": {
+        "it": "Capitolo 34",
+        "en": "Chapter 34"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-35",
+      "label": {
+        "it": "Capitolo 35",
+        "en": "Chapter 35"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-36",
+      "label": {
+        "it": "Capitolo 36",
+        "en": "Chapter 36"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-37",
+      "label": {
+        "it": "Capitolo 37",
+        "en": "Chapter 37"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-38",
+      "label": {
+        "it": "Capitolo 38",
+        "en": "Chapter 38"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-39",
+      "label": {
+        "it": "Capitolo 39",
+        "en": "Chapter 39"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-40",
+      "label": {
+        "it": "Capitolo 40",
+        "en": "Chapter 40"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-41",
+      "label": {
+        "it": "Capitolo 41",
+        "en": "Chapter 41"
+      },
+      "title": {
+        "it": "",
+        "en": ""
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "capitolo-42",
+      "label": {
+        "it": "Capitolo 42",
+        "en": "Chapter 42"
+      },
+      "title": {
+        "it": "",
+        "en": ""
       },
       "narrator": {
         "it": "",

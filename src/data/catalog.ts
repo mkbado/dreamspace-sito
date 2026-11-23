@@ -228,3 +228,10 @@ export const novelFor = (game: string) => novels.find((n) => n.game === game);
 export const chapterOut = (c: NovelChapter, lang: Lang) => !!(c.text?.[lang]?.trim() || c.pdf?.[lang]);
 export const chapterOnline = (c: NovelChapter, lang: Lang) => !!c.text?.[lang]?.trim();
 export const readingMinutes = (s: string) => Math.max(1, Math.round((s || '').split(/\s+/).length / 220));
+/** capitoli da mostrare: quelli usciti più la prossima puntata; gli altri si riassumono in una riga */
+export const chapterWindow = (chs: NovelChapter[], lang: Lang) => {
+  const next = chs.findIndex((c) => !chapterOut(c, lang));
+  const cut = next < 0 ? chs.length : next + 1;
+  const num = (c?: NovelChapter) => (c?.label.it.match(/\d+/) || [''])[0];
+  return { shown: chs.slice(0, cut), next, rest: chs.length - cut, from: num(chs[cut]), to: num(chs[chs.length - 1]) };
+};

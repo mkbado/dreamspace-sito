@@ -2,7 +2,7 @@
 // Un romanzo con la sua carrellata di capitoli: leggi online, scarica il PDF o aspetta la prossima puntata
 import '../styles/novel-fonts';
 import type { Lang } from '../i18n/ui';
-import { type Novel, chapterOut, chapterOnline, readingMinutes, rpgs, settings, tl } from '../data/catalog';
+import { type Novel, chapterWindow, chapterOut, chapterOnline, readingMinutes, rpgs, settings, tl } from '../data/catalog';
 import { chapterPath, novelPath, itemPath } from '../data/paths';
 interface Props { lang: Lang; n: Novel; heading?: 'h1' | 'h2' }
 const { lang, n, heading = 'h2' } = Astro.props;
@@ -10,7 +10,8 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
 const game = [...rpgs, ...settings].find((x) => x.slug === n.game);
 const H = heading;
 const out = n.chapters.filter((c) => chapterOut(c, lang));
-const nextIdx = n.chapters.findIndex((c) => !chapterOut(c, lang));
+const win = chapterWindow(n.chapters, lang);
+const nextIdx = win.next;
 ---
 <section class={`nv nv--${n.skin}`} id={n.slug} data-novel={n.slug}>
   <div class="container nv__head">
@@ -24,7 +25,7 @@ const nextIdx = n.chapters.findIndex((c) => !chapterOut(c, lang));
     </div>
   </div>
   <ol class="container nv__list">
-    {n.chapters.map((c, i) => {
+    {win.shown.map((c, i) => {
       const online = chapterOnline(c, lang);
       const live = chapterOut(c, lang);
       return (
@@ -46,6 +47,15 @@ const nextIdx = n.chapters.findIndex((c) => !chapterOut(c, lang));
         </li>
       );
     })}
+    {win.rest > 0 && (
+      <li class="nv-card nv-card--rest">
+        <div class="nv-card__body">
+          <p class="nv-card__label">{L(`Capitoli ${win.from}–${win.to}`, `Chapters ${win.from}–${win.to}`)}</p>
+          <p class="nv-card__title nv-card__title--rest">{L(`Altri ${win.rest} capitoli in arrivo`, `${win.rest} more chapters to come`)}</p>
+          <p class="nv-card__actions"><a class="nv-card__pdf" href={`/${lang}/#lista`}>{L('Avvisami', 'Notify me')}</a></p>
+        </div>
+      </li>
+    )}
   </ol>
 </section>
 <script>

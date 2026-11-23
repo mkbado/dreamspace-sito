@@ -1142,3 +1142,6 @@ a.rd__nav-i:hover { background: rgba(0, 0, 0, .06); }
   .rd__nav { grid-template-columns: 1fr; }
   .rd__nav-i--next { grid-column: 1; }
 }
+.nv-card--rest { border-style: dashed; }
+.nv-card__title--rest { font-size: 20px !important; opacity: .8; }
+.fb-ep--rest > div { border-style: dotted; }

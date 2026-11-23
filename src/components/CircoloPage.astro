@@ -6,7 +6,7 @@ import '@fontsource/special-elite/400.css';
 import Base from '../layouts/Base.astro';
 import Quotes from './Quotes.astro';
 import { t, sections, type Lang } from '../i18n/ui';
-import { site, tl, type Rpg, novelFor, chapterOut, chapterOnline } from '../data/catalog';
+import { site, tl, type Rpg, novelFor, chapterOut, chapterOnline, chapterWindow } from '../data/catalog';
 import { chapterPath, novelPath } from '../data/paths';
 
 interface Props { lang: Lang; r: Rpg; altPath: string }
@@ -16,6 +16,7 @@ const title = tl(lang, r.title, r.titleEn);
 const chapterTitle = tl(lang, r.chapterTitle, r.chapterTitleEn);
 const nv = novelFor(r.slug);
 const chapters = nv?.chapters ?? [];
+const win = chapterWindow(chapters, lang);
 const chHref = (c) => (chapterOnline(c, lang) ? chapterPath(lang, nv!, c) : c.pdf?.[lang]);
 ---
 <Base lang={lang} title={`${title} · ${chapterTitle}`} description={r.short[lang]} altPath={altPath} bodyClass="skin-noir" extraFonts>
@@ -182,13 +183,20 @@ const chHref = (c) => (chapterOnline(c, lang) ? chapterPath(lang, nv!, c) : c.pd
         </div>
       </div>
       <ol class="nr-chapters" style="flex: 1 1 380px; min-width: 0;">
-        {chapters.map((c, i) => (
+        {win.shown.map((c, i) => (
           <li>
             <b>{String(i + 1).padStart(2, '0')}</b>
             <span class="nr-chapters__t">{chapterOut(c, lang) ? <a href={chHref(c)}>{c.title[lang]}</a> : c.title[lang]}</span>
             {chapterOut(c, lang) ? <span class="nr-chapters__s">{chapterOnline(c, lang) ? L('leggi online', 'read online') : 'PDF'}</span> : <span class="nr-chapters__s nr-dim">{L('in arrivo', 'coming soon')}</span>}
           </li>
         ))}
+        {win.rest > 0 && (
+          <li>
+            <b>{win.from}–{win.to}</b>
+            <span class="nr-chapters__t nr-dim">{L(`altri ${win.rest} capitoli`, `${win.rest} more chapters`)}</span>
+            <span class="nr-chapters__s nr-dim">{L('in arrivo', 'coming soon')}</span>
+          </li>
+        )}
       </ol>
     </div>
   </section>

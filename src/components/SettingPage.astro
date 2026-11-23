@@ -9,7 +9,7 @@ import '@fontsource/eb-garamond/600.css';
 import Base from '../layouts/Base.astro';
 import Quotes from './Quotes.astro';
 import { t, sections, type Lang } from '../i18n/ui';
-import { site, tl, type Setting, novelFor, chapterOut, chapterOnline } from '../data/catalog';
+import { site, tl, type Setting, novelFor, chapterOut, chapterOnline, chapterWindow } from '../data/catalog';
 import { chapterPath, novelPath } from '../data/paths';
 
 interface Props { lang: Lang; s: Setting; altPath: string }
@@ -24,6 +24,7 @@ const chHref = (c) => (chapterOnline(c, lang) ? chapterPath(lang, nv!, c) : c.pd
 const outCount = chapters.filter((c) => chapterOut(c, lang)).length;
 const firstOut = chapters.find((c) => chapterOut(c, lang));
 const nextIdx = chapters.findIndex((c) => !chapterOut(c, lang));
+const win = chapterWindow(chapters, lang);
 ---
 <Base lang={lang} title={s.title} description={s.short[lang]} altPath={altPath} bodyClass="skin-fiaba" extraFonts>
   <div class="fb-motes" aria-hidden="true">{Array.from({ length: 14 }, (_, i) => <i style={`--i:${i}`}></i>)}</div>
@@ -137,7 +138,7 @@ const nextIdx = chapters.findIndex((c) => !chapterOut(c, lang));
           </div>
         </div>
         <ol class="fb-episodes">
-          {chapters.map((c, i) => {
+          {win.shown.map((c, i) => {
             const f = chapterOut(c, lang) ? chHref(c) : '';
             const next = !f && i === nextIdx;
             const inner = (
@@ -154,6 +155,14 @@ const nextIdx = chapters.findIndex((c) => !chapterOut(c, lang));
               </li>
             );
           })}
+          {win.rest > 0 && (
+            <li class="fb-ep fb-ep--rest"><div>
+              <span class="fb-ep__n" aria-hidden="true">…</span>
+              <span class="fb-ep__label">{L(`Capitoli ${win.from}–${win.to}`, `Chapters ${win.from}–${win.to}`)}</span>
+              <span class="fb-ep__title">{L(`Altri ${win.rest} capitoli`, `${win.rest} more chapters`)}</span>
+              <span class="fb-ep__state">{L('In arrivo', 'Coming soon')}</span>
+            </div></li>
+          )}
         </ol>
       </div>
     </section>
