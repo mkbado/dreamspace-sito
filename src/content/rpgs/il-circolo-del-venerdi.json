@@ -14,8 +14,8 @@
   },
   "campaignCover": "/img/circolo/investigatori.webp",
   "campaignCoverAlt": {
-    "it": "I sei investigatori del Circolo del Venerdì disegnati a china: Ruggero Alberti con una mappa, Edoardo Valmarana con un codice antico, Aurelio Sanvitale con un campanello e i tarocchi, Teresa Morandi con un diapason, Guido Ferrero con lo stetoscopio e Ida Cantoni con la macchina fotografica",
-    "en": "The six investigators of the Friday Circle in pen and ink: Ruggero Alberti with a map, Edoardo Valmarana with an old codex, Aurelio Sanvitale with a bell and tarot cards, Teresa Morandi with a tuning fork, Guido Ferrero with a stethoscope and Ida Cantoni with a camera"
+    "it": "I sei investigatori del Circolo del Venerdì in sei ritratti a china: Ruggero Alberti con una mappa, Edoardo Valmarana con un codice antico, Aurelio Sanvitale con un campanello, Teresa Morandi con un diapason e un taccuino, Guido Ferrero con lo stetoscopio e una fiala, Ida Cantoni con la macchina fotografica",
+    "en": "The six investigators of the Friday Circle in six ink portraits: Ruggero Alberti with a map, Edoardo Valmarana with an old codex, Aurelio Sanvitale with a bell, Teresa Morandi with a tuning fork and notebook, Guido Ferrero with a stethoscope and a vial, Ida Cantoni with her camera"
   },
   "campaignRules": {
     "it": "Si gioca anche solo con le Regole Introduttive del Richiamo di Cthulhu (7ª edizione). Ogni capitolo contiene tutto quello che serve per giocare l'avventura dall'inizio alla fine: guida del Custode, libro delle scene, handout da stampare e investigatori pregenerati.",
@@ -172,7 +172,7 @@
   ],
   "locations": [
     {
-      "image": "/img/circolo/ponte.webp",
+      "image": "/img/circolo/luogo-ponte.webp",
       "title": "Il ponte",
       "caption": {
         "it": "La corriera si ferma qui. Da qui sono due ore di mulattiera.",
@@ -180,19 +180,43 @@
       }
     },
     {
-      "image": "/img/circolo/strada-dei-segni.webp",
-      "title": "La strada dei segni",
+      "image": "/img/circolo/luogo-arco.webp",
+      "title": "L’arco",
       "caption": {
-        "it": "Un segno inciso sopra la porta di mezzo paese.",
-        "en": "A sign carved above the doors of half the village."
+        "it": "L’unica porta del borgo. Qualcuno vi aspetta con una lanterna.",
+        "en": "The only gate to the village. Someone waits there with a lantern."
       }
     },
     {
-      "image": "/img/circolo/chiostro.webp",
+      "image": "/img/circolo/luogo-strada-dei-segni.webp",
+      "title": "La strada dei segni",
+      "caption": {
+        "it": "Un cerchio inciso sopra la porta di mezzo paese.",
+        "en": "A circle carved above the doors of half the village."
+      }
+    },
+    {
+      "image": "/img/circolo/luogo-abbazia.webp",
+      "title": "Santa Maria del Silenzio",
+      "caption": {
+        "it": "L’abbazia sopra il borgo, addossata alla montagna.",
+        "en": "The abbey above the village, set against the mountain."
+      }
+    },
+    {
+      "image": "/img/circolo/luogo-chiostro.webp",
       "title": "Il chiostro",
       "caption": {
-        "it": "Santa Maria del Silenzio, sotto la prima neve.",
-        "en": "Santa Maria del Silenzio, under the first snow."
+        "it": "Orme fresche nella prima neve.",
+        "en": "Fresh footprints in the first snow."
+      }
+    },
+    {
+      "image": "/img/circolo/luogo-ossario.webp",
+      "title": "L’ossario",
+      "caption": {
+        "it": "Le ossa dei vecchi monaci, e sette ceri.",
+        "en": "The bones of the old monks, and seven candles."
       }
     }
   ],
@@ -281,12 +305,22 @@
   "chapters": [
     {
       "title": {
-        "it": "La porta sbarrata",
-        "en": "The Barred Door"
+        "it": "La strada sola",
+        "en": "The Only Road"
       },
       "file": {
         "it": "/files/circolo/cap0/romanzo/La-Notte-del-Coro_Capitolo-1.pdf",
         "en": "/files/circolo/cap0/romanzo/The-Night-of-the-Choir_Chapter-1.pdf"
+      }
+    },
+    {
+      "title": {
+        "it": "La porta sbarrata",
+        "en": "The Barred Door"
+      },
+      "file": {
+        "it": "/files/circolo/cap0/romanzo/La-Notte-del-Coro_Capitolo-2.pdf",
+        "en": "/files/circolo/cap0/romanzo/The-Night-of-the-Choir_Chapter-2.pdf"
       }
     },
     {

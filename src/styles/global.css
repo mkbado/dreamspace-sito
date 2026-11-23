@@ -464,7 +464,7 @@ a:hover { color: #7fe3d9; }
 .nr-portraits { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 32px 24px; }
 .nr-portrait { margin: 0; }
 .nr-portrait__img { background: #f1ede4; padding: 6px; box-shadow: 0 12px 30px rgba(0, 0, 0, .6); }
-.nr-portrait__img img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; object-position: top; filter: grayscale(1) contrast(1.05); transition: filter .3s; }
+.nr-portrait__img img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; object-position: center top; filter: grayscale(1) contrast(1.05); transition: filter .3s; }
 .nr-portrait:hover .nr-portrait__img img { filter: grayscale(1) contrast(1.25) brightness(.9); }
 .nr-portrait figcaption { padding-top: 14px; display: flex; flex-direction: column; gap: 4px; }
 .nr-portrait strong { font-family: 'Spectral', Georgia, serif; font-size: 18px; line-height: 1.25; font-weight: 600; }

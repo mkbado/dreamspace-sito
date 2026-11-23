@@ -29,7 +29,7 @@ const chapterTitle = tl(lang, r.chapterTitle, r.chapterTitleEn);
       <div class="nr-intro">
         {r.campaignCover && (
           <figure class="nr-plate">
-            <img src={r.campaignCover} alt={r.campaignCoverAlt?.[lang] ?? ''} width="1200" height="1262" />
+            <img src={r.campaignCover} alt={r.campaignCoverAlt?.[lang] ?? ''} width="1536" height="1024" />
           </figure>
         )}
         <div class="stack" style="gap: 18px; flex: 1 1 480px; min-width: 0;">
@@ -96,7 +96,7 @@ const chapterTitle = tl(lang, r.chapterTitle, r.chapterTitleEn);
       <div class="nr-places">
         {r.locations.map((l, i) => (
           <figure class={`nr-photo nr-photo--${i % 3}`}>
-            <img src={l.image} alt={`${l.title}: ${l.caption[lang]}`} width="1400" height="788" loading="lazy" />
+            <img src={l.image} alt={`${l.title}: ${l.caption[lang]}`} width="1100" height="730" loading="lazy" />
             <figcaption><strong>{l.title}</strong>{l.caption[lang]}</figcaption>
           </figure>
         ))}
@@ -138,7 +138,7 @@ const chapterTitle = tl(lang, r.chapterTitle, r.chapterTitleEn);
     <div class="nr-portraits">
       {r.investigators.map((i) => (
         <figure class="nr-portrait">
-          <div class="nr-portrait__img"><img src={i.image} alt={L(`Ritratto a china di ${i.name}`, `Pen-and-ink portrait of ${i.name}`)} width="400" height="600" loading="lazy" /></div>
+          <div class="nr-portrait__img"><img src={i.image} alt={L(`Ritratto a china di ${i.name}`, `Pen-and-ink portrait of ${i.name}`)} width="460" height="484" loading="lazy" /></div>
           <figcaption>
             <strong>{i.name}</strong>
             <span>{i.role[lang]}</span>
