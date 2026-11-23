@@ -21,18 +21,14 @@ const chapterTitle = tl(lang, r.chapterTitle, r.chapterTitleEn);
   <section class="nr-hero">
     <div class="container stack" style="gap: 28px; padding-block: 36px 72px;">
       <nav class="crumbs nr-crumbs" aria-label={L('Percorso', 'Breadcrumb')}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › <a href={`/${lang}/${sections[lang].rpg}/`}>{t(lang, 'nav.rpg')}</a> › {title}</nav>
-      <div class="nr-masthead">
+      <div class="nr-masthead nr-masthead--vortex">
+        <div class="nr-vortex" aria-hidden="true"><img src="/img/circolo/cerchio.webp" alt="" width="1464" height="954" fetchpriority="high" /></div>
         <p class="nr-type">{r.series[lang]} · {L('gratis', 'free')}</p>
         <h1 class="nr-title">{title}</h1>
         <p class="nr-type nr-type--dim">Torino · MCMX</p>
       </div>
       <div class="nr-intro">
-        {r.campaignCover && (
-          <figure class="nr-plate">
-            <img src={r.campaignCover} alt={r.campaignCoverAlt?.[lang] ?? ''} width="1536" height="1024" />
-          </figure>
-        )}
-        <div class="stack" style="gap: 18px; flex: 1 1 480px; min-width: 0;">
+        <div class="stack nr-intro__text" style="gap: 18px; flex: 1 1 480px; min-width: 0;">
           {r.campaignIntro[lang].map((p, i) => <p class={i === 0 ? 'nr-lead' : 'nr-body'}>{p}</p>)}
           {r.campaignRules && (
             <div class="nr-note">
@@ -89,22 +85,23 @@ const chapterTitle = tl(lang, r.chapterTitle, r.chapterTitleEn);
   </section>
 
   <!-- Valtorva -->
+  <div class="nr-ink" aria-hidden="true"></div>
   {r.locations.length > 0 && (
     <section class="nr-valley">
       <div class="container stack" style="gap: 10px; padding-top: 80px;">
         <p class="nr-type">{L('I luoghi', 'The places')}</p>
         <h2 class="nr-h2">Valtorva</h2>
       </div>
-      <figure class="nr-lantern nr-lantern--wide">
+      <figure class="nr-lantern nr-lantern--wide container">
         <img src={r.locations[0].image} alt={`${r.locations[0].title}: ${r.locations[0].caption[lang]}`} width="1100" height="730" loading="lazy" />
-        <figcaption class="container"><strong>{r.locations[0].title}</strong>{r.locations[0].caption[lang]}</figcaption>
+        <figcaption><span class="nr-tag">{L('Reperto', 'Exhibit')} I</span><strong>{r.locations[0].title}</strong>{r.locations[0].caption[lang]}</figcaption>
       </figure>
       <div class="container nr-walk">
         {r.locations.slice(1).map((l, i) => (
           <figure class={`nr-step nr-step--${i % 2 ? 'r' : 'l'}`}>
             <div class="nr-lantern"><img src={l.image} alt={`${l.title}: ${l.caption[lang]}`} width="1100" height="730" loading="lazy" /></div>
             <figcaption>
-              <span class="nr-step__n">{['II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'][i]}</span>
+              <span class="nr-tag">{L('Reperto', 'Exhibit')} {['II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'][i]}</span>
               <strong>{l.title}</strong>
               <span>{l.caption[lang]}</span>
             </figcaption>
@@ -141,6 +138,7 @@ const chapterTitle = tl(lang, r.chapterTitle, r.chapterTitleEn);
   </section>
 
   <!-- Investigatori -->
+  <div class="nr-ink" aria-hidden="true"></div>
   <section id="investigatori" class="container stack" style="padding-block: 80px; gap: 28px;">
     <p class="nr-type">{L('Gli investigatori', 'The investigators')}</p>
     <h2 class="nr-h2">{L('Il Circolo', 'The Circle')}</h2>
@@ -203,6 +201,18 @@ const chapterTitle = tl(lang, r.chapterTitle, r.chapterTitleEn);
         : <span class="nr-btn nr-btn--ink" aria-disabled="true" style="opacity: .5;">{L('Ko-fi in arrivo', 'Ko-fi coming soon')}</span>}
     </div>
   </section>
+
+  <script is:inline>
+  (function () {
+    if (matchMedia('(pointer: coarse)').matches || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.addEventListener('pointerdown', function (e) {
+      var d = document.createElement('span'); d.className = 'nr-splat';
+      d.style.left = e.clientX + 'px'; d.style.top = e.clientY + 'px';
+      d.style.setProperty('--r', (Math.random() * 360) + 'deg');
+      document.body.appendChild(d); setTimeout(function () { d.remove(); }, 1400);
+    });
+  })();
+  </script>
 
   <p slot="licence" class="nr-small" style="margin: 0;">{r.licence[lang]}</p>
 </Base>
