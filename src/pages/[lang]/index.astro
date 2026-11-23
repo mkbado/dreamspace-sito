@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import InterestForm from '../../components/InterestForm.astro';
 import KofiBand from '../../components/KofiBand.astro';
 import { t, langs, otherLang, sections, type Lang } from '../../i18n/ui';
-import { games, rpgs, settings, news, site, tl, localImg } from '../../data/catalog';
+import { games, rpgs, settings, oneshots, novels, news, site, tl, localImg, itemTitle } from '../../data/catalog';
 import { itemPath } from '../../data/paths';
 
 export function getStaticPaths() {
@@ -27,6 +27,12 @@ const slides = h.slides?.length ? h.slides : [...games, ...rpgs, ...settings].ma
 }));
 const fmt = (d: string) => new Date(d + 'T12:00:00').toLocaleDateString(lang === 'it' ? 'it-IT' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 const nGames = games.length;
+const flag = games.find((g) => g.slug === 'marsylvania');
+const tested = [...games, ...rpgs, ...settings, ...oneshots].filter((x) => x.playtest?.testers?.length);
+const testers = new Set(tested.flatMap((x) => x.playtest!.testers));
+const nTitles = games.length + rpgs.length + settings.length + oneshots.length;
+const nChapters = novels.reduce((a, n) => a + n.chapters.filter((c) => c.text?.[lang]?.trim()).length, 0);
+const voices = tested.flatMap((x) => (x.playtest!.moments || []).slice(0, 1).map((m) => ({ text: m[lang], game: x })));
 const nRpg = rpgs.length + settings.length;
 ---
 <Base lang={lang} title="Dreamspace Ltd" altPath={`/${otherLang(lang)}/`} spaceIntro>
@@ -80,6 +86,38 @@ const nRpg = rpgs.length + settings.length;
     </div>
   </section>
 
+
+  {flag && (
+    <section class="flag" aria-labelledby="flag-t">
+      <div class="flag__art"><img src={flag.banner} alt={flag.bannerAlt?.[lang] ?? ''} width="1882" height="836" loading="eager" /></div>
+      <div class="container flag__in">
+        <div class="flag__text">
+          <p class="flag__kicker"><span class="flag__dot" aria-hidden="true"></span>{L('Missione di punta · Kickstarter in arrivo', 'Flagship mission · Kickstarter coming')}</p>
+          <h2 id="flag-t" class="pixel flag__title">{itemTitle(lang, flag)}</h2>
+          <p class="flag__pitch">{flag.pitch[lang]}</p>
+          <ul class="flag__facts">
+            <li><b>{flag.players}</b><span>{L('giocatori', 'players')}</span></li>
+            <li><b>{flag.minutes}′</b><span>{L('a partita', 'per game')}</span></li>
+            <li><b>{flag.age}</b><span>{L('età', 'age')}</span></li>
+            <li><b>6</b><span>Dreamspacer</span></li>
+          </ul>
+          <div class="row" style="gap: 14px;">
+            <a class="btn btn--orange btn--big" href="#lista">{L('Avvisami al lancio', 'Notify me at launch')}</a>
+            <a class="btn btn--teal btn--big" href={itemPath(lang, flag)}>{L('Scopri il gioco', 'Discover the game')}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="container proof" aria-label={L('Dreamspace in numeri', 'Dreamspace in numbers')}>
+    <div><b>{nTitles}</b><span>{L('giochi e avventure', 'games and adventures')}</span></div>
+    <div><b>{testers.size}+</b><span>{L('Dream-tester al tavolo', 'Dream-testers at the table')}</span></div>
+    <div><b>{nChapters}</b><span>{L('capitoli da leggere online', 'chapters to read online')}</span></div>
+    <div><b>IT·EN</b><span>{L('tutto in due lingue', 'everything in two languages')}</span></div>
+    <div><b>0 €</b><span>{L('avventure e romanzi gratis', 'free adventures and novels')}</span></div>
+  </section>
+
   <section id="novita" class="band-cream">
     <div class="container stack pad" style="gap: 32px;">
       <h2 class="pixel h2">{L('Novità', 'News')}</h2>
@@ -122,6 +160,33 @@ const nRpg = rpgs.length + settings.length;
     </section>
   )}
 
+
+  <section class="container stack why" style="padding-block: 80px 0; gap: 28px;">
+    <p class="label" style="margin: 0; color: var(--teal);">{L('Perché giocare con noi', 'Why play with us')}</p>
+    <h2 class="pixel h2">{L('Storie complete, provate al tavolo', 'Complete stories, tested at the table')}</h2>
+    <div class="why__grid">
+      <article><b style="color: var(--orange);">01</b><h3>{L('Provati davvero', 'Actually played')}</h3><p>{L('Ogni gioco è passato dal tavolo dei Dream-tester prima di arrivare qui: regole limate, buchi chiusi, finali che funzionano.', 'Every game has been through the Dream-testers’ table before landing here: rules polished, holes closed, endings that work.')}</p></article>
+      <article><b style="color: var(--teal);">02</b><h3>{L('Pronti da giocare', 'Ready to play')}</h3><p>{L('Guida del master, scene, handout e personaggi pregenerati: apri il PDF e giochi la sera stessa.', 'Game master guide, scenes, handouts and pregenerated characters: open the PDF and play that same evening.')}</p></article>
+      <article><b style="color: #f2c230;">03</b><h3>{L('Il gioco continua in un romanzo', 'The game goes on in a novel')}</h3><p>{L('Le avventure hanno un romanzo a puntate che racconta la stessa storia dagli occhi dei personaggi. Si legge online, gratis.', 'The adventures come with a serial novel telling the same story through the characters’ eyes. Read it online, for free.')}</p></article>
+      <article><b style="color: #ef6ba8;">04</b><h3>{L('Un universo solo', 'One universe')}</h3><p>{L('Dall’horror alpino del 1914 alla fiaba di Meriggio, fino ai vampiri di Marsylvania: tutto esce dagli archivi della Dreamspace Ltd.', 'From 1914 Alpine horror to the fairy tale of Meriggio and the vampires of Marsylvania: it all comes from the Dreamspace Ltd archives.')}</p></article>
+    </div>
+  </section>
+
+  {voices.length > 0 && (
+    <section class="container stack voices" style="padding-block: 72px 0; gap: 24px;">
+      <p class="label" style="margin: 0; color: var(--teal);">{L('Dal tavolo di prova', 'From the test table')}</p>
+      <div class="voices__grid">
+        {voices.map((v) => (
+          <a class="voice" href={`${itemPath(lang, v.game)}#dream-tester`}>
+            <p>{v.text}</p>
+            <span>{itemTitle(lang, v.game)} →</span>
+          </a>
+        ))}
+      </div>
+      <p style="margin: 0;"><a class="label" style="color: var(--teal);" href={`/${lang}/${lang === 'it' ? 'chi-siamo' : 'about'}/#dream-tester`}>{L(`Conosci i ${testers.size} Dream-tester`, `Meet the ${testers.size} Dream-testers`)} →</a></p>
+    </section>
+  )}
+
   <section class="container stack" style="padding-block: 80px; gap: 32px;">
     <h2 class="pixel h2">{t(lang, 'home.how.title')}</h2>
     <div class="steps">
@@ -131,7 +196,7 @@ const nRpg = rpgs.length + settings.length;
     </div>
   </section>
 
-  <InterestForm lang={lang} />
+  <InterestForm lang={lang} preselect="marsylvania" />
   <KofiBand lang={lang} />
 </Base>
 
