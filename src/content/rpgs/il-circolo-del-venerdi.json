@@ -302,58 +302,6 @@
     "it": "Un frate ucciso, un borgo che non vuole forestieri, sei investigatori competenti. Ogni capitolo è raccontato da uno di loro. I capitoli escono uno alla volta.",
     "en": "A murdered friar, a village that does not want strangers, six capable investigators. Each chapter is told by one of them. Chapters come out one at a time."
   },
-  "chapters": [
-    {
-      "title": {
-        "it": "La strada sola",
-        "en": "The Only Road"
-      },
-      "file": {
-        "it": "/files/circolo/cap0/romanzo/La-Notte-del-Coro_Capitolo-1.pdf",
-        "en": "/files/circolo/cap0/romanzo/The-Night-of-the-Choir_Chapter-1.pdf"
-      }
-    },
-    {
-      "title": {
-        "it": "La porta sbarrata",
-        "en": "The Barred Door"
-      },
-      "file": {
-        "it": "/files/circolo/cap0/romanzo/La-Notte-del-Coro_Capitolo-2.pdf",
-        "en": "/files/circolo/cap0/romanzo/The-Night-of-the-Choir_Chapter-2.pdf"
-      }
-    },
-    {
-      "title": {
-        "it": "L'ossario",
-        "en": "The Ossuary"
-      }
-    },
-    {
-      "title": {
-        "it": "L'abate",
-        "en": "The Abbot"
-      }
-    },
-    {
-      "title": {
-        "it": "Il sagrestano",
-        "en": "The Sacristan"
-      }
-    },
-    {
-      "title": {
-        "it": "Le donne del lavatoio",
-        "en": "The Washerwomen"
-      }
-    },
-    {
-      "title": {
-        "it": "La galleria",
-        "en": "The Gallery"
-      }
-    }
-  ],
   "kofi": {
     "it": {
       "title": "Vi ha tenuti svegli fino a tardi?",

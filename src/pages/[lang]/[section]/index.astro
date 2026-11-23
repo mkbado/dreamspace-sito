@@ -5,13 +5,15 @@ import RpgCard from '../../../components/RpgCard.astro';
 import InterestForm from '../../../components/InterestForm.astro';
 import KofiBand from '../../../components/KofiBand.astro';
 import { t, langs, otherLang, sections, type Lang } from '../../../i18n/ui';
-import { games, rpgs, settings, oneshots, site, tl } from '../../../data/catalog';
-import { itemPath } from '../../../data/paths';
+import { games, rpgs, settings, oneshots, site, tl, novels as allNovels } from '../../../data/catalog';
+import { itemPath, novelsPath, novelPath } from '../../../data/paths';
+import NovelList from '../../../components/NovelList.astro';
 
 export function getStaticPaths() {
   return langs.flatMap((lang) => [
     { params: { lang, section: sections[lang].games }, props: { kind: 'games' as const } },
     { params: { lang, section: sections[lang].rpg }, props: { kind: 'rpg' as const } },
+    { params: { lang, section: sections[lang].novels }, props: { kind: 'novels' as const } },
   ]);
 }
 
@@ -19,29 +21,27 @@ const lang = Astro.params.lang as Lang;
 const { kind } = Astro.props;
 const L = (it: string, en: string) => (lang === 'it' ? it : en);
 const other = otherLang(lang);
-const alt = `/${other}/${kind === 'games' ? sections[other].games : sections[other].rpg}/`;
-const title = kind === 'games' ? t(lang, 'nav.games') : t(lang, 'nav.rpg');
-const intro = kind === 'games' ? site.boardgames.intro[lang] : site.rpg.intro[lang];
+const alt = `/${other}/${sections[other][kind]}/`;
+const title = kind === 'games' ? t(lang, 'nav.games') : kind === 'rpg' ? t(lang, 'nav.rpg') : t(lang, 'nav.novels');
+const intro = kind === 'games' ? site.boardgames.intro[lang] : kind === 'rpg' ? site.rpg.intro[lang]
+  : L('Romanzi a puntate, gratis, nati dai nostri giochi di ruolo. Ogni capitolo si legge qui online oppure si scarica in PDF; quando ne esce uno nuovo, lo trovi qui sotto nella sua serie.', 'Free serial novels born from our roleplaying games. Read every chapter here online or download it as a PDF; new chapters appear right here, in their series.');
 
-const novels = [
-  ...rpgs.map((r) => ({ title: tl(lang, r.chapterTitle, r.chapterTitleEn), kicker: `${tl(lang, r.title, r.titleEn)} · ${L('romanzo a puntate', 'serial novel')}`, text: r.novelText[lang], href: `${itemPath(lang, r)}#romanzo` })),
-  ...settings.filter((s) => s.novelTitle).map((s) => ({
-    title: tl(lang, s.novelTitle, s.novelTitleEn),
-    kicker: `${s.title} · ${s.novel ? L('romanzo a puntate', 'serial novel') : L('romanzo', 'novel')}`,
-    text: s.novel?.text[lang] ?? s.books.find((b) => b.n === '❦')?.text[lang] ?? s.short[lang],
-    href: `${itemPath(lang, s)}${s.novel ? '#romanzo' : '#libri'}`,
-  })),
-];
 ---
-<Base lang={lang} title={title} description={intro} altPath={alt}>
+<Base lang={lang} title={title} description={intro} altPath={alt} extraFonts={kind === 'novels'}>
   <section class="container stack" style="padding-block: 56px 40px; gap: 16px;">
     <nav class="crumbs" aria-label={L('Percorso', 'Breadcrumb')}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › {title}</nav>
-    <p class="label" style="margin: 0; color: var(--teal);">{kind === 'games' ? L('Catalogo · in arrivo', 'Catalogue · coming soon') : L('Catalogo · gratis', 'Catalogue · free')}</p>
+    <p class="label" style="margin: 0; color: var(--teal);">{kind === 'games' ? L('Catalogo · in arrivo', 'Catalogue · coming soon') : kind === 'novels' ? L('Da leggere · gratis', 'To read · free') : L('Catalogo · gratis', 'Catalogue · free')}</p>
     <h1 class="pixel h1">{title}</h1>
     <p style="margin: 0; max-width: 720px; font-size: 19px; color: var(--soft);">{intro}</p>
   </section>
 
-  <section class="band-cream">
+  {kind === 'novels' && (
+    <nav class="container nv-toc" aria-label={L('Romanzi disponibili', 'Available novels')}>
+      {allNovels.map((n) => <a href={`#${n.slug}`} class={`nv-toc__i nv-toc__i--${n.skin}`}><img src={n.cover} alt="" width="80" height="80" /><span><b>{n.title[lang]}</b><small>{n.series[lang]}</small></span></a>)}
+    </nav>
+  )}
+  {kind === 'novels' && allNovels.map((n) => <NovelList lang={lang} n={n} />)}
+  {kind !== 'novels' && <section class="band-cream">
     <div class="container stack pad" style="gap: 32px;">
       <div class="cards">
         {kind === 'games'
@@ -49,7 +49,7 @@ const novels = [
           : [...oneshots, ...rpgs, ...settings].map((x) => <RpgCard lang={lang} item={x} />)}
       </div>
     </div>
-  </section>
+  </section>}
 
   {kind === 'rpg' && (
     <section id="romanzi" class="container stack" style="padding-block: 72px; gap: 24px;">
@@ -57,15 +57,16 @@ const novels = [
       <h2 class="pixel h2">{t(lang, 'nav.novels')}</h2>
       <p style="margin: 0; max-width: 680px; color: var(--soft);">{L('Ogni gioco di ruolo ha il suo romanzo: si legge gratis, anche senza giocare.', 'Every roleplaying game has its own novel: free to read, even if you never play.')}</p>
       <div class="novels">
-        {novels.map((n) => (
-          <a class="novel" href={n.href}>
-            <span class="label">{n.kicker}</span>
-            <strong>{n.title}</strong>
-            <p>{n.text}</p>
+        {allNovels.map((n) => (
+          <a class="novel" href={novelPath(lang, n)}>
+            <span class="label">{n.series[lang]}</span>
+            <strong>{n.title[lang]}</strong>
+            <p>{n.text[lang]}</p>
             <span class="novel__go">{t(lang, 'card.read')} →</span>
           </a>
         ))}
       </div>
+      <p style="margin: 0;"><a class="btn btn--teal" href={novelsPath(lang)}>{L('Tutti i romanzi e i capitoli', 'All novels and chapters')} →</a></p>
     </section>
   )}
 

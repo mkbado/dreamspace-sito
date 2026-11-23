@@ -83,10 +83,24 @@ rpg = common_top + [
     O('locations', 'Luoghi (galleria)', [IMG('image', 'Immagine'), S('title', 'Titolo'), L('caption', 'Didascalia')], lst=True, summary='{fields.title}'),
     L('investigatorsIntro', 'Introduzione investigatori', 'text'),
     O('investigators', 'Investigatori', [S('name', 'Nome'), IMG('image', 'Ritratto'), L('role', 'Mestiere'), L('sheet', 'Scheda (PDF)', 'file')], lst=True, summary='{fields.name}'),
-    L('novelText', 'Romanzo: presentazione', 'text'),
-    O('chapters', 'Romanzo: capitoli', [L('title', 'Titolo'), L('file', 'File (PDF)', 'file')], lst=True),
+    L('novelText', 'Romanzo: presentazione (i capitoli si gestiscono in «Romanzi»)', 'text'),
     O('kofi', 'Fascia donazioni', [O('it', 'Italiano', [S('title', 'Titolo'), T('text', 'Testo')]), O('en', 'English', [S('title', 'Titolo'), T('text', 'Testo')])]),
     L('licence', 'Nota di licenza', 'text'),
+]
+
+novel = [
+    N('order', 'Ordine (1 = primo)'), B('draft', 'Nascosto (bozza)'),
+    S('slug', "Indirizzo (slug) — non cambiarlo dopo la pubblicazione", required=True),
+    L('title', 'Titolo del romanzo'), L('series', 'Occhiello (gioco e capitolo)'),
+    S('game', 'Gioco collegato (slug, es. il-circolo-del-venerdi)'),
+    {'name': 'skin', 'label': 'Stile grafico', 'type': 'select', 'options': {'values': ['noir', 'fiaba', 'stars']}},
+    IMG('cover', 'Copertina'), IMG('image', 'Immagine grande'), L('text', 'Presentazione', 'text'),
+    O('chapters', 'Capitoli', [
+        S('slug', 'Indirizzo del capitolo (slug)'), L('label', 'Etichetta (es. Capitolo 1)'), L('title', 'Titolo'),
+        L('narrator', 'Protagonista (es. Ruggero Alberti, capitano di fanteria)'), IMG('portrait', 'Ritratto del protagonista (facoltativo)'),
+        IMG('image', 'Illustrazione d’apertura (facoltativa)'), L('intro', 'Presentazione breve', 'text'), L('pdf', 'PDF da scaricare', 'file'),
+        O('text', 'Testo del capitolo (vuoto = in arrivo)', [{'name': 'it', 'label': 'Italiano (Markdown: * * * = cambio scena; ![didascalia](immagine "largo|destra|sinistra"))', 'type': 'text'}, {'name': 'en', 'label': 'English (Markdown)', 'type': 'text'}]),
+    ], lst=True, summary='{fields.label.it} · {fields.title.it}'),
 ]
 
 world = common_top + [
@@ -99,8 +113,7 @@ world = common_top + [
     O('books', 'Libri', [S('n', 'Numero'), L('title', 'Titolo'), L('text', 'Descrizione', 'text'), L('action', 'Testo del pulsante'), L('file', 'File (PDF o link)', 'file'), IMG('cover', 'Copertina del libro')], lst=True, summary='{fields.title.it}'),
     O('heroes', 'Eroi', [L('title', 'Titolo'), L('note', 'Nota', 'text'),
         O('list', 'Eroi', [S('name', 'Nome'), L('role', 'Ruolo'), IMG('image', 'Ritratto'), L('alt', 'Descrizione immagine'), L('bio', 'Biografia', 'text')], lst=True, summary='{fields.name}')]),
-    O('novel', 'Romanzo a puntate', [L('kicker', 'Occhiello'), L('text', 'Presentazione', 'text'),
-        O('chapters', 'Capitoli', [L('label', 'Etichetta (es. Capitolo 1)'), L('title', 'Titolo'), L('file', 'File (PDF)', 'file')], lst=True)]),
+    O('novel', 'Romanzo a puntate (i capitoli si gestiscono in «Romanzi»)', [L('kicker', 'Occhiello'), L('text', 'Presentazione', 'text')]),
     O('landscapes', 'Paesaggi (galleria)', [L('title', 'Titolo'), O('list', 'Immagini', [IMG('image', 'Immagine'), L('caption', 'Didascalia')], lst=True)]),
     O('peoples', 'Popoli', [L('title', 'Titolo'), O('list', 'Popoli', [L('name', 'Nome'), L('text', 'Testo', 'text'), L('where', 'Dove vivono')], lst=True, summary='{fields.name.it}'), L('more', 'Nota finale', 'text')]),
     O('atlas', 'Atlante', [L('title', 'Titolo'), O('list', 'Luoghi', [S('name', 'Nome'), L('dir', 'Direzione'), L('text', 'Testo', 'text')], lst=True, summary='{fields.name}')]),
@@ -143,6 +156,7 @@ cfg = {
         coll('games', 'Giochi da tavolo', 'src/content/games', game),
         coll('rpgs', 'Giochi di ruolo: campagne', 'src/content/rpgs', rpg),
         coll('worlds', 'Giochi di ruolo: ambientazioni', 'src/content/worlds', world),
+        coll('novels', 'Romanzi', 'src/content/novels', novel),
         coll('oneshots', 'Giochi di ruolo: one-shot', 'src/content/oneshots', common_top + [
             S('titleEn', 'Titolo in inglese'), L('tag', 'Etichetta'), L('short', 'Descrizione breve (scheda)', 'text'), L('cardMeta', 'Riga info nella scheda'), L('cardButton', 'Testo del pulsante nella scheda'),
             IMG('image', 'Immagine della scheda (960×600)'), L('imageAlt', 'Descrizione immagine scheda'), IMG('cover', 'Copertina'), L('coverAlt', 'Descrizione copertina'),
@@ -180,6 +194,7 @@ import glob
 for p in glob.glob('src/content/games/*.json'): problems += check(json.load(open(p)), game, p)
 for p in glob.glob('src/content/rpgs/*.json'): problems += check(json.load(open(p)), rpg, p)
 for p in glob.glob('src/content/worlds/*.json'): problems += check(json.load(open(p)), world, p)
+for p in glob.glob('src/content/novels/*.json'): problems += check(json.load(open(p)), novel, p)
 for p in glob.glob('src/content/oneshots/*.json'): problems += check(json.load(open(p)), [c for c in cfg['content'] if c['name']=='oneshots'][0]['fields'], p)
 problems += check(json.load(open('src/content/site.json')), site, 'site')
 for p in glob.glob('src/content/pages/*.json'): problems += check(json.load(open(p)), [{'name':k,'type':'string'} for k in ('order','slug','path','title','kicker','body','team')], p)

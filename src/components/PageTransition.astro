@@ -15,8 +15,8 @@
   var FILL = { noir: '#0b0b0c', fiaba: '#fcf5e3', stars: '#12163a', neve: '#f4f8ff' };
 
   function skinOf(path) {
-    if (/\/il-circolo-del-venerdi\//.test(path)) return 'noir';
-    if (/\/meriggio\//.test(path)) return 'fiaba';
+    if (/\/(il-circolo-del-venerdi|la-notte-del-coro)\//.test(path)) return 'noir';
+    if (/\/(meriggio|i-guardiani-di-primalba)\//.test(path)) return 'fiaba';
     if (/\/la-scomparsa-di-babbo-natale\//.test(path)) return 'neve';
     return 'stars';
   }

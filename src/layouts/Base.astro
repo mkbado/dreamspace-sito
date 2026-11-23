@@ -57,7 +57,7 @@ const year = new Date().getFullYear();
       <nav class="nav" aria-label={t(lang, 'nav.menu')}>
         <a href={`/${lang}/${sections[lang].games}/`} aria-current={here.startsWith(`/${lang}/${sections[lang].games}/`) ? 'page' : undefined}>{t(lang, 'nav.games')}</a>
         <a href={`/${lang}/${sections[lang].rpg}/`} aria-current={here.startsWith(`/${lang}/${sections[lang].rpg}/`) ? 'page' : undefined}>{t(lang, 'nav.rpg')}</a>
-        <a href={`/${lang}/${sections[lang].rpg}/#romanzi`}>{t(lang, 'nav.novels')}</a>
+        <a href={`/${lang}/${sections[lang].novels}/`}>{t(lang, 'nav.novels')}</a>
         <a href={pagePath(lang, 'chi-siamo')} aria-current={here === pagePath(lang, 'chi-siamo') ? 'page' : undefined}>{t(lang, 'nav.about')}</a>
         <span class="lang">
           {langs.map((l, i) => (
@@ -87,7 +87,7 @@ const year = new Date().getFullYear();
           <span class="label muted" style="font-size: 12px;">{t(lang, 'footer.catalog')}</span>
           <a href={`/${lang}/${sections[lang].games}/`}>{t(lang, 'nav.games')}</a>
           <a href={`/${lang}/${sections[lang].rpg}/`}>{t(lang, 'nav.rpg')}</a>
-          <a href={`/${lang}/${sections[lang].rpg}/#romanzi`}>{t(lang, 'nav.novels')}</a>
+          <a href={`/${lang}/${sections[lang].novels}/`}>{t(lang, 'nav.novels')}</a>
         </nav>
         <nav aria-label="Dreamspace">
           <span class="label muted" style="font-size: 12px;">Dreamspace</span>

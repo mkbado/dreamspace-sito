@@ -1,0 +1,67 @@
+---
+// Un romanzo con la sua carrellata di capitoli: leggi online, scarica il PDF o aspetta la prossima puntata
+import '../styles/novel-fonts';
+import type { Lang } from '../i18n/ui';
+import { type Novel, chapterOut, chapterOnline, readingMinutes, rpgs, settings, tl } from '../data/catalog';
+import { chapterPath, novelPath, itemPath } from '../data/paths';
+interface Props { lang: Lang; n: Novel; heading?: 'h1' | 'h2' }
+const { lang, n, heading = 'h2' } = Astro.props;
+const L = (it: string, en: string) => (lang === 'it' ? it : en);
+const game = [...rpgs, ...settings].find((x) => x.slug === n.game);
+const H = heading;
+const out = n.chapters.filter((c) => chapterOut(c, lang));
+const nextIdx = n.chapters.findIndex((c) => !chapterOut(c, lang));
+---
+<section class={`nv nv--${n.skin}`} id={n.slug} data-novel={n.slug}>
+  <div class="container nv__head">
+    <a class="nv__cover" href={novelPath(lang, n)}><img src={n.cover} alt={L(`Copertina di ${n.title.it}`, `Cover of ${n.title.en}`)} width="600" height="830" loading="lazy" /></a>
+    <div class="nv__intro">
+      <p class="nv__kicker">{n.series[lang]}</p>
+      <H class="nv__title"><a href={novelPath(lang, n)}>{n.title[lang]}</a></H>
+      <p class="nv__text">{n.text[lang]}</p>
+      <p class="nv__meta">{L(`${out.length} capitoli usciti su ${n.chapters.length}`, `${out.length} of ${n.chapters.length} chapters out`)}{game && <> · <a href={itemPath(lang, game)}>{L('Il gioco di ruolo', 'The roleplaying game')}: {tl(lang, game.title, (game as { titleEn?: string }).titleEn)}</a></>}</p>
+      <p class="nv__resume" hidden><a href="#" data-resume>{L('Riprendi dal capitolo', 'Continue from chapter')} <b></b> →</a></p>
+    </div>
+  </div>
+  <ol class="container nv__list">
+    {n.chapters.map((c, i) => {
+      const online = chapterOnline(c, lang);
+      const live = chapterOut(c, lang);
+      return (
+        <li class={`nv-card${live ? ' is-out' : ''}${i === nextIdx ? ' is-next' : ''}`} data-chapter={c.slug}>
+          {online ? <a class="nv-card__link" href={chapterPath(lang, n, c)} aria-label={`${c.label[lang]}: ${c.title[lang]}`}></a> : live && <a class="nv-card__link" href={c.pdf[lang]} aria-label={`${c.label[lang]}: ${c.title[lang]} (PDF)`}></a>}
+          {(c.image || c.portrait) && live && <div class="nv-card__img"><img src={c.image || c.portrait} alt="" loading="lazy" /></div>}
+          <div class="nv-card__body">
+            <p class="nv-card__label">{c.label[lang]}{online && <> · {readingMinutes(c.text[lang])} min</>}</p>
+            <h3 class="nv-card__title">{c.title[lang]}</h3>
+            {live && c.narrator?.[lang] && <p class="nv-card__who">{c.narrator[lang]}</p>}
+            {live && c.intro?.[lang] && <p class="nv-card__intro">{c.intro[lang]}</p>}
+            <p class="nv-card__actions">
+              {online && <span class="nv-card__read">{L('Leggi online', 'Read online')} →</span>}
+              {live && c.pdf?.[lang] && <a class="nv-card__pdf" href={c.pdf[lang]} download>PDF</a>}
+              {!live && <span class="nv-card__soon">{i === nextIdx ? L('Prossima puntata', 'Next episode') : L('In arrivo', 'Coming soon')}</span>}
+              <span class="nv-card__done" hidden>✓ {L('letto', 'read')}</span>
+            </p>
+          </div>
+        </li>
+      );
+    })}
+  </ol>
+</section>
+<script>
+  // segnalibro: ultimo capitolo aperto e capitoli finiti (solo su questo browser)
+  document.querySelectorAll<HTMLElement>('[data-novel]').forEach((sec) => {
+    let st: { last?: string; done?: string[] } = {};
+    try { st = JSON.parse(localStorage.getItem('ds-read:' + sec.dataset.novel) || '{}'); } catch { return; }
+    (st.done || []).forEach((s) => sec.querySelector(`[data-chapter="${s}"] .nv-card__done`)?.removeAttribute('hidden'));
+    const last = st.last && sec.querySelector<HTMLElement>(`[data-chapter="${st.last}"]`);
+    const link = last && last.querySelector<HTMLAnchorElement>('.nv-card__link');
+    const box = sec.querySelector<HTMLElement>('.nv__resume');
+    if (last && link && box) {
+      const a = box.querySelector<HTMLAnchorElement>('[data-resume]')!;
+      a.href = link.href;
+      a.querySelector('b')!.textContent = last.querySelector('.nv-card__title')?.textContent || '';
+      box.hidden = false;
+    }
+  });
+</script>

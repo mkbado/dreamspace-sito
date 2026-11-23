@@ -1,0 +1,9 @@
+import '@fontsource/im-fell-english/400.css';
+import '@fontsource/im-fell-english/400-italic.css';
+import '@fontsource/special-elite/400.css';
+import '@fontsource/cinzel-decorative/700.css';
+import '@fontsource/cinzel/500.css';
+import '@fontsource/cinzel/700.css';
+import '@fontsource/eb-garamond/400.css';
+import '@fontsource/eb-garamond/400-italic.css';
+import '@fontsource/eb-garamond/600.css';

@@ -1541,7 +1541,7 @@ content:
         collapsed: true
         summary: "{name}"
   - name: novelText
-    label: "Romanzo: presentazione"
+    label: "Romanzo: presentazione (i capitoli si gestiscono in «Romanzi»)"
     type: object
     fields:
     - name: it
@@ -1550,35 +1550,6 @@ content:
     - name: en
       label: English
       type: text
-  - name: chapters
-    label: "Romanzo: capitoli"
-    type: object
-    fields:
-    - name: title
-      label: Titolo
-      type: object
-      fields:
-      - name: it
-        label: Italiano
-        type: string
-      - name: en
-        label: English
-        type: string
-    - name: file
-      label: File (PDF)
-      type: object
-      fields:
-      - name: it
-        label: Italiano
-        type: file
-        options:
-          media: files
-      - name: en
-        label: English
-        type: file
-        options:
-          media: files
-    list: true
   - name: kofi
     label: Fascia donazioni
     type: object
@@ -1888,7 +1859,7 @@ content:
           collapsed: true
           summary: "{name}"
   - name: novel
-    label: Romanzo a puntate
+    label: Romanzo a puntate (i capitoli si gestiscono in «Romanzi»)
     type: object
     fields:
     - name: kicker
@@ -1911,45 +1882,6 @@ content:
       - name: en
         label: English
         type: text
-    - name: chapters
-      label: Capitoli
-      type: object
-      fields:
-      - name: label
-        label: Etichetta (es. Capitolo 1)
-        type: object
-        fields:
-        - name: it
-          label: Italiano
-          type: string
-        - name: en
-          label: English
-          type: string
-      - name: title
-        label: Titolo
-        type: object
-        fields:
-        - name: it
-          label: Italiano
-          type: string
-        - name: en
-          label: English
-          type: string
-      - name: file
-        label: File (PDF)
-        type: object
-        fields:
-        - name: it
-          label: Italiano
-          type: file
-          options:
-            media: files
-        - name: en
-          label: English
-          type: file
-          options:
-            media: files
-      list: true
   - name: landscapes
     label: Paesaggi (galleria)
     type: object
@@ -2150,6 +2082,158 @@ content:
     - name: en
       label: English
       type: text
+- name: novels
+  label: Romanzi
+  type: collection
+  path: src/content/novels
+  format: json
+  filename: "{primary}.json"
+  view:
+    primary: title
+  fields:
+  - name: order
+    label: Ordine (1 = primo)
+    type: number
+  - name: draft
+    label: Nascosto (bozza)
+    type: boolean
+  - name: slug
+    label: Indirizzo (slug) — non cambiarlo dopo la pubblicazione
+    type: string
+    required: true
+  - name: title
+    label: Titolo del romanzo
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: series
+    label: Occhiello (gioco e capitolo)
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: string
+    - name: en
+      label: English
+      type: string
+  - name: game
+    label: Gioco collegato (slug, es. il-circolo-del-venerdi)
+    type: string
+  - name: skin
+    label: Stile grafico
+    type: select
+    options:
+      values:
+      - noir
+      - fiaba
+      - stars
+  - name: cover
+    label: Copertina
+    type: image
+    options:
+      media: images
+  - name: image
+    label: Immagine grande
+    type: image
+    options:
+      media: images
+  - name: text
+    label: Presentazione
+    type: object
+    fields:
+    - name: it
+      label: Italiano
+      type: text
+    - name: en
+      label: English
+      type: text
+  - name: chapters
+    label: Capitoli
+    type: object
+    fields:
+    - name: slug
+      label: Indirizzo del capitolo (slug)
+      type: string
+    - name: label
+      label: Etichetta (es. Capitolo 1)
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: title
+      label: Titolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: narrator
+      label: Protagonista (es. Ruggero Alberti, capitano di fanteria)
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: portrait
+      label: Ritratto del protagonista (facoltativo)
+      type: image
+      options:
+        media: images
+    - name: image
+      label: Illustrazione d’apertura (facoltativa)
+      type: image
+      options:
+        media: images
+    - name: intro
+      label: Presentazione breve
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: text
+      - name: en
+        label: English
+        type: text
+    - name: pdf
+      label: PDF da scaricare
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: file
+        options:
+          media: files
+      - name: en
+        label: English
+        type: file
+        options:
+          media: files
+    - name: text
+      label: Testo del capitolo (vuoto = in arrivo)
+      type: object
+      fields:
+      - name: it
+        label: "Italiano (Markdown: * * * = cambio scena; ![didascalia](immagine \"largo|destra|sinistra\"))"
+        type: text
+      - name: en
+        label: English (Markdown)
+        type: text
+    list: true
 - name: oneshots
   label: "Giochi di ruolo: one-shot"
   type: collection

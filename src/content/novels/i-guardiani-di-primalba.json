@@ -1,0 +1,574 @@
+{
+  "order": 2,
+  "draft": false,
+  "slug": "i-guardiani-di-primalba",
+  "title": {
+    "it": "I Guardiani di Primalba",
+    "en": "The Guardians of Primalba"
+  },
+  "series": {
+    "it": "Meriggio · romanzo a puntate",
+    "en": "Meriggio · serial novel"
+  },
+  "game": "meriggio",
+  "skin": "fiaba",
+  "cover": "/img/meriggio/copertina.webp",
+  "image": "/img/meriggio/banner.webp",
+  "text": {
+    "it": "I Guardiani di Primalba raccontati come romanzo: un prologo e diciotto capitoli, pubblicati uno alla volta. Il prologo lo narra Olmo Cavo, l’albero più vecchio del Bosco Torto.",
+    "en": "The Guardians of Primalba told as a novel: a prologue and eighteen chapters, published one at a time. The prologue is narrated by Olmo Cavo, the oldest tree in the Crooked Wood."
+  },
+  "chapters": [
+    {
+      "slug": "radici",
+      "label": {
+        "it": "Prologo",
+        "en": "Prologue"
+      },
+      "title": {
+        "it": "Radici",
+        "en": "Roots"
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "come-si-trova-una-famiglia",
+      "label": {
+        "it": "Capitolo 1",
+        "en": "Chapter 1"
+      },
+      "title": {
+        "it": "Come si trova una famiglia",
+        "en": "How to Find a Family"
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "il-grido-di-harlon",
+      "label": {
+        "it": "Capitolo 2",
+        "en": "Chapter 2"
+      },
+      "title": {
+        "it": "Il grido di Harlon",
+        "en": "Harlon’s Cry"
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "alla-locanda-del-boccale",
+      "label": {
+        "it": "Capitolo 3",
+        "en": "Chapter 3"
+      },
+      "title": {
+        "it": "Alla Locanda del Boccale",
+        "en": "At the Tankard Inn"
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "allavventura",
+      "label": {
+        "it": "Capitolo 4",
+        "en": "Chapter 4"
+      },
+      "title": {
+        "it": "All’avventura",
+        "en": "Off to Adventure"
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "la-gola-rancida",
+      "label": {
+        "it": "Capitolo 5",
+        "en": "Chapter 5"
+      },
+      "title": {
+        "it": "La Gola Rancida",
+        "en": "The Rancid Gorge"
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "il-trono-di-uvak",
+      "label": {
+        "it": "Capitolo 6",
+        "en": "Chapter 6"
+      },
+      "title": {
+        "it": "Il trono di Uvak",
+        "en": "Uvak’s Throne"
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "il-ritorno-delle-capre",
+      "label": {
+        "it": "Capitolo 7",
+        "en": "Chapter 7"
+      },
+      "title": {
+        "it": "Il Ritorno delle Capre",
+        "en": "The Return of the Goats"
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "una-sera-al-boccale",
+      "label": {
+        "it": "Capitolo 8",
+        "en": "Chapter 8"
+      },
+      "title": {
+        "it": "Una sera al Boccale",
+        "en": "An Evening at the Tankard"
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "la-torre-della-gigantessa",
+      "label": {
+        "it": "Capitolo 9",
+        "en": "Chapter 9"
+      },
+      "title": {
+        "it": "La Torre della Gigantessa",
+        "en": "The Giantess’s Tower"
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "i-rodiferro",
+      "label": {
+        "it": "Capitolo 10",
+        "en": "Chapter 10"
+      },
+      "title": {
+        "it": "I Rodiferro",
+        "en": "The Rodiferro"
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "lingresso-nel-bosco",
+      "label": {
+        "it": "Capitolo 11",
+        "en": "Chapter 11"
+      },
+      "title": {
+        "it": "L’Ingresso nel Bosco",
+        "en": "Into the Wood"
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "le-ombre-dei-salici",
+      "label": {
+        "it": "Capitolo 12",
+        "en": "Chapter 12"
+      },
+      "title": {
+        "it": "Le Ombre dei Salici",
+        "en": "The Shadows of the Willows"
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "i-custodi-del-sottobosco",
+      "label": {
+        "it": "Capitolo 13",
+        "en": "Chapter 13"
+      },
+      "title": {
+        "it": "I Custodi del Sottobosco",
+        "en": "The Keepers of the Undergrowth"
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "lolmo-cavo",
+      "label": {
+        "it": "Capitolo 14",
+        "en": "Chapter 14"
+      },
+      "title": {
+        "it": "L’Olmo Cavo",
+        "en": "Olmo Cavo"
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "lo-stregone-degli-ossicini",
+      "label": {
+        "it": "Capitolo 15",
+        "en": "Chapter 15"
+      },
+      "title": {
+        "it": "Lo Stregone degli Ossicini",
+        "en": "The Knucklebone Sorcerer"
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "la-resa-dei-conti",
+      "label": {
+        "it": "Capitolo 16",
+        "en": "Chapter 16"
+      },
+      "title": {
+        "it": "La Resa dei Conti",
+        "en": "The Reckoning"
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "la-strada-dei-segni",
+      "label": {
+        "it": "Capitolo 17",
+        "en": "Chapter 17"
+      },
+      "title": {
+        "it": "La Strada dei Segni",
+        "en": "The Road of Signs"
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    },
+    {
+      "slug": "i-mostri-della-notte",
+      "label": {
+        "it": "Capitolo 18",
+        "en": "Chapter 18"
+      },
+      "title": {
+        "it": "I Mostri della Notte",
+        "en": "The Monsters of the Night"
+      },
+      "narrator": {
+        "it": "",
+        "en": ""
+      },
+      "portrait": "",
+      "image": "",
+      "intro": {
+        "it": "",
+        "en": ""
+      },
+      "pdf": {
+        "it": "",
+        "en": ""
+      },
+      "text": {
+        "it": "",
+        "en": ""
+      }
+    }
+  ]
+}

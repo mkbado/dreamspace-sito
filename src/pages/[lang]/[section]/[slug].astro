@@ -7,11 +7,12 @@ import Quotes from '../../../components/Quotes.astro';
 import BannerSpots from '../../../components/BannerSpots.astro';
 import DreamspacerSheets from '../../../components/DreamspacerSheets.astro';
 import { t, langs, otherLang, sections, type Lang } from '../../../i18n/ui';
-import { games, rpgs, settings, type Game, type Rpg, type Setting, oneshots, type OneShot, localImg, itemTitle } from '../../../data/catalog';
+import { games, rpgs, settings, type Game, type Rpg, type Setting, oneshots, type OneShot, localImg, itemTitle, novels, type Novel } from '../../../data/catalog';
 import SettingPage from '../../../components/SettingPage.astro';
 import CircoloPage from '../../../components/CircoloPage.astro';
 import OneShotPage from '../../../components/OneShotPage.astro';
-import { itemPath } from '../../../data/paths';
+import { itemPath, novelPath } from '../../../data/paths';
+import NovelHome from '../../../components/NovelHome.astro';
 
 export function getStaticPaths() {
   return langs.flatMap((lang) => [
@@ -19,18 +20,21 @@ export function getStaticPaths() {
     ...rpgs.map((item) => ({ params: { lang, section: sections[lang].rpg, slug: item.slug }, props: { item } })),
     ...settings.map((item) => ({ params: { lang, section: sections[lang].rpg, slug: item.slug }, props: { item } })),
     ...oneshots.map((item) => ({ params: { lang, section: sections[lang].rpg, slug: item.slug }, props: { item } })),
+    ...novels.map((item) => ({ params: { lang, section: sections[lang].novels, slug: item.slug }, props: { item } })),
   ]);
 }
 
 const lang = Astro.params.lang as Lang;
-const { item } = Astro.props as { item: Game | Rpg | Setting | OneShot };
-const alt = itemPath(otherLang(lang), item);
+const { item } = Astro.props as { item: Game | Rpg | Setting | OneShot | Novel };
+const alt = item.kind === 'novel' ? novelPath(otherLang(lang), item) : itemPath(otherLang(lang), item);
+const nv = item.kind === 'novel' ? item : null;
 const L = (it: string, en: string) => (lang === 'it' ? it : en);
 const g = item.kind === 'game' ? item : null;
 const r = item.kind === 'rpg' ? item : null;
 const st = item.kind === 'setting' ? item : null;
 const os = item.kind === 'oneshot' ? item : null;
 ---
+{nv && <NovelHome lang={lang} n={nv} altPath={alt} />}
 {st && <SettingPage lang={lang} s={st} altPath={alt} />}
 {os && <OneShotPage lang={lang} o={os} altPath={alt} />}
 

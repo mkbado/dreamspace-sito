@@ -1,0 +1,18 @@
+---
+// Pagina di un singolo romanzo: copertina grande e tutti i capitoli
+import Base from '../layouts/Base.astro';
+import NovelList from './NovelList.astro';
+import { t, type Lang } from '../i18n/ui';
+import type { Novel } from '../data/catalog';
+import { novelsPath } from '../data/paths';
+interface Props { lang: Lang; n: Novel; altPath: string }
+const { lang, n, altPath } = Astro.props;
+const L = (it: string, en: string) => (lang === 'it' ? it : en);
+const skin = n.skin === 'stars' ? 'stars' : `skin-${n.skin}`;
+---
+<Base lang={lang} title={n.title[lang]} description={n.text[lang]} altPath={altPath} bodyClass={skin} extraFonts>
+  {n.image && <div class={`nvh__hero nvh__hero--${n.skin}`} aria-hidden="true"><img src={n.image} alt="" /></div>}
+  <nav class="container crumbs nv-crumbs" aria-label={L('Percorso', 'Breadcrumb')}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › <a href={novelsPath(lang)}>{t(lang, 'nav.novels')}</a> › {n.title[lang]}</nav>
+  <NovelList lang={lang} n={n} heading="h1" />
+  <p class="container nv-back"><a href={novelsPath(lang)}>← {L('Tutti i romanzi', 'All novels')}</a></p>
+</Base>

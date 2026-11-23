@@ -94,7 +94,6 @@ export interface Rpg {
   investigatorsIntro: L<string>;
   investigators: { name: string; role: L<string>; image: string; sheet?: L<string> }[];
   novelText: L<string>;
-  chapters: { title: L<string>; file: L<string> }[];
   zip: string;
   cardMeta: L<string>;
   cardButton?: L<string>;
@@ -138,7 +137,7 @@ export interface Setting {
   cardButton?: L<string>;
   novelTitle: string;
   novelTitleEn?: string;
-  novel?: { kicker: L<string>; text: L<string>; chapters: { label: L<string>; title: L<string>; file: L<string> }[] };
+  novel?: { kicker: L<string>; text: L<string> };
   landscapes?: { title: L<string>; list: { image: string; caption: L<string> }[] };
   heroes: { title: L<string>; note: L<string>; list: { name: string; role: L<string>; image: string; alt: L<string>; bio: L<string> }[] };
   peoples: { title: L<string>; list: { name: L<string>; text: L<string>; where: L<string> }[]; more: L<string> };
@@ -219,3 +218,13 @@ export interface OneShot {
   licence: L<string>;
 }
 export const oneshots: OneShot[] = load<OneShot>(import.meta.glob('../content/oneshots/*.json', { eager: true }), 'oneshot');
+
+/* ---------- Romanzi a puntate: un file per romanzo, capitoli leggibili online ---------- */
+export interface NovelChapter { slug: string; label: L<string>; title: L<string>; narrator: L<string>; portrait?: string; image?: string; intro: L<string>; pdf: L<string>; text: L<string> }
+export interface Novel { kind: 'novel'; order?: number; slug: string; title: L<string>; series: L<string>; game: string; skin: 'noir' | 'fiaba' | 'stars'; cover: string; image?: string; text: L<string>; chapters: NovelChapter[] }
+export const novels: Novel[] = load<Novel>(import.meta.glob('../content/novels/*.json', { eager: true }), 'novel');
+export const novelFor = (game: string) => novels.find((n) => n.game === game);
+/** un capitolo è uscito in quella lingua se ha il testo (si legge online) o almeno il PDF */
+export const chapterOut = (c: NovelChapter, lang: Lang) => !!(c.text?.[lang]?.trim() || c.pdf?.[lang]);
+export const chapterOnline = (c: NovelChapter, lang: Lang) => !!c.text?.[lang]?.trim();
+export const readingMinutes = (s: string) => Math.max(1, Math.round((s || '').split(/\s+/).length / 220));

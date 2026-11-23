@@ -9,7 +9,8 @@ import '@fontsource/eb-garamond/600.css';
 import Base from '../layouts/Base.astro';
 import Quotes from './Quotes.astro';
 import { t, sections, type Lang } from '../i18n/ui';
-import { site, tl, type Setting } from '../data/catalog';
+import { site, tl, type Setting, novelFor, chapterOut, chapterOnline } from '../data/catalog';
+import { chapterPath, novelPath } from '../data/paths';
 
 interface Props { lang: Lang; s: Setting; altPath: string }
 const { lang, s, altPath } = Astro.props;
@@ -17,10 +18,12 @@ const L = (it: string, en: string) => (lang === 'it' ? it : en);
 const novelBook = s.books.find((b) => b.n === '❦');
 const gameBooks = s.books.filter((b) => b.n !== '❦');
 const roman = ['I', 'II', 'III', 'IV', 'V'];
-const chapters = s.novel?.chapters ?? [];
-const outCount = chapters.filter((c) => c.file?.[lang]).length;
-const firstOut = chapters.find((c) => c.file?.[lang]);
-const nextIdx = chapters.findIndex((c) => !c.file?.[lang]);
+const nv = novelFor(s.slug);
+const chapters = nv?.chapters ?? [];
+const chHref = (c) => (chapterOnline(c, lang) ? chapterPath(lang, nv!, c) : c.pdf?.[lang]);
+const outCount = chapters.filter((c) => chapterOut(c, lang)).length;
+const firstOut = chapters.find((c) => chapterOut(c, lang));
+const nextIdx = chapters.findIndex((c) => !chapterOut(c, lang));
 ---
 <Base lang={lang} title={s.title} description={s.short[lang]} altPath={altPath} bodyClass="skin-fiaba" extraFonts>
   <div class="fb-motes" aria-hidden="true">{Array.from({ length: 14 }, (_, i) => <i style={`--i:${i}`}></i>)}</div>
@@ -121,21 +124,21 @@ const nextIdx = chapters.findIndex((c) => !c.file?.[lang]);
             <p class="fb-kicker">{s.novel.kicker[lang]}</p>
             <h2 class="fb-h2">{tl(lang, s.novelTitle, s.novelTitleEn)}</h2>
             <p class="fb-body">{s.novel.text[lang]}</p>
-            <div class="fb-progress" role="img" aria-label={L(`${outCount} puntate uscite su ${s.novel.chapters.length}`, `${outCount} of ${s.novel.chapters.length} episodes out`)}>
-              <span class="fb-progress__bar"><i style={`width: ${Math.max(2, (outCount / s.novel.chapters.length) * 100)}%`}></i></span>
-              <span class="fb-progress__txt">{L('Puntate uscite', 'Episodes out')}: <b>{outCount}</b> / {s.novel.chapters.length}</span>
+            <div class="fb-progress" role="img" aria-label={L(`${outCount} puntate uscite su ${chapters.length}`, `${outCount} of ${chapters.length} episodes out`)}>
+              <span class="fb-progress__bar"><i style={`width: ${Math.max(2, (outCount / chapters.length) * 100)}%`}></i></span>
+              <span class="fb-progress__txt">{L('Puntate uscite', 'Episodes out')}: <b>{outCount}</b> / {chapters.length}</span>
             </div>
             <div class="row" style="gap: 12px; padding-top: 4px;">
               {firstOut
-                ? <a class="fb-btn" href={firstOut.file[lang]} target="_blank" rel="noopener">{L('Inizia a leggere', 'Start reading')}</a>
+                ? <a class="fb-btn" href={chHref(firstOut)}>{L('Inizia a leggere', 'Start reading')}</a>
                 : <a class="fb-btn" href={`/${lang}/#lista`}>{L('Avvisami alla prima puntata', 'Tell me when it starts')}</a>}
               {firstOut && <a class="fb-btn fb-btn--ghost" href={`/${lang}/#lista`}>{L('Avvisami delle nuove puntate', 'Notify me of new episodes')}</a>}
             </div>
           </div>
         </div>
         <ol class="fb-episodes">
-          {s.novel.chapters.map((c, i) => {
-            const f = c.file?.[lang];
+          {chapters.map((c, i) => {
+            const f = chapterOut(c, lang) ? chHref(c) : '';
             const next = !f && i === nextIdx;
             const inner = (
               <>
@@ -147,7 +150,7 @@ const nextIdx = chapters.findIndex((c) => !c.file?.[lang]);
             );
             return (
               <li class={`fb-ep${f ? ' is-out' : ''}${next ? ' is-next' : ''}`}>
-                {f ? <a href={f} target="_blank" rel="noopener">{inner}</a> : <div>{inner}</div>}
+                {f ? <a href={f}>{inner}</a> : <div>{inner}</div>}
               </li>
             );
           })}

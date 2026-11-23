@@ -4,8 +4,8 @@ export const langs: Lang[] = ['it', 'en'];
 
 /** Segmenti di URL che cambiano con la lingua */
 export const sections = {
-  it: { games: 'giochi-da-tavolo', rpg: 'giochi-di-ruolo' },
-  en: { games: 'board-games', rpg: 'roleplaying-games' },
+  it: { games: 'giochi-da-tavolo', rpg: 'giochi-di-ruolo', novels: 'romanzi' },
+  en: { games: 'board-games', rpg: 'roleplaying-games', novels: 'novels' },
 } as const;
 
 export const ui = {

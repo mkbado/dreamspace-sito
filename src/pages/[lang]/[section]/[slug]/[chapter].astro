@@ -1,0 +1,90 @@
+---
+// Un capitolo da leggere online
+import '../../../../styles/novel-fonts';
+import { Marked } from 'marked';
+import Base from '../../../../layouts/Base.astro';
+import { t, langs, otherLang, sections, type Lang } from '../../../../i18n/ui';
+import { novels, chapterOnline, chapterOut, readingMinutes, type Novel, type NovelChapter } from '../../../../data/catalog';
+import { novelsPath, novelPath, chapterPath } from '../../../../data/paths';
+
+export function getStaticPaths() {
+  return langs.flatMap((lang) => novels.flatMap((n) => n.chapters
+    .filter((c) => chapterOnline(c, lang))
+    .map((c) => ({ params: { lang, section: sections[lang].novels, slug: n.slug, chapter: c.slug }, props: { n, c } }))));
+}
+
+const lang = Astro.params.lang as Lang;
+const { n, c } = Astro.props as { n: Novel; c: NovelChapter };
+const L = (it: string, en: string) => (lang === 'it' ? it : en);
+const other = otherLang(lang);
+const altPath = chapterOnline(c, other) ? chapterPath(other, n, c) : novelPath(other, n);
+const skin = n.skin === 'stars' ? 'stars' : `skin-${n.skin}`;
+const i = n.chapters.indexOf(c);
+const prev = n.chapters.slice(0, i).reverse().find((x) => chapterOut(x, lang));
+const next = n.chapters[i + 1];
+const hrefOf = (x: NovelChapter) => (chapterOnline(x, lang) ? chapterPath(lang, n, x) : x.pdf[lang]);
+
+const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+const md = new Marked({
+  renderer: {
+    image({ href, title, text }) {
+      const cls = title === 'largo' ? 'wide' : title === 'destra' ? 'right' : title === 'sinistra' ? 'left' : 'center';
+      return `<figure class="rd-fig rd-fig--${cls}"><img src="${esc(href)}" alt="${esc(text)}" loading="lazy" />${text ? `<figcaption>${esc(text)}</figcaption>` : ''}</figure>`;
+    },
+    hr() { return '<p class="rd-break" aria-hidden="true"><span>✦</span></p>'; },
+  },
+});
+const html = (md.parse(c.text[lang].replace(/'/g, '’')) as string).replace(/<p>\s*(<figure[\s\S]*?<\/figure>)\s*<\/p>/g, '$1');
+const mins = readingMinutes(c.text[lang]);
+---
+<Base lang={lang} title={`${c.title[lang]} · ${n.title[lang]}`} description={c.intro?.[lang] || n.text[lang]} altPath={altPath} bodyClass={`${skin} rd-body`} extraFonts>
+  <div class="rd-progress" aria-hidden="true"><i></i></div>
+  <nav class="container crumbs nv-crumbs" aria-label={L('Percorso', 'Breadcrumb')}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › <a href={novelsPath(lang)}>{t(lang, 'nav.novels')}</a> › <a href={novelPath(lang, n)}>{n.title[lang]}</a> › {c.label[lang]}</nav>
+  <article class={`rd rd--${n.skin}`} data-novel={n.slug} data-chapter={c.slug}>
+    <header class="rd__head">
+      <p class="rd__kicker"><a href={novelPath(lang, n)}>{n.title[lang]}</a> · {c.label[lang]}</p>
+      <h1 class="rd__title">{c.title[lang]}</h1>
+      {c.portrait && <img class="rd__portrait" src={c.portrait} alt={c.narrator?.[lang] || ''} width="220" height="260" />}
+      {c.narrator?.[lang] && <p class="rd__who">{c.narrator[lang]}</p>}
+      {c.intro?.[lang] && <p class="rd__intro">{c.intro[lang]}</p>}
+      <p class="rd__meta">{L(`Circa ${mins} minuti di lettura`, `About ${mins} minutes to read`)}{c.pdf?.[lang] && <> · <a href={c.pdf[lang]} download>{L('Scarica il PDF', 'Download the PDF')}</a></>}</p>
+    </header>
+    {c.image && <figure class="rd-fig rd-fig--opener"><img src={c.image} alt="" /></figure>}
+    <div class="rd__text" set:html={html} />
+    <footer class="rd__end">
+      <p class="rd-break" aria-hidden="true"><span>✦ ✦ ✦</span></p>
+      <p class="rd__fine">{next ? L(`Fine del ${c.label.it.toLowerCase()}`, `End of ${c.label.en.toLowerCase()}`) : L('Fine', 'The end')}</p>
+      <div class="rd__nav">
+        {prev ? <a class="rd__nav-i" href={hrefOf(prev)}><small>← {prev.label[lang]}</small><b>{prev.title[lang]}</b></a> : <span />}
+        {next && (chapterOut(next, lang)
+          ? <a class="rd__nav-i rd__nav-i--next" href={hrefOf(next)}><small>{next.label[lang]} →</small><b>{next.title[lang]}</b></a>
+          : <div class="rd__nav-i rd__nav-i--next rd__nav-i--soon"><small>{next.label[lang]} · {L('prossima puntata', 'next episode')}</small><b>{next.title[lang]}</b><a href={`/${lang}/#lista`}>{L('Avvisami quando esce', 'Tell me when it’s out')} →</a></div>)}
+      </div>
+      <p class="rd__all"><a href={novelPath(lang, n)}>{L('Tutti i capitoli', 'All chapters')}</a>{c.pdf?.[lang] && <> · <a href={c.pdf[lang]} download>{L('Questo capitolo in PDF', 'This chapter as PDF')}</a></>}</p>
+    </footer>
+  </article>
+</Base>
+<script>
+  const art = document.querySelector<HTMLElement>('.rd');
+  const bar = document.querySelector<HTMLElement>('.rd-progress i');
+  if (art) {
+    const key = 'ds-read:' + art.dataset.novel;
+    const read = () => { try { return JSON.parse(localStorage.getItem(key) || '{}'); } catch { return null; } };
+    const save = (st: object) => { try { localStorage.setItem(key, JSON.stringify(st)); } catch { /* niente segnalibro */ } };
+    const st = read();
+    if (st) { st.last = art.dataset.chapter; save(st); }
+    let marked = false;
+    const onScroll = () => {
+      const r = art.getBoundingClientRect();
+      const p = Math.min(1, Math.max(0, -r.top / Math.max(1, r.height - innerHeight)));
+      if (bar) bar.style.transform = `scaleX(${p})`;
+      if (!marked && p > 0.97) {
+        marked = true;
+        const s = read();
+        if (s) { s.done = Array.from(new Set([...(s.done || []), art.dataset.chapter])); save(s); }
+      }
+    };
+    addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+</script>
