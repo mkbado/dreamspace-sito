@@ -12,8 +12,8 @@
   },
   "game": "meriggio",
   "skin": "fiaba",
-  "cover": "/img/meriggio/copertina.webp",
-  "image": "/img/meriggio/banner.webp",
+  "cover": "/img/meriggio/px/copertina.webp",
+  "image": "/img/meriggio/px/valle.webp",
   "text": {
     "it": "I Guardiani di Primalba raccontati come romanzo a puntate, un capitolo alla volta. Il prologo lo narra Olmo Cavo, l’albero più vecchio del Bosco Torto.",
     "en": "The Guardians of Primalba told as a serial novel, one chapter at a time. The prologue is narrated by Olmo Cavo, the oldest tree in the Crooked Wood."

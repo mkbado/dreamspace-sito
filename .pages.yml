@@ -2016,6 +2016,14 @@ content:
         - name: en
           label: English
           type: string
+      - name: image
+        label: Illustrazione
+        type: image
+        options:
+          media: images
+      - name: rare
+        label: Stirpe rara
+        type: boolean
       list: true
     - name: more
       label: Nota finale
@@ -2124,6 +2132,21 @@ content:
       label: Creature
       type: string
       list: true
+    - name: image
+      label: Illustrazione
+      type: image
+      options:
+        media: images
+    - name: imageAlt
+      label: Descrizione illustrazione
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
   - name: licence
     label: Nota di licenza
     type: object

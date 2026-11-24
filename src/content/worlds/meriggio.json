@@ -4,13 +4,13 @@
   "title": "Meriggio",
   "image": "/img/meriggio/card.webp",
   "imageAlt": {
-    "it": "La copertina di Meriggio: i cinque Guardiani di Primalba, di spalle sotto una quercia, guardano la valle soleggiata",
-    "en": "The Meriggio cover: the five Guardians of Primalba, seen from behind beneath an oak, gaze at the sunlit valley"
+    "it": "La copertina di Meriggio in pixel art: il titolo nel cielo, una valle di campi, fiumi e casette dal tetto di paglia, e i cinque Guardiani di Primalba di spalle su una rupe",
+    "en": "The Meriggio cover in pixel art: the title in the sky, a valley of fields, rivers and thatched cottages, and the five Guardians of Primalba seen from behind on a cliff"
   },
-  "banner": "/img/meriggio/banner.webp",
+  "banner": "/img/meriggio/px/copertina.webp",
   "bannerAlt": {
-    "it": "Il titolo «Meriggio» dipinto nel cielo sopra una grande valle di campi, fiumi e casette dal tetto di paglia; i cinque Guardiani di Primalba la guardano da una rupe",
-    "en": "The title «Meriggio» painted in the sky above a wide valley of fields, rivers and thatched cottages; the five Guardians of Primalba look down on it from a cliff"
+    "it": "La copertina di Meriggio in pixel art: il titolo nel cielo, una valle di campi, fiumi e casette dal tetto di paglia, e i cinque Guardiani di Primalba di spalle su una rupe",
+    "en": "The Meriggio cover in pixel art: the title in the sky, a valley of fields, rivers and thatched cottages, and the five Guardians of Primalba seen from behind on a cliff"
   },
   "tag": {
     "it": "Compatibile con la 5ª edizione · ambientazione, avventura e romanzo",
@@ -111,7 +111,7 @@
         "it": "",
         "en": ""
       },
-      "cover": "/img/meriggio/luogo-pietrariva.webp"
+      "cover": "/img/meriggio/px/valle.webp"
     },
     {
       "n": "2",
@@ -131,7 +131,7 @@
         "it": "",
         "en": ""
       },
-      "cover": "/img/meriggio/luogo-gola-dei-grufoli.webp"
+      "cover": "/img/meriggio/px/forra-delle-lucciole.webp"
     },
     {
       "n": "3",
@@ -151,7 +151,7 @@
         "it": "",
         "en": ""
       },
-      "cover": "/img/meriggio/luogo-anfiteatro-delle-spalle.webp"
+      "cover": "/img/meriggio/px/bollore.webp"
     },
     {
       "n": "❦",
@@ -171,7 +171,7 @@
         "it": "#romanzo",
         "en": "#romanzo"
       },
-      "cover": "/img/meriggio/copertina.webp"
+      "cover": "/img/meriggio/px/copertina.webp"
     }
   ],
   "heroes": {
@@ -190,10 +190,10 @@
           "it": "Guerriero terragno",
           "en": "Terragno fighter"
         },
-        "image": "/img/meriggio/gz.webp",
+        "image": "/img/meriggio/px/gz.webp",
         "alt": {
-          "it": "GZ, giovane terragno con la giacca rattoppata, il corno e la spada corta, accanto a un canale di pietra tra le colline",
-          "en": "GZ, a young terragno in a patched coat with horn and short sword, beside a stone canal among the hills"
+          "it": "GZ in pixel art, appoggiato a uno steccato in mezzo al grano, con corno e corda",
+          "en": "GZ in pixel art, leaning on a fence in the wheat, with a horn and a rope"
         },
         "bio": {
           "it": "Guardia di Primalba, 1,05 m di energia. A ogni raccolto la madre gli manda una cesta di mele e un biglietto: «Torna quando ti sei calmato». Non è ancora tornato.",
@@ -206,10 +206,10 @@
           "it": "Bardo sembiante",
           "en": "Sembiante bard"
         },
-        "image": "/img/meriggio/panko.webp",
+        "image": "/img/meriggio/px/panko.webp",
         "alt": {
-          "it": "Panko Shine suona il liuto seduto su un sasso nel torrente; nell’acqua si riflette un volto diverso dal suo",
-          "en": "Panko Shine plays the lute sitting on a rock in the stream; the water reflects a face that is not his"
+          "it": "Panko in pixel art, accovacciato sulla riva, sfiora l’acqua: il riflesso non è il suo",
+          "en": "Panko in pixel art, crouching on the bank, touching the water: the reflection is not his"
         },
         "bio": {
           "it": "Il suo liuto arrivò a Primalba un giorno prima di lui, con quel nome cucito sulla custodia. Se gli chiedi se il nome sia suo, pizzica tre note che vogliono dire: «Adesso è mio».",
@@ -222,10 +222,10 @@
           "it": "Chierico braciaro",
           "en": "Braciaro cleric"
         },
-        "image": "/img/meriggio/ignazio.webp",
+        "image": "/img/meriggio/px/ignazio.webp",
         "alt": {
-          "it": "Ignazio, braciaro dai capelli di fiamma, scalda la mano su un braciere accanto al carro dipinto",
-          "en": "Ignazio, a flame-haired braciaro, warms his hand over a brazier beside the painted wagon"
+          "it": "Ignazio in pixel art, con il bastone a campanelli accanto a un braciere",
+          "en": "Ignazio in pixel art, with his belled staff beside a brazier"
         },
         "bio": {
           "it": "Sacerdote della Brace, nato in carovana, ha fatto la cosa più scandalosa per un braciaro: si è fermato. La madre gli ha scritto «Un fuoco fermo si spegne»; lui le risponde con ricette di torta al miele.",
@@ -238,10 +238,10 @@
           "it": "Monaco di sangue di gigante",
           "en": "Giant-blooded monk"
         },
-        "image": "/img/meriggio/anacleto.webp",
+        "image": "/img/meriggio/px/anacleto.webp",
         "alt": {
-          "it": "Anacleto, monaco gigante, si fascia le braccia seduto sui gradini di una casetta dal tetto di paglia",
-          "en": "Anacleto, a giant monk, wraps his arms in bandages sitting on the steps of a thatched cottage"
+          "it": "Anacleto in pixel art, enorme nel saio, si china verso una capretta",
+          "en": "Anacleto in pixel art, huge in his robe, bending towards a little goat"
         },
         "bio": {
           "it": "Monaco di Brace Caduta, 2,20 m: più del doppio di un terragno qualunque. In famiglia dicono che ci sia un gigante; sua madre sostiene che abbia solo mangiato troppa minestra.",
@@ -254,10 +254,10 @@
           "it": "Chierico grufolo",
           "en": "Grufolo cleric"
         },
-        "image": "/img/meriggio/zrak.webp",
+        "image": "/img/meriggio/px/zrak.webp",
         "alt": {
-          "it": "Zrak, grufolo dal mantello di foglie, lancia in aria una moneta d’oro davanti a un arco di pietra",
-          "en": "Zrak, a grufolo in a cloak of leaves, flips a gold coin in front of a stone arch"
+          "it": "Zrak in pixel art, col campanello al collo e una moneta che vola, davanti a una cappella",
+          "en": "Zrak in pixel art, a bell round his neck and a coin in the air, in front of a chapel"
         },
         "bio": {
           "it": "Chierico del Caos e profeta del Rumore, per nomina propria. Espulso dal consiglio della tana per aver cantato durante una riunione, riammesso, ed espulso di nuovo per aver cantato durante la riammissione.",
@@ -268,8 +268,8 @@
   },
   "peoples": {
     "title": {
-      "it": "Le cinque genti",
-      "en": "The five peoples"
+      "it": "Le dieci stirpi",
+      "en": "The ten lineages"
     },
     "list": [
       {
@@ -284,7 +284,8 @@
         "where": {
           "it": "circa 30.000 · casali della pianura",
           "en": "about 30,000 · lowland farmsteads"
-        }
+        },
+        "image": "/img/meriggio/px/terragni.webp"
       },
       {
         "name": {
@@ -298,7 +299,8 @@
         "where": {
           "it": "circa 3.000 · Colline Rosse, in carovana",
           "en": "about 3,000 · Red Hills, in caravans"
-        }
+        },
+        "image": "/img/meriggio/px/braciari.webp"
       },
       {
         "name": {
@@ -312,7 +314,8 @@
         "where": {
           "it": "circa 10.000 · fiumi e lagune",
           "en": "about 10,000 · rivers and lagoons"
-        }
+        },
+        "image": "/img/meriggio/px/salmastri.webp"
       },
       {
         "name": {
@@ -326,7 +329,8 @@
         "where": {
           "it": "circa 20.000 · boschi",
           "en": "about 20,000 · woods"
-        }
+        },
+        "image": "/img/meriggio/px/radicati.webp"
       },
       {
         "name": {
@@ -340,12 +344,93 @@
         "where": {
           "it": "40.000 o 50.000, dipende dal giorno · tane sotto le colline",
           "en": "40,000 or 50,000, depending on the day · burrows under the hills"
-        }
+        },
+        "image": "/img/meriggio/px/grufoli.webp"
+      },
+      {
+        "name": {
+          "it": "Sembianti",
+          "en": "Sembianti"
+        },
+        "text": {
+          "it": "Mutaforma che prendono il volto di chi hanno accanto. Parlano a scatti, a fatica.",
+          "en": "Shapeshifters who take the face of whoever is near them. They speak haltingly."
+        },
+        "where": {
+          "it": "Ovunque, non visti",
+          "en": "Everywhere, unseen"
+        },
+        "image": "/img/meriggio/px/sembianti.webp",
+        "rare": true
+      },
+      {
+        "name": {
+          "it": "Giganti",
+          "en": "Giants"
+        },
+        "text": {
+          "it": "Antichi, solitari e smemorati. Qualcuno ha solo un po’ del loro sangue.",
+          "en": "Ancient, solitary and forgetful. Some only carry a little of their blood."
+        },
+        "where": {
+          "it": "Le Spalle, qualche torre",
+          "en": "The Shoulders, a few towers"
+        },
+        "image": "/img/meriggio/px/giganti.webp",
+        "rare": true
+      },
+      {
+        "name": {
+          "it": "Arborei",
+          "en": "Arborei"
+        },
+        "text": {
+          "it": "Alberi che si sono svegliati. Lenti, saggi, e ricordano a pezzi.",
+          "en": "Trees that woke up. Slow, wise, and they remember in pieces."
+        },
+        "where": {
+          "it": "Bosco delle Voci, boschi antichi",
+          "en": "Wood of Voices, ancient woods"
+        },
+        "image": "/img/meriggio/px/arborei.webp",
+        "rare": true
+      },
+      {
+        "name": {
+          "it": "Spiritelli",
+          "en": "Spiritelli"
+        },
+        "text": {
+          "it": "Alati, grandi quanto una mano. Capricciosi, e non hanno paura del buio.",
+          "en": "Winged, the size of a hand. Fickle, and not afraid of the dark."
+        },
+        "where": {
+          "it": "Forra delle Lucciole",
+          "en": "Firefly Gorge"
+        },
+        "image": "/img/meriggio/px/spiritelli.webp",
+        "rare": true
+      },
+      {
+        "name": {
+          "it": "Sorgivi",
+          "en": "Sorgivi"
+        },
+        "text": {
+          "it": "Elementali che hanno deciso di restare. Si danno un nome e due gambe.",
+          "en": "Elementals who decided to stay. They give themselves a name and two legs."
+        },
+        "where": {
+          "it": "Nessun posto",
+          "en": "Nowhere"
+        },
+        "image": "/img/meriggio/px/sorgivi.webp",
+        "rare": true
       }
     ],
     "more": {
-      "it": "E poi sembianti, giganti, arborei, spiritelli e sorgivi: dieci stirpi giocabili in tutto. A Meriggio non ci sono umani.",
-      "en": "Plus sembianti, giants, arborei, spiritelli and sorgivi: ten playable lineages in all. There are no humans in Meriggio."
+      "it": "Le prime cinque sono le genti della valle. Le altre cinque sono stirpi rare: una sola per gruppo, e in ogni villaggio vi guarderanno a bocca aperta. A Meriggio non ci sono umani.",
+      "en": "The first five are the folk of the valley. The other five are rare lineages: only one per party, and every village will stare open-mouthed. There are no humans in Meriggio."
     }
   },
   "atlas": {
@@ -456,7 +541,12 @@
       "Madama, la gigantessa",
       "Ginestra del Tasso Vecchio",
       "Sciamana del tuono"
-    ]
+    ],
+    "image": "/img/meriggio/px/bollore.webp",
+    "imageAlt": {
+      "it": "Il Bollore in pixel art: una nuvola di vapore con occhi di brace che sale da una roccia crepata di lava",
+      "en": "The Bollore in pixel art: a cloud of steam with ember eyes rising from a lava-cracked rock"
+    }
   },
   "licence": {
     "it": "Meriggio è un’ambientazione non ufficiale ispirata al piano di Lorwyn di Magic: The Gathering. Nomi, luoghi, testi e illustrazioni sono stati riscritti da Dreamspace, e l’avventura è originale. Meriggio is unofficial Fan Content permitted under the Fan Content Policy. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC. This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC, licensed under the Creative Commons Attribution 4.0 International License (creativecommons.org/licenses/by/4.0).",
@@ -479,66 +569,17 @@
     },
     "list": [
       {
-        "image": "/img/meriggio/luogo-monti-senzafine.webp",
-        "caption": {
-          "it": "Sul passo dei Monti Senzafine",
-          "en": "On the pass of the Endless Mountains"
-        }
-      },
-      {
-        "image": "/img/meriggio/luogo-laguna-salmastra.webp",
-        "caption": {
-          "it": "La laguna salmastra, tra saline e palafitte",
-          "en": "The brackish lagoon, among salt pans and stilt houses"
-        }
-      },
-      {
-        "image": "/img/meriggio/luogo-pietrariva.webp",
+        "image": "/img/meriggio/px/pietrariva.webp",
         "caption": {
           "it": "Il mercato galleggiante di Pietrariva",
           "en": "The floating market of Pietrariva"
         }
       },
       {
-        "image": "/img/meriggio/luogo-biancofusto.webp",
+        "image": "/img/meriggio/px/forra-delle-lucciole.webp",
         "caption": {
-          "it": "Biancofusto, città di linfa, vetro e pietra",
-          "en": "Biancofusto, city of sap, glass and stone"
-        }
-      },
-      {
-        "image": "/img/meriggio/luogo-carovana-braciari.webp",
-        "caption": {
-          "it": "La carovana dei braciari sulle Colline Rosse",
-          "en": "The braciari caravan on the Red Hills"
-        }
-      },
-      {
-        "image": "/img/meriggio/luogo-monte-fumalto.webp",
-        "caption": {
-          "it": "Il Monte Fumalto e il monastero di Brace Caduta",
-          "en": "Mount Fumalto and the monastery of Brace Caduta"
-        }
-      },
-      {
-        "image": "/img/meriggio/luogo-bosco-luci-alate.webp",
-        "caption": {
-          "it": "Il bosco nascosto delle luci alate",
-          "en": "The hidden wood of winged lights"
-        }
-      },
-      {
-        "image": "/img/meriggio/luogo-gola-dei-grufoli.webp",
-        "caption": {
-          "it": "La gola fumante dei grufoli",
-          "en": "The smoking gorge of the grufoli"
-        }
-      },
-      {
-        "image": "/img/meriggio/luogo-anfiteatro-delle-spalle.webp",
-        "caption": {
-          "it": "Il gigante nell’anfiteatro delle Spalle",
-          "en": "The giant in the amphitheatre of the Shoulders"
+          "it": "La Forra delle Lucciole, dove vivono gli spiritelli",
+          "en": "Firefly Gorge, home of the spiritelli"
         }
       }
     ]
@@ -549,8 +590,8 @@
       "en": "Serial novel · free"
     },
     "text": {
-      "it": "I Guardiani di Primalba raccontati come romanzo: un prologo e diciotto capitoli, pubblicati uno alla volta. Il prologo lo narra Olmo Cavo, l’albero più vecchio del Bosco Torto.",
-      "en": "The Guardians of Primalba told as a novel: a prologue and eighteen chapters, published one at a time. The prologue is narrated by Olmo Cavo, the oldest tree in the Crooked Wood."
+      "it": "I Guardiani di Primalba raccontati come romanzo a puntate, pubblicato un capitolo alla volta. Il prologo lo narra Olmo Cavo, l’albero più vecchio del Bosco Torto.",
+      "en": "The Guardians of Primalba told as a serial novel, published one chapter at a time. The prologue is narrated by Olmo Cavo, the oldest tree in the Crooked Wood."
     }
   },
   "playtest": {

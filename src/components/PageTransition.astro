@@ -1,7 +1,7 @@
 ---
 // Passaggio tra i "mondi" del sito:
 // - verso il Circolo: l'oscurità si allarga come inchiostro dal punto del clic
-// - verso Meriggio: una luce dorata e magica avvolge la pagina
+// - verso Meriggio: un sole a pixel si allarga dal clic e, all'arrivo, si ritira in alto a destra
 // - verso Intolleranti: un bicchiere si rovescia e l'aranciata cola sulla pagina
 // - verso Dungeons & Dugongs: splash, l'acqua sale e poi si ritira
 // - verso le pagine Dreamspace: lo schermo si riempie di pixel
@@ -15,6 +15,7 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var KEY = 'ds_transizione';
   var FILL = { noir: '#0b0b0c', fiaba: '#fcf5e3', stars: '#12163a', neve: '#f4f8ff', mare: '#0b3043', tavola: '#f28c28' };
+  FILL.fiaba = '#f8e6b8';
 
   function skinOf(path) {
     if (/\/(il-circolo-del-venerdi|la-notte-del-coro)\//.test(path)) return 'noir';
@@ -49,12 +50,25 @@
     }
     ctx.globalAlpha = 1;
   }
-  function lightGrow(cx, cy, p) {
-    var R = Math.hypot(Math.max(cx, W - cx), Math.max(cy, H - cy)) * 1.1;
-    var r = Math.max(1, R * p * p * (3 - 2 * p));
-    var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
-    g.addColorStop(0, 'rgba(255,251,232,1)'); g.addColorStop(0.7, 'rgba(252,245,227,1)'); g.addColorStop(0.88, 'rgba(243,193,75,.75)'); g.addColorStop(1, 'rgba(243,193,75,0)');
-    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7); ctx.fill();
+  // sole a pixel: un disco a gradini con il bordo dorato e i raggi
+  function sunDisc(cx, cy, r, t) {
+    var B = 8, rim = '#e9a93b', core = FILL.fiaba;
+    for (var y = Math.floor((cy - r) / B) * B; y <= cy + r; y += B) {
+      var dy = y + B / 2 - cy; if (Math.abs(dy) > r) continue;
+      var dx = Math.round(Math.sqrt(r * r - dy * dy) / B) * B; if (dx <= 0) continue;
+      var x0 = Math.round((cx - dx) / B) * B, w = dx * 2;
+      ctx.fillStyle = core; ctx.fillRect(x0, y, w, B);
+      ctx.fillStyle = rim; ctx.fillRect(x0, y, B, B); ctx.fillRect(x0 + w - B, y, B, B);
+      if (Math.abs(dy) > r - 2 * B) { ctx.fillRect(x0, y, w, B); }
+    }
+    ctx.fillStyle = '#f5c14b';
+    for (var k = 0; k < 12; k++) {
+      var a = k * Math.PI / 6 + t * 0.0012, len = 3 + (k % 2) * 2;
+      for (var j = 0; j < len; j++) {
+        var d = r + 16 + j * B;
+        ctx.fillRect(Math.round((cx + Math.cos(a) * d) / B) * B, Math.round((cy + Math.sin(a) * d) / B) * B, B, B);
+      }
+    }
   }
   // acqua: sale dal basso con un'onda a gradini, poi si ritira verso il basso; bolle e schizzi
   var drops = [];
@@ -130,7 +144,7 @@
     (function frame(t) {
       var p = Math.min(1, (t - t0) / D);
       ctx.clearRect(0, 0, W, H);
-      if (to === 'fiaba') { if (!sparked) { spawnSparks(cx, cy, 70, true); sparked = true; } lightGrow(cx, cy, p); drawSparks(); }
+      if (to === 'fiaba') { if (!sparked) { spawnSparks(cx, cy, 50, true); sparked = true; } var R = Math.hypot(Math.max(cx, W - cx), Math.max(cy, H - cy)) * 1.05; sunDisc(cx, cy, Math.max(24, R * p * p * (3 - 2 * p)), t); drawSparks(); }
       else if (to === 'tavola') { soda(Math.max(0, p - 0.2) / 0.8, false); if (p < 0.6) glass(cx, Math.max(60, cy - 40), Math.min(1, p / 0.3) * 2.2); }
       else if (to === 'mare') { if (!sparked) { splash(cx, cy, 40); sparked = true; } var e = p * p * (3 - 2 * p); water(H - (H + 60) * e, t); seaBubbles(p); drawDrops(); }
       else pixels(p * 1.1, false);
@@ -158,10 +172,9 @@
       var p = Math.max(0, Math.min(1, (t - t0) / D));
       ctx.clearRect(0, 0, W, H);
       if (here === 'fiaba') {
-        ctx.globalAlpha = 1 - p * p; ctx.fillStyle = FILL.fiaba; ctx.fillRect(0, 0, W, H);
-        var g = ctx.createRadialGradient(W / 2, H * 0.3, 0, W / 2, H * 0.3, Math.max(W, H) * 0.7);
-        g.addColorStop(0, 'rgba(255,224,138,.55)'); g.addColorStop(1, 'rgba(255,224,138,0)');
-        ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1;
+        // il sole si ritira in alto a destra e lascia la valle
+        var e2 = p * p * (3 - 2 * p), R2 = Math.hypot(W, H) * 1.05;
+        sunDisc(W * (0.5 + 0.35 * e2), H * (0.5 - 0.38 * e2), Math.max(0, R2 * (1 - e2) + 60 * e2), t);
         drawSparks();
       } else if (here === 'tavola') {
         soda(p, true);

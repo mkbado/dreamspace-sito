@@ -117,10 +117,10 @@ world = common_top + [
         O('list', 'Eroi', [S('name', 'Nome'), L('role', 'Ruolo'), IMG('image', 'Ritratto'), L('alt', 'Descrizione immagine'), L('bio', 'Biografia', 'text')], lst=True, summary='{fields.name}')]),
     O('novel', 'Romanzo a puntate (i capitoli si gestiscono in «Romanzi»)', [L('kicker', 'Occhiello'), L('text', 'Presentazione', 'text')]),
     O('landscapes', 'Paesaggi (galleria)', [L('title', 'Titolo'), O('list', 'Immagini', [IMG('image', 'Immagine'), L('caption', 'Didascalia')], lst=True)]),
-    O('peoples', 'Popoli', [L('title', 'Titolo'), O('list', 'Popoli', [L('name', 'Nome'), L('text', 'Testo', 'text'), L('where', 'Dove vivono')], lst=True, summary='{fields.name.it}'), L('more', 'Nota finale', 'text')]),
+    O('peoples', 'Popoli', [L('title', 'Titolo'), O('list', 'Popoli', [L('name', 'Nome'), L('text', 'Testo', 'text'), L('where', 'Dove vivono'), IMG('image', 'Illustrazione'), B('rare', 'Stirpe rara')], lst=True, summary='{fields.name.it}'), L('more', 'Nota finale', 'text')]),
     O('atlas', 'Atlante', [L('title', 'Titolo'), O('list', 'Luoghi', [S('name', 'Nome'), L('dir', 'Direzione'), L('text', 'Testo', 'text')], lst=True, summary='{fields.name}')]),
     O('quote', 'Citazione', [L('text', 'Testo', 'text'), L('who', 'Autore')]),
-    O('bestiary', 'Bestiario', [L('title', 'Titolo'), L('text', 'Testo', 'text'), S('names', 'Creature', list=True)]),
+    O('bestiary', 'Bestiario', [L('title', 'Titolo'), L('text', 'Testo', 'text'), S('names', 'Creature', list=True), IMG('image', 'Illustrazione'), L('imageAlt', 'Descrizione illustrazione')]),
     L('licence', 'Nota di licenza', 'text'),
 ]
 

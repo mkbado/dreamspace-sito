@@ -1,14 +1,9 @@
 ---
-// Pagina di Meriggio: grafica da libro di fiabe (pergamena calda, oro, verde bosco).
-import '@fontsource/cinzel-decorative/700.css';
-import '@fontsource/cinzel/500.css';
-import '@fontsource/cinzel/700.css';
-import '@fontsource/eb-garamond/400.css';
-import '@fontsource/eb-garamond/400-italic.css';
-import '@fontsource/eb-garamond/600.css';
+// Pagina di Meriggio: pixel art di campagna, cielo color acqua, grano e oro.
 import Base from '../layouts/Base.astro';
 import Quotes from './Quotes.astro';
 import Playtest from './Playtest.astro';
+import MeadowFX from './MeadowFX.astro';
 import { t, sections, type Lang } from '../i18n/ui';
 import { site, tl, type Setting, novelFor, chapterOut, chapterOnline, chapterWindow } from '../data/catalog';
 import { chapterPath, novelPath } from '../data/paths';
@@ -28,17 +23,18 @@ const nextIdx = chapters.findIndex((c) => !chapterOut(c, lang));
 const win = chapterWindow(chapters, lang);
 ---
 <Base lang={lang} title={s.title} description={s.short[lang]} altPath={altPath} bodyClass="skin-fiaba" extraFonts>
-  <div class="fb-motes" aria-hidden="true">{Array.from({ length: 14 }, (_, i) => <i style={`--i:${i}`}></i>)}</div>
+  <MeadowFX />
 
   <!-- Copertina -->
   <section class="fb-cover">
     <div class="container" style="padding-top: 22px;">
       <nav class="crumbs fb-crumbs" aria-label={L('Percorso', 'Breadcrumb')}><a href={`/${lang}/`}>{t(lang, 'crumb.home')}</a> › <a href={`/${lang}/${sections[lang].rpg}/`}>{t(lang, 'nav.rpg')}</a> › {s.title}</nav>
     </div>
-    <figure class="fb-cover__art">
-      <img src={s.banner} width="1983" height="793" alt={s.bannerAlt[lang]} fetchpriority="high" />
+    <div class="container mg-hero">
+    <figure class="mg-hero__cover">
+      <img src={s.banner} width="768" height="1152" alt={s.bannerAlt[lang]} fetchpriority="high" />
     </figure>
-    <div class="container fb-cover__body">
+    <div class="fb-cover__body mg-hero__body">
       <h1 class="sr-only">{s.title}</h1>
       <p class="fb-kicker">{L('C’era una volta, in una valle sempre al sole…', 'Once upon a time, in a valley always in the sun…')}</p>
       <p class="fb-tagline">{s.tagline[lang]}</p>
@@ -62,6 +58,7 @@ const win = chapterWindow(chapters, lang);
           <span>{L('Personaggi, luoghi, genti e creature', 'Characters, places, peoples and creatures')}</span>
         </a>
       </nav>
+    </div>
     </div>
   </section>
 
@@ -179,7 +176,7 @@ const win = chapterWindow(chapters, lang);
     <div class="fb-heroes">
       {s.heroes.list.map((h) => (
         <article class="fb-hero-card">
-          <div class="fb-portrait"><img src={h.image} alt={h.alt[lang]} loading="lazy" width="640" height="896" /></div>
+          <div class="fb-portrait"><img src={h.image} alt={h.alt[lang]} loading="lazy" width="640" height="640" /></div>
           <h3>{h.name}</h3>
           <p class="fb-label">{h.role[lang]}</p>
           <p class="fb-body">{h.bio[lang]}</p>
@@ -208,34 +205,41 @@ const win = chapterWindow(chapters, lang);
     </section>
   )}
 
-  <!-- Popoli e atlante -->
+  <!-- Popoli -->
   <section class="fb-band fb-band--parchment">
-    <div class="container row" style="gap: 56px; align-items: flex-start;">
-      <div class="stack" style="flex: 1 1 520px; min-width: 0; gap: 20px;">
+    <div class="container stack" style="gap: 32px;">
+      <div class="fb-head">
         <p class="fb-kicker">{L('Chi abita la valle', 'Who lives in the valley')}</p>
         <h2 class="fb-h2">{s.peoples.title[lang]}</h2>
-        <div class="fb-peoples">
-          {s.peoples.list.map((p) => (
-            <div class="fb-people">
+        <p class="fb-body" style="max-width: 680px;">{s.peoples.more[lang]}</p>
+      </div>
+      <div class="mg-peoples">
+        {s.peoples.list.map((p) => (
+          <article class={`mg-people${p.rare ? ' is-rare' : ''}`}>
+            {p.image && <div class="mg-people__img"><img src={p.image} alt="" loading="lazy" width="640" height="640" /></div>}
+            <div class="mg-people__body">
+              {p.rare && <span class="mg-people__tag">{L('Stirpe rara', 'Rare lineage')}</span>}
               <strong>{p.name[lang]}</strong>
               <span>{p.text[lang]}</span>
               <small>{p.where[lang]}</small>
             </div>
-          ))}
-        </div>
-        <p class="fb-body" style="font-style: italic;">{s.peoples.more[lang]}</p>
-      </div>
-      <div class="stack" style="flex: 1 1 380px; min-width: 0; gap: 20px;">
-        <p class="fb-kicker">{L('Per sentieri e colline', 'Along paths and hills')}</p>
-        <h2 class="fb-h2">{s.atlas.title[lang]}</h2>
-        <div class="fb-compass" aria-hidden="true">✦</div>
-        <ul class="fb-atlas">
-          {s.atlas.list.map((a) => (
-            <li><span class="fb-label">{a.dir[lang]}</span><strong>{a.name}</strong><span>{a.text[lang]}</span></li>
-          ))}
-        </ul>
+          </article>
+        ))}
       </div>
     </div>
+  </section>
+
+  <!-- Atlante -->
+  <section class="container stack" style="padding-block: 88px; gap: 24px;">
+    <div class="fb-head">
+      <p class="fb-kicker">{L('Per sentieri e colline', 'Along paths and hills')}</p>
+      <h2 class="fb-h2">{s.atlas.title[lang]}</h2>
+    </div>
+    <ul class="fb-atlas mg-atlas">
+      {s.atlas.list.map((a) => (
+        <li><span class="fb-label">{a.dir[lang]}</span><strong>{a.name}</strong><span>{a.text[lang]}</span></li>
+      ))}
+    </ul>
   </section>
 
   <Playtest lang={lang} p={s.playtest} skin="fiaba" />
@@ -252,6 +256,7 @@ const win = chapterWindow(chapters, lang);
   <!-- Bestiario -->
   <section class="fb-band fb-band--forest">
     <div class="container stack" style="gap: 22px; align-items: center; text-align: center;">
+      {s.bestiary.image && <figure class="mg-beast"><img src={s.bestiary.image} alt={s.bestiary.imageAlt?.[lang] ?? ''} loading="lazy" width="640" height="640" /></figure>}
       <p class="fb-kicker">{L('Nel bosco, dopo il tramonto che non arriva', 'In the woods, after the sunset that never comes')}</p>
       <h2 class="fb-h2">{s.bestiary.title[lang]}</h2>
       <p class="fb-body" style="max-width: 720px;">{s.bestiary.text[lang]}</p>
