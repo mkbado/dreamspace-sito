@@ -3,7 +3,7 @@
   // Deve coincidere con il nome del Worker su Cloudflare
   "name": "dreamspace-sito",
   "compatibility_date": "2026-11-17",
-  // Anteprima privata con link d'invito: vedi worker/index.js
+  // Worker: iscrizioni, esportazione CSV e blocco dei motori di ricerca (vedi worker/index.js)
   "main": "./worker/index.js",
   // Non cancellare le variabili impostate a mano sul pannello di Cloudflare
   "keep_vars": true,
