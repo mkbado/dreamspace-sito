@@ -27,6 +27,7 @@ export interface Character {
 }
 
 export interface Game {
+  skin?: 'abissi';
   /** citazioni di giocatori e playtester (vere, con il loro permesso) */
   quotes?: Quote[];
   playtest?: Playtest;

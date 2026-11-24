@@ -1,0 +1,49 @@
+---
+// Fondale per Dungeons & Dugongs: bolle a pixel che salgono, raggi di luce dall'alto,
+// qualche pesciolino di passaggio e bolle che scoppiano dove clicchi.
+---
+<canvas id="ds-sea" aria-hidden="true"></canvas>
+<div class="sea-rays" aria-hidden="true"></div>
+<script is:inline>
+(function () {
+  var cv = document.getElementById('ds-sea'); if (!cv) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var ctx = cv.getContext('2d'), W, H, P = 4, bubbles = [], fish = [], last = 0;
+  function size() { W = cv.width = Math.ceil(innerWidth / P); H = cv.height = Math.ceil(innerHeight / P); }
+  size(); addEventListener('resize', size);
+  function bubble(x, y, big) { bubbles.push({ x: x, y: y, r: big ? 2 + (Math.random() * 2 | 0) : 1 + (Math.random() * 2 | 0), v: 0.15 + Math.random() * 0.25, w: Math.random() * 6, life: 1 }); }
+  for (var i = 0; i < 40; i++) bubble(Math.random() * W, Math.random() * H);
+  function fishy() { var dir = Math.random() < 0.5 ? 1 : -1; fish.push({ x: dir > 0 ? -12 : W + 12, y: H * (0.2 + Math.random() * 0.6), d: dir, v: 0.12 + Math.random() * 0.15, c: ['#f2c230', '#f07d6a', '#9fe3e6'][(Math.random() * 3) | 0] }); }
+  function drawBubble(b) {
+    var x = Math.round(b.x + Math.sin(b.w) * 1.2), y = Math.round(b.y), r = b.r;
+    ctx.fillStyle = 'rgba(191,233,240,' + (0.55 * b.life) + ')';
+    ctx.fillRect(x - r, y - r + 1, 1, r * 2 - 1); ctx.fillRect(x + r, y - r + 1, 1, r * 2 - 1);
+    ctx.fillRect(x - r + 1, y - r, r * 2 - 1, 1); ctx.fillRect(x - r + 1, y + r, r * 2 - 1, 1);
+    ctx.fillStyle = 'rgba(255,255,255,' + (0.8 * b.life) + ')'; ctx.fillRect(x - r + 1, y - r + 1, 1, 1);
+  }
+  function drawFish(f) {
+    var x = Math.round(f.x), y = Math.round(f.y + Math.sin(f.x / 9) * 1.5);
+    ctx.fillStyle = f.c; ctx.globalAlpha = 0.55;
+    ctx.fillRect(x - 3, y - 1, 6, 3); ctx.fillRect(x - 2, y - 2, 4, 5);
+    ctx.fillRect(x - f.d * 5, y - 2, 1, 5); ctx.fillRect(x - f.d * 4, y - 1, 1, 3);
+    ctx.fillStyle = '#0a1d2b'; ctx.fillRect(x + f.d * 2, y - 1, 1, 1);
+    ctx.globalAlpha = 1;
+  }
+  function frame(t) {
+    ctx.clearRect(0, 0, W, H);
+    if (t - last > 260 && bubbles.length < 70) { bubble(Math.random() * W, H + 4); last = t; }
+    if (Math.random() < 0.004 && fish.length < 3) fishy();
+    for (var i = bubbles.length - 1; i >= 0; i--) {
+      var b = bubbles[i]; b.y -= b.v; b.w += 0.05; if (b.pop) b.life -= 0.02;
+      if (b.y < -6 || b.life <= 0) { bubbles.splice(i, 1); continue; }
+      drawBubble(b);
+    }
+    for (var j = fish.length - 1; j >= 0; j--) { var f = fish[j]; f.x += f.d * f.v; if (f.x < -20 || f.x > W + 20) { fish.splice(j, 1); continue; } drawFish(f); }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  document.addEventListener('click', function (e) {
+    for (var k = 0; k < 9; k++) { bubble(e.clientX / P + (Math.random() - 0.5) * 6, e.clientY / P + (Math.random() - 0.5) * 4, k < 3); var b = bubbles[bubbles.length - 1]; b.v = 0.4 + Math.random() * 0.5; b.pop = true; }
+  });
+})();
+</script>

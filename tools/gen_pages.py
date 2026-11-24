@@ -30,6 +30,7 @@ common_top = [
 
 game = common_top + [
     S('titleEn', 'Titolo in inglese (se diverso)'),
+    {'name': 'skin', 'label': 'Ambientazione grafica della pagina (vuoto = spazio)', 'type': 'select', 'options': {'values': ['abissi']}},
     IMG('image', 'Immagine della scheda (960×600)'), L('imageAlt', 'Descrizione immagine scheda'),
     IMG('heroImage', 'Immagine grande nella pagina'), L('heroAlt', 'Descrizione immagine grande'), B('heroPortrait', 'Immagine grande verticale'), B('heroSquare', 'Immagine grande quadrata'),
     IMG('banner', 'Banner'), L('bannerAlt', 'Descrizione banner'), L('bannerHint', 'Suggerimento sotto il banner (personaggi cliccabili)'),

@@ -2,6 +2,7 @@
 // Passaggio tra i "mondi" del sito:
 // - verso il Circolo: l'oscurità si allarga come inchiostro dal punto del clic
 // - verso Meriggio: una luce dorata e magica avvolge la pagina
+// - verso Dungeons & Dugongs: splash, l'acqua sale e poi si ritira
 // - verso le pagine Dreamspace: lo schermo si riempie di pixel
 // All'arrivo l'effetto si ritira e scopre la pagina nuova.
 // Chi ha chiesto al sistema di ridurre le animazioni non vede nulla.
@@ -12,15 +13,16 @@
   var cv = document.getElementById('ds-trans');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var KEY = 'ds_transizione';
-  var FILL = { noir: '#0b0b0c', fiaba: '#fcf5e3', stars: '#12163a', neve: '#f4f8ff' };
+  var FILL = { noir: '#0b0b0c', fiaba: '#fcf5e3', stars: '#12163a', neve: '#f4f8ff', mare: '#0b3043' };
 
   function skinOf(path) {
     if (/\/(il-circolo-del-venerdi|la-notte-del-coro)\//.test(path)) return 'noir';
     if (/\/(meriggio|i-guardiani-di-primalba)\//.test(path)) return 'fiaba';
     if (/\/la-scomparsa-di-babbo-natale\//.test(path)) return 'neve';
+    if (/\/dungeons-and-dugongs\//.test(path)) return 'mare';
     return 'stars';
   }
-  var here = document.body.classList.contains('skin-noir') ? 'noir' : document.body.classList.contains('skin-fiaba') ? 'fiaba' : document.body.classList.contains('skin-neve') ? 'neve' : 'stars';
+  var here = document.body.classList.contains('skin-noir') ? 'noir' : document.body.classList.contains('skin-fiaba') ? 'fiaba' : document.body.classList.contains('skin-neve') ? 'neve' : document.body.classList.contains('skin-abissi') ? 'mare' : 'stars';
 
   var ctx = cv.getContext('2d'), W, H;
   function size() { W = cv.width = innerWidth; H = cv.height = innerHeight; }
@@ -52,6 +54,31 @@
     g.addColorStop(0, 'rgba(255,251,232,1)'); g.addColorStop(0.7, 'rgba(252,245,227,1)'); g.addColorStop(0.88, 'rgba(243,193,75,.75)'); g.addColorStop(1, 'rgba(243,193,75,0)');
     ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7); ctx.fill();
   }
+  // acqua: sale dal basso con un'onda a gradini, poi si ritira verso il basso; bolle e schizzi
+  var drops = [];
+  function water(level, t) {
+    var B = 8;
+    for (var x = 0; x < W; x += B) {
+      var y = Math.round((level + Math.sin(x * 0.012 + t * 0.006) * 14 + Math.sin(x * 0.031 - t * 0.004) * 6) / B) * B;
+      ctx.fillStyle = '#9fe3e6'; ctx.fillRect(x, y, B, B);
+      ctx.fillStyle = '#1d6a80'; ctx.fillRect(x, y + B, B, B * 2);
+      ctx.fillStyle = FILL.mare; ctx.fillRect(x, y + B * 3, B, H - y);
+    }
+  }
+  function splash(cx, cy, n) {
+    for (var i = 0; i < n; i++) { var a = -Math.PI / 2 + (Math.random() - 0.5) * 2.2, s = 4 + Math.random() * 9; drops.push({ x: cx, y: cy, vx: Math.cos(a) * s, vy: Math.sin(a) * s, z: 4 + (Math.random() * 3 | 0) * 4, l: 1 }); }
+  }
+  function drawDrops() {
+    for (var i = drops.length - 1; i >= 0; i--) {
+      var d = drops[i]; d.x += d.vx; d.y += d.vy; d.vy += 0.45; d.l -= 0.02;
+      if (d.l <= 0 || d.y > H + 20) { drops.splice(i, 1); continue; }
+      ctx.fillStyle = d.l > 0.5 ? '#bfe9f0' : '#6fe3d6'; ctx.fillRect(Math.round(d.x / 4) * 4, Math.round(d.y / 4) * 4, d.z, d.z);
+    }
+  }
+  function seaBubbles(p) {
+    ctx.fillStyle = 'rgba(191,233,240,.7)';
+    for (var i = 0; i < 26; i++) { var bx = (i * 137.5 % 1) * 0 + ((i * 97) % 100) / 100 * W, by = H - ((p * 1.4 + i * 0.07) % 1.2) * H; var r = 4 + (i % 3) * 4; ctx.fillRect(Math.round(bx / 4) * 4, Math.round(by / 4) * 4, r, r); }
+  }
   var CELL = 26, cells = null, snowMode = false, noirMode = false;
   function pixelGrid(cx, cy) {
     cells = [];
@@ -73,7 +100,7 @@
   // ---------- partenza: copre la pagina, poi naviga ----------
   function leave(to, href, cx, cy) {
     cv.classList.add('is-on');
-    var t0 = performance.now(), D = to === 'stars' ? 620 : 720, seed = Math.random() * 10, sparked = false;
+    var t0 = performance.now(), D = to === 'stars' ? 620 : to === 'mare' ? 820 : 720, seed = Math.random() * 10, sparked = false;
     snowMode = to === 'neve'; noirMode = to === 'noir';
     if (to === 'stars' || to === 'neve' || to === 'noir') pixelGrid(cx, cy);
     try { sessionStorage.setItem(KEY, JSON.stringify({ to: to, x: cx / W, y: cy / H })); } catch (e) {}
@@ -81,6 +108,7 @@
       var p = Math.min(1, (t - t0) / D);
       ctx.clearRect(0, 0, W, H);
       if (to === 'fiaba') { if (!sparked) { spawnSparks(cx, cy, 70, true); sparked = true; } lightGrow(cx, cy, p); drawSparks(); }
+      else if (to === 'mare') { if (!sparked) { splash(cx, cy, 40); sparked = true; } var e = p * p * (3 - 2 * p); water(H - (H + 60) * e, t); seaBubbles(p); drawDrops(); }
       else pixels(p * 1.1, false);
       if (p < 1) requestAnimationFrame(frame);
       else { ctx.fillStyle = FILL[to]; ctx.fillRect(0, 0, W, H); location.href = href; }
@@ -98,6 +126,7 @@
     var t0 = null, D = 900, seed = Math.random() * 10;
     snowMode = here === 'neve'; noirMode = here === 'noir';
     if (here === 'stars' || here === 'neve' || here === 'noir') pixelGrid(cx, cy);
+    if (here === 'mare') for (var k = 0; k < 4; k++) splash(W * (0.2 + 0.2 * k), H * 0.35, 12);
     if (here === 'fiaba') for (var i = 0; i < 6; i++) spawnSparks(Math.random() * W, H * (0.4 + Math.random() * 0.6), 12, false);
     (function frame(t) {
       if (t0 === null) t0 = t + 120;
@@ -109,8 +138,10 @@
         g.addColorStop(0, 'rgba(255,224,138,.55)'); g.addColorStop(1, 'rgba(255,224,138,0)');
         ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1;
         drawSparks();
+      } else if (here === 'mare') {
+        var e = p * p * (3 - 2 * p); water((H + 60) * e - 30, t); seaBubbles(1 - p); drawDrops();
       } else pixels(p * 1.1, true);
-      if (p < 1 || sparks.length) requestAnimationFrame(frame);
+      if (p < 1 || sparks.length || drops.length) requestAnimationFrame(frame);
       else { ctx.clearRect(0, 0, W, H); cv.classList.remove('is-on'); }
     })(performance.now());
   }

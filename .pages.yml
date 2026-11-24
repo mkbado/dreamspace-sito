@@ -379,6 +379,12 @@ content:
   - name: titleEn
     label: Titolo in inglese (se diverso)
     type: string
+  - name: skin
+    label: Ambientazione grafica della pagina (vuoto = spazio)
+    type: select
+    options:
+      values:
+      - abissi
   - name: image
     label: Immagine della scheda (960×600)
     type: image
