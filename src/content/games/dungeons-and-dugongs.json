@@ -84,8 +84,8 @@
   },
   "characters": {
     "title": {
-      "it": "Nove dugonghi, quattro in squadra",
-      "en": "Nine dugongs, four on the team"
+      "it": "Otto dugonghi, quattro in squadra",
+      "en": "Eight dugongs, four on the team"
     },
     "note": {
       "it": "Ognuno ha il suo dado, la sua scheda e un oggetto iniziale.",
@@ -249,32 +249,6 @@
         }
       },
       {
-        "name": "Furfante",
-        "ability": {
-          "it": "Cannocchiale Rotto (una volta): scarta il Nemico appena rivelato e pescane un altro",
-          "en": "Broken Spyglass (once): discard the Enemy just revealed and draw another"
-        },
-        "image": "/img/dugongs/furfante.webp",
-        "color": "#a3478f",
-        "ink": "#fff4dc",
-        "alt": {
-          "it": "Un dugongo incappucciato nascosto dietro una colonna, con una borsa che perde monete",
-          "en": "A hooded dugong hiding behind a column, its bag spilling coins"
-        },
-        "bio": {
-          "it": "Si nasconde dietro le colonne e lascia una scia di monete. Le sue, dice.",
-          "en": "Hides behind columns and leaves a trail of coins. His own, he says."
-        },
-        "title": {
-          "it": "Furfante",
-          "en": "Rogue"
-        },
-        "role": {
-          "it": "Agilità · COS 3 · CAR 3",
-          "en": "Agility · CON 3 · CHA 3"
-        }
-      },
-      {
         "name": "Guaritore",
         "ability": {
           "it": "Barriera Corallina Commestibile (una volta): +2 Ossigeno",
@@ -344,14 +318,14 @@
       }
     },
     {
-      "n": "9",
+      "n": "8",
       "label": {
         "it": "dadi Dugongo",
         "en": "Dugong dice"
       }
     },
     {
-      "n": "9",
+      "n": "8",
       "label": {
         "it": "schede Dugongo",
         "en": "Dugong sheets"
