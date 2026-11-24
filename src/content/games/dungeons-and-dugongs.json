@@ -88,16 +88,12 @@
       "en": "Eight dugongs, four on the team"
     },
     "note": {
-      "it": "Ognuno ha il suo dado, la sua scheda e un oggetto iniziale.",
-      "en": "Each has its own die, sheet and starting item."
+      "it": "Ognuno ha il suo dado e la sua scheda.",
+      "en": "Each has its own die and sheet."
     },
     "list": [
       {
         "name": "Guardiano",
-        "ability": {
-          "it": "Corazza di Tartaruga: con uno Scudo sul dado, +1 Scudo",
-          "en": "Turtle Shell Armour: with a Shield on the die, +1 Shield"
-        },
         "image": "/img/dugongs/guardiano.webp",
         "color": "#c8463c",
         "ink": "#fff4dc",
@@ -120,10 +116,6 @@
       },
       {
         "name": "Barbaro",
-        "ability": {
-          "it": "Pinne Affilate: +1 Pugno ogni round",
-          "en": "Sharp Flippers: +1 Fist every round"
-        },
         "image": "/img/dugongs/barbaro.webp",
         "color": "#b5532f",
         "ink": "#fff4dc",
@@ -146,10 +138,6 @@
       },
       {
         "name": "Arciere",
-        "ability": {
-          "it": "Frecce Bioluminescenti: con un Arco sul dado, +1 Arco",
-          "en": "Glowing Arrows: with a Bow on the die, +1 Bow"
-        },
         "image": "/img/dugongs/arciere.webp",
         "color": "#9b7fc4",
         "ink": "#0a0d24",
@@ -172,10 +160,6 @@
       },
       {
         "name": "Stregone",
-        "ability": {
-          "it": "Bacchetta di Corallo: con una Stella sul dado, +1 Stella",
-          "en": "Coral Wand: with a Star on the die, +1 Star"
-        },
         "image": "/img/dugongs/stregone.webp",
         "color": "#6a4fa3",
         "ink": "#fff4dc",
@@ -198,10 +182,6 @@
       },
       {
         "name": "Saggio",
-        "ability": {
-          "it": "Nebbia Marina (una volta): il morso del round fa 2 danni in meno",
-          "en": "Sea Mist (once): this round’s bite deals 2 less damage"
-        },
         "image": "/img/dugongs/saggio.webp",
         "color": "#7a4e7e",
         "ink": "#fff4dc",
@@ -224,10 +204,6 @@
       },
       {
         "name": "Scout",
-        "ability": {
-          "it": "Mantello di Alghe: +1 Schivata ogni round, anche nelle Trappole",
-          "en": "Seaweed Cloak: +1 Dodge every round, even in Traps"
-        },
         "image": "/img/dugongs/scout.webp",
         "color": "#2a9d8f",
         "ink": "#0a0d24",
@@ -250,10 +226,6 @@
       },
       {
         "name": "Guaritore",
-        "ability": {
-          "it": "Barriera Corallina Commestibile (una volta): +2 Ossigeno",
-          "en": "Edible Coral Reef (once): +2 Oxygen"
-        },
         "image": "/img/dugongs/guaritore.webp",
         "color": "#5a9e4b",
         "ink": "#fff4dc",
@@ -276,10 +248,6 @@
       },
       {
         "name": "Mangione",
-        "ability": {
-          "it": "Zuppa di Nettuno (una volta): +1 Ossigeno e +1 Carisma",
-          "en": "Neptune Soup (once): +1 Oxygen and +1 Charisma"
-        },
         "image": "/img/dugongs/mangione.webp",
         "color": "#8fb9a8",
         "ink": "#0a0d24",
@@ -300,11 +268,7 @@
           "en": "Food and defence · CON 4 · CHA 2"
         }
       }
-    ],
-    "abilityLabel": {
-      "it": "Oggetto iniziale",
-      "en": "Starting item"
-    }
+    ]
   },
   "howToPlay": {
     "imageBare": false

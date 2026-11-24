@@ -1408,3 +1408,7 @@ a.rd__nav-i:hover { background: rgba(0, 0, 0, .06); }
   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='40' shape-rendering='crispEdges'%3E%3Cpath d='M8 40V24h4v-8h-4V8h4V0h4v8h-4v8h4v8h-4v16zM40 40V28h4v-8h4v-8h-4V4h4v8h4v8h-4v8h-4v12zM72 40V20h-4v-8h4V4h4v8h-4v8h4v20z' fill='%232f8f6b'/%3E%3Cpath d='M28 40v-8h4v-4h4v4h4v8zM84 40v-6h4v-4h4v4h4v6z' fill='%23f07d6a'/%3E%3C/svg%3E") 0 100% / 96px 40px repeat-x; }
 @media (prefers-reduced-motion: reduce) { #ds-sea, .sea-rays { display: none; } }
 .skin-abissi .band-cream { background: #f6e3b4; }
+.skin-abissi .hero-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.skin-abissi .hero-row .hero-card__img { height: auto; aspect-ratio: 640 / 496; }
+@media (max-width: 980px) { .skin-abissi .hero-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .skin-abissi .hero-row { grid-template-columns: 1fr; } }

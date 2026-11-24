@@ -116,7 +116,7 @@ const os = item.kind === 'oneshot' ? item : null;
         <p class="muted" style="margin: 0; font-size: 14px;">{g.characters.note[lang]}</p>
       </div>
       {g.characters.list.some((c) => c.levels?.length) ? <DreamspacerSheets lang={lang} list={g.characters.list} /> :
-      <div class="row" style="gap: 20px;">
+      <div class="row hero-row" style="gap: 20px;">
         {g.characters.list.map((c) => (
           <article class="hero-card">
             <div class="hero-card__name" style={`background: ${c.color}; color: ${c.ink};`}>{c.title?.[lang] || c.name}{c.role?.[lang] ? <span style="opacity: .75;"> · {c.role[lang]}</span> : c.home && <span style="opacity: .75;"> · {c.home}</span>}</div>
