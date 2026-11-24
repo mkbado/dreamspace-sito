@@ -2,6 +2,7 @@
 // Passaggio tra i "mondi" del sito:
 // - verso il Circolo: l'oscurità si allarga come inchiostro dal punto del clic
 // - verso Meriggio: una luce dorata e magica avvolge la pagina
+// - verso Intolleranti: un bicchiere si rovescia e l'aranciata cola sulla pagina
 // - verso Dungeons & Dugongs: splash, l'acqua sale e poi si ritira
 // - verso le pagine Dreamspace: lo schermo si riempie di pixel
 // All'arrivo l'effetto si ritira e scopre la pagina nuova.
@@ -13,16 +14,17 @@
   var cv = document.getElementById('ds-trans');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var KEY = 'ds_transizione';
-  var FILL = { noir: '#0b0b0c', fiaba: '#fcf5e3', stars: '#12163a', neve: '#f4f8ff', mare: '#0b3043' };
+  var FILL = { noir: '#0b0b0c', fiaba: '#fcf5e3', stars: '#12163a', neve: '#f4f8ff', mare: '#0b3043', tavola: '#f28c28' };
 
   function skinOf(path) {
     if (/\/(il-circolo-del-venerdi|la-notte-del-coro)\//.test(path)) return 'noir';
     if (/\/(meriggio|i-guardiani-di-primalba)\//.test(path)) return 'fiaba';
     if (/\/la-scomparsa-di-babbo-natale\//.test(path)) return 'neve';
     if (/\/dungeons-and-dugongs\//.test(path)) return 'mare';
+    if (/\/intolleranti\//.test(path)) return 'tavola';
     return 'stars';
   }
-  var here = document.body.classList.contains('skin-noir') ? 'noir' : document.body.classList.contains('skin-fiaba') ? 'fiaba' : document.body.classList.contains('skin-neve') ? 'neve' : document.body.classList.contains('skin-abissi') ? 'mare' : 'stars';
+  var here = document.body.classList.contains('skin-noir') ? 'noir' : document.body.classList.contains('skin-fiaba') ? 'fiaba' : document.body.classList.contains('skin-neve') ? 'neve' : document.body.classList.contains('skin-abissi') ? 'mare' : document.body.classList.contains('skin-tavola') ? 'tavola' : 'stars';
 
   var ctx = cv.getContext('2d'), W, H;
   function size() { W = cv.width = innerWidth; H = cv.height = innerHeight; }
@@ -79,6 +81,26 @@
     ctx.fillStyle = 'rgba(191,233,240,.7)';
     for (var i = 0; i < 26; i++) { var bx = (i * 137.5 % 1) * 0 + ((i * 97) % 100) / 100 * W, by = H - ((p * 1.4 + i * 0.07) % 1.2) * H; var r = 4 + (i % 3) * 4; ctx.fillRect(Math.round(bx / 4) * 4, Math.round(by / 4) * 4, r, r); }
   }
+  // bibita rovesciata: un bicchiere si inclina e l'aranciata cola giù a gocce pixel
+  var cols = null;
+  function sodaCols() { cols = []; for (var x = 0; x < W; x += 8) cols.push({ x: x, v: 0.75 + Math.random() * 0.6 + Math.sin(x * 0.01) * 0.15 }); }
+  function soda(p, down) {
+    for (var i = 0; i < cols.length; i++) {
+      var c = cols[i], len = Math.round(Math.max(0, p * c.v * 1.35) * (H + 40) / 8) * 8;
+      var y0 = down ? len - 40 : 0, y1 = down ? H : len;
+      if (y1 <= y0) continue;
+      ctx.fillStyle = FILL.tavola; ctx.fillRect(c.x, y0, 8, y1 - y0);
+      ctx.fillStyle = '#c25a12'; ctx.fillRect(c.x, down ? y0 : y1 - 8, 8, 8);
+      if (i % 3 === 0) { ctx.fillStyle = '#fff4dc'; ctx.fillRect(c.x + 2, (down ? y0 + 16 : y1 - 24), 4, 4); }
+    }
+  }
+  function glass(cx, cy, tilt) {
+    var G = ['.kkkkkkk.', '.kcccccck', '.koooook.', '.koooook.', '.koooook.', '.koooook.', '.koooook.', '..kkkkk..'];
+    var C = { k: '#2a1216', c: '#fff4dc', o: '#f28c28' }, B = 10;
+    ctx.save(); ctx.translate(cx, cy); ctx.rotate(tilt);
+    for (var r = 0; r < G.length; r++) for (var q = 0; q < G[r].length; q++) { var ch = G[r][q]; if (ch === '.') continue; ctx.fillStyle = C[ch]; ctx.fillRect((q - 4.5) * B, (r - 4) * B, B, B); }
+    ctx.restore();
+  }
   var CELL = 26, cells = null, snowMode = false, noirMode = false;
   function pixelGrid(cx, cy) {
     cells = [];
@@ -100,14 +122,16 @@
   // ---------- partenza: copre la pagina, poi naviga ----------
   function leave(to, href, cx, cy) {
     cv.classList.add('is-on');
-    var t0 = performance.now(), D = to === 'stars' ? 620 : to === 'mare' ? 820 : 720, seed = Math.random() * 10, sparked = false;
+    var t0 = performance.now(), D = to === 'stars' ? 620 : to === 'mare' ? 820 : to === 'tavola' ? 900 : 720, seed = Math.random() * 10, sparked = false;
     snowMode = to === 'neve'; noirMode = to === 'noir';
     if (to === 'stars' || to === 'neve' || to === 'noir') pixelGrid(cx, cy);
+    if (to === 'tavola') sodaCols();
     try { sessionStorage.setItem(KEY, JSON.stringify({ to: to, x: cx / W, y: cy / H })); } catch (e) {}
     (function frame(t) {
       var p = Math.min(1, (t - t0) / D);
       ctx.clearRect(0, 0, W, H);
       if (to === 'fiaba') { if (!sparked) { spawnSparks(cx, cy, 70, true); sparked = true; } lightGrow(cx, cy, p); drawSparks(); }
+      else if (to === 'tavola') { soda(Math.max(0, p - 0.2) / 0.8, false); if (p < 0.6) glass(cx, Math.max(60, cy - 40), Math.min(1, p / 0.3) * 2.2); }
       else if (to === 'mare') { if (!sparked) { splash(cx, cy, 40); sparked = true; } var e = p * p * (3 - 2 * p); water(H - (H + 60) * e, t); seaBubbles(p); drawDrops(); }
       else pixels(p * 1.1, false);
       if (p < 1) requestAnimationFrame(frame);
@@ -126,6 +150,7 @@
     var t0 = null, D = 900, seed = Math.random() * 10;
     snowMode = here === 'neve'; noirMode = here === 'noir';
     if (here === 'stars' || here === 'neve' || here === 'noir') pixelGrid(cx, cy);
+    if (here === 'tavola') sodaCols();
     if (here === 'mare') for (var k = 0; k < 4; k++) splash(W * (0.2 + 0.2 * k), H * 0.35, 12);
     if (here === 'fiaba') for (var i = 0; i < 6; i++) spawnSparks(Math.random() * W, H * (0.4 + Math.random() * 0.6), 12, false);
     (function frame(t) {
@@ -138,6 +163,8 @@
         g.addColorStop(0, 'rgba(255,224,138,.55)'); g.addColorStop(1, 'rgba(255,224,138,0)');
         ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1;
         drawSparks();
+      } else if (here === 'tavola') {
+        soda(p, true);
       } else if (here === 'mare') {
         var e = p * p * (3 - 2 * p); water((H + 60) * e - 30, t); seaBubbles(1 - p); drawDrops();
       } else pixels(p * 1.1, true);

@@ -13,6 +13,7 @@ import SettingPage from '../../../components/SettingPage.astro';
 import CircoloPage from '../../../components/CircoloPage.astro';
 import OneShotPage from '../../../components/OneShotPage.astro';
 import { itemPath, novelPath } from '../../../data/paths';
+import TableFX from '../../../components/TableFX.astro';
 import SeaFX from '../../../components/SeaFX.astro';
 import NovelHome from '../../../components/NovelHome.astro';
 
@@ -43,6 +44,7 @@ const os = item.kind === 'oneshot' ? item : null;
 {g && (
 <Base lang={lang} title={itemTitle(lang, g)} description={g.short[lang]} altPath={alt} bodyClass={g.skin ? `skin-${g.skin}` : undefined}>
   {g.skin === 'abissi' && <SeaFX />}
+  {g.skin === 'tavola' && <TableFX />}
   {g.banner && g.characters?.list.some((c) => c.spot) && <BannerSpots lang={lang} g={g} />}
   {g.banner && !g.characters?.list.some((c) => c.spot) && (
     <section style="border-bottom: 4px solid var(--black); background: var(--black);">

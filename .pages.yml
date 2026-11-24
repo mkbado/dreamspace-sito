@@ -385,6 +385,7 @@ content:
     options:
       values:
       - abissi
+      - tavola
   - name: image
     label: Immagine della scheda (960×600)
     type: image
