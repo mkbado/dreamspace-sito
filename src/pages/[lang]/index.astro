@@ -30,8 +30,6 @@ const nGames = games.length;
 const flag = games.find((g) => g.slug === 'marsylvania');
 const tested = [...games, ...rpgs, ...settings, ...oneshots].filter((x) => x.playtest?.testers?.length);
 const testers = new Set(tested.flatMap((x) => x.playtest!.testers));
-const nTitles = games.length + rpgs.length + settings.length + oneshots.length;
-const nChapters = novels.reduce((a, n) => a + n.chapters.filter((c) => c.text?.[lang]?.trim()).length, 0);
 const voices = tested.flatMap((x) => (x.playtest!.moments || []).slice(0, 1).map((m) => ({ text: m[lang], game: x })));
 const nRpg = rpgs.length + settings.length;
 ---
@@ -110,13 +108,6 @@ const nRpg = rpgs.length + settings.length;
     </section>
   )}
 
-  <section class="container proof" aria-label={L('Dreamspace in numeri', 'Dreamspace in numbers')}>
-    <div><b>{nTitles}</b><span>{L('giochi e avventure', 'games and adventures')}</span></div>
-    <div><b>{testers.size}+</b><span>{L('Dream-tester al tavolo', 'Dream-testers at the table')}</span></div>
-    <div><b>{nChapters}</b><span>{L('capitoli da leggere online', 'chapters to read online')}</span></div>
-    <div><b>IT·EN</b><span>{L('tutto in due lingue', 'everything in two languages')}</span></div>
-    <div><b>0 €</b><span>{L('avventure e romanzi gratis', 'free adventures and novels')}</span></div>
-  </section>
 
   <section id="novita" class="band-cream">
     <div class="container stack pad" style="gap: 32px;">
