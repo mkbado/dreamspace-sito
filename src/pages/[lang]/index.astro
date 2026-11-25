@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import InterestForm from '../../components/InterestForm.astro';
 import KofiBand from '../../components/KofiBand.astro';
 import { t, langs, otherLang, sections, type Lang } from '../../i18n/ui';
-import { games, rpgs, settings, oneshots, novels, news, site, localImg, itemTitle, chapterOnline, readingMinutes } from '../../data/catalog';
+import { games, rpgs, settings, oneshots, novels, news, site, tl, localImg, itemTitle, chapterOnline, readingMinutes } from '../../data/catalog';
 import { itemPath, novelPath, novelsPath, chapterPath } from '../../data/paths';
 
 export function getStaticPaths() {
@@ -13,6 +13,18 @@ export function getStaticPaths() {
 const lang = Astro.params.lang as Lang;
 const L = (it: string, en: string) => (lang === 'it' ? it : en);
 const h = site.home;
+// Se le finestre del carosello mancano (per esempio salvate da una versione vecchia del pannello),
+// le ricostruiamo dal catalogo: una per gioco.
+const slides = h.slides?.length ? h.slides : [...games, ...rpgs, ...settings].map((x) => ({
+  file: `${x.slug.toUpperCase().replace(/-/g, '_')}.PNG`,
+  color: x.kind === 'game' ? '#d9442b' : '#5a4560',
+  image: x.kind === 'rpg' ? x.cardImage : x.image,
+  title: x.title,
+  titleEn: x.kind === 'rpg' ? x.titleEn : undefined,
+  text: x.kind === 'game' ? { it: x.short.it, en: x.short.en } : x.cardMeta,
+  alt: x.kind === 'rpg' ? x.cardAlt : x.imageAlt ?? { it: '', en: '' },
+  link: { it: itemPath('it', x), en: itemPath('en', x) },
+}));
 const fmt = (d: string) => new Date(d + 'T12:00:00').toLocaleDateString(lang === 'it' ? 'it-IT' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 const flag = games.find((g) => g.slug === 'marsylvania');
 const tested = [...games, ...rpgs, ...settings, ...oneshots].filter((x) => x.playtest?.testers?.length);
@@ -30,7 +42,8 @@ for (const para of paras) { excerpt.push(para); if (excerpt.join(' ').length > 6
 const soon = novels.filter((n) => !n.chapters.some((c) => chapterOnline(c, lang)));
 ---
 <Base lang={lang} title="Dreamspace Ltd" altPath={`/${otherLang(lang)}/`} spaceIntro>
-  <section class="container hero">
+  <section class="container hero-wrap">
+   <div class="hero">
     <p class="label hero__kicker">{h.kicker[lang]}</p>
     <h1 class="pixel hero__title">{h.title[lang]}</h1>
     <div class="hero__memo">
@@ -42,6 +55,36 @@ const soon = novels.filter((n) => !n.chapters.some((c) => chapterOnline(c, lang)
       <a href={`/${lang}/${sections[lang].rpg}/`}><b>{t(lang, 'nav.rpg')}</b><span>{L('Scarica e gioca', 'Download & play')} →</span></a>
       <a href={novelsPath(lang)}><b>{t(lang, 'nav.novels')}</b><span>{L('Leggi online', 'Read online')} →</span></a>
     </nav>
+   </div>
+    <div class="slider" data-slider style="flex: 1 1 380px; min-width: 0; max-width: 460px; margin: 0 auto;">
+      <div class="window" role="region" aria-roledescription={L('carosello', 'carousel')} aria-label={L('I nostri giochi', 'Our games')}>
+        <div class="window__bar" data-bar style={`background: ${slides[0]?.color};`}>
+          <span data-file aria-hidden="true">{slides[0]?.file}</span>
+          <span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        <div class="slides">
+          {slides.map((sl, i) => (
+            <a class="slide" href={sl.link[lang]} data-file={sl.file} data-color={sl.color} aria-hidden={i === 0 ? undefined : 'true'} tabindex={i === 0 ? undefined : -1} role="group" aria-roledescription="slide" aria-label={`${i + 1} / ${slides.length}: ${tl(lang, sl.title, sl.titleEn)}`}>
+              <img src={localImg(sl.image, lang)} width="740" height="740" alt={sl.alt[lang]} loading={i === 0 ? 'eager' : 'lazy'} />
+              <span class="slide__cap">
+                <strong>{tl(lang, sl.title, sl.titleEn)}</strong>
+                <span>{sl.text[lang]}</span>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+      {slides.length > 1 && (
+        <div class="slider__nav">
+          <button type="button" class="slider__arrow" data-prev aria-label={L('Precedente', 'Previous')}>◀</button>
+          <div class="slider__dots">
+            {slides.map((sl, i) => <button type="button" data-go={i} aria-label={tl(lang, sl.title, sl.titleEn)} aria-current={i === 0 ? 'true' : undefined}></button>)}
+          </div>
+          <button type="button" class="slider__arrow" data-pause aria-label={L('Ferma', 'Pause')} aria-pressed="false">❚❚</button>
+          <button type="button" class="slider__arrow" data-next aria-label={L('Successivo', 'Next')}>▶</button>
+        </div>
+      )}
+    </div>
   </section>
 
   {flag && (
@@ -84,6 +127,7 @@ const soon = novels.filter((n) => !n.chapters.some((c) => chapterOnline(c, lang)
             <a class="btn btn--teal btn--big" href={chapterPath(lang, read.n, read.c!)}>{L(`Continua a leggere · ${readingMinutes(read.c!.text[lang])} min`, `Keep reading · ${readingMinutes(read.c!.text[lang])} min`)}</a>
             <span>{L(`${read.online} capitoli già online, gratis`, `${read.online} chapters already online, free`)}</span>
           </div>
+          <p class="tonight__soon">{L('Ti è piaciuto?', 'Enjoyed it?')} <a href={site.kofi || '#sostienici'} target={site.kofi ? '_blank' : undefined} rel={site.kofi ? 'noopener' : undefined}>{L('Offri un caffè alla Dreamspace', 'Buy Dreamspace a coffee')} ☕</a></p>
           {soon.length > 0 && (
             <p class="tonight__soon">{L('In arrivo', 'Coming soon')}: {soon.map((n, i) => <>{i > 0 && ', '}<a href={novelPath(lang, n)}>{n.title[lang]}</a></>)}</p>
           )}
@@ -143,5 +187,65 @@ const soon = novels.filter((n) => !n.chapters.some((c) => chapterOnline(c, lang)
   )}
 
   <InterestForm lang={lang} preselect="marsylvania" />
-  <KofiBand lang={lang} quiet />
+  <KofiBand lang={lang} />
 </Base>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-slider]').forEach((root) => {
+    const slides = [...root.querySelectorAll<HTMLAnchorElement>('.slide')];
+    if (slides.length < 2) return;
+    const dots = [...root.querySelectorAll<HTMLButtonElement>('[data-go]')];
+    const bar = root.querySelector<HTMLElement>('[data-bar]')!;
+    const file = root.querySelector<HTMLElement>('[data-file]')!;
+    const pauseBtn = root.querySelector<HTMLButtonElement>('[data-pause]')!;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let i = 0;
+    let timer: number | undefined;
+    let paused = reduce;
+    let hover = false;
+    const show = (n: number) => {
+      i = (n + slides.length) % slides.length;
+      slides.forEach((s, k) => {
+        const on = k === i;
+        s.classList.toggle('is-on', on);
+        if (on) { s.removeAttribute('aria-hidden'); s.removeAttribute('tabindex'); }
+        else { s.setAttribute('aria-hidden', 'true'); s.tabIndex = -1; }
+        if (on) s.querySelector('img')?.setAttribute('loading', 'eager');
+      });
+      dots.forEach((d, k) => (k === i ? d.setAttribute('aria-current', 'true') : d.removeAttribute('aria-current')));
+      bar.style.background = slides[i].dataset.color ?? '';
+      file.textContent = slides[i].dataset.file ?? '';
+    };
+    const tick = () => {
+      window.clearInterval(timer);
+      if (!paused && !hover) timer = window.setInterval(() => show(i + 1), 5000);
+    };
+    const setPaused = (p: boolean) => {
+      paused = p;
+      pauseBtn.setAttribute('aria-pressed', String(p));
+      pauseBtn.textContent = p ? '▶▶' : '❚❚';
+      pauseBtn.setAttribute('aria-label', p ? pauseBtn.dataset.play ?? 'Play' : pauseBtn.dataset.stop ?? 'Pause');
+      tick();
+    };
+    pauseBtn.dataset.stop = pauseBtn.getAttribute('aria-label') ?? 'Pause';
+    pauseBtn.dataset.play = document.documentElement.lang === 'it' ? 'Riprendi' : 'Play';
+    root.querySelector('[data-prev]')?.addEventListener('click', () => { show(i - 1); tick(); });
+    root.querySelector('[data-next]')?.addEventListener('click', () => { show(i + 1); tick(); });
+    pauseBtn.addEventListener('click', () => setPaused(!paused));
+    dots.forEach((d) => d.addEventListener('click', () => { show(Number(d.dataset.go)); tick(); }));
+    root.addEventListener('mouseenter', () => { hover = true; tick(); });
+    root.addEventListener('mouseleave', () => { hover = false; tick(); });
+    root.addEventListener('focusin', () => { hover = true; tick(); });
+    root.addEventListener('focusout', () => { hover = false; tick(); });
+    let x0: number | null = null;
+    root.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+    root.addEventListener('touchend', (e) => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) { show(dx < 0 ? i + 1 : i - 1); tick(); }
+      x0 = null;
+    });
+    show(0);
+    setPaused(paused);
+  });
+</script>

@@ -34,13 +34,13 @@
   "titleEn": "Intolerant!",
   "image": "/img/intolleranti/card.webp",
   "imageAlt": {
-    "it": "La copertina 8 bit di Intolleranti!: gli otto ospiti a una lunga tavolata sotto l’insegna col titolo",
-    "en": "The 8-bit cover of Intolerant!: the eight guests at a long table under the title sign"
+    "it": "La copertina 8 bit di Intolleranti!: gli otto ospiti attorno a un tavolo rotondo con una pizza e i boccali di birra, sotto l’insegna col titolo",
+    "en": "The 8-bit cover of Intolerant!: the eight guests around a round table with a pizza and mugs of beer, under the title sign"
   },
   "heroImage": "/img/intolleranti/copertina.webp",
   "heroAlt": {
-    "it": "Copertina di Intolleranti! in pixel art: sotto l’insegna col titolo, gli otto ospiti seduti a una lunga tavolata nella taverna di pietra, ognuno alle prese con la sua intolleranza; la coda della sirena spunta da sotto la tovaglia",
-    "en": "Intolerant! cover in pixel art: under the title sign, the eight guests sit at a long table in the stone tavern, each struggling with their intolerance; the mermaid’s tail peeks out from under the tablecloth"
+    "it": "Copertina di Intolleranti! in pixel art: sotto l’insegna appesa alle catene, gli otto ospiti esultano attorno a un tavolo rotondo nella taverna, con una pizza margherita al centro, boccali di birra, il camino acceso e le lanterne alle pareti",
+    "en": "Intolerant! cover in pixel art: under the sign hanging from chains, the eight guests cheer around a round table in the tavern, with a margherita pizza in the middle, mugs of beer, a lit fireplace and lanterns on the walls"
   },
   "heroPortrait": false,
   "heroSquare": true,
@@ -127,8 +127,8 @@
       "en": "The tavern guests"
     },
     "note": {
-      "it": "Le illustrazioni delle plance definitive, in 8 bit.",
-      "en": "Art from the final player boards, in 8-bit."
+      "it": "Le illustrazioni delle plance definitive, in 8 bit: tutti nella stessa taverna.",
+      "en": "Art from the final player boards, in 8-bit: everyone in the same tavern."
     },
     "ratio": "3 / 2",
     "items": [
@@ -139,8 +139,8 @@
         },
         "image": "/img/intolleranti/orco-vegetariano.webp",
         "alt": {
-          "it": "L’Orco Vegetariano, in pixel art, legge un ricettario con gli occhiali sul naso accanto a una carota e a un’insalata",
-          "en": "The Vegetarian Orc, in pixel art, reads a cookbook with glasses on his nose beside a carrot and a salad"
+          "it": "L’Orco Vegetariano, in pixel art, con gli occhiali tondi e una carota in mano, in piedi nella taverna davanti al camino",
+          "en": "The Vegetarian Orc, in pixel art, with round glasses and a carrot in hand, standing in the tavern by the fireplace"
         },
         "quote": {
           "it": "«Io prendo un contorno. Anzi due. Anzi, che contorni avete oltre alle patate?»",
@@ -154,8 +154,8 @@
         },
         "image": "/img/intolleranti/elfa-celiaca.webp",
         "alt": {
-          "it": "L’Elfa Celiaca, in pixel art, col cappello da detective esamina le briciole di pane con la lente",
-          "en": "The Celiac Elf, in pixel art, in a detective hat inspects bread crumbs with a magnifying glass"
+          "it": "L’Elfa Celiaca, in pixel art, in abito giallo, ispeziona tutto con la lente d’ingrandimento",
+          "en": "The Gluten-Free Elf, in pixel art, in a yellow dress, inspecting everything with a magnifying glass"
         },
         "quote": {
           "it": "«Pizza senza glutine: 14 euro, 40 minuti di attesa, gusto cartone. Ne prendo due.»",
@@ -169,8 +169,8 @@
         },
         "image": "/img/intolleranti/nano-no-al-lattosio.webp",
         "alt": {
-          "it": "Il Nano No al Lattosio, in pixel art, si ritrae inorridito davanti a un cappuccino",
-          "en": "The Lactose-Intolerant Dwarf, in pixel art, recoils in horror from a cappuccino"
+          "it": "Il Nano No al Lattosio, in pixel art, barba rossa e berretto blu, con una tazza in mano",
+          "en": "The Lactose-Free Dwarf, in pixel art, with a red beard and blue cap, holding a mug"
         },
         "quote": {
           "it": "«Ho la pastiglia, ho il piano di fuga e so dov’è il bagno di ogni locale della città. Il cappuccino può anche provarci.»",
@@ -184,8 +184,8 @@
         },
         "image": "/img/intolleranti/vampiro-astemio.webp",
         "alt": {
-          "it": "Il Vampiro Astemio, in pixel art, annoiato con un bicchiere d’acqua in mano",
-          "en": "The Teetotal Vampire, in pixel art, bored, holding a glass of water"
+          "it": "Il Vampiro Astemio, in pixel art, nel mantello rosso, con un bicchiere d’acqua in mano",
+          "en": "The Teetotal Vampire, in pixel art, in a red cloak, holding a glass of water"
         },
         "quote": {
           "it": "«Guido io. Guido sempre io. Da dodici anni. Qualcuno mi offra un succo, almeno.»",
@@ -199,8 +199,8 @@
         },
         "image": "/img/intolleranti/goblin-anti-uova.webp",
         "alt": {
-          "it": "La Goblin Anti-Uova, in pixel art, in kimono da karate rompe un uovo con un calcio",
-          "en": "The Anti-Egg Goblin, in pixel art, in a karate gi, kicks an egg to pieces"
+          "it": "La Goblin Anti-Uova, in pixel art, in kimono da karate e fascia in testa, pronta a combattere",
+          "en": "The Egg-Free Goblin, in pixel art, in a karate gi and headband, ready to fight"
         },
         "quote": {
           "it": "«Carbonara? Maionese? Zabaione? Il menù di stasera è un campo minato.»",
@@ -214,8 +214,8 @@
         },
         "image": "/img/intolleranti/fatina-diabetica.webp",
         "alt": {
-          "it": "La Fatina Diabetica, in pixel art, ride stringendo un cupcake con la ciliegina",
-          "en": "The Diabetic Fairy, in pixel art, laughing as she clutches a cupcake with a cherry on top"
+          "it": "La Fatina Diabetica, in pixel art, ali e vestito rosa con i fiori tra i capelli",
+          "en": "The Diabetic Fairy, in pixel art, with wings, a pink dress and flowers in her hair"
         },
         "quote": {
           "it": "«La frutta è sana, dicevano. Poi hanno inventato il succo di frutta.»",
@@ -229,8 +229,8 @@
         },
         "image": "/img/intolleranti/sirena-amica-dei-pesci.webp",
         "alt": {
-          "it": "La Sirena Amica dei Pesci, in pixel art, sorride accanto a una boccia con un pesce rosso",
-          "en": "The Fish-Loving Mermaid, in pixel art, smiling beside a goldfish bowl"
+          "it": "La Sirena Amica dei Pesci, in pixel art, capelli viola e conchiglia, coda a pois sul pavimento della taverna",
+          "en": "The Fish-Friendly Mermaid, in pixel art, with purple hair and a shell, her spotted tail on the tavern floor"
         },
         "quote": {
           "it": "«Sushi party? Io porto i cartelli di protesta.»",
@@ -244,8 +244,8 @@
         },
         "image": "/img/intolleranti/golem-palestrato.webp",
         "alt": {
-          "it": "Il Golem Palestrato, in pixel art, pesa su una bilancia un cosciotto e un’insalata",
-          "en": "The Buff Golem, in pixel art, weighing a drumstick against a salad on a scale"
+          "it": "Il Golem Palestrato, in pixel art, muscoli di pietra e canottiera, con lo sguardo deciso",
+          "en": "The Gym-Rat Golem, in pixel art, stone muscles and a tank top, with a determined look"
         },
         "quote": {
           "it": "«Due porzioni, grazie. È per me e per i miei bicipiti.»",

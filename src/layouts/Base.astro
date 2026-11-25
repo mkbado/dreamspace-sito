@@ -68,6 +68,7 @@ const year = new Date().getFullYear();
             </>
           ))}
         </span>
+        <a class="btn btn--teal btn--give" href={site.kofi || `/${lang}/#sostienici`} target={site.kofi ? '_blank' : undefined} rel={site.kofi ? 'noopener' : undefined}><span aria-hidden="true">♥</span> {t(lang, 'nav.support')}</a>
         <a class="btn btn--teal btn--join" href={`/${lang}/#lista`}>{t(lang, 'nav.join')}</a>
       </nav>
     </div>
