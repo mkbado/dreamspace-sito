@@ -1610,3 +1610,29 @@ a.rd__nav-i:hover { background: rgba(0, 0, 0, .06); }
 .nav .btn--give { margin-left: 4px; }
 .nav .btn--give, .nav .btn--join { padding: 8px 12px; }
 @media (max-width: 1500px) { .nav { gap: 12px; font-size: 13px; } .logo b { font-size: 20px; } .logo { padding: 5px 12px; } }
+
+/* ===== Niente strisce panna: le bande diventano vetro scuro sopra lo sfondo di ogni mondo ===== */
+.band-cream, .skin-abissi .band-cream { background: color-mix(in srgb, var(--night-2) 72%, transparent); color: var(--cream); border-block: 3px solid var(--line); --text-dim: var(--soft); --orange-ink: var(--teal); }
+.card { background: var(--night-2); color: var(--cream); border: 3px solid var(--line); box-shadow: 5px 5px 0 var(--black); --text-dim: var(--soft); --orange-ink: var(--teal); }
+.card__media { border-bottom: 3px solid var(--line); }
+.card .h3, .card h3 { color: var(--cream); }
+.card__tag { color: var(--teal); }
+.card__meta, .card__wait { color: var(--soft); }
+
+/* pannelli chiari → pannelli scuri (tranne nei mondi noir e fiaba, che hanno la loro carta) */
+body:not(.skin-noir):not(.skin-fiaba) :is(.stat, .box, .guest, .files, .gallery figure, .quote, .pt__tester, .pt__moments li, .dt__card, .bubble, .voice) {
+  background: var(--night-2); color: var(--cream) !important; border-color: var(--line); --night: var(--cream); --text-dim: var(--soft); --orange-ink: var(--teal);
+}
+body:not(.skin-noir):not(.skin-fiaba) .stat b { color: var(--teal); }
+body:not(.skin-noir):not(.skin-fiaba) .notify input { background: var(--night); color: var(--cream); border-color: var(--line); }
+.skin-tavola .step { background: color-mix(in srgb, var(--night-2) 85%, transparent); color: var(--cream); border: 3px solid var(--line); box-shadow: 5px 5px 0 #1a0a0c; }
+.skin-tavola .step p { color: var(--soft); }
+.skin-tavola .step h3 { color: var(--cream); }
+/* romanzo di Meriggio nell'elenco: niente fascia panna fuori dal suo mondo */
+body:not(.skin-fiaba) .nv--fiaba { --c-bg: #16261d; --c-fg: #f3ead2; --c-soft: #c9d6b8; --c-line: #3d5a44; --c-card: #1d3226;
+  background: #16261d radial-gradient(ellipse 80% 60% at 80% 0%, rgba(245, 193, 75, .16) 0%, rgba(245, 193, 75, 0) 70%) no-repeat; }
+.nv-sheet { background: var(--night); color: var(--cream); border-color: var(--black); }
+.nv-sheet dt { color: #ff8a80; }
+body:not(.skin-fiaba) .nv--fiaba .nv__title { color: #f5c14b; }
+body:not(.skin-noir):not(.skin-fiaba) .nv-toc__i { background: var(--night-2); color: var(--cream) !important; border-color: var(--line); }
+body:not(.skin-noir):not(.skin-fiaba) .nv-toc__i small { color: var(--soft); }
