@@ -9,12 +9,12 @@
       "en": "Memo from management · Planet Earth"
     },
     "title": {
-      "it": "Giochi, avventure e romanzi da tutto il multiverso.",
-      "en": "Games, adventures, and novels from across the multiverse."
+      "it": "Storie da giocare al tavolo e da leggere a puntate.",
+      "en": "Stories to play at the table and read in instalments."
     },
     "bubble": {
-      "it": "Benvenuti, Dreamspacer! Qui la Dreamspace Ltd crea, prova e distribuisce avventure e romanzi gratuitamente, e vi avvisa per primi quando un nuovo gioco sta per atterrare.",
-      "en": "Welcome, Dreamspacers! Here Dreamspace Ltd creates, plays and gives away adventures and novels for free, and tells you first when a new game is about to land."
+      "it": "Benvenuti, Dreamspacer! La Dreamspace Ltd scrive giochi, avventure e romanzi, li prova con i suoi Dream-tester e ve li regala. Voi scegliete da dove partire.",
+      "en": "Welcome, Dreamspacers! Dreamspace Ltd writes games, adventures and novels, tests them with its Dream-testers and gives them to you for free. You pick where to start."
     },
     "signature": {
       "it": "— Mister D, CEO della migliore azienda di cacciatori di taglie di tutto il multiverso",
@@ -155,8 +155,8 @@
           "en": "as Dungeon Master"
         },
         "text": {
-          "it": "Ogni avventura e ogni gioco nasce dietro lo schermo di un master con oltre 10 anni di esperienza e con una grande passione per i giochi. Dopo tante campagne, one-shot e serate finite troppo tardi, ha deciso di diffondere a tutti i curiosi Dreamspacer il suo archivio segreto.  ",
-          "en": "Every adventure and every game is born behind the screen of a master with over 10 years of experience and a great passion for games. After many campaigns, one-shots and evenings that ended too late, he decided to spread his secret archive to all the curious Dreamspacers.  "
+          "it": "Ogni avventura e ogni gioco nasce dietro lo schermo di un master con oltre 10 anni di esperienza e con una grande passione per i giochi. Dopo tante campagne, one-shot e serate finite troppo tardi, ha deciso di diffondere a tutti i curiosi Dreamspacer il suo archivio segreto.",
+          "en": "Every adventure and every game is born behind the screen of a master with over 10 years of experience and a great passion for games. After many campaigns, one-shots and evenings that ended too late, he decided to spread his secret archive to all the curious Dreamspacers."
         }
       },
       {
@@ -172,6 +172,21 @@
         "text": {
           "it": "I Dream-tester sono il nostro gruppo di gioco: hanno interpretato i personaggi, rotto le regole, trovato i buchi e chiesto «ancora una partita». Niente esce da qui senza essere passato dal loro tavolo.",
           "en": "The Dream-testers are our gaming group: they played the characters, broke the rules, found the holes and asked for “one more game”. Nothing leaves here without passing across their table."
+        }
+      },
+      {
+        "badge": "PDF",
+        "unit": {
+          "it": "IT · EN",
+          "en": "IT · EN"
+        },
+        "title": {
+          "it": "pronti da giocare",
+          "en": "ready to play"
+        },
+        "text": {
+          "it": "Guida del master, scene, handout e personaggi pregenerati, in italiano e in inglese. Scarichi gratis, stampi e giochi la sera stessa.",
+          "en": "Game master guide, scenes, handouts and pregenerated characters, in Italian and English. Download for free, print and play that same evening."
         }
       },
       {

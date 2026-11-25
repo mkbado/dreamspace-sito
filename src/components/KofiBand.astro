@@ -1,19 +1,19 @@
 ---
 import { t, type Lang } from '../i18n/ui';
 import { site } from '../data/catalog';
-interface Props { lang: Lang; title?: string; text?: string; coro?: boolean }
-const { lang, title = t(lang, 'kofi.title'), text = t(lang, 'kofi.text'), coro = false } = Astro.props;
+interface Props { lang: Lang; title?: string; text?: string; coro?: boolean; quiet?: boolean }
+const { lang, title = t(lang, 'kofi.title'), text = t(lang, 'kofi.text'), coro = false, quiet = false } = Astro.props;
 // l'indirizzo Ko-fi si imposta in src/content/site.json (pannello: Impostazioni del sito)
 const KOFI = site.kofi || '#';
 ---
-<section id="sostienici" class="band-orange" style={coro ? 'background: #f2a33a; color: #15111f;' : ''}>
+<section id="sostienici" class={quiet ? 'band-quiet' : 'band-orange'} style={coro ? 'background: #f2a33a; color: #15111f;' : ''}>
   <div class="container row" style="padding-block: 48px; align-items: center; justify-content: space-between; gap: 24px;">
     <div style="flex: 1 1 520px; min-width: 0;">
       <h2 class="pixel" style="font-size: 36px; margin-bottom: 8px;">{title}</h2>
       <p style="margin: 0; font-size: 18px;">{text}</p>
     </div>
     {site.kofi
-      ? <a class="btn btn--dark btn--big" href={KOFI} target="_blank" rel="noopener">{t(lang, 'kofi.button')}</a>
-      : <span class="btn btn--dark btn--big" aria-disabled="true" style="opacity: .6; cursor: default;">{lang === 'it' ? 'Ko-fi in arrivo' : 'Ko-fi coming soon'}</span>}
+      ? <a class={`btn ${quiet ? 'btn--line' : 'btn--dark'} btn--big`} href={KOFI} target="_blank" rel="noopener">{t(lang, 'kofi.button')}</a>
+      : <span class={`btn ${quiet ? 'btn--line' : 'btn--dark'} btn--big`} aria-disabled="true" style="opacity: .6; cursor: default;">{lang === 'it' ? 'Ko-fi in arrivo' : 'Ko-fi coming soon'}</span>}
   </div>
 </section>

@@ -3,8 +3,8 @@ import Base from '../../layouts/Base.astro';
 import InterestForm from '../../components/InterestForm.astro';
 import KofiBand from '../../components/KofiBand.astro';
 import { t, langs, otherLang, sections, type Lang } from '../../i18n/ui';
-import { games, rpgs, settings, oneshots, novels, news, site, tl, localImg, itemTitle } from '../../data/catalog';
-import { itemPath } from '../../data/paths';
+import { games, rpgs, settings, oneshots, novels, news, site, localImg, itemTitle, chapterOnline, readingMinutes } from '../../data/catalog';
+import { itemPath, novelPath, novelsPath, chapterPath } from '../../data/paths';
 
 export function getStaticPaths() {
   return langs.map((lang) => ({ params: { lang } }));
@@ -13,77 +13,36 @@ export function getStaticPaths() {
 const lang = Astro.params.lang as Lang;
 const L = (it: string, en: string) => (lang === 'it' ? it : en);
 const h = site.home;
-// Se le finestre del carosello mancano (per esempio salvate da una versione vecchia del pannello),
-// le ricostruiamo dal catalogo: una per gioco.
-const slides = h.slides?.length ? h.slides : [...games, ...rpgs, ...settings].map((x) => ({
-  file: `${x.slug.toUpperCase().replace(/-/g, '_')}.PNG`,
-  color: x.kind === 'game' ? '#d9442b' : '#5a4560',
-  image: x.kind === 'rpg' ? x.cardImage : x.image,
-  title: x.title,
-  titleEn: x.kind === 'rpg' ? x.titleEn : undefined,
-  text: x.kind === 'game' ? { it: x.short.it, en: x.short.en } : x.cardMeta,
-  alt: x.kind === 'rpg' ? x.cardAlt : x.imageAlt ?? { it: '', en: '' },
-  link: { it: itemPath('it', x), en: itemPath('en', x) },
-}));
 const fmt = (d: string) => new Date(d + 'T12:00:00').toLocaleDateString(lang === 'it' ? 'it-IT' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
-const nGames = games.length;
 const flag = games.find((g) => g.slug === 'marsylvania');
 const tested = [...games, ...rpgs, ...settings, ...oneshots].filter((x) => x.playtest?.testers?.length);
 const testers = new Set(tested.flatMap((x) => x.playtest!.testers));
-const voices = tested.flatMap((x) => (x.playtest!.moments || []).slice(0, 1).map((m) => ({ text: m[lang], game: x })));
-const nRpg = rpgs.length + settings.length;
+const voices = tested.flatMap((x) => (x.playtest!.moments || []).slice(0, 1).map((m) => ({ text: m[lang], game: x, who: x.playtest!.testers })));
+
+// «Stasera si legge»: il primo capitolo online di un romanzo, con l'incipit
+const reads = novels
+  .map((n) => ({ n, c: n.chapters.find((c) => chapterOnline(c, lang)), online: n.chapters.filter((c) => chapterOnline(c, lang)).length }))
+  .filter((r) => r.c);
+const read = reads[0];
+const paras = read ? read.c!.text[lang].split(/\n\s*\n/).map((s) => s.trim()).filter(Boolean) : [];
+const excerpt: string[] = [];
+for (const para of paras) { excerpt.push(para); if (excerpt.join(' ').length > 650) break; }
+const soon = novels.filter((n) => !n.chapters.some((c) => chapterOnline(c, lang)));
 ---
 <Base lang={lang} title="Dreamspace Ltd" altPath={`/${otherLang(lang)}/`} spaceIntro>
-  <section class="container row" style="padding-block: 72px 80px; align-items: center; gap: 48px;">
-    <div class="stack" style="flex: 1 1 480px; min-width: 0; gap: 24px;">
-      <p class="label" style="margin: 0; color: var(--teal);">{h.kicker[lang]}</p>
-      <h1 class="pixel h1">{h.title[lang]}</h1>
-      <div class="bubble">
-        <p>{h.bubble[lang]}</p>
-        <p class="sig">{h.signature[lang]}</p>
-      </div>
-      <div class="portals">
-        <a class="portal portal--games" href={`/${lang}/${sections[lang].games}/`}>
-          <span class="portal__t">{t(lang, 'nav.games')}</span>
-          <span class="portal__d">{L('Clicca e scopri il nostro catalogo e segui le prossime missioni nel multiverso!', 'Click to explore our catalogue and follow the next missions across the multiverse!')}</span>
-        </a>
-        <a class="portal portal--rpg" href={`/${lang}/${sections[lang].rpg}/`}>
-          <span class="portal__t">{t(lang, 'nav.rpg')}</span>
-          <span class="portal__d">{L('Leggi e immergiti nelle nostre avventure, ambientazioni e romanzi, scaricabili gratuitamente.', 'Read and dive into our adventures, settings and novels, free to download.')}</span>
-        </a>
-      </div>
+  <section class="container hero">
+    <p class="label hero__kicker">{h.kicker[lang]}</p>
+    <h1 class="pixel hero__title">{h.title[lang]}</h1>
+    <div class="hero__memo">
+      <p>{h.bubble[lang]}</p>
+      <p class="sig">{h.signature[lang]}</p>
     </div>
-    <div class="slider" data-slider style="flex: 1 1 380px; min-width: 0; max-width: 460px; margin: 0 auto;">
-      <div class="window" role="region" aria-roledescription={L('carosello', 'carousel')} aria-label={L('I nostri giochi', 'Our games')}>
-        <div class="window__bar" data-bar style={`background: ${slides[0]?.color};`}>
-          <span data-file aria-hidden="true">{slides[0]?.file}</span>
-          <span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-        </div>
-        <div class="slides">
-          {slides.map((sl, i) => (
-            <a class="slide" href={sl.link[lang]} data-file={sl.file} data-color={sl.color} aria-hidden={i === 0 ? undefined : 'true'} tabindex={i === 0 ? undefined : -1} role="group" aria-roledescription="slide" aria-label={`${i + 1} / ${slides.length}: ${tl(lang, sl.title, sl.titleEn)}`}>
-              <img src={localImg(sl.image, lang)} width="740" height="740" alt={sl.alt[lang]} loading={i === 0 ? 'eager' : 'lazy'} />
-              <span class="slide__cap">
-                <strong>{tl(lang, sl.title, sl.titleEn)}</strong>
-                <span>{sl.text[lang]}</span>
-              </span>
-            </a>
-          ))}
-        </div>
-      </div>
-      {slides.length > 1 && (
-        <div class="slider__nav">
-          <button type="button" class="slider__arrow" data-prev aria-label={L('Precedente', 'Previous')}>◀</button>
-          <div class="slider__dots">
-            {slides.map((sl, i) => <button type="button" data-go={i} aria-label={tl(lang, sl.title, sl.titleEn)} aria-current={i === 0 ? 'true' : undefined}></button>)}
-          </div>
-          <button type="button" class="slider__arrow" data-pause aria-label={L('Ferma', 'Pause')} aria-pressed="false">❚❚</button>
-          <button type="button" class="slider__arrow" data-next aria-label={L('Successivo', 'Next')}>▶</button>
-        </div>
-      )}
-    </div>
+    <nav class="hero__doors" aria-label={L('Da dove partire', 'Where to start')}>
+      <a href={`/${lang}/${sections[lang].games}/`}><b>{t(lang, 'nav.games')}</b><span>{L('Gioca', 'Play')} →</span></a>
+      <a href={`/${lang}/${sections[lang].rpg}/`}><b>{t(lang, 'nav.rpg')}</b><span>{L('Scarica e gioca', 'Download & play')} →</span></a>
+      <a href={novelsPath(lang)}><b>{t(lang, 'nav.novels')}</b><span>{L('Leggi online', 'Read online')} →</span></a>
+    </nav>
   </section>
-
 
   {flag && (
     <section class="flag" aria-labelledby="flag-t">
@@ -101,152 +60,88 @@ const nRpg = rpgs.length + settings.length;
           </ul>
           <div class="row" style="gap: 14px;">
             <a class="btn btn--orange btn--big" href="#lista">{L('Avvisami al lancio', 'Notify me at launch')}</a>
-            <a class="btn btn--teal btn--big" href={itemPath(lang, flag)}>{L('Scopri il gioco', 'Discover the game')}</a>
+            <a class="btn btn--line btn--big" href={itemPath(lang, flag)}>{L('Scopri il gioco', 'Discover the game')}</a>
           </div>
         </div>
       </div>
     </section>
   )}
 
-
-  <section id="novita" class="band-cream">
-    <div class="container stack pad" style="gap: 32px;">
-      <h2 class="pixel h2">{L('Novità', 'News')}</h2>
-      {[news.slice(0, 3), news.slice(3)].map((group, gi) => group.length > 0 && (
-        <>
-          {gi === 1 && <p class="label news__more">{L('Altre novità', 'More news')} <span aria-hidden="true">→</span></p>}
-          <div class={gi === 0 ? 'news__top' : 'news__rail'} tabindex={gi === 1 ? 0 : undefined} aria-label={gi === 1 ? L('Altre novità, scorri', 'More news, scroll') : undefined}>
-            {group.map((n) => (
-              <article class="card">
-                {n.image && (n.link?.[lang]
-                  ? <a class="card__media" href={n.link[lang]} tabindex="-1" aria-hidden="true"><img src={localImg(n.image, lang)} width="960" height="600" alt="" loading="lazy" /></a>
-                  : <div class="card__media"><img src={localImg(n.image, lang)} width="960" height="600" alt="" loading="lazy" /></div>)}
-                <div class="card__body">
-                  <p class="card__tag"><time datetime={n.date}>{fmt(n.date)}</time></p>
-                  <h3 class="pixel h3">{n.title[lang]}</h3>
-                  <p>{n.text[lang]}</p>
-                  {n.link?.[lang] && <div class="card__foot" style="justify-content: flex-start;"><a class="btn btn--orange" href={n.link[lang]}>{L('Scopri', 'Find out more')}</a></div>}
-                </div>
-              </article>
-            ))}
+  {read && (
+    <section class="container tonight" aria-labelledby="tonight-t">
+      <p class="label home-kicker">{L('Stasera si legge', 'Tonight’s reading')}</p>
+      <div class="tonight__box">
+        <a class="tonight__cover" href={novelPath(lang, read.n)} tabindex="-1" aria-hidden="true">
+          <img src={read.n.cover} alt="" width="1024" height="1536" loading="lazy" />
+        </a>
+        <div class="tonight__text">
+          <h2 id="tonight-t" class="pixel h2">{read.n.title[lang]}</h2>
+          <p class="tonight__meta">{read.c!.label[lang]} · {read.c!.title[lang]}{read.c!.narrator[lang] && <> · {L('narra', 'told by')} {read.c!.narrator[lang]}</>}</p>
+          <div class="tonight__page">
+            {excerpt.map((p) => <p>{p}</p>)}
           </div>
-        </>
+          <div class="tonight__foot">
+            <a class="btn btn--teal btn--big" href={chapterPath(lang, read.n, read.c!)}>{L(`Continua a leggere · ${readingMinutes(read.c!.text[lang])} min`, `Keep reading · ${readingMinutes(read.c!.text[lang])} min`)}</a>
+            <span>{L(`${read.online} capitoli già online, gratis`, `${read.online} chapters already online, free`)}</span>
+          </div>
+          {soon.length > 0 && (
+            <p class="tonight__soon">{L('In arrivo', 'Coming soon')}: {soon.map((n, i) => <>{i > 0 && ', '}<a href={novelPath(lang, n)}>{n.title[lang]}</a></>)}</p>
+          )}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section id="novita" class="container news" aria-labelledby="news-t">
+    <p class="label home-kicker">{L('Dagli archivi', 'From the archives')}</p>
+    <h2 id="news-t" class="pixel h2">{L('Novità', 'News')}</h2>
+    <div class="news__grid">
+      {news.map((n) => (
+        <article class="ncard">
+          {n.image && (n.link?.[lang]
+            ? <a class="ncard__media" href={n.link[lang]} tabindex="-1" aria-hidden="true"><img src={localImg(n.image, lang)} width="960" height="600" alt="" loading="lazy" /></a>
+            : <div class="ncard__media"><img src={localImg(n.image, lang)} width="960" height="600" alt="" loading="lazy" /></div>)}
+          <div class="ncard__body">
+            <p class="ncard__date"><time datetime={n.date}>{fmt(n.date)}</time></p>
+            <h3>{n.link?.[lang] ? <a href={n.link[lang]}>{n.title[lang]}</a> : n.title[lang]}</h3>
+            <p>{n.text[lang]}</p>
+          </div>
+        </article>
       ))}
     </div>
   </section>
 
   {site.crew && (
-    <section class="container stack crew" style="padding-block: 80px 0; gap: 28px;">
-      <p class="label" style="margin: 0; color: var(--teal);">{site.crew.kicker[lang]}</p>
-      <h2 class="pixel h2">{site.crew.title[lang]}</h2>
+    <section class="container crew" aria-labelledby="crew-t">
+      <p class="label home-kicker">{site.crew.kicker[lang]}</p>
+      <h2 id="crew-t" class="pixel h2">{site.crew.title[lang]}</h2>
       <div class="crew__grid">
         {site.crew.items.map((c, i) => (
-          <article class={`crew__card crew__card--${i % 3}`}>
+          <article class={`crew__card crew__card--${i % 4}`}>
             <div class="crew__badge"><b>{c.badge}</b><span>{c.unit[lang]}</span></div>
             <h3>{c.title[lang]}</h3>
             <p>{c.text[lang]}</p>
           </article>
         ))}
       </div>
+      {voices.length > 0 && (
+        <>
+          <p class="label home-kicker" style="margin-top: 24px;">{L('Dal tavolo di prova', 'From the test table')}</p>
+          <div class="voices__grid">
+            {voices.map((v) => (
+              <a class="voice" href={`${itemPath(lang, v.game)}#dream-tester`}>
+                <p>{v.text}</p>
+                <span class="voice__who">{L('Al tavolo', 'At the table')}: {v.who.join(', ')}</span>
+                <span class="voice__game">{itemTitle(lang, v.game)} →</span>
+              </a>
+            ))}
+          </div>
+          <p style="margin: 0;"><a class="label" style="color: var(--teal);" href={`/${lang}/${lang === 'it' ? 'chi-siamo' : 'about'}/#dream-tester`}>{L(`Conosci i ${testers.size} Dream-tester`, `Meet the ${testers.size} Dream-testers`)} →</a></p>
+        </>
+      )}
     </section>
   )}
-
-
-  <section class="container stack why" style="padding-block: 80px 0; gap: 28px;">
-    <p class="label" style="margin: 0; color: var(--teal);">{L('Perché giocare con noi', 'Why play with us')}</p>
-    <h2 class="pixel h2">{L('Storie complete, provate al tavolo', 'Complete stories, tested at the table')}</h2>
-    <div class="why__grid">
-      <article><b style="color: var(--orange);">01</b><h3>{L('Provati davvero', 'Actually played')}</h3><p>{L('Ogni gioco è passato dal tavolo dei Dream-tester prima di arrivare qui: regole limate, buchi chiusi, finali che funzionano.', 'Every game has been through the Dream-testers’ table before landing here: rules polished, holes closed, endings that work.')}</p></article>
-      <article><b style="color: var(--teal);">02</b><h3>{L('Pronti da giocare', 'Ready to play')}</h3><p>{L('Guida del master, scene, handout e personaggi pregenerati: apri il PDF e giochi la sera stessa.', 'Game master guide, scenes, handouts and pregenerated characters: open the PDF and play that same evening.')}</p></article>
-      <article><b style="color: #f2c230;">03</b><h3>{L('Il gioco continua in un romanzo', 'The game goes on in a novel')}</h3><p>{L('Le avventure hanno un romanzo a puntate che racconta la stessa storia dagli occhi dei personaggi. Si legge online, gratis.', 'The adventures come with a serial novel telling the same story through the characters’ eyes. Read it online, for free.')}</p></article>
-      <article><b style="color: #ef6ba8;">04</b><h3>{L('Un universo solo', 'One universe')}</h3><p>{L('Dall’horror alpino del 1914 alla fiaba di Meriggio, fino ai vampiri di Marsylvania: tutto esce dagli archivi della Dreamspace Ltd.', 'From 1914 Alpine horror to the fairy tale of Meriggio and the vampires of Marsylvania: it all comes from the Dreamspace Ltd archives.')}</p></article>
-    </div>
-  </section>
-
-  {voices.length > 0 && (
-    <section class="container stack voices" style="padding-block: 72px 0; gap: 24px;">
-      <p class="label" style="margin: 0; color: var(--teal);">{L('Dal tavolo di prova', 'From the test table')}</p>
-      <div class="voices__grid">
-        {voices.map((v) => (
-          <a class="voice" href={`${itemPath(lang, v.game)}#dream-tester`}>
-            <p>{v.text}</p>
-            <span>{itemTitle(lang, v.game)} →</span>
-          </a>
-        ))}
-      </div>
-      <p style="margin: 0;"><a class="label" style="color: var(--teal);" href={`/${lang}/${lang === 'it' ? 'chi-siamo' : 'about'}/#dream-tester`}>{L(`Conosci i ${testers.size} Dream-tester`, `Meet the ${testers.size} Dream-testers`)} →</a></p>
-    </section>
-  )}
-
-  <section class="container stack" style="padding-block: 80px; gap: 32px;">
-    <h2 class="pixel h2">{t(lang, 'home.how.title')}</h2>
-    <div class="steps">
-      <div class="step"><b style="color: var(--orange);">01</b><h3>{t(lang, 'home.how.1.t')}</h3><p>{t(lang, 'home.how.1.d')}</p></div>
-      <div class="step"><b style="color: var(--teal);">02</b><h3>{t(lang, 'home.how.2.t')}</h3><p>{t(lang, 'home.how.2.d')}</p></div>
-      <div class="step"><b style="color: #f2c230;">03</b><h3>{t(lang, 'home.how.3.t')}</h3><p>{t(lang, 'home.how.3.d')}</p></div>
-    </div>
-  </section>
 
   <InterestForm lang={lang} preselect="marsylvania" />
-  <KofiBand lang={lang} />
+  <KofiBand lang={lang} quiet />
 </Base>
-
-<script>
-  document.querySelectorAll<HTMLElement>('[data-slider]').forEach((root) => {
-    const slides = [...root.querySelectorAll<HTMLAnchorElement>('.slide')];
-    if (slides.length < 2) return;
-    const dots = [...root.querySelectorAll<HTMLButtonElement>('[data-go]')];
-    const bar = root.querySelector<HTMLElement>('[data-bar]')!;
-    const file = root.querySelector<HTMLElement>('[data-file]')!;
-    const pauseBtn = root.querySelector<HTMLButtonElement>('[data-pause]')!;
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let i = 0;
-    let timer: number | undefined;
-    let paused = reduce;
-    let hover = false;
-    const show = (n: number) => {
-      i = (n + slides.length) % slides.length;
-      slides.forEach((s, k) => {
-        const on = k === i;
-        s.classList.toggle('is-on', on);
-        if (on) { s.removeAttribute('aria-hidden'); s.removeAttribute('tabindex'); }
-        else { s.setAttribute('aria-hidden', 'true'); s.tabIndex = -1; }
-        if (on) s.querySelector('img')?.setAttribute('loading', 'eager');
-      });
-      dots.forEach((d, k) => (k === i ? d.setAttribute('aria-current', 'true') : d.removeAttribute('aria-current')));
-      bar.style.background = slides[i].dataset.color ?? '';
-      file.textContent = slides[i].dataset.file ?? '';
-    };
-    const tick = () => {
-      window.clearInterval(timer);
-      if (!paused && !hover) timer = window.setInterval(() => show(i + 1), 5000);
-    };
-    const setPaused = (p: boolean) => {
-      paused = p;
-      pauseBtn.setAttribute('aria-pressed', String(p));
-      pauseBtn.textContent = p ? '▶▶' : '❚❚';
-      pauseBtn.setAttribute('aria-label', p ? pauseBtn.dataset.play ?? 'Play' : pauseBtn.dataset.stop ?? 'Pause');
-      tick();
-    };
-    pauseBtn.dataset.stop = pauseBtn.getAttribute('aria-label') ?? 'Pause';
-    pauseBtn.dataset.play = document.documentElement.lang === 'it' ? 'Riprendi' : 'Play';
-    root.querySelector('[data-prev]')?.addEventListener('click', () => { show(i - 1); tick(); });
-    root.querySelector('[data-next]')?.addEventListener('click', () => { show(i + 1); tick(); });
-    pauseBtn.addEventListener('click', () => setPaused(!paused));
-    dots.forEach((d) => d.addEventListener('click', () => { show(Number(d.dataset.go)); tick(); }));
-    root.addEventListener('mouseenter', () => { hover = true; tick(); });
-    root.addEventListener('mouseleave', () => { hover = false; tick(); });
-    root.addEventListener('focusin', () => { hover = true; tick(); });
-    root.addEventListener('focusout', () => { hover = false; tick(); });
-    let x0: number | null = null;
-    root.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
-    root.addEventListener('touchend', (e) => {
-      if (x0 === null) return;
-      const dx = e.changedTouches[0].clientX - x0;
-      if (Math.abs(dx) > 40) { show(dx < 0 ? i + 1 : i - 1); tick(); }
-      x0 = null;
-    });
-    show(0);
-    setPaused(paused);
-  });
-</script>

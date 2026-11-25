@@ -68,7 +68,7 @@ const year = new Date().getFullYear();
             </>
           ))}
         </span>
-        <a class="btn btn--teal" href={site.kofi || `/${lang}/#sostienici`} target={site.kofi ? '_blank' : undefined} rel={site.kofi ? 'noopener' : undefined}>{t(lang, 'nav.support')}</a>
+        <a class="btn btn--teal btn--join" href={`/${lang}/#lista`}>{t(lang, 'nav.join')}</a>
       </nav>
     </div>
   </header>
@@ -95,6 +95,7 @@ const year = new Date().getFullYear();
           <a href={pagePath(lang, 'chi-siamo')}>{t(lang, 'nav.about')}</a>
           <a href={`/${lang}/#novita`}>{t(lang, 'footer.news')}</a>
           <a href={site.email ? `mailto:${site.email}` : '#'}>{t(lang, 'footer.contact')}</a>
+          <a href={site.kofi || `/${lang}/#sostienici`} target={site.kofi ? '_blank' : undefined} rel={site.kofi ? 'noopener' : undefined}>{t(lang, 'nav.support')}</a>
         </nav>
         <nav aria-label={t(lang, 'footer.legal')}>
           <span class="label muted" style="font-size: 12px;">{t(lang, 'footer.legal')}</span>
