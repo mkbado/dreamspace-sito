@@ -9,8 +9,8 @@
       "en": "Memo from management · Planet Earth"
     },
     "title": {
-      "it": "Avventure, romanzi e giochi da tutto il multiverso.",
-      "en": "Adventures, novels and games from across the multiverse."
+      "it": "Giochi, avventure e romanzi da tutto il multiverso.",
+      "en": "Games, adventures, and novels from across the multiverse."
     },
     "bubble": {
       "it": "Benvenuti, Dreamspacer! Qui la Dreamspace Ltd crea, prova e distribuisce avventure e romanzi gratuitamente, e vi avvisa per primi quando un nuovo gioco sta per atterrare.",
@@ -82,6 +82,7 @@
         "color": "#8c1d2c",
         "image": "/img/slides/intolleranti.webp",
         "title": "Intolleranti!",
+        "titleEn": "Intolerant!",
         "text": {
           "it": "Party game di carte · 2–8 giocatori · 20–40 min · c'è posto a tavola",
           "en": "Party card game · 2–8 players · 20–40 min · seats still free"
@@ -93,8 +94,7 @@
         "link": {
           "it": "/it/giochi-da-tavolo/intolleranti/",
           "en": "/en/board-games/intolleranti/"
-        },
-        "titleEn": "Intolerant!"
+        }
       },
       {
         "file": "MERIGGIO.PNG",
