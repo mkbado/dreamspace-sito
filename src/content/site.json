@@ -175,7 +175,7 @@
         }
       },
       {
-        "badge": "+5",
+        "badge": "10",
         "unit": {
           "it": "anni",
           "en": "years"
@@ -185,8 +185,8 @@
           "en": "of professional design"
         },
         "text": {
-          "it": "Copertine, carte e impaginazione sono curate dai nostri graphic designer, Francesco e Sara, con quasi dieci anni di esperienza sul campo: perché un bel gioco deve anche farsi guardare.",
-          "en": "Covers, cards and layout are handled by our graphic designers, Francesco and Sara, with almost ten years in the field: because a good game should also be a pleasure to look at."
+          "it": "Copertine, carte e impaginazione sono curate dai nostri graphic designer, Francesco e Sara, con dieci anni di esperienza sul campo: perché un bel gioco deve anche farsi guardare.",
+          "en": "Covers, cards and layout are handled by our graphic designers, Francesco and Sara, with ten years in the field: because a good game should also be a pleasure to look at."
         }
       }
     ]
