@@ -121,7 +121,19 @@ const os = item.kind === 'oneshot' ? item : null;
       <div class="row hero-row" style="gap: 20px;">
         {g.characters.list.map((c) => (
           <article class="hero-card">
-            <div class="hero-card__name" style={`background: ${c.color}; color: ${c.ink};`}>{c.title?.[lang] || c.name}{c.role?.[lang] ? <span style="opacity: .75;"> · {c.role[lang]}</span> : c.home && <span style="opacity: .75;"> · {c.home}</span>}</div>
+            {(() => {
+              // "Difensore · COS 4 · CAR 2" → ruolo accanto al nome, statistiche sulla riga sotto
+              const role = c.role?.[lang] ?? '';
+              const cut = role.indexOf(' · ');
+              const base = cut > -1 && /\d/.test(role.slice(cut)) ? role.slice(0, cut) : role;
+              const stats = base !== role ? role.slice(cut + 3) : '';
+              return (
+                <div class="hero-card__name" style={`background: ${c.color}; color: ${c.ink};`}>
+                  {c.title?.[lang] || c.name}{base ? <span style="opacity: .75;"> · {base}</span> : c.home && <span style="opacity: .75;"> · {c.home}</span>}
+                  {stats && <span class="hero-card__stats">{stats}</span>}
+                </div>
+              );
+            })()}
             <div class="hero-card__img"><img src={c.image} alt={c.alt[lang]} loading="lazy" /></div>
             {c.bio[lang] ? <p>{c.bio[lang]}</p> : <p class="todo">{L('[Una riga su chi è e da dove viene]', '[One line on who they are and where they come from]')}</p>}
             {c.ability && <p class="ability"><span>{g.characters!.abilityLabel?.[lang] || L('Abilità', 'Ability')}</span> {c.ability[lang]}</p>}

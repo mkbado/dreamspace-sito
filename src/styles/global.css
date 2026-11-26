@@ -143,6 +143,7 @@ a:hover { color: #7fe3d9; }
 .panel p { margin: 0; font-size: 15px; }
 .hero-card { border: 3px solid var(--black); background: var(--night-2); box-shadow: 4px 4px 0 var(--black); flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; }
 .hero-card__name { padding: 6px 12px; font-family: var(--font-label); font-size: 14px; border-bottom: 3px solid var(--black); text-transform: uppercase; }
+.hero-card__stats { display: block; margin-top: 2px; font-size: 13px; letter-spacing: .04em; opacity: .85; }
 .hero-card__img { height: 260px; padding: 16px; display: flex; align-items: center; justify-content: center; background: var(--night); }
 .hero-card__img img { max-height: 100%; width: auto; object-fit: contain; }
 .hero-card p { margin: 0; padding: 14px 16px 18px; font-size: 15px; color: #dde1f7; }
