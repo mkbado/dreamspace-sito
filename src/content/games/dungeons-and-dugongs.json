@@ -6,13 +6,13 @@
   "skin": "abissi",
   "image": "/img/dugongs/card.webp",
   "imageAlt": {
-    "it": "Il titolo Dungeons & Dugongs sopra i dugonghi avventurieri",
-    "en": "The Dungeons & Dugongs title above the adventuring dugongs"
+    "it": "Copertina di Dungeons & Dugongs, Missione negli abissi: i dugonghi avventurieri davanti alle rovine sommerse",
+    "en": "Dungeons & Dugongs, Mission in the Abyss cover: the adventuring dugongs in front of the sunken ruins"
   },
   "heroImage": "/img/dugongs/copertina.webp",
   "heroAlt": {
-    "it": "Copertina di Dungeons & Dugongs, Missione negli abissi: quattro dugonghi avventurieri nuotano verso le rovine di un castello sommerso, tra una murena, un granchio, una trappola a conchiglia e un forziere di monete",
-    "en": "Dungeons & Dugongs, Mission in the Abyss: four adventuring dugongs swim towards the ruins of a sunken castle, past a moray eel, a crab, a clam trap and a chest of coins"
+    "it": "Copertina di Dungeons & Dugongs, Missione negli abissi: quattro dugonghi avventurieri nuotano verso le rovine di un castello sommerso, tra una murena, uno scudo a conchiglia e un forziere di monete",
+    "en": "Dungeons & Dugongs, Mission in the Abyss cover: four adventuring dugongs swim towards the ruins of a sunken castle, past a moray eel, a seashell shield and a chest of coins"
   },
   "heroPortrait": true,
   "tag": {
@@ -95,15 +95,15 @@
       {
         "name": "Guardiano",
         "image": "/img/dugongs/guardiano.webp",
-        "color": "#c8463c",
-        "ink": "#fff4dc",
+        "color": "#8ea0d8",
+        "ink": "#0a0d24",
         "alt": {
-          "it": "Un dugongo con mantello rosso che alza uno scudo a conchiglia, con uno scampo in cima",
-          "en": "A dugong in a red cape raising a seashell shield, a shrimp on top"
+          "it": "Un dugongo blu con mantello rosso che regge uno scudo a conchiglia, con uno scampo che gli saltella vicino",
+          "en": "A blue dugong in a red cape holding a seashell shield, with a shrimp hopping beside him"
         },
         "bio": {
-          "it": "Lo scudo è una conchiglia, il mantello è rosso e lo scampo sul bordo giura di essere il suo scudiero.",
-          "en": "His shield is a seashell, his cape is red, and the shrimp on the rim swears it is his squire."
+          "it": "Lo scudo è una conchiglia, il mantello è rosso e lo scampo accanto a lui giura di essere il suo scudiero.",
+          "en": "His shield is a seashell, his cape is red, and the shrimp beside him swears it is his squire."
         },
         "title": {
           "it": "Guardiano",
@@ -117,15 +117,15 @@
       {
         "name": "Barbaro",
         "image": "/img/dugongs/barbaro.webp",
-        "color": "#b5532f",
-        "ink": "#fff4dc",
+        "color": "#e0865a",
+        "ink": "#0a0d24",
         "alt": {
-          "it": "Un dugongo barbaro con pelliccia di alghe rosse che brandisce un martello di corallo",
-          "en": "A barbarian dugong in red seaweed fur brandishing a coral hammer"
+          "it": "Un dugongo barbaro arancione con una collana di denti che brandisce un martello di corallo",
+          "en": "An orange barbarian dugong with a tooth necklace swinging a coral hammer"
         },
         "bio": {
-          "it": "Pelliccia d'alghe, collana di denti e un martello di corallo: prima colpisce, poi fa domande.",
-          "en": "Seaweed fur, a tooth necklace and a coral hammer: hits first, asks questions later."
+          "it": "Pelle arancione, collana di denti e un martello di corallo: prima colpisce, poi fa domande.",
+          "en": "Orange hide, a tooth necklace and a coral hammer: hits first, asks questions later."
         },
         "title": {
           "it": "Barbaro",
@@ -142,12 +142,12 @@
         "color": "#9b7fc4",
         "ink": "#0a0d24",
         "alt": {
-          "it": "Un dugongo lilla con un arco di alghe e una freccia a ventosa attaccata alla fronte",
-          "en": "A lilac dugong with a seaweed bow and a suction-cup arrow stuck to its forehead"
+          "it": "Un dugongo lilla con un fiore in testa che tende un arco di alghe",
+          "en": "A lilac dugong with a flower on its head drawing a seaweed bow"
         },
         "bio": {
-          "it": "Mira benissimo. Quasi sempre. Della freccia con la ventosa in fronte non si parla.",
-          "en": "A superb shot. Almost always. Nobody mentions the suction-cup arrow on his forehead."
+          "it": "Un fiore in testa, un arco di alghe e una mira che non perdona: dolcissimo, finché non incocca la freccia.",
+          "en": "A flower on top, a seaweed bow and deadly aim: all smiles, right until the arrow is nocked."
         },
         "title": {
           "it": "Arciere",
@@ -164,12 +164,12 @@
         "color": "#6a4fa3",
         "ink": "#fff4dc",
         "alt": {
-          "it": "Un dugongo stregone con cappello viola che agita un bastone, sotto una nuvoletta imbronciata",
-          "en": "A wizard dugong in a purple hat waving a staff under a grumpy little cloud"
+          "it": "Un dugongo stregone con cappello a stelle che agita un bastone a spirale, sotto una nuvoletta imbronciata",
+          "en": "A wizard dugong in a starry hat waving a spiral staff under a grumpy little cloud"
         },
         "bio": {
-          "it": "Cappello a punta, bastone di legno di deriva e una nuvoletta che lo segue ovunque, sempre di cattivo umore.",
-          "en": "Pointy hat, driftwood staff and a little cloud that follows him everywhere, always in a bad mood."
+          "it": "Cappello a punta, bastone a spirale e una nuvoletta che lo segue ovunque, sempre di cattivo umore.",
+          "en": "Pointy hat, spiral staff and a little cloud that follows him everywhere, always in a bad mood."
         },
         "title": {
           "it": "Stregone",
@@ -183,15 +183,15 @@
       {
         "name": "Saggio",
         "image": "/img/dugongs/saggio.webp",
-        "color": "#7a4e7e",
-        "ink": "#fff4dc",
+        "color": "#8ab55e",
+        "ink": "#0a0d24",
         "alt": {
-          "it": "Un dugongo anziano con occhiali e mantello che srotola una lunga mappa",
-          "en": "An old dugong with glasses and a cloak unrolling a long map"
+          "it": "Un dugongo con occhiali e cappuccio verde che stringe una pergamena con una conchiglia",
+          "en": "A dugong in glasses and a green hood clutching a scroll marked with a shell"
         },
         "bio": {
-          "it": "Occhiali, mantello e una mappa più lunga di lui: sa sempre dove andare, quasi mai quanto manca.",
-          "en": "Glasses, cloak and a map longer than he is: always knows where to go, rarely how far it is."
+          "it": "Occhiali, cappuccio verde e una mappa più grande di lui: sa sempre dove andare, quasi mai quanto manca.",
+          "en": "Glasses, a green hood and a map bigger than he is: always knows where to go, rarely how far it is."
         },
         "title": {
           "it": "Saggio",
@@ -208,12 +208,12 @@
         "color": "#2a9d8f",
         "ink": "#0a0d24",
         "alt": {
-          "it": "Un dugongo verde acqua con occhialoni e bussola che chiede la strada a un pesciolino",
-          "en": "A teal dugong with goggles and a compass asking a little fish for directions"
+          "it": "Un dugongo verde acqua con occhialoni, zaino e bussola in pinna che nuota veloce",
+          "en": "A teal dugong with goggles, a backpack and a compass in its flipper, swimming fast"
         },
         "bio": {
-          "it": "Bussola, occhialoni e uno zaino pieno di pergamene: apre la strada, anche quando i pesci non sanno indicargliela.",
-          "en": "Compass, goggles and a backpack full of scrolls: leads the way, even when the fish cannot tell him where."
+          "it": "Bussola, occhialoni e uno zaino carico di pergamene: apre la strada e arriva sempre per primo.",
+          "en": "Compass, goggles and a backpack full of scrolls: leads the way and always arrives first."
         },
         "title": {
           "it": "Scout",
@@ -227,15 +227,15 @@
       {
         "name": "Guaritore",
         "image": "/img/dugongs/guaritore.webp",
-        "color": "#5a9e4b",
-        "ink": "#fff4dc",
+        "color": "#7fcdb5",
+        "ink": "#0a0d24",
         "alt": {
-          "it": "Un dugongo guaritore con corona di alghe che fascia la chela di un granchio",
-          "en": "A healer dugong in a seaweed crown bandaging a crab’s claw"
+          "it": "Un dugongo verde menta con una pozione in pinna, un cerotto sulla guancia e una borsa di erbe di mare con la croce rossa",
+          "en": "A mint-green dugong holding a potion, with a plaster on its cheek and a bag of sea herbs marked with a red cross"
         },
         "bio": {
-          "it": "Bende rosa, erbe di mare e una corona di alghe: nessun granchio resta indietro.",
-          "en": "Pink bandages, sea herbs and a seaweed crown: no crab gets left behind."
+          "it": "Pozione in pinna, erbe di mare e una borsa con la croce rossa: nessuno resta indietro.",
+          "en": "Potion in flipper, sea herbs and a bag with a red cross: nobody gets left behind."
         },
         "title": {
           "it": "Guaritore",
@@ -247,20 +247,20 @@
         }
       },
       {
-        "name": "Mangione",
-        "image": "/img/dugongs/mangione.webp",
-        "color": "#8fb9a8",
+        "name": "Goloso",
+        "image": "/img/dugongs/goloso.webp",
+        "color": "#e8b44f",
         "ink": "#0a0d24",
         "alt": {
-          "it": "Un dugongo a pancia in su che mangia panini di alghe",
-          "en": "A dugong floating belly-up eating seaweed buns"
+          "it": "Un dugongo color miele che addenta un panino alle alghe, con un altro panino accanto",
+          "en": "A honey-coloured dugong biting into a seaweed sandwich, with another sandwich beside it"
         },
         "bio": {
-          "it": "Ha sempre un panino di alghe a portata di pinna. Anche sulla pancia.",
-          "en": "Always has a seaweed bun within flipper’s reach. Even on his belly."
+          "it": "Ha sempre un panino di alghe a portata di pinna. Anche due.",
+          "en": "Always has a seaweed sandwich within flipper’s reach. Sometimes two."
         },
         "title": {
-          "it": "Mangione",
+          "it": "Goloso",
           "en": "Glutton"
         },
         "role": {
