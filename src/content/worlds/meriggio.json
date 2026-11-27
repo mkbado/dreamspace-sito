@@ -1,7 +1,21 @@
 {
   "order": 1,
+  "draft": false,
   "slug": "meriggio",
   "title": "Meriggio",
+  "playtest": {
+    "testers": [
+      "Giacomo",
+      "Nicola",
+      "Piero",
+      "Matteo",
+      "Sebastiano"
+    ],
+    "text": {
+      "it": "L’avventura l’ha provata un gruppo che gioca insieme a D&D da anni e ama il fantasy. A Meriggio hanno trovato quello che cercavano: un’atmosfera un po’ irriverente ed eroi improvvisati.",
+      "en": "The adventure was tested by a group that has played D&D together for years and loves fantasy. In Meriggio they found just what they were after: a slightly irreverent mood and improvised heroes."
+    }
+  },
   "image": "/img/meriggio/card.webp",
   "imageAlt": {
     "it": "La copertina di Meriggio a mosaico: sotto il titolo e un grande sole, i cinque protagonisti guardano un fiume e un villaggio di case tonde col tetto di paglia, tra colline, boschi e montagne",
@@ -17,13 +31,23 @@
     "en": "Compatible with 5th edition · setting, adventure and novel"
   },
   "tagline": {
-    "it": "Il mondo dove il sole non tramonta mai.",
-    "en": "The world where the sun never sets."
+    "it": "Un mondo fiabesco dove la gente non conosceva l'oscurità",
+    "en": "A fairytale world where people didn't know the darkness"
   },
   "short": {
-    "it": "Il mondo dove il sole non tramonta mai: una fiaba di campagna con capre rubate, giganti smemorati e qualcosa di più antico che preme da sotto. Ambientazione, avventura, bestiario e romanzo.",
-    "en": "The world where the sun never sets: a country fairy tale of stolen goats, forgetful giants and something older pressing from beneath. Setting, adventure, bestiary and novel."
+    "it": "Meriggio: una fiaba di campagna con capre rubate, giganti smemorati e qualcosa di più antico che preme da sotto. Ambientazione, avventura, bestiario e romanzo.",
+    "en": "Meriggio: a country fairy tale of stolen goats, forgetful giants and something older pressing from beneath. Setting, adventure, bestiary and novel."
   },
+  "cardMeta": {
+    "it": "compatibile 5ª edizione · livelli 1–5 · circa 10 sessioni",
+    "en": "5e compatible · levels 1–5 · about 10 sessions"
+  },
+  "cardButton": {
+    "it": "Esplora le valli soleggiate",
+    "en": "Explore the sunlit valleys"
+  },
+  "novelTitle": "I Guardiani di Primalba",
+  "novelTitleEn": "The Guardians of Primalba",
   "intro": {
     "it": [
       "A Meriggio il sole scende piano fino a sfiorare le colline, resta lì qualche ora a tingere tutto d’oro, e poi torna a salire. Nessuno ha mai visto una stella. Nessuno ha mai avuto bisogno di una candela per trovare la strada di casa.",
@@ -107,10 +131,6 @@
         "it": "PDF IT",
         "en": "PDF IT"
       },
-      "file": {
-        "it": "",
-        "en": ""
-      },
       "cover": "/img/meriggio/mo/valle.webp"
     },
     {
@@ -127,10 +147,6 @@
         "it": "PDF IT",
         "en": "PDF IT"
       },
-      "file": {
-        "it": "",
-        "en": ""
-      },
       "cover": "/img/meriggio/mo/primalba.webp"
     },
     {
@@ -146,10 +162,6 @@
       "action": {
         "it": "PDF IT",
         "en": "PDF IT"
-      },
-      "file": {
-        "it": "",
-        "en": ""
       },
       "cover": "/img/meriggio/mo/fossa-del-latrato.webp"
     },
@@ -266,6 +278,66 @@
       }
     ]
   },
+  "novel": {
+    "kicker": {
+      "it": "Romanzo a puntate · gratis",
+      "en": "Serial novel · free"
+    },
+    "text": {
+      "it": "I Guardiani di Primalba raccontati come romanzo a puntate, pubblicato un capitolo alla volta. Il prologo lo narra Olmo Cavo, l’albero più vecchio del Bosco Torto.",
+      "en": "The Guardians of Primalba told as a serial novel, published one chapter at a time. The prologue is narrated by Olmo Cavo, the oldest tree in the Crooked Wood."
+    }
+  },
+  "landscapes": {
+    "title": {
+      "it": "Cartoline dalla valle",
+      "en": "Postcards from the valley"
+    },
+    "list": [
+      {
+        "image": "/img/meriggio/mo/sassaiolo.webp",
+        "caption": {
+          "it": "Il Sassaiolo, il fiume dei mercanti",
+          "en": "The Sassaiolo, the merchants’ river"
+        }
+      },
+      {
+        "image": "/img/meriggio/mo/forra-delle-lucciole.webp",
+        "caption": {
+          "it": "La Forra delle Lucciole, dove vivono gli spiritelli",
+          "en": "Firefly Gorge, home of the spiritelli"
+        }
+      },
+      {
+        "image": "/img/meriggio/mo/monte-fumalto.webp",
+        "caption": {
+          "it": "Il Monte Fumalto, dove arde la Prima Brace",
+          "en": "Mount Fumalto, where the First Ember burns"
+        }
+      },
+      {
+        "image": "/img/meriggio/mo/bosco-delle-voci.webp",
+        "caption": {
+          "it": "Il Bosco delle Voci, dove si radunano gli arborei",
+          "en": "The Wood of Voices, where the arborei gather"
+        }
+      },
+      {
+        "image": "/img/meriggio/mo/locanda-del-boccale.webp",
+        "caption": {
+          "it": "La Locanda del Boccale, a Primalba",
+          "en": "The Tankard Inn, in Primalba"
+        }
+      },
+      {
+        "image": "/img/meriggio/mo/torre-della-gigantessa.webp",
+        "caption": {
+          "it": "La Torre della Gigantessa, dove abita Madama",
+          "en": "The Giantess’s Tower, where Madama lives"
+        }
+      }
+    ]
+  },
   "peoples": {
     "title": {
       "it": "Le dieci stirpi",
@@ -285,7 +357,8 @@
           "it": "circa 30.000 · casali della pianura",
           "en": "about 30,000 · lowland farmsteads"
         },
-        "image": "/img/meriggio/mo/terragni.webp"
+        "image": "/img/meriggio/mo/terragni.webp",
+        "rare": false
       },
       {
         "name": {
@@ -300,7 +373,8 @@
           "it": "circa 3.000 · Colline Rosse, in carovana",
           "en": "about 3,000 · Red Hills, in caravans"
         },
-        "image": "/img/meriggio/mo/braciari.webp"
+        "image": "/img/meriggio/mo/braciari.webp",
+        "rare": false
       },
       {
         "name": {
@@ -315,7 +389,8 @@
           "it": "circa 10.000 · fiumi e lagune",
           "en": "about 10,000 · rivers and lagoons"
         },
-        "image": "/img/meriggio/mo/salmastri.webp"
+        "image": "/img/meriggio/mo/salmastri.webp",
+        "rare": false
       },
       {
         "name": {
@@ -330,7 +405,8 @@
           "it": "circa 20.000 · boschi",
           "en": "about 20,000 · woods"
         },
-        "image": "/img/meriggio/mo/radicati.webp"
+        "image": "/img/meriggio/mo/radicati.webp",
+        "rare": false
       },
       {
         "name": {
@@ -345,7 +421,8 @@
           "it": "40.000 o 50.000, dipende dal giorno · tane sotto le colline",
           "en": "40,000 or 50,000, depending on the day · burrows under the hills"
         },
-        "image": "/img/meriggio/mo/grufoli.webp"
+        "image": "/img/meriggio/mo/grufoli.webp",
+        "rare": false
       },
       {
         "name": {
@@ -437,6 +514,15 @@
     "title": {
       "it": "Atlante",
       "en": "Atlas"
+    },
+    "note": {
+      "it": "Tocca un luogo sulla mappa per aprirne la scheda.",
+      "en": "Tap a place on the map to open its card."
+    },
+    "map": "/img/meriggio/mo/mappa.webp",
+    "mapAlt": {
+      "it": "La mappa di Meriggio a mosaico, con i nomi: al centro la Piana di Spigadoro e il Catino dove si incontrano i fiumi, a ovest le Colline Rosse e il Monte Fumalto, a sud-ovest Primalba e la Valle dei Rovi, a est Selvamaggiore e le Spalle, tutt’intorno i Monti Senzafine",
+      "en": "The mosaic map of Meriggio, with names: in the centre the Spigadoro Plain and the Basin where the rivers meet, to the west the Red Hills and Mount Fumalto, to the south-west Primalba and the Bramble Vale, to the east Selvamaggiore and the Shoulders, all around the Endless Mountains"
     },
     "list": [
       {
@@ -575,11 +661,6 @@
         "zoom": 1
       }
     ],
-    "map": "/img/meriggio/mo/mappa.webp",
-    "mapAlt": {
-      "it": "La mappa di Meriggio a mosaico, con i nomi: al centro la Piana di Spigadoro e il Catino dove si incontrano i fiumi, a ovest le Colline Rosse e il Monte Fumalto, a sud-ovest Primalba e la Valle dei Rovi, a est Selvamaggiore e le Spalle, tutt’intorno i Monti Senzafine",
-      "en": "The mosaic map of Meriggio, with names: in the centre the Spigadoro Plain and the Basin where the rivers meet, to the west the Red Hills and Mount Fumalto, to the south-west Primalba and the Bramble Vale, to the east Selvamaggiore and the Shoulders, all around the Endless Mountains"
-    },
     "places": [
       {
         "name": "Primalba",
@@ -889,11 +970,7 @@
           "en": "A cave at the edge of the world, with a pool that never ripples. The sembianti gather there once every harvest."
         }
       }
-    ],
-    "note": {
-      "it": "Tocca un luogo sulla mappa per aprirne la scheda.",
-      "en": "Tap a place on the map to open its card."
-    }
+    ]
   },
   "quote": {
     "text": {
@@ -939,89 +1016,5 @@
   "licence": {
     "it": "Meriggio è un’ambientazione non ufficiale ispirata al piano di Lorwyn di Magic: The Gathering. Nomi, luoghi, testi e illustrazioni sono stati riscritti da Dreamspace, e l’avventura è originale. Meriggio is unofficial Fan Content permitted under the Fan Content Policy. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC. This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC, licensed under the Creative Commons Attribution 4.0 International License (creativecommons.org/licenses/by/4.0).",
     "en": "Meriggio is an unofficial setting inspired by the plane of Lorwyn from Magic: The Gathering. Names, places, texts and illustrations have been rewritten by Dreamspace, and the adventure is original. Meriggio is unofficial Fan Content permitted under the Fan Content Policy. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC. This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC, licensed under the Creative Commons Attribution 4.0 International License (creativecommons.org/licenses/by/4.0)."
-  },
-  "cardMeta": {
-    "it": "compatibile 5ª edizione · livelli 1–5 · circa 10 sessioni",
-    "en": "5e compatible · levels 1–5 · about 10 sessions"
-  },
-  "novelTitle": "I Guardiani di Primalba",
-  "cardButton": {
-    "it": "Esplora le valli soleggiate",
-    "en": "Explore the sunlit valleys"
-  },
-  "novelTitleEn": "The Guardians of Primalba",
-  "landscapes": {
-    "title": {
-      "it": "Cartoline dalla valle",
-      "en": "Postcards from the valley"
-    },
-    "list": [
-      {
-        "image": "/img/meriggio/mo/sassaiolo.webp",
-        "caption": {
-          "it": "Il Sassaiolo, il fiume dei mercanti",
-          "en": "The Sassaiolo, the merchants’ river"
-        }
-      },
-      {
-        "image": "/img/meriggio/mo/forra-delle-lucciole.webp",
-        "caption": {
-          "it": "La Forra delle Lucciole, dove vivono gli spiritelli",
-          "en": "Firefly Gorge, home of the spiritelli"
-        }
-      },
-      {
-        "image": "/img/meriggio/mo/monte-fumalto.webp",
-        "caption": {
-          "it": "Il Monte Fumalto, dove arde la Prima Brace",
-          "en": "Mount Fumalto, where the First Ember burns"
-        }
-      },
-      {
-        "image": "/img/meriggio/mo/bosco-delle-voci.webp",
-        "caption": {
-          "it": "Il Bosco delle Voci, dove si radunano gli arborei",
-          "en": "The Wood of Voices, where the arborei gather"
-        }
-      },
-      {
-        "image": "/img/meriggio/mo/locanda-del-boccale.webp",
-        "caption": {
-          "it": "La Locanda del Boccale, a Primalba",
-          "en": "The Tankard Inn, in Primalba"
-        }
-      },
-      {
-        "image": "/img/meriggio/mo/torre-della-gigantessa.webp",
-        "caption": {
-          "it": "La Torre della Gigantessa, dove abita Madama",
-          "en": "The Giantess’s Tower, where Madama lives"
-        }
-      }
-    ]
-  },
-  "novel": {
-    "kicker": {
-      "it": "Romanzo a puntate · gratis",
-      "en": "Serial novel · free"
-    },
-    "text": {
-      "it": "I Guardiani di Primalba raccontati come romanzo a puntate, pubblicato un capitolo alla volta. Il prologo lo narra Olmo Cavo, l’albero più vecchio del Bosco Torto.",
-      "en": "The Guardians of Primalba told as a serial novel, published one chapter at a time. The prologue is narrated by Olmo Cavo, the oldest tree in the Crooked Wood."
-    }
-  },
-  "playtest": {
-    "testers": [
-      "Giacomo",
-      "Nicola",
-      "Piero",
-      "Matteo",
-      "Sebastiano"
-    ],
-    "text": {
-      "it": "L’avventura l’ha provata un gruppo che gioca insieme a D&D da anni e ama il fantasy. A Meriggio hanno trovato quello che cercavano: un’atmosfera un po’ irriverente ed eroi improvvisati.",
-      "en": "The adventure was tested by a group that has played D&D together for years and loves fantasy. In Meriggio they found just what they were after: a slightly irreverent mood and improvised heroes."
-    },
-    "moments": []
   }
 }
