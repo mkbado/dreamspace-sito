@@ -3,6 +3,7 @@
 import Base from '../layouts/Base.astro';
 import Quotes from './Quotes.astro';
 import Playtest from './Playtest.astro';
+import MosaicFX from './MosaicFX.astro';
 import { t, sections, type Lang } from '../i18n/ui';
 import { site, tl, type Setting, novelFor, chapterOut, chapterOnline, chapterWindow } from '../data/catalog';
 import { chapterPath, novelPath } from '../data/paths';
@@ -20,8 +21,10 @@ const outCount = chapters.filter((c) => chapterOut(c, lang)).length;
 const firstOut = chapters.find((c) => chapterOut(c, lang));
 const nextIdx = chapters.findIndex((c) => !chapterOut(c, lang));
 const win = chapterWindow(chapters, lang);
+const places = s.atlas.places ?? [];
 ---
 <Base lang={lang} title={s.title} description={s.short[lang]} altPath={altPath} bodyClass="skin-fiaba" extraFonts>
+  <MosaicFX />
   <!-- Copertina -->
   <section class="fb-cover">
     <div class="container" style="padding-top: 22px;">
@@ -226,26 +229,110 @@ const win = chapterWindow(chapters, lang);
     </div>
   </section>
 
-  <!-- Atlante -->
-  <section class="container stack" style="padding-block: 88px; gap: 24px;">
+  <!-- Atlante: mappa che segue lo scorrimento, luoghi cliccabili -->
+  <section id="atlante" class="mo-atlas container" data-atlas>
     <div class="fb-head">
       <p class="fb-kicker">{L('Per sentieri e colline', 'Along paths and hills')}</p>
       <h2 class="fb-h2">{s.atlas.title[lang]}</h2>
+      {s.atlas.note && <p class="fb-body">{s.atlas.note[lang]}</p>}
     </div>
-    {s.atlas.map && (
-      <figure class="mo-map">
-        <img src={s.atlas.map} alt={s.atlas.mapAlt?.[lang] ?? ''} loading="lazy" width="1600" height="1248" />
-      </figure>
-    )}
-    <ul class="fb-atlas mg-atlas">
-      {s.atlas.list.map((a) => (
-        <li class={a.image ? 'has-img' : undefined}>
-          {a.image && <img src={a.image} alt="" loading="lazy" width="640" height="640" />}
-          <span class="fb-label">{a.dir[lang]}</span><strong>{a.name}</strong><span>{a.text[lang]}</span>
-        </li>
-      ))}
-    </ul>
+    <div class="mo-atlas__grid">
+      <div class="mo-atlas__stage">
+        <div class="mo-atlas__frame">
+          <div class="mo-atlas__view">
+            <div class="mo-atlas__map" data-map>
+              {s.atlas.map && <img src={s.atlas.map} alt={s.atlas.mapAlt?.[lang] ?? ''} loading="lazy" width="1800" height="1403" />}
+              {places.map((pl, i) => (
+                <button type="button" class="mo-spot" style={`left:${pl.x}%;top:${pl.y}%`} data-place={i} data-region={pl.region} aria-label={pl.name}><span aria-hidden="true"></span></button>
+              ))}
+            </div>
+          </div>
+          <article class="mo-card" data-card hidden aria-live="polite">
+            <img data-card-img src="" alt="" width="640" height="640" />
+            <div class="mo-card__body">
+              <p class="fb-label" data-card-region></p>
+              <h3 data-card-name></h3>
+              <p data-card-text></p>
+            </div>
+            <button type="button" class="mo-card__close" data-card-close aria-label={L('Chiudi la scheda', 'Close the card')}>×</button>
+          </article>
+        </div>
+        <button type="button" class="mo-atlas__all" data-all>{L('Tutta la mappa', 'Whole map')}</button>
+      </div>
+      <ol class="mo-atlas__regions">
+        {s.atlas.list.map((r, ri) => (
+          <li class="mo-region" data-region-item={ri} data-x={r.x ?? 50} data-y={r.y ?? 50} data-zoom={r.zoom ?? 1}>
+            {r.image && <img class="mo-region__img" src={r.image} alt="" loading="lazy" width="640" height="640" />}
+            <div class="mo-region__body">
+              <span class="fb-label">{r.dir[lang]}</span>
+              <h3>{r.name}</h3>
+              <p>{r.text[lang]}</p>
+              {places.some((pl) => pl.region === ri) && (
+                <ul class="mo-chips">
+                  {places.map((pl, i) => pl.region === ri && <li><button type="button" data-place={i}>{pl.name}</button></li>)}
+                </ul>
+              )}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+    <script type="application/json" data-places set:html={JSON.stringify(places.map((pl) => ({ n: pl.name, r: s.atlas.list[pl.region]?.name ?? '', i: pl.image ?? '', t: pl.text[lang], x: pl.x, y: pl.y })))}></script>
   </section>
+  <script>
+    document.querySelectorAll<HTMLElement>('[data-atlas]').forEach((root) => {
+      const map = root.querySelector<HTMLElement>('[data-map]')!;
+      const card = root.querySelector<HTMLElement>('[data-card]')!;
+      const data = JSON.parse(root.querySelector('[data-places]')!.textContent || '[]');
+      const spots = [...root.querySelectorAll<HTMLElement>('.mo-spot')];
+      const regions = [...root.querySelectorAll<HTMLElement>('[data-region-item]')];
+      let lastFocus: HTMLElement | null = null;
+      let active = -1;
+      const go = (x: number, y: number, z: number) => {
+        const cl = (v: number) => Math.min(0, Math.max(100 - 100 * z, v));
+        map.style.setProperty('--z', String(z));
+        map.style.transform = `translate(${cl(50 - x * z)}%, ${cl(50 - y * z)}%) scale(${z})`;
+      };
+      const setRegion = (i: number) => {
+        if (i === active) return;
+        active = i;
+        regions.forEach((r, k) => r.classList.toggle('is-active', k === i));
+        spots.forEach((s) => s.classList.toggle('is-region', Number(s.dataset.region) === i));
+        if (i < 0) return go(50, 50, 1);
+        const r = regions[i];
+        go(Number(r.dataset.x), Number(r.dataset.y), Number(r.dataset.zoom));
+      };
+      const open = (i: number, from: HTMLElement) => {
+        const p = data[i]; if (!p) return;
+        lastFocus = from;
+        (card.querySelector('[data-card-img]') as HTMLImageElement).src = p.i;
+        card.querySelector('[data-card-region]')!.textContent = p.r;
+        card.querySelector('[data-card-name]')!.textContent = p.n;
+        card.querySelector('[data-card-text]')!.textContent = p.t;
+        card.hidden = false;
+        spots.forEach((s) => s.classList.toggle('is-open', Number(s.dataset.place) === i));
+        const z = Math.max(2.2, Number(map.style.getPropertyValue('--z')) || 1);
+        go(p.x, p.y + 8, z);
+        if (from.closest('.mo-chips') && window.matchMedia('(max-width: 900px)').matches) root.querySelector('.mo-atlas__stage')!.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        (card.querySelector('[data-card-close]') as HTMLElement).focus({ preventScroll: true });
+      };
+      const close = () => {
+        if (card.hidden) return;
+        card.hidden = true;
+        spots.forEach((s) => s.classList.remove('is-open'));
+        lastFocus?.focus({ preventScroll: true });
+      };
+      root.querySelectorAll<HTMLElement>('[data-place]').forEach((b) => b.addEventListener('click', () => open(Number(b.dataset.place), b)));
+      card.querySelector('[data-card-close]')!.addEventListener('click', close);
+      root.addEventListener('keydown', (e) => { if ((e as KeyboardEvent).key === 'Escape') close(); });
+      root.querySelector('[data-all]')!.addEventListener('click', () => { close(); active = -2; setRegion(-1); });
+      const io = new IntersectionObserver((es) => {
+        es.forEach((e) => { if (e.isIntersecting) setRegion(Number((e.target as HTMLElement).dataset.regionItem)); });
+      }, { rootMargin: '-45% 0px -45% 0px' });
+      regions.forEach((r) => io.observe(r));
+      go(50, 50, 1);
+    });
+  </script>
 
   <Playtest lang={lang} p={s.playtest} skin="fiaba" />
   <Quotes lang={lang} quotes={s.quotes} skin="fiaba" />

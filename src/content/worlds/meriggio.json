@@ -449,7 +449,10 @@
           "it": "Terra di terragni, di siepi e di capre. Qui comincia l’avventura.",
           "en": "Land of terragni, hedges and goats. The adventure starts here."
         },
-        "image": "/img/meriggio/mo/valle-dei-rovi.webp"
+        "image": "/img/meriggio/mo/valle-dei-rovi.webp",
+        "x": 27,
+        "y": 68,
+        "zoom": 2.1
       },
       {
         "name": "Colline Rosse e Monte Fumalto",
@@ -461,7 +464,10 @@
           "it": "Terra di braciari e di fuochi da custodire.",
           "en": "Land of braciari and fires to tend."
         },
-        "image": "/img/meriggio/mo/colline-rosse.webp"
+        "image": "/img/meriggio/mo/colline-rosse.webp",
+        "x": 23,
+        "y": 48,
+        "zoom": 2.2
       },
       {
         "name": "Valle della Scodella",
@@ -473,7 +479,10 @@
           "it": "Un tempo la terra più ricca dei terragni. Oggi quasi vuota.",
           "en": "Once the terragni’s richest land. Now almost empty."
         },
-        "image": "/img/meriggio/mo/valle-della-scodella.webp"
+        "image": "/img/meriggio/mo/valle-della-scodella.webp",
+        "x": 34,
+        "y": 36,
+        "zoom": 2
       },
       {
         "name": "Piana di Spigadoro",
@@ -485,7 +494,10 @@
           "it": "Il granaio del mondo.",
           "en": "The granary of the world."
         },
-        "image": "/img/meriggio/mo/piana-di-spigadoro.webp"
+        "image": "/img/meriggio/mo/piana-di-spigadoro.webp",
+        "x": 45,
+        "y": 54,
+        "zoom": 1.9
       },
       {
         "name": "Selvamaggiore",
@@ -497,7 +509,55 @@
           "it": "La grande foresta.",
           "en": "The great forest."
         },
-        "image": "/img/meriggio/mo/selvamaggiore.webp"
+        "image": "/img/meriggio/mo/selvamaggiore.webp",
+        "x": 60,
+        "y": 64,
+        "zoom": 2
+      },
+      {
+        "name": "Il Nord",
+        "dir": {
+          "it": "Nord",
+          "en": "North"
+        },
+        "text": {
+          "it": "Paludi, il bosco dei secolari e i casali di confine.",
+          "en": "Marshes, the wood of the secolari, the border farmsteads."
+        },
+        "image": "/img/meriggio/mo/selva-dei-secolari.webp",
+        "x": 62,
+        "y": 24,
+        "zoom": 1.9
+      },
+      {
+        "name": "L’Est",
+        "dir": {
+          "it": "Est",
+          "en": "East"
+        },
+        "text": {
+          "it": "Le montagne dei giganti e la valle degli spiritelli.",
+          "en": "The mountains of the giants and the valley of the spiritelli."
+        },
+        "image": "/img/meriggio/mo/le-spalle.webp",
+        "x": 78,
+        "y": 58,
+        "zoom": 1.9
+      },
+      {
+        "name": "Il Sud",
+        "dir": {
+          "it": "Sud",
+          "en": "South"
+        },
+        "text": {
+          "it": "Il luogo da cui le acque escono dal mondo.",
+          "en": "Where the waters flow out of the world."
+        },
+        "image": "/img/meriggio/mo/lagune.webp",
+        "x": 50,
+        "y": 80,
+        "zoom": 2
       },
       {
         "name": "Monti Senzafine",
@@ -509,13 +569,330 @@
           "it": "Chiudono il mondo da ogni lato. Quello che c’è oltre non ha un nome.",
           "en": "They close the world on every side. What lies beyond has no name."
         },
-        "image": "/img/meriggio/mo/monti-senzafine.webp"
+        "image": "/img/meriggio/mo/monti-senzafine.webp",
+        "x": 50,
+        "y": 50,
+        "zoom": 1
       }
     ],
     "map": "/img/meriggio/mo/mappa.webp",
     "mapAlt": {
-      "it": "La mappa di Meriggio a mosaico: la valle con i suoi fiumi, i boschi e i villaggi, chiusa tutt’intorno dalle montagne",
-      "en": "The map of Meriggio as a mosaic: the valley with its rivers, woods and villages, ringed by mountains"
+      "it": "La mappa di Meriggio a mosaico, con i nomi: al centro la Piana di Spigadoro e il Catino dove si incontrano i fiumi, a ovest le Colline Rosse e il Monte Fumalto, a sud-ovest Primalba e la Valle dei Rovi, a est Selvamaggiore e le Spalle, tutt’intorno i Monti Senzafine",
+      "en": "The mosaic map of Meriggio, with names: in the centre the Spigadoro Plain and the Basin where the rivers meet, to the west the Red Hills and Mount Fumalto, to the south-west Primalba and the Bramble Vale, to the east Selvamaggiore and the Shoulders, all around the Endless Mountains"
+    },
+    "places": [
+      {
+        "name": "Primalba",
+        "region": 0,
+        "image": "/img/meriggio/mo/primalba.webp",
+        "x": 25.4,
+        "y": 63.9,
+        "text": {
+          "it": "Un villaggio di cento anime, con case tonde, un pozzo, una fucina e la Locanda del Boccale. Qui comincia l’avventura.",
+          "en": "A village of a hundred souls: round houses, a well, a forge and the Tankard Inn. This is where the adventure begins."
+        }
+      },
+      {
+        "name": "Valtrifoglio",
+        "region": 0,
+        "image": "/img/meriggio/mo/valtrifoglio.webp",
+        "x": 27,
+        "y": 70.8,
+        "text": {
+          "it": "Un casale di mille abitanti tra colline di trifoglio, con staccionate bianche e il Ponte del Gigante, un arco di pietra costruito da qualcuno molto più grande.",
+          "en": "A farmstead of a thousand people among hills of clover, with white fences and the Giant’s Bridge, a stone arch built by someone far bigger."
+        }
+      },
+      {
+        "name": "Gola Rancida",
+        "region": 0,
+        "image": "/img/meriggio/mo/gola-rancida.webp",
+        "x": 22.3,
+        "y": 60.3,
+        "text": {
+          "it": "Una gola stretta che puzza di muffa, zolfo e spezie. Sotto si aprono le tane dei grufoli di Uvak Occhio Sguercio.",
+          "en": "A narrow gorge that stinks of mould, sulphur and spices. Beneath it lie the burrows of Uvak Squint-Eye’s grufoli."
+        }
+      },
+      {
+        "name": "Pietrariva",
+        "region": 0,
+        "image": "/img/meriggio/mo/sassaiolo.webp",
+        "x": 34,
+        "y": 69.6,
+        "text": {
+          "it": "Il mercato galleggiante dei salmastri sul Sassaiolo: chiatte legate insieme, lanterne di carta, pontili. Si vende di tutto.",
+          "en": "The salmastri’s floating market on the Sassaiolo: barges lashed together, paper lanterns, jetties. You can buy anything."
+        }
+      },
+      {
+        "name": "Bosco Torto",
+        "region": 0,
+        "image": "/img/meriggio/mo/bosco-torto.webp",
+        "x": 19.9,
+        "y": 72.5,
+        "text": {
+          "it": "Un bosco antico dove i sentieri cambiano posto: chi li segue gira in tondo, chi segue l’acqua arriva a destinazione.",
+          "en": "An ancient wood where the paths change places: those who follow them walk in circles, those who follow the water arrive."
+        }
+      },
+      {
+        "name": "Bosco di Crestalta",
+        "region": 0,
+        "image": "/img/meriggio/mo/bosco-di-crestalta.webp",
+        "x": 27.8,
+        "y": 80.1,
+        "text": {
+          "it": "Oltre la Lisca, più luminoso e più gentile del Bosco Torto. I terragni ci vanno a far legna, senza trattenersi troppo.",
+          "en": "Beyond the Lisca, lighter and gentler than the Crooked Wood. The terragni go there to gather firewood, quickly."
+        }
+      },
+      {
+        "name": "Monte Fumalto",
+        "region": 1,
+        "image": "/img/meriggio/mo/monte-fumalto.webp",
+        "x": 21.6,
+        "y": 43.8,
+        "text": {
+          "it": "La montagna più alta dell’ovest, scura e solcata da vecchie colate. In un cratere sulla cima arde la Prima Brace.",
+          "en": "The tallest mountain in the west, dark and scored by old lava flows. In a crater at the top burns the First Ember."
+        }
+      },
+      {
+        "name": "Brace Caduta",
+        "region": 1,
+        "image": "/img/meriggio/mo/brace-caduta.webp",
+        "x": 27.7,
+        "y": 46.5,
+        "text": {
+          "it": "Il monastero scavato nella roccia nera sopra le vene calde del monte, dove si formano i sacerdoti e i monaci della Brace.",
+          "en": "The monastery carved into the black rock above the mountain’s hot veins, where the priests and monks of the Ember are trained."
+        }
+      },
+      {
+        "name": "Torrecampana",
+        "region": 2,
+        "image": "/img/meriggio/mo/valle-della-scodella.webp",
+        "x": 23,
+        "y": 32.5,
+        "text": {
+          "it": "Il casale di Amerigo il Saldo, oggi una rovina attorno alla Torre della Campana mezza crollata. Nessuno ci mette piede.",
+          "en": "Amerigo the Steadfast’s farmstead, now a ruin around the half-collapsed Bell Tower. Nobody sets foot there."
+        }
+      },
+      {
+        "name": "Tortastrilla",
+        "region": 2,
+        "image": "/img/meriggio/mo/tortastrilla.webp",
+        "x": 27.8,
+        "y": 28.7,
+        "text": {
+          "it": "La tana dei grufoli cuochi. Alle loro feste si mangia il cibo più buono di Meriggio, e nessuno vuole sapere che cosa ci sia dentro.",
+          "en": "The burrow of the cook grufoli. Their feasts have the best food in Meriggio, and nobody wants to know what is in it."
+        }
+      },
+      {
+        "name": "Biancofusto",
+        "region": 2,
+        "image": "/img/meriggio/mo/biancofusto.webp",
+        "x": 39.2,
+        "y": 38.9,
+        "text": {
+          "it": "La città dei radicati sul Ramingo, di linfa indurita, vetro e pietra bianca. Per le sue strade si cammina parlando a voce bassa.",
+          "en": "The radicati city on the Ramingo, built of hardened sap, glass and white stone. In its streets people speak softly."
+        }
+      },
+      {
+        "name": "Selva Desta",
+        "region": 2,
+        "image": "/img/meriggio/mo/selva-desta.webp",
+        "x": 38.6,
+        "y": 45.7,
+        "text": {
+          "it": "Il bosco dai tronchi bianchi: un bosco coltivato, in cui ogni albero cresce dove gli è stato ordinato.",
+          "en": "The white-trunked wood: a cultivated wood, where every tree grows where it was told to."
+        }
+      },
+      {
+        "name": "Giuncheto",
+        "region": 2,
+        "image": "/img/meriggio/mo/giuncheto.webp",
+        "x": 46.9,
+        "y": 33.3,
+        "text": {
+          "it": "Un casale terragno tra i canneti, che vive di vimini e di pesca e commercia più con i salmastri che con gli altri casali.",
+          "en": "A terragno farmstead among the reed beds, living on wicker and fishing, and trading more with the salmastri than with other farmsteads."
+        }
+      },
+      {
+        "name": "Spigadoro",
+        "region": 3,
+        "image": "/img/meriggio/mo/spigadoro.webp",
+        "x": 52,
+        "y": 46.2,
+        "text": {
+          "it": "Un casale nel cuore della piana. Poco lontano c’è il Prato, dove a ogni raccolto i casali mandano a gareggiare il loro cavaliere migliore.",
+          "en": "A farmstead in the heart of the plain. Nearby lies the Meadow, where every harvest the farmsteads send their best rider to compete."
+        }
+      },
+      {
+        "name": "Borgoceppo",
+        "region": 3,
+        "image": "/img/meriggio/mo/borgoceppo.webp",
+        "x": 40.4,
+        "y": 59.5,
+        "text": {
+          "it": "Il casale più grande di Meriggio: cinquemila abitanti, mura, torri, ponti e un mercato che non chiude mai.",
+          "en": "The largest farmstead in Meriggio: five thousand people, walls, towers, bridges and a market that never closes."
+        }
+      },
+      {
+        "name": "Il Catino",
+        "region": 3,
+        "image": "/img/meriggio/mo/catino.webp",
+        "x": 35.3,
+        "y": 63.3,
+        "text": {
+          "it": "Dove i fiumi si incontrano, al centro del mondo: un lago tondo con in mezzo l’Isola Madreperla, dove si riuniscono i capicorrente dei salmastri.",
+          "en": "Where the rivers meet, at the centre of the world: a round lake with Mother-of-Pearl Island, where the salmastri’s current-chiefs gather."
+        }
+      },
+      {
+        "name": "Macchia delle Cince",
+        "region": 4,
+        "image": "/img/meriggio/mo/macchia-delle-cince.webp",
+        "x": 60,
+        "y": 49.7,
+        "text": {
+          "it": "Il lembo nord-occidentale della foresta, dove un branco di cacciatori radicati che cavalcano lupi ha una tenuta fortificata.",
+          "en": "The north-western fringe of the forest, where a pack of wolf-riding radicati hunters keeps a fortified lodge."
+        }
+      },
+      {
+        "name": "Bosco delle Voci",
+        "region": 4,
+        "image": "/img/meriggio/mo/bosco-delle-voci.webp",
+        "x": 57.8,
+        "y": 69.6,
+        "text": {
+          "it": "Il cuore meridionale della foresta. Gli alberi parlano tra loro, sottovoce, ed è qui che si radunano gli arborei.",
+          "en": "The southern heart of the forest. The trees talk to each other softly, and this is where the arborei gather."
+        }
+      },
+      {
+        "name": "Paludefonda",
+        "region": 5,
+        "image": "/img/meriggio/mo/paludefonda.webp",
+        "x": 47.8,
+        "y": 18.6,
+        "text": {
+          "it": "Acquitrini e alberi morti rimasti in piedi. Si dice che vi cresca una linfa capace di guarire ogni male.",
+          "en": "Bogs and dead trees still standing. They say a sap grows there that heals everything."
+        }
+      },
+      {
+        "name": "Altaradice",
+        "region": 5,
+        "image": "/img/meriggio/mo/altaradice.webp",
+        "x": 62.7,
+        "y": 26.2,
+        "text": {
+          "it": "La capitale dei radicati, nella Selva dei Secolari: palazzi cresciuti più che costruiti. I forestieri entrano solo su invito.",
+          "en": "The radicati capital, in the Wood of the Secolari: palaces grown rather than built. Strangers enter only by invitation."
+        }
+      },
+      {
+        "name": "Ferrasiepe",
+        "region": 5,
+        "image": "/img/meriggio/mo/ferrasiepe.webp",
+        "x": 77.3,
+        "y": 21.6,
+        "text": {
+          "it": "Un casale di fabbri e minatori addossato alle montagne. Sopra, sul Colle delle Schegge, si riuniscono i massari.",
+          "en": "A farmstead of smiths and miners huddled against the mountains. Above it, on Splinter Hill, the stewards meet."
+        }
+      },
+      {
+        "name": "Le Spalle",
+        "region": 6,
+        "image": "/img/meriggio/mo/le-spalle.webp",
+        "x": 71.9,
+        "y": 74.1,
+        "text": {
+          "it": "I monti dell’est, che da lontano sembrano qualcuno sdraiato su un fianco. Ci vivono gli ultimi giganti.",
+          "en": "The eastern mountains, which from far away look like someone lying on their side. The last giants live there."
+        }
+      },
+      {
+        "name": "Anfiteatro Antico",
+        "region": 6,
+        "image": "/img/meriggio/mo/anfiteatro.webp",
+        "x": 78,
+        "y": 36.5,
+        "text": {
+          "it": "Una conca di gradinate di pietra a misura di gigante. Nessuno sa a quali spettacoli servisse.",
+          "en": "A hollow of stone tiers built to giant size. Nobody knows what was once watched there."
+        }
+      },
+      {
+        "name": "Saltarospo",
+        "region": 6,
+        "image": "/img/meriggio/mo/saltarospo.webp",
+        "x": 80,
+        "y": 46.7,
+        "text": {
+          "it": "La tana dei grufoli più lunatici: ridono e piangono nella stessa frase.",
+          "en": "The burrow of the moodiest grufoli: they laugh and cry in the same sentence."
+        }
+      },
+      {
+        "name": "Fangobotto",
+        "region": 6,
+        "image": "/img/meriggio/mo/fangobotto.webp",
+        "x": 73.4,
+        "y": 69.2,
+        "text": {
+          "it": "La tana più rumorosa e festaiola. Da qui vengono i Tana 41.",
+          "en": "The noisiest, most festive burrow. Burrow 41 come from here."
+        }
+      },
+      {
+        "name": "Forra delle Lucciole",
+        "region": 6,
+        "image": "/img/meriggio/mo/forra-delle-lucciole.webp",
+        "x": 87,
+        "y": 61.3,
+        "text": {
+          "it": "Una valletta chiusa tra i monti, con un laghetto: la casa degli spiritelli.",
+          "en": "A small valley shut in among the mountains, with a little lake: the home of the spiritelli."
+        }
+      },
+      {
+        "name": "Fossa del Latrato",
+        "region": 7,
+        "image": "/img/meriggio/mo/fossa-del-latrato.webp",
+        "x": 53.1,
+        "y": 83.3,
+        "text": {
+          "it": "Una conca selvaggia tra il Lucente e le montagne. Nelle ore basse si sentono ululare bestie che nessuno ha mai visto bene.",
+          "en": "A wild hollow between the Lucente and the mountains. In the low hours you hear beasts howling that nobody has ever seen clearly."
+        }
+      },
+      {
+        "name": "Acquaferma",
+        "region": 7,
+        "image": "/img/meriggio/mo/acquaferma.webp",
+        "x": 45.4,
+        "y": 85.4,
+        "text": {
+          "it": "Una caverna al limite del mondo, con uno stagno che non si increspa mai. I sembianti vi si riuniscono una volta per raccolto.",
+          "en": "A cave at the edge of the world, with a pool that never ripples. The sembianti gather there once every harvest."
+        }
+      }
+    ],
+    "note": {
+      "it": "Tocca un luogo sulla mappa per aprirne la scheda.",
+      "en": "Tap a place on the map to open its card."
     }
   },
   "quote": {

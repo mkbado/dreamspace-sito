@@ -145,7 +145,7 @@ export interface Setting {
   landscapes?: { title: L<string>; list: { image: string; caption: L<string> }[] };
   heroes: { title: L<string>; note: L<string>; list: { name: string; role: L<string>; image: string; alt: L<string>; bio: L<string> }[] };
   peoples: { title: L<string>; list: { name: L<string>; text: L<string>; where: L<string>; image?: string; rare?: boolean }[]; more: L<string> };
-  atlas: { title: L<string>; map?: string; mapAlt?: L<string>; list: { name: string; dir: L<string>; text: L<string>; image?: string }[] };
+  atlas: { title: L<string>; note?: L<string>; map?: string; mapAlt?: L<string>; list: { name: string; dir: L<string>; text: L<string>; image?: string; x?: number; y?: number; zoom?: number }[]; places?: { name: string; region: number; image?: string; x: number; y: number; text: L<string> }[] };
   quote: { text: L<string>; who: L<string> };
   bestiary: { title: L<string>; text: L<string>; names: string[]; image?: string; imageAlt?: L<string> };
   licence: L<string>;

@@ -2049,6 +2049,16 @@ content:
       - name: en
         label: English
         type: string
+    - name: note
+      label: Nota sotto la mappa
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
     - name: map
       label: Mappa
       type: image
@@ -2065,7 +2075,7 @@ content:
         label: English
         type: string
     - name: list
-      label: Luoghi
+      label: Regioni
       type: object
       fields:
       - name: name
@@ -2096,6 +2106,50 @@ content:
         type: image
         options:
           media: images
+      - name: x
+        label: "Centro sulla mappa: x %"
+        type: number
+      - name: y
+        label: "Centro sulla mappa: y %"
+        type: number
+      - name: zoom
+        label: Ingrandimento (1 = mappa intera)
+        type: number
+      list:
+        collapsible:
+          collapsed: true
+          summary: "{name}"
+    - name: places
+      label: Luoghi cliccabili sulla mappa
+      type: object
+      fields:
+      - name: name
+        label: Nome
+        type: string
+      - name: region
+        label: Regione (0 = la prima dell’elenco)
+        type: number
+      - name: image
+        label: Illustrazione
+        type: image
+        options:
+          media: images
+      - name: x
+        label: Posizione x %
+        type: number
+      - name: y
+        label: Posizione y %
+        type: number
+      - name: text
+        label: Descrizione
+        type: object
+        fields:
+        - name: it
+          label: Italiano
+          type: text
+        - name: en
+          label: English
+          type: text
       list:
         collapsible:
           collapsed: true
