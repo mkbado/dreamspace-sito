@@ -34,13 +34,13 @@
   "titleEn": "Intolerant!",
   "image": "/img/intolleranti/card.webp",
   "imageAlt": {
-    "it": "La copertina 8 bit di Intolleranti!: gli otto ospiti attorno a un tavolo rotondo con una pizza e i boccali di birra, sotto l’insegna col titolo",
-    "en": "The 8-bit cover of Intolerant!: the eight guests around a round table with a pizza and mugs of beer, under the title sign"
+    "it": "La copertina 8 bit di Intolleranti!: gli otto ospiti attorno a un tavolo pieno di cibo, ognuno alle prese con la propria intolleranza",
+    "en": "The 8-bit cover of Intolerant!: the eight guests around a table full of food, each facing their own intolerance"
   },
   "heroImage": "/img/intolleranti/copertina.webp",
   "heroAlt": {
-    "it": "Copertina di Intolleranti! in pixel art: sotto l’insegna appesa alle catene, gli otto ospiti esultano attorno a un tavolo rotondo nella taverna, con una pizza margherita al centro, boccali di birra, il camino acceso e le lanterne alle pareti",
-    "en": "Intolerant! cover in pixel art: under the sign hanging from chains, the eight guests cheer around a round table in the tavern, with a margherita pizza in the middle, mugs of beer, a lit fireplace and lanterns on the walls"
+    "it": "Copertina di Intolleranti! in pixel art: sotto l’insegna «Riuscirete a tornare a casa dall’osteria sani e salvi?» gli otto ospiti siedono attorno a un tavolo pieno di cibo e ognuno fa i conti con la propria intolleranza: l’orco rifiuta la bistecca, l’elfa la pizza, il nano guarda sospettoso il formaggio, il vampiro beve acqua dal calice, il golem il suo frullato proteico, la sirena si spaventa davanti al pesce fritto, la fatina si misura la glicemia accanto alla torta e la goblin fissa un uovo",
+    "en": "Intolerant! cover in pixel art: under the sign “Can you make it home from the tavern in one piece?” the eight guests sit around a table full of food, each facing their own intolerance: the orc turns down the steak, the elf the pizza, the dwarf eyes the cheese warily, the vampire sips water from his goblet, the golem drinks his protein shake, the mermaid recoils from the fried fish, the fairy checks her blood sugar next to the cake and the goblin stares at an egg"
   },
   "heroPortrait": false,
   "heroSquare": true,
@@ -53,15 +53,15 @@
     "en": "In development"
   },
   "players": "2–8",
-  "minutes": "20–40",
-  "age": "10+",
+  "minutes": "30–60",
+  "age": "12+",
   "short": {
     "it": "Otto ospiti fantasy, otto intolleranze e un’agenda piena di cene. Vince chi sa quando dire basta… e chi convince gli altri a ordinare il fritto misto.",
     "en": "Eight fantasy guests, eight intolerances and a calendar full of dinners. The winner knows when to say enough… and talks everyone else into the fried platter."
   },
   "pitch": {
-    "it": "Sei pronto ad interpretare un orco vegetariano, un vampiro astemio o una fatina diabetica? Poco importa chi tu sia, quello che importa è che dovrai affrontare uscite in taverna troppo pericolose per te!, Ogni sera fuori vale punti, ma ogni portata può essere quella di troppo. Torna a casa e incassi, o resti fuori e rischi il tuo bottino? E intanto invita gli amici a soffrire con te, li saboti al momento opportuno e speri che nessuno ti tiri il pacco!",
-    "en": "Are you ready to play a vegetarian orc, a teetotal vampire, or a diabetic fairy? It doesn't matter who you are, what matters is that you will have to face tavern outings that are too dangerous for you!, Every night out is worth points, but every course can be the final one. Do you go home and cash in, or do you stay out and risk your loot? And in the meantime, invite your friends to suffer with you, sabotage them at the right time, and hope no one bails on you!"
+    "it": "Sei pronto ad interpretare un orco vegetariano, un vampiro astemio o una fatina diabetica? Poco importa chi tu sia, quello che importa è che dovrai affrontare uscite in taverna troppo pericolose per te! Ogni sera fuori vale punti, ma ogni portata può essere quella di troppo. Torna a casa e incassi, o resti fuori e rischi il tuo bottino? E intanto invita gli amici a soffrire con te, li saboti al momento opportuno e speri che nessuno ti tiri il pacco!",
+    "en": "Are you ready to play a vegetarian orc, a teetotal vampire, or a diabetic fairy? It doesn't matter who you are, what matters is that you will have to face tavern outings that are too dangerous for you! Every night out is worth points, but every course can be the final one. Do you go home and cash in, or do you stay out and risk your loot? And in the meantime, invite your friends to suffer with you, sabotage them at the right time, and hope no one bails on you!"
   },
   "waiting": "[N]",
   "waitingWho": {
@@ -115,8 +115,8 @@
           "en": "Up to 8 diners, including dessert and drinks"
         },
         "text": {
-          "it": "Si spiega in cinque minuti, si gioca in venti. Perfetto a fine cena, mentre qualcuno ancora chiede se il tiramisù ha le uova.",
-          "en": "Five minutes to explain, twenty to play. Perfect after a real dinner, while someone is still asking if the tiramisù has eggs."
+          "it": "Si spiega in cinque minuti, si gioca in un’oretta. Perfetto a fine cena, mentre qualcuno ancora chiede se il tiramisù ha le uova.",
+          "en": "Five minutes to explain, about an hour to play. Perfect after a real dinner, while someone is still asking if the tiramisù has eggs."
         }
       }
     ]
