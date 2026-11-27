@@ -1637,3 +1637,166 @@ body:not(.skin-fiaba) .nv--fiaba { --c-bg: #16261d; --c-fg: #f3ead2; --c-soft: #
 body:not(.skin-fiaba) .nv--fiaba .nv__title { color: #f5c14b; }
 body:not(.skin-noir):not(.skin-fiaba) .nv-toc__i { background: var(--night-2); color: var(--cream) !important; border-color: var(--line); }
 body:not(.skin-noir):not(.skin-fiaba) .nv-toc__i small { color: var(--soft); }
+
+/* ============================================================
+   Meriggio a mosaico: tessere d'ocra, verde petrolio e oro.
+   Sostituisce lo stile pixel di skin-fiaba (Meriggio e il suo romanzo).
+   ============================================================ */
+.skin-fiaba {
+  --mo-grout: #1b1812; --mo-teal: #1d3a37; --mo-teal-2: #26504a; --mo-ochre: #d18629; --mo-amber: #e8a23a; --mo-sun: #f3c04f;
+  --mo-cream: #f3e3bd; --mo-parch: #ead19b; --mo-rust: #a4461f; --mo-olive: #56652c; --mo-ink: #2a1d10; --mo-ink-2: #4e3a22;
+  --mo-tiles: linear-gradient(rgba(0, 0, 0, .16) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, .16) 1px, transparent 1px);
+  --mo-frieze: repeating-linear-gradient(90deg, var(--mo-amber) 0 9px, var(--mo-grout) 9px 11px, var(--mo-teal-2) 11px 20px, var(--mo-grout) 20px 22px);
+  --fb-title: 'Cinzel', Georgia, serif; --fb-caps: 'Cinzel', Georgia, serif; --fb-text: 'EB Garamond', 'Spectral', Georgia, serif;
+  --fb-ink: var(--mo-cream); --fb-ink-2: #e2d2ac; --fb-gold: var(--mo-amber); --fb-sun: var(--mo-sun); --fb-leaf: var(--mo-amber); --fb-line: var(--mo-grout);
+  background-color: var(--mo-teal); background-image: var(--mo-tiles); background-size: 13px 13px; color: var(--mo-cream); font-family: var(--fb-text);
+}
+.skin-fiaba, .skin-fiaba * { cursor: auto; }
+.skin-fiaba a, .skin-fiaba a *, .skin-fiaba button, .skin-fiaba button *, .skin-fiaba label, .skin-fiaba summary { cursor: pointer; }
+.skin-fiaba img { image-rendering: auto; }
+.skin-fiaba ::selection { background: var(--mo-sun); color: var(--mo-ink); }
+
+/* testata e piè di pagina */
+.skin-fiaba .site-header { background: #142a27; border-bottom: 0; box-shadow: none; }
+.skin-fiaba .site-header::after { content: ''; display: block; height: 10px; background: var(--mo-frieze); border-block: 2px solid var(--mo-grout); }
+.skin-fiaba .nav a { color: var(--mo-cream); font-family: 'Cinzel', Georgia, serif; font-size: 14px; letter-spacing: .06em; text-transform: none; }
+.skin-fiaba .nav a:hover, .skin-fiaba .nav > a[aria-current="page"], .skin-fiaba .lang a[aria-current] { color: var(--mo-sun); }
+.skin-fiaba .site-footer { background-color: #142a27; background-image: var(--mo-tiles); background-size: 13px 13px; }
+.skin-fiaba .site-footer::before { content: ''; display: block; height: 10px; margin-top: 0; background: var(--mo-frieze); border-block: 2px solid var(--mo-grout); }
+
+/* tipografia */
+.skin-fiaba .fb-kicker { font-family: var(--fb-text); font-style: italic; font-size: 20px; text-transform: none; letter-spacing: 0; color: var(--mo-sun); }
+.skin-fiaba .fb-label { font-family: 'Cinzel', Georgia, serif; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--mo-amber); }
+.skin-fiaba .fb-h2 { font-family: 'Cinzel', Georgia, serif; font-weight: 700; letter-spacing: .04em; color: var(--mo-cream); text-shadow: 0 3px 0 var(--mo-grout); }
+.skin-fiaba .fb-tagline { font-family: 'Cinzel', Georgia, serif; font-weight: 700; color: var(--mo-cream); text-shadow: 0 3px 0 var(--mo-grout); }
+.skin-fiaba .fb-lead { font-family: var(--fb-text); font-size: 24px; color: var(--mo-cream); }
+.skin-fiaba .fb-body { font-family: var(--fb-text); font-size: 20px; color: #e2d2ac; }
+.skin-fiaba .fb-dropcap::first-letter { font-family: 'Cinzel', Georgia, serif; color: var(--mo-sun); text-shadow: 0 3px 0 var(--mo-grout); }
+.skin-fiaba .fb-crumbs, .skin-fiaba .fb-crumbs a { color: #d9c79c !important; font-family: var(--fb-text); }
+.skin-fiaba .fb-small, .skin-fiaba .fb-small a { color: #bfae86 !important; }
+.skin-fiaba .fb-hero-card h3, .skin-fiaba .mg-people__body strong, .skin-fiaba .fb-book h3, .skin-fiaba .fb-atlas strong, .skin-fiaba .fb-path strong { font-family: 'Cinzel', Georgia, serif; font-weight: 700; letter-spacing: .02em; }
+.skin-fiaba .fb-quote blockquote { font-family: var(--fb-text); font-style: italic; color: var(--mo-cream); }
+.skin-fiaba .fb-quote::before { color: var(--mo-sun); }
+.skin-fiaba .fb-quote figcaption { font-family: 'Cinzel', Georgia, serif; color: var(--mo-amber); }
+
+/* pulsanti */
+.skin-fiaba .fb-btn, .skin-fiaba .fb-book__dl:not(.fb-book__dl--soon) { font-family: 'Cinzel', Georgia, serif; font-weight: 700; text-transform: none; letter-spacing: .04em; font-size: 15px; color: var(--mo-ink) !important;
+  background-color: var(--mo-sun); background-image: var(--mo-tiles); background-size: 8px 8px; border: 3px solid var(--mo-grout); box-shadow: inset 0 0 0 2px #ffe08a, 4px 4px 0 var(--mo-grout); }
+.skin-fiaba .fb-btn--ghost { background: var(--mo-cream); }
+.skin-fiaba .site-header .btn--teal { background: var(--mo-sun); color: var(--mo-ink); border: 3px solid var(--mo-grout); box-shadow: 3px 3px 0 var(--mo-grout); }
+
+/* fasce: ocra, pergamena, petrolio, sole; un fregio di tessere sopra e sotto */
+.skin-fiaba .fb-band { border-block: 0 !important; }
+.skin-fiaba .fb-band::before, .skin-fiaba .fb-band::after { content: ''; position: absolute; left: 0; right: 0; height: 10px; background: var(--mo-frieze); border-block: 2px solid var(--mo-grout); }
+.skin-fiaba .fb-band::before { top: 0; } .skin-fiaba .fb-band::after { bottom: 0; }
+.skin-fiaba .fb-band--meadow, .skin-fiaba .fb-band--sun { background-color: var(--mo-ochre); background-image: var(--mo-tiles); background-size: 13px 13px; }
+.skin-fiaba .fb-band--sun { background-color: var(--mo-amber); }
+.skin-fiaba .fb-band--parchment { background-color: var(--mo-parch); background-image: var(--mo-tiles); background-size: 13px 13px; }
+.skin-fiaba .fb-band--dusk { background-color: #6e2f18; background-image: var(--mo-tiles); background-size: 13px 13px; }
+.skin-fiaba .fb-band--forest { background-color: #12241f; background-image: var(--mo-tiles); background-size: 13px 13px; }
+:is(.skin-fiaba .fb-band--meadow, .skin-fiaba .fb-band--parchment, .skin-fiaba .fb-band--sun) { --fb-ink: var(--mo-ink); --fb-ink-2: var(--mo-ink-2); color: var(--mo-ink); }
+:is(.skin-fiaba .fb-band--meadow, .skin-fiaba .fb-band--parchment, .skin-fiaba .fb-band--sun) .fb-h2 { color: var(--mo-ink); text-shadow: 0 2px 0 rgba(255, 240, 200, .5); }
+:is(.skin-fiaba .fb-band--meadow, .skin-fiaba .fb-band--parchment, .skin-fiaba .fb-band--sun) .fb-kicker { color: #5a1f0c; }
+:is(.skin-fiaba .fb-band--meadow, .skin-fiaba .fb-band--parchment, .skin-fiaba .fb-band--sun) > .container > .fb-head .fb-body,
+:is(.skin-fiaba .fb-band--meadow, .skin-fiaba .fb-band--parchment, .skin-fiaba .fb-band--sun) > .container > .fb-body { color: var(--mo-ink-2); }
+.skin-fiaba .fb-band--forest .fb-h2, .skin-fiaba .fb-band--dusk .fb-h2 { color: var(--mo-cream); text-shadow: 0 3px 0 var(--mo-grout); }
+
+/* pannelli a mosaico: pergamena, cornice scura e filo d'oro */
+.skin-fiaba :is(.fb-scroll, .fb-book, .fb-path, .fb-ep > a, .fb-ep > div, .fb-postcard, .mg-people, .fb-atlas li, .fb-motto) {
+  --fb-ink: var(--mo-ink); --fb-ink-2: var(--mo-ink-2);
+  background: var(--mo-cream) !important; color: var(--mo-ink) !important; border: 3px solid var(--mo-grout) !important;
+  box-shadow: inset 0 0 0 3px var(--mo-amber), inset 0 0 0 5px var(--mo-grout), 6px 6px 0 rgba(0, 0, 0, .35) !important; border-radius: 0 !important; }
+.skin-fiaba :is(.fb-scroll, .fb-book, .fb-path, .fb-ep, .fb-postcard, .mg-people, .fb-atlas li, .fb-motto) :is(p, span, dd, small, strong, h3) { color: inherit; }
+.skin-fiaba :is(.fb-scroll dt, .fb-book .fb-label, .fb-atlas .fb-label, .mg-people__body small, .fb-ep__label) { color: #8a4a17 !important; }
+.skin-fiaba :is(.fb-book p, .mg-people__body span, .fb-atlas li span:last-child, .fb-path span:last-child) { color: var(--mo-ink-2) !important; }
+.skin-fiaba .fb-scroll, .skin-fiaba .fb-motto { padding: 22px 26px; }
+.skin-fiaba .fb-motto p { font-family: var(--fb-text); font-style: italic; }
+.skin-fiaba .fb-motto footer { font-family: 'Cinzel', Georgia, serif; color: #8a4a17; }
+.skin-fiaba .fb-path { padding: 16px 20px; }
+.skin-fiaba .fb-path__icon { background: var(--mo-sun); border: 2px solid var(--mo-grout); color: var(--mo-ink); }
+
+/* immagini: cornice di fuga scura */
+.skin-fiaba :is(.mg-hero__cover, .fb-novel-cover img, .mg-beast, .mo-map) { border: 4px solid var(--mo-grout) !important; box-shadow: 0 0 0 3px var(--mo-amber), 0 0 0 6px var(--mo-grout), 0 22px 44px rgba(0, 0, 0, .45) !important; background: var(--mo-grout); }
+.skin-fiaba .mg-hero__cover { margin: 6px; }
+.skin-fiaba .fb-novel-cover { flex-basis: 340px; }
+.skin-fiaba .fb-novel-cover::after { display: none; }
+.skin-fiaba .fb-novel-cover img { border-radius: 0; }
+
+/* libri */
+.skin-fiaba .fb-book { border-left: 3px solid var(--mo-grout) !important; overflow: hidden; }
+.skin-fiaba .fb-book__cover { aspect-ratio: 4 / 3; border-bottom: 3px solid var(--mo-grout); margin: 5px 5px 0; }
+.skin-fiaba .fb-book__cover img { object-position: center; }
+.skin-fiaba .fb-book__seal { background: var(--mo-sun); color: var(--mo-ink); border: 2px solid var(--mo-grout); font-family: 'Cinzel', Georgia, serif; box-shadow: 3px 3px 0 var(--mo-grout); }
+.skin-fiaba .fb-book__body { padding: 18px 24px 26px; }
+.skin-fiaba .fb-book__dl--soon { font-family: 'Cinzel', Georgia, serif; border: 2px dashed #8a4a17; color: var(--mo-ink-2) !important; background: transparent; }
+
+/* romanzo */
+.skin-fiaba .fb-progress__bar { border: 2px solid var(--mo-grout); background: var(--mo-cream); height: 12px; }
+.skin-fiaba .fb-progress__bar i { background: var(--mo-sun) !important; }
+.skin-fiaba .fb-progress__txt { font-family: 'Cinzel', Georgia, serif; color: #e8d6ae; }
+.skin-fiaba .fb-ep__n { border: 2px solid var(--mo-grout); background: var(--mo-parch); color: var(--mo-ink); font-family: 'Cinzel', Georgia, serif; }
+.skin-fiaba .fb-ep__state { color: #8a4a17; }
+.skin-fiaba .fb-ep.is-out .fb-ep__n { background: var(--mo-sun); }
+
+/* compagnia */
+.skin-fiaba .fb-portrait { aspect-ratio: 1; max-width: 240px; border: 4px solid var(--mo-grout); outline: 0; box-shadow: 0 0 0 3px var(--mo-amber), 0 0 0 6px var(--mo-grout), 0 16px 30px rgba(0, 0, 0, .4); background: var(--mo-grout); }
+.skin-fiaba .fb-hero-card h3 { color: var(--mo-cream); font-size: 24px; margin-top: 14px; }
+.skin-fiaba .fb-hero-card .fb-label { color: var(--mo-sun); }
+.skin-fiaba .fb-hero-card .fb-body { font-size: 18px; }
+
+/* cartoline a tessere */
+.skin-fiaba .fb-mosaic { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; }
+.skin-fiaba .fb-mosaic .fb-postcard { padding: 8px 8px 12px; transform: none; }
+.skin-fiaba .fb-mosaic .fb-postcard img { aspect-ratio: 1; height: auto; }
+.skin-fiaba .fb-postcard figcaption { font-family: var(--fb-text); font-style: italic; font-size: 17px; text-transform: none; color: var(--mo-ink-2); }
+@media (max-width: 900px) { .skin-fiaba .fb-mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .skin-fiaba .fb-mosaic { grid-template-columns: 1fr; } }
+
+/* stirpi */
+.skin-fiaba .mg-people { overflow: hidden; }
+.skin-fiaba .mg-people__img { margin: 5px 5px 0; }
+.skin-fiaba .mg-people__img img { border-bottom: 3px solid var(--mo-grout); }
+.skin-fiaba .mg-people__body strong { font-size: 19px; color: var(--mo-ink) !important; }
+.skin-fiaba .mg-people__tag { background: var(--mo-rust); color: var(--mo-cream) !important; font-family: 'Cinzel', Georgia, serif; }
+.skin-fiaba .mg-people.is-rare { background: #f7e9c8 !important; }
+
+/* atlante */
+.mo-map { margin: 6px 6px 18px; }
+.mo-map img { display: block; width: 100%; height: auto; }
+.skin-fiaba .fb-atlas li { padding: 16px 18px 18px !important; }
+.skin-fiaba .fb-atlas li.has-img img { display: block; width: calc(100% + 26px); margin: -11px -13px 12px; aspect-ratio: 16 / 9; object-fit: cover; border-bottom: 3px solid var(--mo-grout); }
+.skin-fiaba .fb-atlas li.has-img { overflow: hidden; }
+.skin-fiaba .fb-atlas strong { color: var(--mo-ink); }
+
+/* bestiario e sostegno */
+.skin-fiaba .mg-beast { width: min(360px, 74vw); }
+.skin-fiaba .fb-seals span { font-family: 'Cinzel', Georgia, serif; font-size: 13px; text-transform: none; background: var(--mo-cream); color: var(--mo-ink); border: 2px solid var(--mo-grout); box-shadow: inset 0 0 0 2px var(--mo-amber), 3px 3px 0 var(--mo-grout); border-radius: 0; }
+.mo-coins { width: min(220px, 50vw); height: auto; border: 3px solid var(--mo-grout); box-shadow: 4px 4px 0 var(--mo-grout); margin-bottom: 6px; }
+
+/* dream-tester e citazioni sul fondo petrolio */
+.skin-fiaba .pt--fiaba .pt__kicker { font-family: var(--fb-text); font-style: italic; font-size: 20px; text-transform: none; color: var(--mo-sun); }
+.skin-fiaba .pt--fiaba .pt__title { font-family: 'Cinzel', Georgia, serif; font-weight: 700; color: var(--mo-cream); }
+.skin-fiaba .pt--fiaba .pt__text { font-family: var(--fb-text); font-size: 20px; color: #e2d2ac; }
+.skin-fiaba .pt--fiaba .pt__tester { font-family: 'Cinzel', Georgia, serif; text-transform: none; font-size: 14px; background: var(--mo-cream); color: var(--mo-ink); border: 2px solid var(--mo-grout); box-shadow: 3px 3px 0 var(--mo-grout); }
+.skin-fiaba .pt--fiaba .pt__tester i { font-family: 'Cinzel', Georgia, serif; }
+.skin-fiaba .pt--fiaba .pt__moments li { background: var(--mo-cream); color: var(--mo-ink); border: 3px solid var(--mo-grout); box-shadow: inset 0 0 0 3px var(--mo-amber), inset 0 0 0 5px var(--mo-grout), 6px 6px 0 rgba(0, 0, 0, .35); font-family: var(--fb-text); font-size: 19px; }
+.skin-fiaba .quotes--fiaba .quote { background: var(--mo-cream); color: var(--mo-ink); border: 3px solid var(--mo-grout); box-shadow: inset 0 0 0 3px var(--mo-amber), inset 0 0 0 5px var(--mo-grout); }
+.skin-fiaba .quotes--fiaba .quotes__kicker { color: var(--mo-sun); }
+.skin-fiaba .mo-map { max-width: 1040px; margin-inline: auto; }
+/* romanzo di Meriggio (pagina del romanzo e lettore) sul fondo a mosaico */
+.skin-fiaba .nv--fiaba { --c-fg: var(--mo-cream); --c-soft: #d9c79c; --c-line: var(--mo-amber); --c-card: var(--mo-cream); }
+.skin-fiaba .nv--fiaba .nv__title { color: var(--mo-cream); font-family: 'Cinzel', Georgia, serif; text-shadow: 0 3px 0 var(--mo-grout); }
+.skin-fiaba .nv--fiaba .nv__kicker { color: var(--mo-sun); }
+.skin-fiaba .nv--fiaba .nv__text { font-family: var(--fb-text); font-size: 20px; color: #e2d2ac; }
+.skin-fiaba .nv--fiaba .nv__cover img { aspect-ratio: 2 / 3; border-radius: 0; border: 4px solid var(--mo-grout); box-shadow: 0 0 0 3px var(--mo-amber), 0 0 0 6px var(--mo-grout), 0 18px 40px rgba(0, 0, 0, .45); }
+.skin-fiaba .nv--fiaba .nv-card { border-radius: 0; border: 2px dashed var(--mo-amber); }
+.skin-fiaba .nv--fiaba .nv-card.is-out, .skin-fiaba .nv--fiaba .nv-card.is-next { --c-fg: var(--mo-ink); --c-soft: var(--mo-ink-2); background: var(--mo-cream); color: var(--mo-ink); border: 3px solid var(--mo-grout); box-shadow: inset 0 0 0 3px var(--mo-amber), inset 0 0 0 5px var(--mo-grout), 6px 6px 0 rgba(0, 0, 0, .35); }
+.skin-fiaba .nvh__hero--fiaba img { opacity: .22; }
+.skin-fiaba .nv-crumbs, .skin-fiaba .nv-back a { font-family: var(--fb-text); font-size: 17px; color: #d9c79c; }
+.skin-fiaba .rd--fiaba { border: 3px solid var(--mo-grout); border-radius: 0; box-shadow: inset 0 0 0 3px var(--mo-amber), inset 0 0 0 5px var(--mo-grout), 0 18px 40px rgba(0, 0, 0, .4); }
+.skin-fiaba .rd--fiaba .rd__title { font-family: 'Cinzel', Georgia, serif; color: var(--mo-ink); }
+.skin-fiaba .rd--fiaba .rd__nav-i { border-radius: 0; }
+body:not(.skin-fiaba) .nv--fiaba { --c-line: #e8a23a; background: #1d3a37 linear-gradient(rgba(0, 0, 0, .16) 1px, transparent 1px) 0 0 / 13px 13px; }
+body:not(.skin-fiaba) .nv--fiaba::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 10px; background: repeating-linear-gradient(90deg, #e8a23a 0 9px, #1b1812 9px 11px, #26504a 11px 20px, #1b1812 20px 22px); border-block: 2px solid #1b1812; }
+body:not(.skin-fiaba) .nv--fiaba .nv__title { font-family: 'Cinzel', Georgia, serif; color: #f3c04f; }
+.nv--fiaba .nv__cover img { aspect-ratio: 2 / 3; border-radius: 0; border: 3px solid #1b1812; box-shadow: 0 0 0 3px #e8a23a, 0 0 0 6px #1b1812, 0 18px 40px rgba(0, 0, 0, .45); }

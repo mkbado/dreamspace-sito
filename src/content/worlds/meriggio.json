@@ -4,13 +4,13 @@
   "title": "Meriggio",
   "image": "/img/meriggio/card.webp",
   "imageAlt": {
-    "it": "La copertina di Meriggio in pixel art: il titolo nel cielo, una valle di campi, fiumi e casette dal tetto di paglia, e i cinque Guardiani di Primalba di spalle su una rupe",
-    "en": "The Meriggio cover in pixel art: the title in the sky, a valley of fields, rivers and thatched cottages, and the five Guardians of Primalba seen from behind on a cliff"
+    "it": "La copertina di Meriggio a mosaico: sotto il titolo e un grande sole, i cinque protagonisti guardano un fiume e un villaggio di case tonde col tetto di paglia, tra colline, boschi e montagne",
+    "en": "The Meriggio cover as a mosaic: beneath the title and a great sun, the five heroes look out over a river and a village of round thatched houses, among hills, woods and mountains"
   },
-  "banner": "/img/meriggio/px/copertina.webp",
+  "banner": "/img/meriggio/mo/copertina.webp",
   "bannerAlt": {
-    "it": "La copertina di Meriggio in pixel art: il titolo nel cielo, una valle di campi, fiumi e casette dal tetto di paglia, e i cinque Guardiani di Primalba di spalle su una rupe",
-    "en": "The Meriggio cover in pixel art: the title in the sky, a valley of fields, rivers and thatched cottages, and the five Guardians of Primalba seen from behind on a cliff"
+    "it": "La copertina di Meriggio a mosaico: il titolo in alto, il sole che scende dietro le montagne, una valle di campi e fiumi, case tonde col tetto di paglia e i cinque protagonisti che salgono una scalinata di pietra accanto a un ruscello",
+    "en": "The Meriggio cover as a mosaic: the title at the top, the sun sinking behind the mountains, a valley of fields and rivers, round thatched houses and the five heroes climbing stone steps beside a stream"
   },
   "tag": {
     "it": "Compatibile con la 5ª edizione · ambientazione, avventura e romanzo",
@@ -111,7 +111,7 @@
         "it": "",
         "en": ""
       },
-      "cover": "/img/meriggio/px/valle.webp"
+      "cover": "/img/meriggio/mo/valle.webp"
     },
     {
       "n": "2",
@@ -131,7 +131,7 @@
         "it": "",
         "en": ""
       },
-      "cover": "/img/meriggio/px/forra-delle-lucciole.webp"
+      "cover": "/img/meriggio/mo/primalba.webp"
     },
     {
       "n": "3",
@@ -151,7 +151,7 @@
         "it": "",
         "en": ""
       },
-      "cover": "/img/meriggio/px/bollore.webp"
+      "cover": "/img/meriggio/mo/fossa-del-latrato.webp"
     },
     {
       "n": "❦",
@@ -171,7 +171,7 @@
         "it": "#romanzo",
         "en": "#romanzo"
       },
-      "cover": "/img/meriggio/px/copertina.webp"
+      "cover": "/img/meriggio/mo/copertina-romanzo.webp"
     }
   ],
   "heroes": {
@@ -190,10 +190,10 @@
           "it": "Guerriero terragno",
           "en": "Terragno fighter"
         },
-        "image": "/img/meriggio/px/gz.webp",
+        "image": "/img/meriggio/mo/gz.webp",
         "alt": {
-          "it": "GZ in pixel art, appoggiato a uno steccato in mezzo al grano, con corno e corda",
-          "en": "GZ in pixel art, leaning on a fence in the wheat, with a horn and a rope"
+          "it": "GZ a mosaico, appoggiato a un cancello di legno in mezzo al grano, con un corno e una corda arrotolata",
+          "en": "GZ as a mosaic, leaning on a wooden gate in the wheat, with a horn and a coiled rope"
         },
         "bio": {
           "it": "Guardia di Primalba, 1,05 m di energia. A ogni raccolto la madre gli manda una cesta di mele e un biglietto: «Torna quando ti sei calmato». Non è ancora tornato.",
@@ -206,10 +206,10 @@
           "it": "Bardo sembiante",
           "en": "Sembiante bard"
         },
-        "image": "/img/meriggio/px/panko.webp",
+        "image": "/img/meriggio/mo/panko.webp",
         "alt": {
-          "it": "Panko in pixel art, accovacciato sulla riva, sfiora l’acqua: il riflesso non è il suo",
-          "en": "Panko in pixel art, crouching on the bank, touching the water: the reflection is not his"
+          "it": "Panko a mosaico, accovacciato sulla riva di un laghetto accanto al liuto: sfiora l’acqua e il riflesso non è il suo",
+          "en": "Panko as a mosaic, crouching on the bank of a pond beside his lute: he touches the water and the reflection isn’t his"
         },
         "bio": {
           "it": "Il suo liuto arrivò a Primalba un giorno prima di lui, con quel nome cucito sulla custodia. Se gli chiedi se il nome sia suo, pizzica tre note che vogliono dire: «Adesso è mio».",
@@ -222,10 +222,10 @@
           "it": "Chierico braciaro",
           "en": "Braciaro cleric"
         },
-        "image": "/img/meriggio/px/ignazio.webp",
+        "image": "/img/meriggio/mo/ignazio.webp",
         "alt": {
-          "it": "Ignazio in pixel art, con il bastone a campanelli accanto a un braciere",
-          "en": "Ignazio in pixel art, with his belled staff beside a brazier"
+          "it": "Ignazio a mosaico, nel mantello rosso con il bastone a campanelli, accanto a un braciere acceso davanti alle Colline Rosse",
+          "en": "Ignazio as a mosaic, in a red cloak with his belled staff, beside a lit brazier in front of the Red Hills"
         },
         "bio": {
           "it": "Sacerdote della Brace, nato in carovana, ha fatto la cosa più scandalosa per un braciaro: si è fermato. La madre gli ha scritto «Un fuoco fermo si spegne»; lui le risponde con ricette di torta al miele.",
@@ -238,10 +238,10 @@
           "it": "Monaco di sangue di gigante",
           "en": "Giant-blooded monk"
         },
-        "image": "/img/meriggio/px/anacleto.webp",
+        "image": "/img/meriggio/mo/anacleto.webp",
         "alt": {
-          "it": "Anacleto in pixel art, enorme nel saio, si china verso una capretta",
-          "en": "Anacleto in pixel art, huge in his robe, bending towards a little goat"
+          "it": "Anacleto a mosaico, enorme nel saio, si china verso una capretta accanto a una casetta col tetto di paglia",
+          "en": "Anacleto as a mosaic, huge in his habit, bending towards a little goat beside a thatched cottage"
         },
         "bio": {
           "it": "Monaco di Brace Caduta, 2,20 m: più del doppio di un terragno qualunque. In famiglia dicono che ci sia un gigante; sua madre sostiene che abbia solo mangiato troppa minestra.",
@@ -254,10 +254,10 @@
           "it": "Chierico grufolo",
           "en": "Grufolo cleric"
         },
-        "image": "/img/meriggio/px/zrak.webp",
+        "image": "/img/meriggio/mo/zrak.webp",
         "alt": {
-          "it": "Zrak in pixel art, col campanello al collo e una moneta che vola, davanti a una cappella",
-          "en": "Zrak in pixel art, a bell round his neck and a coin in the air, in front of a chapel"
+          "it": "Zrak a mosaico, con uno scudo rotondo, un bastone nodoso e il campanello al collo, davanti all’ingresso di una tana",
+          "en": "Zrak as a mosaic, with a round shield, a gnarled staff and a bell at his neck, in front of a burrow entrance"
         },
         "bio": {
           "it": "Chierico del Caos e profeta del Rumore, per nomina propria. Espulso dal consiglio della tana per aver cantato durante una riunione, riammesso, ed espulso di nuovo per aver cantato durante la riammissione.",
@@ -285,7 +285,7 @@
           "it": "circa 30.000 · casali della pianura",
           "en": "about 30,000 · lowland farmsteads"
         },
-        "image": "/img/meriggio/px/terragni.webp"
+        "image": "/img/meriggio/mo/terragni.webp"
       },
       {
         "name": {
@@ -300,7 +300,7 @@
           "it": "circa 3.000 · Colline Rosse, in carovana",
           "en": "about 3,000 · Red Hills, in caravans"
         },
-        "image": "/img/meriggio/px/braciari.webp"
+        "image": "/img/meriggio/mo/braciari.webp"
       },
       {
         "name": {
@@ -315,7 +315,7 @@
           "it": "circa 10.000 · fiumi e lagune",
           "en": "about 10,000 · rivers and lagoons"
         },
-        "image": "/img/meriggio/px/salmastri.webp"
+        "image": "/img/meriggio/mo/salmastri.webp"
       },
       {
         "name": {
@@ -330,7 +330,7 @@
           "it": "circa 20.000 · boschi",
           "en": "about 20,000 · woods"
         },
-        "image": "/img/meriggio/px/radicati.webp"
+        "image": "/img/meriggio/mo/radicati.webp"
       },
       {
         "name": {
@@ -345,7 +345,7 @@
           "it": "40.000 o 50.000, dipende dal giorno · tane sotto le colline",
           "en": "40,000 or 50,000, depending on the day · burrows under the hills"
         },
-        "image": "/img/meriggio/px/grufoli.webp"
+        "image": "/img/meriggio/mo/grufoli.webp"
       },
       {
         "name": {
@@ -360,7 +360,7 @@
           "it": "Ovunque, non visti",
           "en": "Everywhere, unseen"
         },
-        "image": "/img/meriggio/px/sembianti.webp",
+        "image": "/img/meriggio/mo/sembianti.webp",
         "rare": true
       },
       {
@@ -376,7 +376,7 @@
           "it": "Le Spalle, qualche torre",
           "en": "The Shoulders, a few towers"
         },
-        "image": "/img/meriggio/px/giganti.webp",
+        "image": "/img/meriggio/mo/giganti.webp",
         "rare": true
       },
       {
@@ -392,7 +392,7 @@
           "it": "Bosco delle Voci, boschi antichi",
           "en": "Wood of Voices, ancient woods"
         },
-        "image": "/img/meriggio/px/arborei.webp",
+        "image": "/img/meriggio/mo/arborei.webp",
         "rare": true
       },
       {
@@ -408,7 +408,7 @@
           "it": "Forra delle Lucciole",
           "en": "Firefly Gorge"
         },
-        "image": "/img/meriggio/px/spiritelli.webp",
+        "image": "/img/meriggio/mo/spiritelli.webp",
         "rare": true
       },
       {
@@ -424,7 +424,7 @@
           "it": "Nessun posto",
           "en": "Nowhere"
         },
-        "image": "/img/meriggio/px/sorgivi.webp",
+        "image": "/img/meriggio/mo/sorgivi.webp",
         "rare": true
       }
     ],
@@ -448,7 +448,8 @@
         "text": {
           "it": "Terra di terragni, di siepi e di capre. Qui comincia l’avventura.",
           "en": "Land of terragni, hedges and goats. The adventure starts here."
-        }
+        },
+        "image": "/img/meriggio/mo/valle-dei-rovi.webp"
       },
       {
         "name": "Colline Rosse e Monte Fumalto",
@@ -459,7 +460,8 @@
         "text": {
           "it": "Terra di braciari e di fuochi da custodire.",
           "en": "Land of braciari and fires to tend."
-        }
+        },
+        "image": "/img/meriggio/mo/colline-rosse.webp"
       },
       {
         "name": "Valle della Scodella",
@@ -470,7 +472,8 @@
         "text": {
           "it": "Un tempo la terra più ricca dei terragni. Oggi quasi vuota.",
           "en": "Once the terragni’s richest land. Now almost empty."
-        }
+        },
+        "image": "/img/meriggio/mo/valle-della-scodella.webp"
       },
       {
         "name": "Piana di Spigadoro",
@@ -481,7 +484,8 @@
         "text": {
           "it": "Il granaio del mondo.",
           "en": "The granary of the world."
-        }
+        },
+        "image": "/img/meriggio/mo/piana-di-spigadoro.webp"
       },
       {
         "name": "Selvamaggiore",
@@ -492,7 +496,8 @@
         "text": {
           "it": "La grande foresta.",
           "en": "The great forest."
-        }
+        },
+        "image": "/img/meriggio/mo/selvamaggiore.webp"
       },
       {
         "name": "Monti Senzafine",
@@ -503,9 +508,15 @@
         "text": {
           "it": "Chiudono il mondo da ogni lato. Quello che c’è oltre non ha un nome.",
           "en": "They close the world on every side. What lies beyond has no name."
-        }
+        },
+        "image": "/img/meriggio/mo/monti-senzafine.webp"
       }
-    ]
+    ],
+    "map": "/img/meriggio/mo/mappa.webp",
+    "mapAlt": {
+      "it": "La mappa di Meriggio a mosaico: la valle con i suoi fiumi, i boschi e i villaggi, chiusa tutt’intorno dalle montagne",
+      "en": "The map of Meriggio as a mosaic: the valley with its rivers, woods and villages, ringed by mountains"
+    }
   },
   "quote": {
     "text": {
@@ -542,10 +553,10 @@
       "Ginestra del Tasso Vecchio",
       "Sciamana del tuono"
     ],
-    "image": "/img/meriggio/px/bollore.webp",
+    "image": "/img/meriggio/mo/gola-rancida.webp",
     "imageAlt": {
-      "it": "Il Bollore in pixel art: una nuvola di vapore con occhi di brace che sale da una roccia crepata di lava",
-      "en": "The Bollore in pixel art: a cloud of steam with ember eyes rising from a lava-cracked rock"
+      "it": "La Gola Rancida a mosaico: una gola stretta tra pareti di roccia, con una scaletta di legno, una lanterna e le porte tonde delle tane dei grufoli",
+      "en": "The Rancid Gorge as a mosaic: a narrow gorge between rock walls, with a wooden stair, a lantern and the round doors of the grufolo burrows"
     }
   },
   "licence": {
@@ -569,17 +580,45 @@
     },
     "list": [
       {
-        "image": "/img/meriggio/px/pietrariva.webp",
+        "image": "/img/meriggio/mo/sassaiolo.webp",
         "caption": {
-          "it": "Il mercato galleggiante di Pietrariva",
-          "en": "The floating market of Pietrariva"
+          "it": "Il Sassaiolo, il fiume dei mercanti",
+          "en": "The Sassaiolo, the merchants’ river"
         }
       },
       {
-        "image": "/img/meriggio/px/forra-delle-lucciole.webp",
+        "image": "/img/meriggio/mo/forra-delle-lucciole.webp",
         "caption": {
           "it": "La Forra delle Lucciole, dove vivono gli spiritelli",
           "en": "Firefly Gorge, home of the spiritelli"
+        }
+      },
+      {
+        "image": "/img/meriggio/mo/monte-fumalto.webp",
+        "caption": {
+          "it": "Il Monte Fumalto, dove arde la Prima Brace",
+          "en": "Mount Fumalto, where the First Ember burns"
+        }
+      },
+      {
+        "image": "/img/meriggio/mo/bosco-delle-voci.webp",
+        "caption": {
+          "it": "Il Bosco delle Voci, dove si radunano gli arborei",
+          "en": "The Wood of Voices, where the arborei gather"
+        }
+      },
+      {
+        "image": "/img/meriggio/mo/locanda-del-boccale.webp",
+        "caption": {
+          "it": "La Locanda del Boccale, a Primalba",
+          "en": "The Tankard Inn, in Primalba"
+        }
+      },
+      {
+        "image": "/img/meriggio/mo/torre-della-gigantessa.webp",
+        "caption": {
+          "it": "La Torre della Gigantessa, dove abita Madama",
+          "en": "The Giantess’s Tower, where Madama lives"
         }
       }
     ]

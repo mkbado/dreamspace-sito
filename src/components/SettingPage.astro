@@ -1,9 +1,8 @@
 ---
-// Pagina di Meriggio: pixel art di campagna, cielo color acqua, grano e oro.
+// Pagina di Meriggio: stile a mosaico, tessere d’ocra, verde petrolio e oro.
 import Base from '../layouts/Base.astro';
 import Quotes from './Quotes.astro';
 import Playtest from './Playtest.astro';
-import MeadowFX from './MeadowFX.astro';
 import { t, sections, type Lang } from '../i18n/ui';
 import { site, tl, type Setting, novelFor, chapterOut, chapterOnline, chapterWindow } from '../data/catalog';
 import { chapterPath, novelPath } from '../data/paths';
@@ -23,8 +22,6 @@ const nextIdx = chapters.findIndex((c) => !chapterOut(c, lang));
 const win = chapterWindow(chapters, lang);
 ---
 <Base lang={lang} title={s.title} description={s.short[lang]} altPath={altPath} bodyClass="skin-fiaba" extraFonts>
-  <MeadowFX />
-
   <!-- Copertina -->
   <section class="fb-cover">
     <div class="container" style="padding-top: 22px;">
@@ -95,7 +92,7 @@ const win = chapterWindow(chapters, lang);
           const f = b.file?.[lang] || b.file?.it;
           return (
             <article class={`fb-book fb-book--${i % 4}`}>
-              {b.cover && <div class="fb-book__cover"><img src={b.cover} alt="" loading="lazy" width="1400" height="933" /><span class="fb-book__seal">{roman[i] ?? b.n}</span></div>}
+              {b.cover && <div class="fb-book__cover"><img src={b.cover} alt="" loading="lazy" width="640" height="640" /><span class="fb-book__seal">{roman[i] ?? b.n}</span></div>}
               <div class="fb-book__body">
                 <p class="fb-label">{L('Libro', 'Book')} {roman[i] ?? b.n}</p>
                 <h3>{b.title[lang]}</h3>
@@ -117,7 +114,7 @@ const win = chapterWindow(chapters, lang);
       <div class="container stack" style="gap: 48px;">
         <div class="fb-novel-head">
           <div class="fb-novel-cover">
-            <img src={novelBook?.cover || s.image} alt={L(`La copertina di ${tl(lang, s.novelTitle, s.novelTitleEn)}`, `The cover of ${tl(lang, s.novelTitle, s.novelTitleEn)}`)} loading="lazy" width="900" height="900" />
+            <img src={novelBook?.cover || s.image} alt={L(`La copertina di ${tl(lang, s.novelTitle, s.novelTitleEn)}: i cinque protagonisti, di spalle, guardano la valle di Meriggio sotto il sole`, `The cover of ${tl(lang, s.novelTitle, s.novelTitleEn)}: the five heroes, seen from behind, look out over the valley of Meriggio under the sun`)} loading="lazy" width="768" height="1152" />
           </div>
           <div class="stack" style="flex: 1 1 380px; min-width: 0; gap: 16px;">
             <p class="fb-kicker">{s.novel.kicker[lang]}</p>
@@ -190,13 +187,13 @@ const win = chapterWindow(chapters, lang);
     <section class="fb-band fb-band--meadow">
       <div class="container stack" style="gap: 32px;">
         <div class="fb-head">
-          <p class="fb-kicker">{L('Dal taccuino di viaggio', 'From the travel sketchbook')}</p>
+          <p class="fb-kicker">{L('Tessera dopo tessera', 'Tile by tile')}</p>
           <h2 class="fb-h2">{s.landscapes.title[lang]}</h2>
         </div>
         <div class="fb-mosaic">
           {s.landscapes.list.map((x, i) => (
-            <figure class={`fb-postcard${i === 0 ? ' fb-postcard--big' : ''}`}>
-              <img src={x.image} alt={x.caption[lang]} loading="lazy" width="1400" height="933" />
+            <figure class="fb-postcard">
+              <img src={x.image} alt={x.caption[lang]} loading="lazy" width="640" height="640" />
               <figcaption>{x.caption[lang]}</figcaption>
             </figure>
           ))}
@@ -235,9 +232,17 @@ const win = chapterWindow(chapters, lang);
       <p class="fb-kicker">{L('Per sentieri e colline', 'Along paths and hills')}</p>
       <h2 class="fb-h2">{s.atlas.title[lang]}</h2>
     </div>
+    {s.atlas.map && (
+      <figure class="mo-map">
+        <img src={s.atlas.map} alt={s.atlas.mapAlt?.[lang] ?? ''} loading="lazy" width="1600" height="1248" />
+      </figure>
+    )}
     <ul class="fb-atlas mg-atlas">
       {s.atlas.list.map((a) => (
-        <li><span class="fb-label">{a.dir[lang]}</span><strong>{a.name}</strong><span>{a.text[lang]}</span></li>
+        <li class={a.image ? 'has-img' : undefined}>
+          {a.image && <img src={a.image} alt="" loading="lazy" width="640" height="640" />}
+          <span class="fb-label">{a.dir[lang]}</span><strong>{a.name}</strong><span>{a.text[lang]}</span>
+        </li>
       ))}
     </ul>
   </section>
@@ -269,6 +274,7 @@ const win = chapterWindow(chapters, lang);
   <!-- Donazioni -->
   <section id="sostienici" class="fb-band fb-band--sun">
     <div class="container stack" style="gap: 14px; align-items: center; text-align: center;">
+      <img class="mo-coins" src="/img/meriggio/mo/monete.webp" alt="" loading="lazy" width="640" height="640" />
       <p class="fb-kicker">{L('Una moneta per il cantastorie', 'A coin for the storyteller')}</p>
       <h2 class="fb-h2">{L('Ti è piaciuta la fiaba?', 'Enjoyed the fairy tale?')}</h2>
       <p class="fb-body" style="max-width: 600px;">{L('Offri un caffè agli autori: aiuta a scrivere l’Atto II.', 'Buy the authors a coffee: it helps write Act II.')}</p>

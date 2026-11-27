@@ -118,7 +118,7 @@ world = common_top + [
     O('novel', 'Romanzo a puntate (i capitoli si gestiscono in «Romanzi»)', [L('kicker', 'Occhiello'), L('text', 'Presentazione', 'text')]),
     O('landscapes', 'Paesaggi (galleria)', [L('title', 'Titolo'), O('list', 'Immagini', [IMG('image', 'Immagine'), L('caption', 'Didascalia')], lst=True)]),
     O('peoples', 'Popoli', [L('title', 'Titolo'), O('list', 'Popoli', [L('name', 'Nome'), L('text', 'Testo', 'text'), L('where', 'Dove vivono'), IMG('image', 'Illustrazione'), B('rare', 'Stirpe rara')], lst=True, summary='{fields.name.it}'), L('more', 'Nota finale', 'text')]),
-    O('atlas', 'Atlante', [L('title', 'Titolo'), O('list', 'Luoghi', [S('name', 'Nome'), L('dir', 'Direzione'), L('text', 'Testo', 'text')], lst=True, summary='{fields.name}')]),
+    O('atlas', 'Atlante', [L('title', 'Titolo'), IMG('map', 'Mappa'), L('mapAlt', 'Descrizione mappa'), O('list', 'Luoghi', [S('name', 'Nome'), L('dir', 'Direzione'), L('text', 'Testo', 'text'), IMG('image', 'Illustrazione')], lst=True, summary='{fields.name}')]),
     O('quote', 'Citazione', [L('text', 'Testo', 'text'), L('who', 'Autore')]),
     O('bestiary', 'Bestiario', [L('title', 'Titolo'), L('text', 'Testo', 'text'), S('names', 'Creature', list=True), IMG('image', 'Illustrazione'), L('imageAlt', 'Descrizione illustrazione')]),
     L('licence', 'Nota di licenza', 'text'),

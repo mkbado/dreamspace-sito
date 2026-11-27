@@ -2049,6 +2049,21 @@ content:
       - name: en
         label: English
         type: string
+    - name: map
+      label: Mappa
+      type: image
+      options:
+        media: images
+    - name: mapAlt
+      label: Descrizione mappa
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
     - name: list
       label: Luoghi
       type: object
@@ -2076,6 +2091,11 @@ content:
         - name: en
           label: English
           type: text
+      - name: image
+        label: Illustrazione
+        type: image
+        options:
+          media: images
       list:
         collapsible:
           collapsed: true
