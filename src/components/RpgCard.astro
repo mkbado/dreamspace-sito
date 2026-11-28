@@ -7,12 +7,11 @@ const { lang, item } = Astro.props;
 const path = itemPath(lang, item);
 const img = item.kind === 'rpg' ? item.cardImage : item.image;
 const alt = item.kind === 'rpg' ? item.cardAlt[lang] : item.imageAlt[lang];
-const tagColor = item.kind === 'rpg' ? '#6b4a2b' : item.kind === 'oneshot' ? '#a3262a' : '#8a5a2b';
 ---
 <article class="card">
   <a class="card__media" href={path} tabindex="-1" aria-hidden="true"><img src={localImg(img, lang)} width="960" height="600" alt={alt} loading="lazy" /></a>
   <div class="card__body">
-    <p class="card__tag" style={`color: ${tagColor};`}>{item.tag[lang]}</p>
+    <p class="card__tag card__tag--light">{item.tag[lang]}</p>
     <h3 class="pixel h3">{tl(lang, item.title, 'titleEn' in item ? item.titleEn : undefined)}</h3>
     <p class="card__meta">{item.cardMeta[lang]}</p>
     <p>{item.short[lang]}</p>
