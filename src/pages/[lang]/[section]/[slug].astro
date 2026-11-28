@@ -115,7 +115,7 @@ const os = item.kind === 'oneshot' ? item : null;
     <section class="container stack" style="padding-block: 80px; gap: 28px;">
       <div class="row" style="align-items: end; justify-content: space-between; gap: 12px;">
         <h2 class="pixel" style="font-size: 40px;">{g.characters.title[lang]}</h2>
-        <p class="muted" style="margin: 0; font-size: 14px;">{g.characters.note[lang]}</p>
+        {g.characters.note?.[lang] && <p class="muted" style="margin: 0; font-size: 14px;">{g.characters.note[lang]}</p>}
       </div>
       {g.characters.list.some((c) => c.levels?.length) ? <DreamspacerSheets lang={lang} list={g.characters.list} /> :
       <div class="row hero-row" style="gap: 20px;">
@@ -148,7 +148,7 @@ const os = item.kind === 'oneshot' ? item : null;
       <div class="stack" style="flex: 1 1 440px; min-width: 0; gap: 20px;">
         <h2 class="pixel" style="font-size: 40px;">{g.howToPlay.title[lang]}</h2>
         <ol class="phases">{g.howToPlay.steps[lang].map((s) => <li>{s}</li>)}</ol>
-        <p style="margin: 0; color: var(--soft);">{g.howToPlay.note[lang]}</p>
+        {g.howToPlay.note?.[lang] && <p style="margin: 0; color: var(--soft);">{g.howToPlay.note[lang]}</p>}
       </div>
       {g.howToPlay.image && (
         g.howToPlay.imageBare
@@ -193,7 +193,7 @@ const os = item.kind === 'oneshot' ? item : null;
       <div class="container stack pad" style="gap: 24px;">
         <div class="row" style="align-items: end; justify-content: space-between; gap: 12px;">
           <h2 class="pixel" style="font-size: 40px;">{g.gallery.title[lang]}</h2>
-          <p style="margin: 0; font-size: 14px; color: var(--text-dim);">{g.gallery.note[lang]}</p>
+          {g.gallery.note?.[lang] && <p style="margin: 0; font-size: 14px; color: var(--text-dim);">{g.gallery.note[lang]}</p>}
         </div>
         <div class="gallery" style={g.gallery.ratio ? `--ratio: ${g.gallery.ratio};` : undefined}>
           {g.gallery.items.map((x) => (
@@ -212,7 +212,7 @@ const os = item.kind === 'oneshot' ? item : null;
       <div class="container stack pad" style="gap: 24px;">
         <div class="row" style="align-items: end; justify-content: space-between; gap: 12px;">
           <h2 class="pixel" style="font-size: 40px;">{g.roster.title[lang]}</h2>
-          <p style="margin: 0; font-size: 14px; color: var(--text-dim);">{g.roster.note[lang]}</p>
+          {g.roster.note?.[lang] && <p style="margin: 0; font-size: 14px; color: var(--text-dim);">{g.roster.note[lang]}</p>}
         </div>
         <div class="guests">
           {g.roster.items.map((x, i) => <div class="guest"><i style={`background: ${['#2ec4b6', '#d9442b', '#3fa34d', '#8a5cd8', '#5bb8f0', '#f2c230', '#12163a', '#ee7fb0', '#f28c28'][i % 9]};`}></i><span><strong>{x.name[lang]}</strong> · {x.role[lang]}</span></div>)}

@@ -171,7 +171,7 @@ const places = s.atlas.places ?? [];
     <div class="fb-head">
       <p class="fb-kicker">{L('La compagnia', 'The fellowship')}</p>
       <h2 class="fb-h2">{s.heroes.title[lang]}</h2>
-      <p class="fb-body" style="max-width: 640px; margin-inline: auto;">{s.heroes.note[lang]}</p>
+      {s.heroes.note?.[lang] && <p class="fb-body" style="max-width: 640px; margin-inline: auto;">{s.heroes.note[lang]}</p>}
     </div>
     <div class="fb-heroes">
       {s.heroes.list.map((h) => (
