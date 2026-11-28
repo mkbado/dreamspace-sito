@@ -3,7 +3,6 @@
   "draft": false,
   "slug": "intolleranti",
   "title": "Intolleranti!",
-  "skin": "tavola",
   "playtest": {
     "testers": [
       "Filippo",
@@ -32,6 +31,7 @@
     ]
   },
   "titleEn": "Intolerant!",
+  "skin": "tavola",
   "image": "/img/intolleranti/card.webp",
   "imageAlt": {
     "it": "La copertina 8 bit di Intolleranti!: gli otto ospiti attorno a un tavolo pieno di cibo, ognuno alle prese con la propria intolleranza",
@@ -105,8 +105,8 @@
           "en": "A table you already know, with special powers"
         },
         "text": {
-          "it": "C’è sempre quello senza glutine, quella senza lattosio e quello che guida. Qui hanno poteri speciali, ma anche un limite di sopportazione.",
-          "en": "There's always the gluten-free one, the lactose-free one, and the one that drives. Here they have special powers, but also a limit of endurance."
+          "it": "In ogni gruppo c’è sempre quello che non mangia glutine, quella intollerante al lattosio e quello che guida per portare tutti a casa a fine serata. Qui hanno poteri speciali, ma anche un limite di sopportazione.",
+          "en": "In every group there is always the one who does not eat gluten, the one who is lactose intolerant and the one who drives to take everyone home at the end of the evening. Here they have special powers, but also a limit of endurance."
         }
       },
       {
@@ -125,10 +125,6 @@
     "title": {
       "it": "Gli ospiti della taverna",
       "en": "The tavern guests"
-    },
-    "note": {
-      "it": "Le illustrazioni delle plance definitive, in 8 bit: tutti nella stessa taverna.",
-      "en": "Art from the final player boards, in 8-bit: everyone in the same tavern."
     },
     "ratio": "3 / 2",
     "items": [
@@ -266,8 +262,8 @@
         "en": "Outings, invitations and Responses"
       },
       "intro": {
-        "it": "A Intolleranti! non si esce mai da soli: ci si invita, ci si salva e ci si sabota a vicenda, anche quando non è il tuo turno. Proprio come nei gruppi WhatsApp delle cene vere.",
-        "en": "In Intolerant! nobody goes out alone: you invite, rescue and sabotage each other, even when it’s not your turn. Just like real dinner group chats."
+        "it": "A Intolleranti! non si esce mai da soli: ci si invita, ci si salva e ci si sabota a vicenda, anche quando non è il tuo turno. Sei pronto a far nauseare i tuoi amici?",
+        "en": "In Intolerant! nobody goes out alone: you invite, rescue and sabotage each other, even when it’s not your turn. Are you ready to make your friends nauseous?"
       },
       "blocks": [
         {
