@@ -77,6 +77,8 @@ export interface Game {
 }
 
 export interface Rpg {
+  handouts?: { image: string; title: L<string>; who: L<string> }[];
+  omen?: { image: string; alt: L<string>; lines: L<string[]> };
   /** citazioni di giocatori e playtester (vere, con il loro permesso) */
   quotes?: Quote[];
   playtest?: Playtest;

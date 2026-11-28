@@ -1851,3 +1851,70 @@ body:not(.skin-fiaba) .nv--fiaba .nv__title { font-family: 'Cinzel', Georgia, se
   .mo-card p:last-child { font-size: 14px; }
 }
 @media (prefers-reduced-motion: reduce) { .mo-atlas__map, .mo-region { transition: none; } .mo-spot.is-region span::after { animation: none; } .mo-card { animation: none; } }
+
+/* Romanzo del Circolo: illustrazioni a un bit nitide, documenti come carte sul tavolo */
+.rd--noir { max-width: 780px; }
+.rd--noir .rd__text { font-size: 20.5px; line-height: 1.75; }
+.rd--noir .rd-fig img[src$=".png"] { image-rendering: pixelated; }
+.rd--noir .rd-fig--opener { margin: 0 calc(-1 * clamp(22px, 7vw, 84px)) 44px; position: relative; }
+.rd--noir .rd-fig--opener img { border: 0; border-block: 4px solid #000; box-shadow: none; width: 100%; image-rendering: pixelated; }
+.rd--noir .rd-fig--wide img { border-inline: 0; }
+.rd--noir .rd-fig--doc { float: right; width: 46%; margin: 8px calc(-.35 * clamp(22px, 7vw, 84px)) 14px 26px; transform: rotate(1.6deg); }
+.rd--noir .rd__text .rd-fig--doc:nth-of-type(2n) { float: left; margin: 8px 26px 14px calc(-.35 * clamp(22px, 7vw, 84px)); transform: rotate(-1.4deg); }
+.rd--noir .rd-fig--doc img { border: 0; box-shadow: 0 1px 0 #c9c2b2, 6px 10px 22px rgba(0, 0, 0, .35); }
+.rd--noir .rd-fig--doc figcaption { text-align: left; }
+.rd--noir .rd-fig--center { width: 58%; }
+.rd--noir .rd-break + p::first-line, .rd--noir .rd__text > p:first-child::first-line { font-variant: small-caps; letter-spacing: .04em; }
+.rd--noir .rd-break { margin: 38px 0; }
+@media (max-width: 700px) {
+  .rd--noir .rd-fig--doc, .rd--noir .rd__text .rd-fig--doc:nth-of-type(2n) { float: none; width: 86%; margin: 22px auto; }
+  .rd--noir .rd-fig--center { width: 86%; }
+}
+.rd--noir .rd-fig--doc a { display: block; cursor: zoom-in; transition: transform .2s; }
+.rd--noir .rd-fig--doc a:hover { transform: scale(1.03); }
+
+/* Circolo del Venerdì: grana da pellicola, carte sul tavolo, presagio, reperti che scorrono */
+.nr-grain { position: fixed; inset: -50%; z-index: 0; pointer-events: none; opacity: .07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: nr-grain .5s steps(4) infinite; }
+@keyframes nr-grain { 0% { transform: translate(0, 0); } 25% { transform: translate(-3%, 2%); } 50% { transform: translate(2%, -3%); } 75% { transform: translate(-2%, -1%); } 100% { transform: translate(1%, 3%); } }
+.skin-noir main > * { position: relative; z-index: 1; }
+
+.nr-desk { padding-block: 80px 96px; background: #0b0b0c radial-gradient(ellipse 70% 60% at 50% 40%, #1d1c1a 0%, #0b0b0c 75%); }
+.nr-desk__papers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px 40px; padding-top: 40px; align-items: start; }
+.nr-paper { margin: 0; display: flex; flex-direction: column; gap: 14px; transform: rotate(var(--r)); transition: transform .25s; }
+.nr-paper:nth-child(3n + 2) { margin-top: 36px; }
+.nr-paper:hover, .nr-paper:focus-within { transform: rotate(0deg) translateY(-6px); }
+.nr-paper__btn { display: block; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.nr-paper__btn img { display: block; width: 100%; height: auto; box-shadow: 0 2px 0 #000, 10px 18px 34px rgba(0, 0, 0, .7); filter: sepia(.15) brightness(.96); transition: filter .25s; }
+.nr-paper:hover img { filter: none; }
+.nr-paper__btn:focus-visible { outline: 3px solid var(--nr-bone, #f0eee8); outline-offset: 6px; }
+.nr-paper figcaption { display: flex; flex-direction: column; gap: 2px; font-family: 'VT323', monospace; font-size: 20px; line-height: 1.1; color: #a9a59c; }
+.nr-paper figcaption strong { font-weight: 400; font-size: 24px; color: #f0eee8; }
+.nr-lightbox { max-width: min(1000px, 94vw); max-height: 92vh; padding: 0; border: 0; background: transparent; overflow: visible; }
+.nr-lightbox::backdrop { background: rgba(0, 0, 0, .86); }
+.nr-lightbox img { display: block; max-width: 100%; max-height: 82vh; margin: 0 auto 14px; box-shadow: 0 20px 60px rgba(0, 0, 0, .8); }
+.nr-lightbox form { text-align: center; }
+
+.nr-omen { position: relative; overflow: hidden; background: #000; min-height: min(78vh, 720px); display: grid; place-items: center; border-block: 4px solid #000; }
+.nr-omen__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; opacity: .55; animation: nr-flicker 7s infinite; }
+@keyframes nr-flicker { 0%, 100% { opacity: .55; } 46% { opacity: .55; } 47% { opacity: .15; } 48% { opacity: .6; } 49% { opacity: .2; } 50% { opacity: .55; } 81% { opacity: .5; } 82% { opacity: .08; } 84% { opacity: .5; } }
+.nr-omen::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 50% 50%, transparent 30%, #000 100%); pointer-events: none; }
+.nr-omen__lines { position: relative; z-index: 1; text-align: center; padding: 48px 24px; display: flex; flex-direction: column; gap: 14px; }
+.nr-omen__lines p { margin: 0; font-family: 'VT323', monospace; font-size: clamp(26px, 3.6vw, 44px); line-height: 1.05; color: #f0eee8; text-shadow: 0 0 18px #000, 0 2px 0 #000; background: rgba(0, 0, 0, .55); padding: 4px 14px; justify-self: center; }
+.nr-omen__lines p:last-child { color: #e2c7c7; }
+
+.px-reel { display: flex; flex-direction: column; gap: 44px; padding-block: 40px 96px; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.px-reel__track { overflow: hidden; }
+.px-reel__run { display: flex; gap: 32px; width: max-content; animation: px-reel 90s linear infinite; padding-inline: 16px; }
+.px-reel__track--rev .px-reel__run { animation-direction: reverse; animation-duration: 110s; }
+.px-reel:hover .px-reel__run, .px-reel:focus-within .px-reel__run { animation-play-state: paused; }
+.px-reel .px-place { width: 260px; flex: 0 0 auto; }
+@keyframes px-reel { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 16px)); } }
+@media (max-width: 900px) { .nr-desk__papers { grid-template-columns: repeat(2, minmax(0, 1fr)); } .nr-paper:nth-child(3n + 2) { margin-top: 0; } .nr-paper:nth-child(2n) { margin-top: 28px; } }
+@media (max-width: 560px) { .nr-desk__papers { grid-template-columns: 1fr; } .nr-paper:nth-child(2n) { margin-top: 0; } .px-reel .px-place { width: 210px; } }
+@media (prefers-reduced-motion: reduce) {
+  .nr-grain { animation: none; } .nr-omen__img { animation: none; }
+  .px-reel { -webkit-mask-image: none; mask-image: none; }
+  .px-reel__track { overflow-x: auto; } .px-reel__run { animation: none; } .px-reel__run > [aria-hidden="true"] { display: none; }
+}

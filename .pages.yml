@@ -1515,6 +1515,67 @@ content:
     type: file
     options:
       media: files
+  - name: handouts
+    label: "Handout in vetrina (versione EN: stesso nome con -en)"
+    type: object
+    fields:
+    - name: image
+      label: Immagine
+      type: image
+      options:
+        media: images
+    - name: title
+      label: Titolo
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: who
+      label: A chi va
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    list: true
+  - name: omen
+    label: Fascia inquietante
+    type: object
+    fields:
+    - name: image
+      label: Immagine
+      type: image
+      options:
+        media: images
+    - name: alt
+      label: Descrizione immagine
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+      - name: en
+        label: English
+        type: string
+    - name: lines
+      label: Righe
+      type: object
+      fields:
+      - name: it
+        label: Italiano
+        type: string
+        list: true
+      - name: en
+        label: English
+        type: string
+        list: true
   - name: locations
     label: Luoghi (galleria)
     type: object

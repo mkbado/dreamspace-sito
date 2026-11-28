@@ -28,8 +28,9 @@ const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').repl
 const md = new Marked({
   renderer: {
     image({ href, title, text }) {
-      const cls = title === 'largo' ? 'wide' : title === 'destra' ? 'right' : title === 'sinistra' ? 'left' : 'center';
-      return `<figure class="rd-fig rd-fig--${cls}"><img src="${esc(href)}" alt="${esc(text)}" loading="lazy" />${text ? `<figcaption>${esc(text)}</figcaption>` : ''}</figure>`;
+      const cls = title === 'largo' ? 'wide' : title === 'destra' ? 'right' : title === 'sinistra' ? 'left' : title === 'documento' ? 'doc' : 'center';
+      const img = `<img src="${esc(href)}" alt="${esc(text)}" loading="lazy" />`;
+      return `<figure class="rd-fig rd-fig--${cls}">${cls === 'doc' ? `<a href="${esc(href)}" target="_blank" rel="noopener" title="${lang === 'it' ? 'Apri il documento' : 'Open the document'}">${img}</a>` : img}${text ? `<figcaption>${esc(text)}</figcaption>` : ''}</figure>`;
     },
     hr() { return '<p class="rd-break" aria-hidden="true"><span>✦</span></p>'; },
   },

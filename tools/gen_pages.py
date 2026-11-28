@@ -82,6 +82,8 @@ rpg = common_top + [
     L('warning', 'Avviso prima di giocare', 'text'),
     O('files', 'File da scaricare', [L('title', 'Titolo'), L('desc', 'Descrizione'), FILE('it', 'PDF italiano'), FILE('en', 'PDF inglese')], lst=True, summary='{fields.title.it}'),
     FILE('zip', 'Pacchetto completo (ZIP)'),
+    O('handouts', 'Handout in vetrina (versione EN: stesso nome con -en)', [IMG('image', 'Immagine'), L('title', 'Titolo'), L('who', 'A chi va')], lst=True, summary='{fields.title.it}'),
+    O('omen', 'Fascia inquietante', [IMG('image', 'Immagine'), L('alt', 'Descrizione immagine'), L('lines', 'Righe', lst=True)]),
     O('locations', 'Luoghi (galleria)', [IMG('image', 'Immagine'), S('title', 'Titolo'), L('caption', 'Didascalia')], lst=True, summary='{fields.title}'),
     L('investigatorsIntro', 'Introduzione investigatori', 'text'),
     O('investigators', 'Investigatori', [S('name', 'Nome'), IMG('image', 'Ritratto'), L('role', 'Mestiere'), L('sheet', 'Scheda (PDF)', 'file')], lst=True, summary='{fields.name}'),

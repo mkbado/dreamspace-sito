@@ -127,8 +127,8 @@
         "en": "Keeper's Guide"
       },
       "desc": {
-        "it": "Retroscena, cronologia, indizi, personaggi, regole e finali · 30 pagine",
-        "en": "Background, timeline, clues, characters, rules and endings · 30 pages"
+        "it": "Retroscena, cronologia, indizi, personaggi, regole e finali · 63 pagine",
+        "en": "Background, timeline, clues, characters, rules and endings · 66 pages"
       },
       "it": "/files/circolo/cap0/La-Notte-del-Coro_Guida-del-Custode.pdf",
       "en": "/files/circolo/cap0/The-Night-of-the-Choir_Keepers-Guide.pdf"
@@ -139,8 +139,8 @@
         "en": "Scene Book"
       },
       "desc": {
-        "it": "Letture, dialoghi, prove e procedure. Riservato al Custode · 53 pagine",
-        "en": "Read-aloud text, dialogue, rolls and procedures. Keeper only · 54 pages"
+        "it": "Letture, dialoghi, prove e procedure. Riservato al Custode · 70 pagine",
+        "en": "Read-aloud text, dialogue, rolls and procedures. Keeper only · 70 pages"
       },
       "it": "/files/circolo/cap0/La-Notte-del-Coro_Libro-delle-Scene.pdf",
       "en": "/files/circolo/cap0/The-Night-of-the-Choir_Scene-Book.pdf"
@@ -393,5 +393,92 @@
         "en": "Giacomo was left in shock by the final revelation."
       }
     ]
+  },
+  "handouts": [
+    {
+      "image": "/img/circolo/ho/lettera.webp",
+      "title": {
+        "it": "La lettera dell’abate",
+        "en": "The abbot’s letter"
+      },
+      "who": {
+        "it": "A tutti, una per investigatore",
+        "en": "To everyone, one per investigator"
+      }
+    },
+    {
+      "image": "/img/circolo/ho/telegramma.webp",
+      "title": {
+        "it": "Il telegramma",
+        "en": "The telegram"
+      },
+      "who": {
+        "it": "Al conte Aurelio Sanvitale",
+        "en": "To Count Aurelio Sanvitale"
+      }
+    },
+    {
+      "image": "/img/circolo/ho/cronaca.webp",
+      "title": {
+        "it": "Le notti mute di Val Torva",
+        "en": "The silent nights of Val Torva"
+      },
+      "who": {
+        "it": "Dall’archivio di Ida Cantoni",
+        "en": "From Ida Cantoni’s files"
+      }
+    },
+    {
+      "image": "/img/circolo/ho/verbale.webp",
+      "title": {
+        "it": "Il verbale dei carabinieri",
+        "en": "The carabinieri report"
+      },
+      "who": {
+        "it": "Al capitano Ruggero Alberti",
+        "en": "To Captain Ruggero Alberti"
+      }
+    },
+    {
+      "image": "/img/circolo/ho/cartolina.webp",
+      "title": {
+        "it": "Una cartolina senza firma",
+        "en": "An unsigned postcard"
+      },
+      "who": {
+        "it": "A Ida Cantoni, mittente ignoto",
+        "en": "To Ida Cantoni, sender unknown"
+      }
+    },
+    {
+      "image": "/img/circolo/ho/schizzo.webp",
+      "title": {
+        "it": "Lo schizzo della valle",
+        "en": "The sketch of the valley"
+      },
+      "who": {
+        "it": "Dal taccuino di Ruggero Alberti",
+        "en": "From Ruggero Alberti’s notebook"
+      }
+    }
+  ],
+  "omen": {
+    "image": "/img/circolo/ill/bestie.png",
+    "alt": {
+      "it": "Un pascolo di montagna sotto la neve, pieno di pecore morte distese nell’erba",
+      "en": "A mountain pasture under the snow, full of dead sheep lying in the grass"
+    },
+    "lines": {
+      "it": [
+        "Sette capi di bestiame, morti nel sonno.",
+        "Nessuna ferita, nessun segno di malattia.",
+        "Di notte, sopra il cimitero, qualcuno porta i lumi."
+      ],
+      "en": [
+        "Seven head of cattle, dead in their sleep.",
+        "No wounds, no sign of disease.",
+        "At night, above the graveyard, someone carries lights."
+      ]
+    }
   }
 }

@@ -20,6 +20,7 @@ const chHref = (c) => (chapterOnline(c, lang) ? chapterPath(lang, nv!, c) : c.pd
 ---
 <Base lang={lang} title={`${title} · ${chapterTitle}`} description={r.short[lang]} altPath={altPath} bodyClass="skin-noir" extraFonts>
   <div class="px-scan" aria-hidden="true"></div>
+  <div class="nr-grain" aria-hidden="true"></div>
 
   <!-- Copertina della campagna -->
   <section class="nr-hero">
@@ -91,28 +92,73 @@ const chHref = (c) => (chapterOnline(c, lang) ? chapterPath(lang, nv!, c) : c.pd
     </div>
   </section>
 
-  <!-- Valtorva -->
-  <div class="px-dither" aria-hidden="true"></div>
-  {r.locations.length > 0 && (
-    <section class="nr-valley">
-      <div class="container stack" style="gap: 10px; padding-top: 80px;">
-        <p class="nr-type">{L('I luoghi', 'The places')}</p>
-        <h2 class="nr-h2">Valtorva</h2>
+  <!-- Le carte in mano: gli handout iniziali -->
+  {r.handouts && r.handouts.length > 0 && (
+    <section class="nr-desk" id="carte">
+      <div class="container stack" style="gap: 10px;">
+        <p class="nr-type">{L('Gli handout iniziali', 'The starting handouts')}</p>
+        <h2 class="nr-h2">{L('Le carte in mano', 'What you hold')}</h2>
+        <p class="nr-body" style="max-width: 640px;">{L('Ogni investigatore parte da Torino con qualcosa in tasca. Tutto il resto lo troverete a Valtorva.', 'Every investigator leaves Turin with something in their pocket. Everything else you will find in Valtorva.')}</p>
       </div>
-      <div class="container px-places">
-        {r.locations.map((l, i) => (
-          <figure class="px-place">
-            <div class="px-frame"><img src={l.image} alt={`${l.title}: ${l.caption[lang]}`} width="611" height="611" loading="lazy" /></div>
-            <figcaption>
-              <span class="nr-tag">{L('Reperto', 'Exhibit')} {['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI'][i]}</span>
-              <strong>{l.title}</strong>
-              <span>{l.caption[lang]}</span>
-            </figcaption>
+      <div class="container nr-desk__papers">
+        {r.handouts.map((h, i) => (
+          <figure class="nr-paper" style={`--r:${[-3, 2, -1.5, 3, -2.5, 1.5][i % 6]}deg`}>
+            <button type="button" class="nr-paper__btn" data-paper={localImg(h.image, lang)} data-title={h.title[lang]} aria-label={`${L('Ingrandisci', 'Enlarge')}: ${h.title[lang]}`}>
+              <img src={localImg(h.image, lang)} alt={h.title[lang]} loading="lazy" />
+            </button>
+            <figcaption><strong>{h.title[lang]}</strong><span>{h.who[lang]}</span></figcaption>
           </figure>
         ))}
       </div>
+      <dialog class="nr-lightbox" data-lightbox>
+        <img src="" alt="" />
+        <form method="dialog"><button class="nr-btn" type="submit">{L('Chiudi', 'Close')}</button></form>
+      </dialog>
     </section>
   )}
+
+  <!-- Presagio -->
+  {r.omen && (
+    <section class="nr-omen" aria-label={r.omen.alt[lang]}>
+      <img class="nr-omen__img" src={r.omen.image} alt={r.omen.alt[lang]} loading="lazy" width="616" height="405" />
+      <div class="nr-omen__lines">
+        {r.omen.lines[lang].map((l, i) => <p style={`--d:${i * 1.2}s`}>{l}</p>)}
+      </div>
+    </section>
+  )}
+
+  <!-- Valtorva: i reperti scorrono su due nastri -->
+  <div class="px-dither" aria-hidden="true"></div>
+  {r.locations.length > 0 && (() => {
+    const roman = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX'];
+    const half = Math.ceil(r.locations.length / 2);
+    const tracks = [r.locations.slice(0, half).map((l, k) => [l, k]), r.locations.slice(half).map((l, k) => [l, k + half])];
+    const item = ([l, i], dup) => (
+      <figure class="px-place" aria-hidden={dup ? 'true' : undefined}>
+        <div class="px-frame"><img src={l.image} alt={dup ? '' : `${l.title}: ${l.caption[lang]}`} width="611" height="611" loading="lazy" /></div>
+        <figcaption>
+          <span class="nr-tag">{L('Reperto', 'Exhibit')} {roman[i]}</span>
+          <strong>{l.title}</strong>
+          <span>{l.caption[lang]}</span>
+        </figcaption>
+      </figure>
+    );
+    return (
+      <section class="nr-valley">
+        <div class="container stack" style="gap: 10px; padding-top: 80px;">
+          <p class="nr-type">{L('I luoghi', 'The places')}</p>
+          <h2 class="nr-h2">Valtorva</h2>
+        </div>
+        <div class="px-reel">
+          {tracks.map((t, k) => (
+            <div class={`px-reel__track${k ? ' px-reel__track--rev' : ''}`}>
+              <div class="px-reel__run">{t.map((x) => item(x, false))}{t.map((x) => item(x, true))}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+  })()}
 
   <!-- Fascicolo da scaricare -->
   <section id="download" class="nr-band nr-band--paper">
@@ -231,3 +277,14 @@ const chHref = (c) => (chapterOnline(c, lang) ? chapterPath(lang, nv!, c) : c.pd
 
   <p slot="licence" class="nr-small" style="margin: 0;">{r.licence[lang]}</p>
 </Base>
+
+<script>
+  const box = document.querySelector<HTMLDialogElement>('[data-lightbox]');
+  document.querySelectorAll<HTMLElement>('[data-paper]').forEach((b) => b.addEventListener('click', () => {
+    if (!box) return;
+    const img = box.querySelector('img')!;
+    img.src = b.dataset.paper!; img.alt = b.dataset.title || '';
+    box.showModal();
+  }));
+  box?.addEventListener('click', (e) => { if (e.target === box) box.close(); });
+</script>
