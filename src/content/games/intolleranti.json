@@ -276,8 +276,8 @@
             "en": "Your guest, your limit"
           },
           "text": {
-            "it": "Ogni giocatore è un ospite con la sua plancia: un’abilità Passiva sempre attiva, un’abilità Attiva da giocare al momento giusto e la scala del Malessere. Il Golem Palestrato regge fino a 8, la Goblin Anti-Uova e la Sirena crollano già a 4. Scegli con lo stomaco.",
-            "en": "Each player is a guest with their own board: an always-on Passive ability, an Active ability to play at the right moment, and the Discomfort track. The Buff Golem can take 8, the Anti-Egg Goblin and the Mermaid give in at 4. Choose with your stomach."
+            "it": "Ogni giocatore è un ospite con la sua plancia: un’abilità Passiva sempre attiva, un’abilità Attiva da giocare al momento giusto e la scala del Malessere. Il Golem regge fino a 8, la Goblin e la Sirena crollano già a 4. Scegli con lo stomaco.",
+            "en": "Each player is a guest with their own board: a reference Passive ability, an Active ability to play at the right time, and the Discomfort tracker. The Golem holds up to 8, the Goblin and the Mermaid already collapse to 4. Choose with your heart and stomach, taking into account that the more resistant you are, the more Courses will hit you!"
           },
           "images": [
             {
@@ -300,8 +300,8 @@
             "en": "From aperitivo to wedding"
           },
           "text": {
-            "it": "Nel tuo turno riveli un’Uscita: dall’Aperitivo da 1 punto al Matrimonio da 5. Ogni carta dice quante Portate di Cibo e Bevande devi reggere. Più punti, più piatti, più rischio: il matrimonio vale tanto, ma ricordati del pranzo di sette portate.",
-            "en": "On your turn you reveal an Outing: from a 1-point Aperitivo to a 5-point Wedding. Each card says how many Food and Drink Courses you must survive. More points, more plates, more risk: the wedding pays well, but remember the seven-course lunch."
+            "it": "Nel tuo turno riveli un’Uscita: dall’Aperitivo da 1 punto al Matrimonio da 5. Ogni carta dice quante Portate di Cibo e Bevande devi reggere. Più punti, più piatti, più rischio: il matrimonio vale tanto, ma ricordati del pranzo di quattordici portate.",
+            "en": "On your turn you reveal an Outing: from a 1-point Aperitivo to a 5-point Wedding. Each card says how many Food and Drink Courses you must survive. More points, more plates, more risk: the wedding pays well, but remember the fourteen-course lunch."
           },
           "images": [
             {
@@ -453,8 +453,8 @@
             "en": "What's on the plate?"
           },
           "text": {
-            "it": "Un'Insalata non fa male a nessuno. La Pizza Margherita mette in crisi l'Elfa Celiaca e il Nano No al Lattosio, il Fritto Misto di Mare fa insorgere la Sirena. E del Cibo Misterioso è meglio non chiedere.",
-            "en": "A Salad hurts nobody. Pizza Margherita troubles the Celiac Elf and the Lactose-Intolerant Dwarf, the Fried Seafood Platter sends the Mermaid into protest. And it is best not to ask about the Mystery Food."
+            "it": "Un'Insalata non fa male a nessuno. La Pizza Margherita mette in crisi l'Elfa Celiaca e il Nano No al Lattosio, il Fritto Misto di Mare fa insorgere la Sirena. E del Cibo Misterioso è meglio non chiedere e soffrire in silenzio.",
+            "en": "A Salad hurts nobody. Pizza Margherita troubles the Celiac Elf and the Lactose-Intolerant Dwarf, the Fried Seafood Platter sends the Mermaid into protest. And it is best not to ask about the Mystery Food and suffer in silence."
           },
           "images": [
             {
@@ -549,25 +549,27 @@
     },
     "steps": {
       "it": [
-        "Pesca una carta Risposta: ti servirà, fidati",
-        "Esci o resti a casa? Sul divano incassi le Uscite e ti riprendi",
+        "Scegli il tuo Commensale, prendi un tracker malessere, pesca 3 carte risposta e poi chi è stato male più di recente inizia la partita!",
+        "Inizia il turno e pesca una carta Risposta: ti servirà, fidati",
+        "Esci o resti a casa? Sul divano incassi le Uscite e ti riprendi ma non fai punti",
         "Rivela l’Uscita: quanti punti vale, quanto si mangia, quanto si beve",
         "Invita qualcuno a cena, magari proprio chi non regge il menù",
-        "Pesca le Portate una alla volta: se c’è il tuo nome, Malessere",
-        "Sopravvissuto? L’Uscita è tua. Al sicuro, però, solo a casa"
+        "Pesca le Portate una alla volta: se c’è la tua icona, aumenta di 1 il tuo Malessere",
+        "Sopravvissuto? L’Uscita è tua. Al sicuro, però, lo sarà solo quando torni a casa!"
       ],
       "en": [
-        "Draw a Response card: trust us, you’ll need it",
-        "Go out or stay in? On the sofa you bank your Outings and recover",
+        "Choose your Diner, take a Discomfort tracker, draw 3 Response cards and then whoever has been sick most recently starts the game!",
+        "Start your turn and draw a Response card: trust us, you’ll need it",
+        "Go out or stay in? On the sofa you bank your Outings and recover, but you don't score points",
         "Reveal the Outing: its points, how much food, how much drink",
         "Invite someone along, ideally whoever can’t handle the menu",
-        "Draw the Courses one at a time: if your name is on it, Discomfort",
-        "Survived? The Outing is yours. But it’s only safe at home"
+        "Draw the Courses one at a time: if your icon is on it, you go up on the Discomfort scale",
+        "Survived? The Outing is yours. Safe, though, it will only be when you get home!"
       ]
     },
     "note": {
-      "it": "Arrivi al tuo limite di Malessere? Nausea: perdi tutte le Uscite non incassate e ti becchi 3 punti di penalità. A fine partita vince chi ha più punti (e lo stomaco più forte).",
-      "en": "Hit your Discomfort limit? Nausea: you lose every unbanked Outing and take a 3-point penalty. Most points wins (and the strongest stomach)."
+      "it": "Arrivi al tuo limite di Malessere? Nausea: perdi tutte le Uscite non incassate e ti becchi 3 punti di penalità. La partita finisce quando uno a collezionato 5 uscite e vince chi ha più punti totali (e lo stomaco più forte).",
+      "en": "Hit your Discomfort limit? Nausea: you lose every unbanked Outing and take a 3-point penalty. The game ends when one a has collected 5 outings and the one with the most total points (and the strongest stomach) wins."
     },
     "imageBare": false
   },
