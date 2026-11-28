@@ -1918,4 +1918,4 @@ body:not(.skin-fiaba) .nv--fiaba .nv__title { font-family: 'Cinzel', Georgia, se
   .px-reel { -webkit-mask-image: none; mask-image: none; }
   .px-reel__track { overflow-x: auto; } .px-reel__run { animation: none; } .px-reel__run > [aria-hidden="true"] { display: none; }
 }
-.card__tag--light { color: #fff !important; opacity: .92; }
+.card__tag, .card__tag--light { color: #fff !important; opacity: .92; }

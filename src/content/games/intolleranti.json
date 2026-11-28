@@ -106,7 +106,7 @@
         },
         "text": {
           "it": "In ogni gruppo c’è sempre quello che non mangia glutine, quella intollerante al lattosio e quello che guida per portare tutti a casa a fine serata. Qui hanno poteri speciali, ma anche un limite di sopportazione.",
-          "en": "In every group there is always the one who does not eat gluten, the one who is lactose intolerant and the one who drives to take everyone home at the end of the evening. Here they have special powers, but also a limit of endurance."
+          "en": "Every group has one who can’t eat gluten, one who is lactose intolerant and one who drives everyone home at the end of the night. Here they have special powers, but also a limit to what they can take."
         }
       },
       {
@@ -263,7 +263,7 @@
       },
       "intro": {
         "it": "A Intolleranti! non si esce mai da soli: ci si invita, ci si salva e ci si sabota a vicenda, anche quando non è il tuo turno. Sei pronto a far nauseare i tuoi amici?",
-        "en": "In Intolerant! nobody goes out alone: you invite, rescue and sabotage each other, even when it’s not your turn. Are you ready to make your friends nauseous?"
+        "en": "In Intolerant! nobody goes out alone: you invite, rescue and sabotage each other, even when it’s not your turn. Ready to make your friends feel sick?"
       },
       "blocks": [
         {
@@ -276,8 +276,8 @@
             "en": "Your guest, your limit"
           },
           "text": {
-            "it": "Ogni giocatore è un ospite con la sua plancia: un’abilità Passiva sempre attiva, un’abilità Attiva da giocare al momento giusto e la scala del Malessere. Il Golem regge fino a 8, la Goblin e la Sirena crollano già a 4. Scegli con lo stomaco.",
-            "en": "Each player is a guest with their own board: a reference Passive ability, an Active ability to play at the right time, and the Discomfort tracker. The Golem holds up to 8, the Goblin and the Mermaid already collapse to 4. Choose with your heart and stomach, taking into account that the more resistant you are, the more Courses will hit you!"
+            "it": "Ogni giocatore è un ospite con la sua plancia: un’abilità Passiva sempre attiva, un’abilità Attiva da giocare al momento giusto e la scala del Malessere. Il Golem regge fino a 8, la Goblin e la Sirena crollano già a 4. Scegli con il cuore e con lo stomaco: più sei resistente, più Portate ti toccheranno!",
+            "en": "Each player is a guest with their own board: an always-on Passive ability, an Active ability to play at the right moment, and the Discomfort track. The Golem can take up to 8, the Goblin and the Mermaid give in at just 4. Choose with your heart and your stomach: the tougher you are, the more Courses will come your way!"
           },
           "images": [
             {
@@ -453,8 +453,8 @@
             "en": "What's on the plate?"
           },
           "text": {
-            "it": "Un'Insalata non fa male a nessuno. La Pizza Margherita mette in crisi l'Elfa Celiaca e il Nano No al Lattosio, il Fritto Misto di Mare fa insorgere la Sirena. E del Cibo Misterioso è meglio non chiedere e soffrire in silenzio.",
-            "en": "A Salad hurts nobody. Pizza Margherita troubles the Celiac Elf and the Lactose-Intolerant Dwarf, the Fried Seafood Platter sends the Mermaid into protest. And it is best not to ask about the Mystery Food and suffer in silence."
+            "it": "Un'Insalata non fa male a nessuno. La Pizza Margherita mette in crisi l'Elfa Celiaca e il Nano No al Lattosio, il Fritto Misto di Mare fa insorgere la Sirena. Quanto al Cibo Misterioso, meglio non chiedere e soffrire in silenzio.",
+            "en": "A Salad hurts nobody. Pizza Margherita troubles the Celiac Elf and the Lactose-Intolerant Dwarf, the Fried Seafood Platter sends the Mermaid into protest. As for the Mystery Food, better not to ask and suffer in silence."
           },
           "images": [
             {
@@ -549,27 +549,27 @@
     },
     "steps": {
       "it": [
-        "Scegli il tuo Commensale, prendi un tracker malessere, pesca 3 carte risposta e poi chi è stato male più di recente inizia la partita!",
+        "Scegli il tuo Commensale, prendi un segnalino Malessere e pesca 3 carte Risposta: comincia chi è stato male più di recente!",
         "Inizia il turno e pesca una carta Risposta: ti servirà, fidati",
-        "Esci o resti a casa? Sul divano incassi le Uscite e ti riprendi ma non fai punti",
+        "Esci o resti a casa? Sul divano incassi le Uscite e ti riprendi, ma non fai punti",
         "Rivela l’Uscita: quanti punti vale, quanto si mangia, quanto si beve",
         "Invita qualcuno a cena, magari proprio chi non regge il menù",
         "Pesca le Portate una alla volta: se c’è la tua icona, aumenta di 1 il tuo Malessere",
-        "Sopravvissuto? L’Uscita è tua. Al sicuro, però, lo sarà solo quando torni a casa!"
+        "Sopravvissuto? L’Uscita è tua, ma sarà al sicuro solo quando torni a casa!"
       ],
       "en": [
-        "Choose your Diner, take a Discomfort tracker, draw 3 Response cards and then whoever has been sick most recently starts the game!",
+        "Choose your Diner, take a Discomfort marker and draw 3 Response cards: whoever was sick most recently goes first!",
         "Start your turn and draw a Response card: trust us, you’ll need it",
-        "Go out or stay in? On the sofa you bank your Outings and recover, but you don't score points",
+        "Go out or stay in? On the sofa you bank your Outings and recover, but you don’t score points",
         "Reveal the Outing: its points, how much food, how much drink",
         "Invite someone along, ideally whoever can’t handle the menu",
-        "Draw the Courses one at a time: if your icon is on it, you go up on the Discomfort scale",
-        "Survived? The Outing is yours. Safe, though, it will only be when you get home!"
+        "Draw the Courses one at a time: if your icon is on it, your Discomfort goes up by 1",
+        "Survived? The Outing is yours, but it’s only safe once you get home!"
       ]
     },
     "note": {
-      "it": "Arrivi al tuo limite di Malessere? Nausea: perdi tutte le Uscite non incassate e ti becchi 3 punti di penalità. La partita finisce quando uno a collezionato 5 uscite e vince chi ha più punti totali (e lo stomaco più forte).",
-      "en": "Hit your Discomfort limit? Nausea: you lose every unbanked Outing and take a 3-point penalty. The game ends when one a has collected 5 outings and the one with the most total points (and the strongest stomach) wins."
+      "it": "Arrivi al tuo limite di Malessere? Nausea: perdi tutte le Uscite non incassate e ti becchi 3 punti di penalità. La partita finisce quando qualcuno ha incassato 5 Uscite: vince chi ha più punti (e lo stomaco più forte).",
+      "en": "Hit your Discomfort limit? Nausea: you lose every unbanked Outing and take a 3-point penalty. The game ends when someone has banked 5 Outings: most points wins (and the strongest stomach)."
     },
     "imageBare": false
   },
